@@ -1,0 +1,538 @@
+/* VIDEO HEADER */
+.video-header-cont{
+	position:absolute;
+	display:none;
+	width: 40%;
+	height: 30%;
+	max-width: 600px;
+	min-height: 250px;
+	max-height: 500px;
+	padding:0px;
+	z-index:9999;
+}
+.video-header-cont-close{
+	font-weight: bold;
+	font-size: 15px;
+	color: #fff;
+	float: right;
+	position: absolute;
+	z-index: 100;
+	padding: 5px 10px;
+	right: 0px;
+	background: #000;
+}
+
+
+/* VIDEO SPECIAL REVIEW */
+.special-review-content {
+	width:100%;
+	height:410px;
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+
+/* CSS BUSCADOR G.L.*/
+.dv_search_game{
+	margin-left: 210px;
+	width: 43%;
+	height: 32px;
+	background: #ffffff;
+	/*border: 1px solid #5e5e5e;*/
+	float: left;
+	cursor: pointer;
+}
+				
+.txt_searg{
+	width:370px;
+	margin-left:0px !important;
+	border:none !important;
+	background-image:none !important;
+}
+				
+.dv_search{
+	background-position:10px -292px; 
+	width: 30px;
+	height: 28px;
+}
+
+.acc-head a{
+	color: #000000;
+}
+
+/* IMAGEN shadowbox ICON-PLAY VIDEO */
+#play-v{
+    position: relative;
+    top: -108px;
+    left: 90px;
+    width: 45px;
+    height: 32px;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+
+/* BASE VENTANA MODAL - FS */
+div.modal-overlay{
+	 display:none;
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: #000;
+     z-index:1001;
+     opacity:.75;
+     -moz-opacity: 0.75;
+     filter: alpha(opacity=75);    
+}
+		
+/* SELECCION DE PAIS/INDEX - FS */
+div.banderas-content{
+	position: fixed;
+	top:25%;
+	left:0px;
+	right:0px;
+	width:800px;
+	height:auto;
+	margin:auto;
+	z-index:1002;
+	text-align:center;
+}
+div.banderas-content h1.titulo{
+	color:#fff;
+	text-shadow: 0px 0px 15px #fff;
+	margin-left:115px;
+}
+div.banderas-content img.banderas{
+	margin-left:100px;
+	margin-top:15px;
+	margin-bottom:20px;
+}
+div.banderas-content span{
+	margin-left:-130px;
+	color: #fff;
+}
+
+/* simplemodal LOGIN / VIDEO  - FS */
+#basic-modal-content {display:none;}
+#simplemodal-overlay {background-color:#000;}/* Overlay */
+.simplemodal-container{ top: 15% !important;}/* Container */
+.simplemodal-container a.modalCloseImg {background:url(../img/close.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-8px; right:-10px; cursor:pointer;}
+.simplemodal-data{width:100%; height:100%;}
+.simplemodal-container iframe{
+	display: block !important; 
+	width:100%; 
+	height:100%;
+}
+
+/*  TORNEO FORMULARIO -  FS*/
+div.torneo-conten{
+	display: none;
+	position: fixed;
+	top:50px;
+	left:0px;
+	right:0px;
+	margin:auto;
+	width:500px; 
+	height:560px;
+	/*background-color:#2c51a2;
+	background:url(../img/torneos/fifa-world-cup-brazil-2014-registro.jpg) no-repeat;
+	background-size:contain;*/
+	background-repeat: no-repeat;
+	background-size:100% 100%;
+	border-top: 6px solid #ff0000;
+	border-radius: 3px; 
+	-webkit-border-radius: 3px;
+	font-family: 'ROCK';
+	text-align:center;
+	z-index:1002;	
+}
+div.torneo-conten img.cerrar-conten{
+	position:absolute;
+	top:0px;
+	right:0px;
+	cursor:pointer;
+}
+div.torneo-conten h3{
+	color:#fff;
+	font-size:25px;
+}
+div.torneo-conten button{
+	font-size:20px
+}
+div.torneo-conten form{
+	/*float:left;*/
+	position: relative;
+	left: 0px;
+	width: 200px;
+	height: auto;
+	/*border: 1px solid #000000;*/
+}
+div.torneo-conten input, div.torneo-conten select{
+	border-radius:4px;
+	border:2px ridge #D0D0D0;
+	color:#0153B0;
+	font-size:12px;
+	margin: 0;
+	padding: 4px;	
+}	
+div.torneo-conten img.default{
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	width: 300px	
+}
+	
+/*	VENTANA MSJ NOTIFICACION - FS */
+div.msj-notif{
+	display:none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 15%;
+	height:auto;
+	text-align:center;
+	z-index:9999;		
+}
+div.notif_exito, div.notif_alerta, div.notif_error{		
+	border:4px double;
+	border-radius: 10px;
+	font:bold 12px "ROCK";
+	padding:15px 8px 15px 10px;
+	cursor:pointer;		
+}
+div.notif_exito{		
+	color: #4F8A10;
+	background-color: #DFF2BF;
+}
+div.notif_alerta{
+	color: #9F6000;
+	background-color: #FEEFB3;
+}
+div.notif_error{
+	font:bold 15px "Trebuchet MS";		
+	color: #D8000C;
+	background-color: #FFBABA;
+}
+
+/* BOTONES ANIMACION COLOR red FS*/
+.btn:hover{
+	background-color: red;	
+	transition: background-color 100ms ease-in-out;
+	-webkit-transition: background-color 100ms ease-in-out;
+}
+
+
+/*
+***
+*****
+		 RESPONSIVE 
+*****
+***
+*/
+
+@media only screen and (max-width: 1600px){
+	.engagement-options {
+		/*margin-left: -10px;  FS(logos redes, mi cuenta,salir)*/
+	}
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1200px) {
+	.video-header-cont{
+		width: 49%;
+		top: 8% !important;
+		left: 45% !important;
+	}
+}
+
+@media only screen and (max-width: 980px) and (orientation : portrait){ /*FS*/
+	div.banderas-content{
+		top:7%;
+		width: 220px;
+		text-align: left;
+	}
+	div.banderas-content h1.titulo{
+		margin-left:0%;
+		margin-bottom:0%;
+		text-align:center;
+	}
+	div.banderas-content img.banderas{
+		margin-left:20px;
+	}
+}
+
+@media only screen and (max-width: 966px){
+	.engagement-options {
+		margin-left: -10px;
+	}
+}
+
+@media only screen and (max-width: 900px){
+	.dv_search_game{
+		margin-top: 10px;
+		width: 350px;
+	}	
+	.engagement-options {
+		margin-left: 0px;
+	}	
+	.engagement-options {
+		margin-left: 207px;
+	}
+}
+
+@media only screen and (max-width: 853px){
+	.dv_search_game{
+		margin-top: 5px;
+		width: 350px;
+	}
+	.txt_searg{
+		width:300px;
+	}	
+	.engagement-options {
+		margin-left: 207px;
+	}
+	div.torneo-conten{
+		top:20px;
+		width:400px;
+		height:480px;
+		}
+	div.torneo-conten h3{
+		font-size:15px;
+		}
+	div.torneo-conten button{
+		min-width:140px;
+		height: 30px;
+		font-size:15px;
+		line-height: normal;
+		}
+	div.torneo-conten input{
+		font-size:11px;
+		padding: 3px;	
+	}
+	 div.torneo-conten select{
+	 	font-size:11px;
+		padding: 2px;	
+	}
+	div.torneo-conten img.default{
+		width:200px;
+	}
+}
+
+@media only screen and (max-width: 853px) and (orientation : landscape){ /*FS*/
+	div.banderas-content{
+		top:18%;
+		}
+	div.banderas-content h1.titulo{
+		margin-bottom: 0px;
+		font-size: 30px;
+		}
+	div.banderas-content img.banderas{
+		width:125px;
+		margin-right: 41px;
+		}	
+	div.banderas-content span{
+		font-size: 10px;
+		}
+}
+
+@media only screen and (min-width: 641px) and (max-width: 768px) {
+	.video-header-cont{
+		width: 53%;
+		height: 30%;
+		top: 4% !important;
+		left: 46% !important;
+	}
+}
+
+@media only screen and (max-width: 640px){
+	.video-header-cont{
+		width: 82%;
+		height: 30%;
+		top: 12% !important;
+		left: 10% !important;
+	}
+	.dv_search_game{
+		width: 300px;
+	}
+	.txt_searg{
+		width:250px;
+	}
+	.engagement-options {
+		margin-left: 207px;
+	}
+}
+
+@media only screen and (max-width: 640px) and (orientation : landscape){ /*FS*/
+	div.banderas-content{
+		top:0%;
+		width: 370px;
+	}
+	div.banderas-content h1.titulo{
+		margin-left:10%;
+		margin-bottom: 0px;
+		font-size: 30px;
+	}
+	div.banderas-content img.banderas{
+		width:125px;
+		margin-left: 40px;
+	}
+	div.banderas-content span{
+		font-size: 10px;
+	}
+	/*div.torneo-conten{
+		position:absolute;
+	}*/	
+	.simplemodal-container{
+		top: 2% !important;
+	}
+	#simplemodal-container-Video{
+		width:400px !important;
+		height:300px !important;
+	}
+}
+
+@media only screen and (max-width: 533px){
+	.dv_search_game{
+		width: 270px;
+	}
+	.txt_searg{
+		width:220px;
+	}
+}
+
+@media only screen and (max-width: 480px){
+	.dv_search_game{
+		margin-left: 100px;
+		width: 240px;
+	}
+	.txt_searg{
+		width:200px;
+	}
+	.engagement-options {
+		margin-left: 0px;
+	}
+	#play-v{
+		width: 50px !important;
+		left: 165px;
+	}
+}
+
+@media only screen and (max-width: 360px){
+	.video-header-cont{
+		width: 86%;
+		top: 26% !important;
+		left: 8% !important;
+	}
+	#simplemodal-container-Video{/*FS*/
+		width:300px !important;
+		height:200px !important;
+	}
+	.special-review-content {
+		height:300px;
+	}
+	.dv_search_game{
+		margin-top: 10px;
+		margin-left: 50px;
+		width: 230px;
+	}
+	.txt_searg{
+		width:190px !important;
+	}
+	.engagement-options {
+		margin-left: 0px;
+	}
+	#play-v{
+		left: 125px;
+	}
+}
+
+@media only screen and (max-width: 360px) and (orientation : portrait){ /*FS*/
+	div.banderas-content{
+		top:8%;
+		width: 200px;
+	}
+	div.banderas-content h1.titulo{
+		margin-left:3%;
+		margin-bottom: 0px;
+		font-size: 24px;
+	}
+	div.banderas-content img.banderas{
+		width:125px;
+		margin-right: 41px;
+		margin-left: 14%;
+		padding-left: 12px;
+	}	
+	div.banderas-content span{
+		font-size: 10px;
+	}
+	div.section-torneos{
+		margin-top:120px;
+	}
+	div.torneo-conten{
+		top:8px;
+		width:270px; 
+		height:470px;
+		background-size:120% 100%;
+		/*background-position-x: -72px;	*/
+	}
+	div.torneo-conten h3{
+		font-size:15px;
+	}
+	div.torneo-conten button{
+		min-width:90px;
+		font-size:12px;
+		height:35px;
+		line-height:0px;	
+		margin-bottom: 8px;
+	}
+	div.torneo-conten form input:focus, select:focus, textarea:focus { 
+		border: 2px ridge #ff0000;
+	}	
+	div.torneo-conten img.default{
+		width:150px;	
+	}
+	div.torneo-conten p{
+		margin-top: 5px;		
+	}
+	div.torneo-conten input{
+		/*font-size:4.3px !important;*/
+		padding: 2px !important;
+	}
+	div.torneo-conten select{
+		width:135px !important;
+		padding: 1px !important;
+	}
+}
+
+@media only screen and (max-width: 330px){
+	.dv_search_game {
+		margin-left: 6px !important;
+	}
+	.txt_searg{
+		width:230px !important;
+	}
+	.belt .dd-container {
+		margin-right: 30px;
+	}
+	.belt .btn-primary {
+		margin-left: 10px !important;
+	}
+	#play-v{
+		left: 110px;
+	}	
+}
+
+@media only screen and (max-width: 240px){
+	.dv_search_game{
+		margin-top: 10px;
+		margin-left: 0px;
+		width: 205px;
+	}	
+	.txt_searg{
+		width:160px !important;
+	}
+	#play-v {
+		left: 70px;
+	}
+}

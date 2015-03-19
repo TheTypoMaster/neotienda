@@ -1,0 +1,26 @@
+.tooltipster-red {
+	border-radius: 5px; 
+	border-bottom: 3px solid #ff0000;
+	background: #000000;
+	color: #fff;
+	margin-top: -20px;
+	text-align: center;
+}
+
+.tooltipster-red .tooltipster-content {
+	font-size: 13px;
+	line-height: 16px;
+	padding: 8px 10px;
+}
+
+@media only screen and (max-width: 800px) {
+	.tooltipster-red{
+		margin-top: 0px;
+	}
+}
+
+@media only screen and (max-width: 533px) {
+	.tooltipster-red{
+		margin-top: 8px;
+	}
+}
