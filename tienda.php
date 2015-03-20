@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/tooltipster.css">
     <link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/tooltipster-red.css">
 
-    <script async="" charset="utf-8" src="./Los Gamers Comunidad_files/saved_resource" type="text/javascript"></script>
+    <!--<script async="" charset="utf-8" src="./Los Gamers Comunidad_files/saved_resource" type="text/javascript"></script>-->
     <script type="text/javascript" src="./Los Gamers Comunidad_files/jquery.1.7.1.js"></script>
     <style type="text/css"></style><script type="text/javascript" src="./Los Gamers Comunidad_files/jquery.ui.1.8.16.js"></script>
     <script type="text/javascript">
@@ -650,12 +650,7 @@
                     <div class="col span_8">
                         <div class="input-group">
                             <span class="input-group-busc">
-                                <select name="plataformas-int" class="col span_2" id="plataformas-int">
-                                    <option value="">Bisuteria</option>
-                                    <option value="Zarcillos">Zarcillos</option>
-                                    <option value="Brazaletes">Brazaletes</option>
-                                    <option value="Collares & Zarcillos">Collares & Zarcillos</option>
-                                </select>
+                                <select name="plataformas-int" class="col span_2" id="plataformas-int"></select>
                                 <input type="text" class="col span_9 buscador-alquiler ui-autocomplete-input ui-corner-all" placeholder="Nombre del juego" value="" id="nombre_juego" name="nombre_juego" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
                                 <button tabindex="-1" id="buscar-int" class="btn-alq btn-default col span_1" type="button"><img class="lupa-int" src="./Los Gamers Comunidad_files/lupa.png"></button>
                             </span>

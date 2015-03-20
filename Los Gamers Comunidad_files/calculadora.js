@@ -1,10 +1,10 @@
-/*$.ajax({
+$.ajax({
     type: "POST",
-    url: "http://www.losgamers.com/intercambia/getPlataformasInt",
+    url: "getConsolas.php",
     success: function(result) {
         $("#plataformas-int").append(result)
     }
-});*/
+});
 
 function Redimensionar(caja, idclase, padd) {
     var heightBlockMax = 0;
@@ -20,7 +20,7 @@ $("#nombre_juego").autocomplete({
     source: function(request, response) {
         $.ajax({
             type: "POST",
-            url: "getAutocompletar.php",
+            url: "getVideoJuegos.php",
             data: {
                 store: "2",
                 plataforma: $("#plataformas-int").val(),
@@ -153,7 +153,7 @@ $("#nombre_juego_store").autocomplete({
         }
         $.ajax({
             type: "POST",
-            url: "getAutocompletar.php",
+            url: "getVideoJuegos.php",
             data: {
                 store: store,
                 plataforma: $("#plataformas-int").val(),
