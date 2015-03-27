@@ -1,6 +1,6 @@
 <?php
-mysql_connect("localhost","root","");
-mysql_select_db("neotienda");
+mysql_connect("localhost","neoliam_tienda","HolaNeo123.");
+mysql_select_db("neoliam_tienda");
 
 $query=mysql_query("SELECT
 						ps_category_lang.name
