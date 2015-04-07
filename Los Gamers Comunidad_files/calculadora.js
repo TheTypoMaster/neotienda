@@ -164,7 +164,7 @@ $("#nombre_juego").autocomplete({
             buscador_intercambio()
         })
     },
-    open: function() {
+    open: function() {alert('preuba');
         $(this).removeClass("ui-corner-all").addClass("ui-corner-top")
     },
     close: function() {
