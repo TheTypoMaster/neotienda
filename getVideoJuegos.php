@@ -32,6 +32,7 @@ $json=array();
  
 while($student=mysql_fetch_array($query)){
     $json[]=array(
+        'id'=> $student["id"],
         'sku'=> $student["name"],
         'label'=> $student["name"]." - ".$student["id"],
         'price'=> $student["price"],
