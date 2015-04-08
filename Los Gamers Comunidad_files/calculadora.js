@@ -73,9 +73,6 @@ $("#nombre_juego").autocomplete({
         var simb_dolar = "US$ ";
         var simb_pesos = "RD$ ";
         $("#intercambio_select").show();
-        //$("#img-int").attr("src", imagen);
-        //$("#titulo-int").html(titulo);
-        //$("#puntos-int").html(puntos);
 
         var ptos = 1;
         var precio_2 = (puntos * bs) / ptos;
@@ -116,6 +113,9 @@ $("#nombre_juego").autocomplete({
         ).appendTo('#intercambio_select');
 
         $("#resultado-intercambia").hide(500, "linear");
+        var cont = Number($("#cont_item").val()) + Number(1);
+        $("#cont_item").attr('value', cont);
+
         $("#img-int-2").attr("src", imagen);
         $("#sku-int-2").html(sku);
         $("#titulo-int-2").html(titulo);
@@ -138,12 +138,17 @@ $("#nombre_juego").autocomplete({
                 }
             }
         }
+
         $(".close").click(function() {
             $("#item_"+this.id).hide(500, "linear");
             $("#item_"+this.id).remove();
-            //$("#intercambio_select").hide(500, "linear");
-            //$("#resultado-intercambia").show(500, "linear");
-            //buscador_intercambio()
+            var cont = Number($("#cont_item").val()) - Number(1);
+            $("#cont_item").attr('value', cont);
+            if($("#cont_item").val()==0){
+                $("#intercambio_select").hide(500, "linear");
+                $("#resultado-intercambia").show(500, "linear");
+                //buscador_intercambio()
+            }
         })
     },
     open: function() {

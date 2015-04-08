@@ -666,23 +666,10 @@
                     <div class="col span_3"></div>
                 </div>
 
+                <input type="hidden" id="cont_item" value="0" />
                 <div class="col span_12">
                     <div class="col span_1">&nbsp;</div>
                     <div class="col span_10" id="intercambio_select" style="display: none;">
-                        <?/*<div class="bloque-int" style="margin-bottom: 0px; border: 1px solid #ccc; margin-top: 50px;">
-                            <i class="close">X</i>
-                            <img id="img-int" class="img-int" src="" width="120" height="">
-                            <div class="col span_5">
-                                <div class="col span_9 info">
-                                    <p id="titulo-int"></p>
-                                    <p class="puntos-int"><span id="puntos-int"></span> Puntos</p>
-                                </div>
-                                <div class="col span_3 igual"><img src="./Los Gamers Comunidad_files/igual.png"></div>
-                            </div>
-                            <div class="col span_5 equiv">
-                                <p>Equivale a...<br><br><span id="equiv-int"></span><br><br><span class="usar">...para usar en nuestra tienda.</span></p>
-                            </div>
-                        </div>*/?>
                         <div class="col span_12">
                             <p>*El monto que te acreditamos por tus juegos usados está sujeto a variaciones.
                                 <br>*Te garantizamos los puntos que esperas recibir sólo si la consulta y el envío son el mismo día.</p>
