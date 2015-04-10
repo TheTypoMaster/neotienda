@@ -657,6 +657,7 @@
                     <div class="col span_3"></div>
                 </div>
 
+                <input type="hidden" id="cont_item" value="0" />
                 <div class="col span_12">
                     <div class="col span_1">&nbsp;</div>
                     <div class="col span_10" id="intercambio_select" style="display: none;">
