@@ -634,16 +634,7 @@
                         <p class="subt">Encuentra el juego que quieres intercambiar.</p>
                     </div>
                 </div>
-                <!--
-                <div class="col span_12">
-                    <div class="col span_3">&nbsp;
-                    </div>
-                    <div class="col span_6" style="text-align: center;">
 
-                    </div>
-                    <div class="col span_3">&nbsp;</div>
-                </div>
-                 -->
                 <!-- BUSCADOR -->
                 <div class="col span_12">
                     <div class="col span_2" id="margin-busc-1">&nbsp;</div>
@@ -669,20 +660,6 @@
                 <div class="col span_12">
                     <div class="col span_1">&nbsp;</div>
                     <div class="col span_10" id="intercambio_select" style="display: none;">
-                        <?/*<div class="bloque-int" style="margin-bottom: 0px; border: 1px solid #ccc; margin-top: 50px;">
-                            <i class="close">X</i>
-                            <img id="img-int" class="img-int" src="" width="120" height="">
-                            <div class="col span_5">
-                                <div class="col span_9 info">
-                                    <p id="titulo-int"></p>
-                                    <p class="puntos-int"><span id="puntos-int"></span> Puntos</p>
-                                </div>
-                                <div class="col span_3 igual"><img src="./Los Gamers Comunidad_files/igual.png"></div>
-                            </div>
-                            <div class="col span_5 equiv">
-                                <p>Equivale a...<br><br><span id="equiv-int"></span><br><br><span class="usar">...para usar en nuestra tienda.</span></p>
-                            </div>
-                        </div>*/?>
                         <div class="col span_12">
                             <p>*El monto que te acreditamos por tus juegos usados está sujeto a variaciones.
                                 <br>*Te garantizamos los puntos que esperas recibir sólo si la consulta y el envío son el mismo día.</p>
@@ -716,14 +693,12 @@
                 </div>
 
                 <div class="col span_3 gam_select">
-                    <h3 class="small" style="margin-top: 10px;">TU JUEGO ES:</h3>
+                    <h3 class="small" style="margin: 10px;">TUS JUEGO:</h3>
                     <div class="col span_12" id="juego_select">
                         <div class="bloque-int-2">
-                            <img id="img-int-2" src="" width="140" height="">
                             <div class="col span_12 det-int">
-                                <span id="sku-int-2"></span>
-                                <p id="titulo-int-2"></p>
-                                <p class="puntos-int"><span style="font-size: 25px;" id="puntos-int-2"></span> Puntos</p>
+                                <div id="res_item"></div>
+                                <div id="res_item_total"></div>
                                 <div class="col span_12" style="text-align: left; padding-left: 10px;">
                                     <button class="close-int">CAMBIAR</button>
                                     <img src="./Los Gamers Comunidad_files/editar-int.png" class="img-edit">

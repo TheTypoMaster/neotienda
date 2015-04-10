@@ -1,359 +1,359 @@
-	/*** GENERAL ***/
-	.clear{	clear: both; height: 50px; }
-	h2{ text-align: left; }
-	.mb{ margin-bottom: 30px; }
-	.subt{ font-family: Rockwell; font-size: 14px; color: #333333; }
-	.resultado-intercambia{ font-family: Rockwell; }
-	.nota-intercambia{float: none; margin: 0 auto;  text-align: center; width: 75%;}
-	.sec_buscador{ font-family: Rockwell; background: #eeeeee; /*padding: 10px;*/padding: 12px;}
+/*** GENERAL ***/
+.clear{	clear: both; height: 50px; }
+h2{ text-align: left; }
+.mb{ margin-bottom: 30px; }
+.subt{ font-family: Rockwell; font-size: 14px; color: #333333; }
+.resultado-intercambia{ font-family: Rockwell; }
+.nota-intercambia{float: none; margin: 0 auto;  text-align: center; width: 75%;}
+.sec_buscador{ font-family: Rockwell; background: #eeeeee; /*padding: 10px;*/padding: 12px;}
 
-	/*** LOADER ***/
-	#jquery-loader.blue-with-image-2, #jquery-loader2.blue-with-image-2  {border: none; padding-top: 35px; background-color: transparent; text-align: center;
-	background-image: url('../img/ajax-loader.gif'); background-position: center center; background-repeat: no-repeat; }
-	#jquery-loader2.blue-with-image-2 { padding-top: 90px; }
-	.loader1, .loader2 { z-index: 30001; width: 200px; height: 60px; position: absolute; }
-   .loader1{ left: 45%; top: 78% }
-   .loader2{ left: 48%; top: 80% }
+/*** LOADER ***/
+#jquery-loader.blue-with-image-2, #jquery-loader2.blue-with-image-2  {border: none; padding-top: 35px; background-color: transparent; text-align: center;
+background-image: url('../img/ajax-loader.gif'); background-position: center center; background-repeat: no-repeat; }
+#jquery-loader2.blue-with-image-2 { padding-top: 90px; }
+.loader1, .loader2 { z-index: 30001; width: 200px; height: 60px; position: absolute; }
+.loader1{ left: 45%; top: 78% }
+.loader2{ left: 48%; top: 80% }
 
-	/*** TITULOS ***/
-	#titulo-int{ font-weight: bold; font-family: Rockwell, Rock; margin-top: 10px;font-size: 14px; }
-	#titulo-nuevo, #titulo-usado{ color:#000000; font-weight: bold; font-family: Rockwell, Rock; }
-	#precio-nuevo, #puntos-nuevo, #fav-nuevo, #precio-usado, #puntos-usado, #fav-usado { font-family: Rockwell, Rock; font-weight: bold; font-size: 15px; }
-	#dif-nuevo, #dif-usado { font-family: Rockwell, Rock; font-weight: bold; font-size: 20px; color: #ff0000; }
-	#usuario-ped{ text-transform: capitalize; }
-	.titulos, .titulos_store{ margin: 10px 0; cursor: pointer; text-align: center; border: 9px solid #fff; border-radius: 3px; -webkit-border-radius: 3px; 
-		-moz-border-radius: 3px; -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.15); -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.15); 
-		box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.15); padding: 20px 0; margin-left: 3%; }
-	.titulos img, .titulos_store img{ margin: 6px; display: grid; }
-	.titulos p, .titulos_store p{	font-weight: bold; /*height: 45px;*/ clear: both; margin: 0 6%; text-align: center;	}
-	.titulos span, .titulos_store span{	color: #ff0000; font-size: 18px; font-weight: bold; }
-	.puntos-int{ color: #ff0000; font-family: Rockwell, Rock; font-weight: bold; }	
-	.puntos-int span { font-size: 30px; }
-	.detalle { font-size: 12px !important; color: #666666; margin: 0 !important; }
-	.enc { margin:0; color: #0152a3; }
-	.consola { background: #eeeeee; padding: 8px 0px; margin: 8px 0; margin-right: 10px; text-align: right; }
-	.disp, .disp-no{ text-align: center; font-weight: bold; color: #0070bc; font-size: 12px; padding: 5px 0 10px 0; }
-	.disp-no{ color: #E74949;  }
-	.ref { font-size: 14px; margin-top: 10px; font-weight: bold; color: #000; }
-	#status{color:#FFFFFF;}
+/*** TITULOS ***/
+#titulo-int{ font-weight: bold; font-family: Rockwell, Rock; margin-top: 10px; font-size: 20px; }
+#titulo-nuevo, #titulo-usado{ color:#000000; font-weight: bold; font-family: Rockwell, Rock; }
+#precio-nuevo, #puntos-nuevo, #fav-nuevo, #precio-usado, #puntos-usado, #fav-usado { font-family: Rockwell, Rock; font-weight: bold; font-size: 15px; }
+#dif-nuevo, #dif-usado { font-family: Rockwell, Rock; font-weight: bold; font-size: 20px; color: #ff0000; }
+#usuario-ped{ text-transform: capitalize; }
+.titulos, .titulos_store{ margin: 10px 0; cursor: pointer; text-align: center; border: 9px solid #fff; border-radius: 3px; -webkit-border-radius: 3px;
+    -moz-border-radius: 3px; -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.15); -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.15); padding: 20px 0; margin-left: 3%; }
+.titulos img, .titulos_store img{ margin: 6px; display: grid; }
+.titulos p, .titulos_store p{	font-weight: bold; /*height: 45px;*/ clear: both; margin: 0 6%; text-align: center;	}
+.titulos span, .titulos_store span{	color: #ff0000; font-size: 18px; font-weight: bold; }
+.puntos-int{ color: #ff0000; font-family: Rockwell, Rock; font-weight: bold; }
+.puntos-int span { font-size: 30px; }
+.detalle { font-size: 12px !important; color: #666666; margin: 0 !important; }
+.enc { margin:0; color: #0152a3; }
+.consola { background: #eeeeee; padding: 8px 0px; margin: 8px 0; margin-right: 10px; text-align: right; }
+.disp, .disp-no{ text-align: center; font-weight: bold; color: #0070bc; font-size: 12px; padding: 5px 0 10px 0; }
+.disp-no{ color: #E74949;  }
+.ref { font-size: 14px; margin-top: 10px; font-weight: bold; color: #000; }
+#status{color:#FFFFFF;}
 
-	/*** BUSCADOR ***/  
-	.align-buscador{
-		margin: 0 auto;
-	}
-	.input-group-busc select, .busc-dos select {
-		border: 1px solid #ccc;
-		background-color: #eee;
-		margin-top: 0px;
-	    margin-bottom: 0px;
-	    padding-left: 1%;
-	    padding-top: 10px;
-	    padding-bottom: 10px;
-	    -webkit-border-top-left-radius: 4px;
-		-moz-border-radius-topleft: 4px;
-		border-top-left-radius: 4px;
-		-webkit-border-bottom-left-radius: 4px;
-		-moz-border-radius-bottomleft: 4px;
-		border-bottom-left-radius: 4px;
-	}
+/*** BUSCADOR ***/
+.align-buscador{
+    margin: 0 auto;
+}
+.input-group-busc select, .busc-dos select {
+    border: 1px solid #ccc;
+    background-color: #eee;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 1%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    -webkit-border-top-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    border-top-left-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-bottom-left-radius: 4px;
+}
 
-	.busc-dos select{ padding-left: 6%; }
-	.buscador-alquiler{
-		margin-top: 0px;
-		margin-bottom: 0px;
-		padding-top: 11px;
-		padding-bottom: 11px;
-		padding-left: 1%;
-		border: 1px #ccc solid;
-		border-left: 0;
-	}
-	.btn-alq{
-		display: inline-block;
-		padding: 8.3px 15px;
-		margin-bottom: 0;
-		font-size: 14px;
-		font-weight: normal;
-		margin-top: -0.5px;
-		line-height: 1.56;
-		text-align: center;
-		white-space: nowrap;
-		vertical-align: middle;
-		cursor: pointer;
-		background-image: none;
-		border: 1px solid transparent;
-		border-radius: 4px;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		-o-user-select: none;
-		user-select: none;
-		border-bottom-left-radius: 0;
-		border-top-left-radius: 0;
-		margin-left: -1px;
-	}
-	.btn-default {
-		color: #fff;
-		background-color: #333;
-		border-color: #ccc;
-	}
-	.btn-default:hover {
-		color: #fff;
-		background-color: #000;
-		border-color: #ccc;
-	}
-	.lupa-int{
-		display: inherit;
-	    margin: 0;
-	    padding: 0;
-	    width: 22px;
-	}
+.busc-dos select{ padding-left: 6%; }
+.buscador-alquiler{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 1%;
+    border: 1px #ccc solid;
+    border-left: 0;
+}
+.btn-alq{
+    display: inline-block;
+    padding: 8.3px 15px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: -0.5px;
+    line-height: 1.56;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    margin-left: -1px;
+}
+.btn-default {
+    color: #fff;
+    background-color: #333;
+    border-color: #ccc;
+}
+.btn-default:hover {
+    color: #fff;
+    background-color: #000;
+    border-color: #ccc;
+}
+.lupa-int{
+    display: inherit;
+    margin: 0;
+    padding: 0;
+    width: 22px;
+}
 
-	.check-term{ margin-top: 12px; }
-	.check-term input{ margin-right: 7px; }
+.check-term{ margin-top: 12px; }
+.check-term input{ margin-right: 7px; }
 
 /*** BLOQUE ***/
-	.bloque-int, .bloque-store{	background: #EEEEEE;display: inline-block; width: 100%;	}
-	.bloque-int img, .bloque-store img{	/* float: left; */ }
-	.bloque-int p, .bloque-store p{	margin: 5px;padding: 0;font-size: 18px;	}
-	.section-int{ margin-top: 0px; }
+.bloque-int, .bloque-store{	background: #EEEEEE;display: inline-block; width: 100%;	}
+.bloque-int img, .bloque-store img{	/* float: left; */ }
+.bloque-int p, .bloque-store p{	margin: 5px;padding: 0;font-size: 18px;	}
+.section-int{ margin-top: 0px; }
 
 /*** ICONOS ***/
-	.close, .close-store{ float: right; margin-top: 0px; padding: 5px 8px; background: #000000; font-weight: bold; cursor: pointer; color: #FFFFFF;	}
-	.close-store{ margin-right: -10px; margin-top: -10px; }
-	.close-int{ border: none; background: #eeeeee; border-radius: 5px; padding: 6px 20px 6px 30px; font-family: Rockwell; font-weight: bold; position: absolute; }
-	.close_store{ border: none; background: #cccccc; border-radius: 5px; padding: 6px 20px 6px 30px; font-family: Rockwell; font-weight: bold;  }
-	.siguiente{	cursor: pointer; }
-	.buscador{	width: 90%;	height: 50px; font-size: 14px; padding: 6px 10px; border: none; }
-   .paso-sig{ border: none; background: red; color: #ffffff; font-family: Rockwell; border-radius: 5px; padding: 10px 20px; font-size: 18px; }
-   .lupa{ cursor: pointer; margin-top: 10px; margin-left: 10px; }
-   .igual{ margin-top: 18%; padding-left: 30px; }
-   .cbuscar{ border: 1px solid #ccc;/*border: 6px solid #ccc;*/ background: #ffffff; }
-   .cbuscar #nombre_juego_store{ width: 100%; border: none;}
-   .plataformas, .plataformas-st{ background: #333333; color: #FFFFFF; font-size: 14px; font-weight: bold; padding: 10px 10px; margin: 10px 0; width: 60%; float: left; 
-   	margin-left: 10%; cursor: pointer; } 
-   .plataformas-st{ width: 90%; color: #000000; font-size: 13px; font-weight: normal; }
-   .img-edit{ width: 16px; position: relative; margin-top: 5px; margin-left: 8px; }
-   .img-edit-store{ width: 16px; position: absolute; margin-top: 5px; margin-left: -108px; }
+.close, .close-store{ float: right; margin-top: 0px; padding: 5px 8px; background: #000000; font-weight: bold; cursor: pointer; color: #FFFFFF;	}
+.close-store{ margin-right: -10px; margin-top: -10px; }
+.close-int{ border: none; background: #eeeeee; border-radius: 5px; padding: 6px 20px 6px 30px; font-family: Rockwell; font-weight: bold; position: absolute; }
+.close_store{ border: none; background: #cccccc; border-radius: 5px; padding: 6px 20px 6px 30px; font-family: Rockwell; font-weight: bold;  }
+.siguiente{	cursor: pointer; }
+.buscador{	width: 90%;	height: 50px; font-size: 14px; padding: 6px 10px; border: none; }
+.paso-sig{ border: none; background: red; color: #ffffff; font-family: Rockwell; border-radius: 5px; padding: 10px 20px; font-size: 18px; }
+.lupa{ cursor: pointer; margin-top: 10px; margin-left: 10px; }
+.igual{ margin-top: 18%; padding-left: 30px; }
+.cbuscar{ border: 1px solid #ccc;/*border: 6px solid #ccc;*/ background: #ffffff; }
+.cbuscar #nombre_juego_store{ width: 100%; border: none;}
+.plataformas, .plataformas-st{ background: #333333; color: #FFFFFF; font-size: 14px; font-weight: bold; padding: 10px 10px; margin: 10px 0; width: 60%; float: left;
+margin-left: 10%; cursor: pointer; }
+.plataformas-st{ width: 90%; color: #000000; font-size: 13px; font-weight: normal; }
+.img-edit{ width: 16px; position: relative; margin-top: 5px; margin-left: 8px; }
+.img-edit-store{ width: 16px; position: absolute; margin-top: 5px; margin-left: -108px; }
 
 /*** MENU ***/ 
-   .pasosPedido { list-style: none; padding: 0px; margin: 0px; overflow: hidden; }
-  .pasosPedido li { float: left; font-size: 18px; padding: 9px 7px 5px 35px; width: 200px; font-family: Rockwell; }    
-  .pasosPedido li.arrow_box { background: #efefef; background: -webkit-gradient(linear, left top, right top, from(#efefef), to(#e4e4e4));
-      background: -moz-linear-gradient(left, #efefef 0%, #e4e4e4 100%); position: relative; cursor: pointer; }    
-  .pasosPedido .arrow_box:after, .pasosPedido .arrow_box:before {left: 100%; top: 50%; border: solid transparent; content: " "; height: 0; 
-	  width: 0; position: absolute; pointer-events: none; }	
-  .pasosPedido .arrow_box:after { border-color: rgba(232, 238, 238, 0); border-left-color: #e4e4e4; border-width: 20px; margin-top: -20px; }    
-  .pasosPedido li.arrow_box.activo { color: #ffffff; background: #000000 !important; }
-  .pasosPedido li.activo:after { border-color: rgba(232, 238, 238, 0) rgba(232, 238, 238, 0) rgba(232, 238, 238, 0) #000000; }
-  .pasosPedido .op1 { z-index: 3; }
-  .pasosPedido .op2 { z-index: 2; } 
-  .pasosPedido .op2:after{  }
-  .pasosPedido .op3 { z-index: 1; }     
-  
-  /*** CINTAS ***/
- 	.box_2 { position: relative; background: #FFFFFF; overflow: hidden; }
-	.corner{ background-color: #ff0000;	overflow: hidden; position: absolute; left: -213px;	top: 47px;
-	-moz-transform: rotate(-48deg);	-webkit-transform: rotate(-49deg); transform: rotate(-49deg); }
-	.corner.usado{ background-color: #000000; }	
-	.corner span { border: 1px solid #ffffff; color: #fff; display: block; font-size: .8em; padding: 3px 242px; text-align: center; text-decoration: none; 
-	font-size: 14px; font-family: Rockwell; letter-spacing: 1.3px; }
-	
+.pasosPedido { list-style: none; padding: 0px; margin: 0px; overflow: hidden; }
+.pasosPedido li { float: left; font-size: 18px; padding: 9px 7px 5px 35px; width: 200px; font-family: Rockwell; }
+.pasosPedido li.arrow_box { background: #efefef; background: -webkit-gradient(linear, left top, right top, from(#efefef), to(#e4e4e4));
+  background: -moz-linear-gradient(left, #efefef 0%, #e4e4e4 100%); position: relative; cursor: pointer; }
+.pasosPedido .arrow_box:after, .pasosPedido .arrow_box:before {left: 100%; top: 50%; border: solid transparent; content: " "; height: 0;
+  width: 0; position: absolute; pointer-events: none; }
+.pasosPedido .arrow_box:after { border-color: rgba(232, 238, 238, 0); border-left-color: #e4e4e4; border-width: 20px; margin-top: -20px; }
+.pasosPedido li.arrow_box.activo { color: #ffffff; background: #000000 !important; }
+.pasosPedido li.activo:after { border-color: rgba(232, 238, 238, 0) rgba(232, 238, 238, 0) rgba(232, 238, 238, 0) #000000; }
+.pasosPedido .op1 { z-index: 3; }
+.pasosPedido .op2 { z-index: 2; }
+.pasosPedido .op2:after{  }
+.pasosPedido .op3 { z-index: 1; }
+
+/*** CINTAS ***/
+.box_2 { position: relative; background: #FFFFFF; overflow: hidden; }
+.corner{ background-color: #ff0000;	overflow: hidden; position: absolute; left: -213px;	top: 47px;
+-moz-transform: rotate(-48deg);	-webkit-transform: rotate(-49deg); transform: rotate(-49deg); }
+.corner.usado{ background-color: #000000; }
+.corner span { border: 1px solid #ffffff; color: #fff; display: block; font-size: .8em; padding: 3px 242px; text-align: center; text-decoration: none;
+font-size: 14px; font-family: Rockwell; letter-spacing: 1.3px; }
+
 /*** JUEGO ***/
-	#sku-nuevo, #sku-usado, #sku-int-2{	display: none; }
-	#img-int-2 { margin-bottom: 5px; border-bottom: 1px #ccc solid; }
-   	#titulo-int-2 { font-family: Rockwell; font-weight: bold; padding: 0px 5px; }
-   	#nombre_juego_store { /*font-size: 14px;*/ padding: 11px 10px;/*padding: 15px 10px;*/ }
-	.juego-nuevo, .juego-usado{	padding-left: 10px;	}
-	.juego-nuevo p, .juego-usado p{	font-size: 14px; }
-	.precio-usado{ display: none; }
-	.ptos-favor, .ptos-favor-u { font-size: 12px !important; color: #666666; display: none;}	
-	.btn-secondary { background-color: #000000;	border-radius: 2px;	min-width: 40%;	}
-	.boton{ width: 60%;	margin: 0 auto;	text-align: right;	}
-   .img-nuevo, .img-usado{ width: 100px; height: 100px;}
-   .img-int{ margin-bottom: 20px; margin-top: 20px; margin-left:33px; border: 6px solid gray; }
-   .img-int, .img-store{ float: left;	}
-   
-   .det-int{ background: #FFFFFF; padding-left: 5px; padding-bottom: 10px; }
-   
-   .intercambiar-nuevo, .intercambiar-usado { border-radius: 0px; min-width: 160px; font-family: Rockwell; font-weight: bold; letter-spacing: 1px; height: 30px;
-   	line-height: 30px; }
-   
-   .info{ background: #ffffff; border: 1px solid #ccc; margin-top: 30px; width: 70%; }
-   .info p{ font-weight: bold; }
-   .equiv{	width: 39%;	}
-   .equiv p{ font-family: Arial; margin-top: 0px; font-size: 14px; color: #333333; }
-   .equiv #equiv-int{ font-size: 30px; color: #ffffff; font-family: Rockwell, Rock; padding: 5% 20%; background: #000000; }
-   .usar{ margin-left: 30px;}
-   .gam_select{ background: #ffffff; border: 3px solid #ccc; text-align: center; width: 22%; }
-   .button-sig{ float: right; }
-    
-   .bloque-store > .nuevo{ background: #ffffff; width: 48%; border: 1px solid #ccc; padding: 10px; min-height: 228px; }
-	.bloque-store > .usado{ background: #ffffff; width: 48%; float: right; border: 1px solid #ccc; color: #ffffff; padding: 10px; min-height: 228px; }
+#sku-nuevo, #sku-usado, .sku-int-2{	display: none; }
+#img-int-2 { float: left; margin: 5px; border: 1px #ccc solid; }
+#titulo-int-2 { font-family: Rockwell; font-weight: bold; padding: 0px 5px; }
+#nombre_juego_store { /*font-size: 14px;*/ padding: 11px 10px;/*padding: 15px 10px;*/ }
+.juego-nuevo, .juego-usado{	padding-left: 10px;	}
+.juego-nuevo p, .juego-usado p{	font-size: 14px; }
+.precio-usado{ display: none; }
+.ptos-favor, .ptos-favor-u { font-size: 12px !important; color: #666666; display: none;}
+.btn-secondary { background-color: #000000;	border-radius: 2px;	min-width: 40%;	}
+.boton{ width: 60%;	margin: 0 auto;	text-align: right;	}
+.img-nuevo, .img-usado{ width: 100px; height: 100px;}
+.img-int{ margin-bottom: 20px; margin-top: 20px; margin-left:33px; border: 6px solid gray; }
+.img-int, .img-store{ float: left;	}
+
+.det-int{ background: #FFFFFF; padding-left: 5px; padding-bottom: 10px; }
+
+.intercambiar-nuevo, .intercambiar-usado { border-radius: 0px; min-width: 160px; font-family: Rockwell; font-weight: bold; letter-spacing: 1px; height: 30px;
+line-height: 30px; }
+
+.info{ background: #ffffff; border: 1px solid #ccc; margin-top: 30px; width: 90%; }
+.info p{ font-weight: bold; }
+.equiv{	width: 39%;	}
+.equiv p{ font-family: Arial; margin-top: 0px; font-size: 14px; color: #333333; }
+.equiv #equiv-int{ font-size: 30px; color: #ffffff; font-family: Rockwell, Rock; padding: 5% 20%; background: #000000; }
+.usar{ margin-left: 30px;}
+.gam_select{ background: #ffffff; border: 3px solid #ccc; width: 22%; }
+.button-sig{ float: right; }
+
+.bloque-store > .nuevo{ background: #ffffff; width: 48%; border: 1px solid #ccc; padding: 10px; min-height: 228px; }
+.bloque-store > .usado{ background: #ffffff; width: 48%; float: right; border: 1px solid #ccc; color: #ffffff; padding: 10px; min-height: 228px; }
 
 /* FINALIZAR */
-	.contenedor { text-align: center; margin: 0px; }
-	#titulo-ped { font-family: Rockwell; font-weight: bold; margin: 0px; }
-	#puntos-ped { font-size: 50px; color: #ff0000; font-weight: bold; margin: 0px; font-family: Rockwell; }
-	#imagen-ped { margin-right:10px; }
-	#equiv-ped { font-family: Rockwell; font-size: 20px; color: #666666; margin: 0; }
-	#finalizar-int { border: none; background: #ff0000; color: #ffffff; font-family: Rockwell; border-radius: 5px; padding: 10px 40px; font-size: 18px; }
-	.inf { border: 1px solid #ccc; padding: 10px; text-align: left; background: #eeeeee; }
+.contenedor { text-align: center; margin: 0px; }
+#titulo-ped { font-family: Rockwell; font-weight: bold; margin: 0px; }
+#puntos-ped { font-size: 50px; color: #ff0000; font-weight: bold; margin: 0px; font-family: Rockwell; }
+#imagen-ped { margin-right:10px; }
+#equiv-ped { font-family: Rockwell; font-size: 20px; color: #666666; margin: 0; }
+#finalizar-int { border: none; background: #ff0000; color: #ffffff; font-family: Rockwell; border-radius: 5px; padding: 10px 40px; font-size: 18px; }
+.inf { border: 1px solid #ccc; padding: 10px; text-align: left; background: #eeeeee; }
 
 /**** UI AUTOCOMPLETAR ****/     
-    .puntos-aut{ color: #000000; font-family: Rockwell, Rock;}
-    .ui-state-hover .puntos-aut{ color: #ff0000; }
-    .ui-menu {	display: block; float: left; list-style: none outside none; margin: 0; padding: 2px; }
-	.ui-autocomplete { cursor: pointer; position: absolute; }
-	.ui-corner-all { /*border-radius: 6px;*/ }
-	.ui-widget-content { background: #f2f5f7; border: 1px solid #dddddd; color: #362b36; }
-	.ui-menu .ui-menu-item a.ui-state-hover, .ui-menu .ui-menu-item a.ui-state-active {	font-weight: normal; margin: -1px;}
-	.ui-menu .ui-menu-item a { text-decoration: none; display: block; padding: .2em .4em; line-height: 1.5;	zoom: 1; }
-	.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
-	/*border-top: 1px solid #66308e; border-bottom: 1px solid #66308e;*/
+.puntos-aut{ color: #000000; font-family: Rockwell, Rock;}
+.ui-state-hover .puntos-aut{ color: #ff0000; }
+.ui-menu {	display: block; float: left; list-style: none outside none; margin: 0; padding: 2px; }
+.ui-autocomplete { cursor: pointer; position: absolute; }
+.ui-corner-all { /*border-radius: 6px;*/ }
+.ui-widget-content { background: #f2f5f7; border: 1px solid #dddddd; color: #362b36; }
+.ui-menu .ui-menu-item a.ui-state-hover, .ui-menu .ui-menu-item a.ui-state-active {	font-weight: normal; margin: -1px;}
+.ui-menu .ui-menu-item a { text-decoration: none; display: block; padding: .2em .4em; line-height: 1.5;	zoom: 1; }
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+/*border-top: 1px solid #66308e; border-bottom: 1px solid #66308e;*/
 background: #EDEDFB; font-weight: bold;	color: #66308e;	}
    
-   /*** PC ***/
-  @media only screen and (min-width: 960px) {
-  		.span_3 { width: 22% !important; }
-   		#resultado-store{ font-family: Rockwell;	font-size: 12px;	margin-left: 8%; }      	        
-  }
-  
-  /*** iPad Smaller than 959px ***/
-  @media only screen and (min-width: 768px) and (max-width: 959px) {
-		.span_5 { width: 65%; }
-		
-		.plataformas{ width: 80%; }		
-		.lupa { margin-left: 0px; }		
-		.info{ width: 100%; margin-top: 10%; }		
-		.igual { padding-left: 40%; margin-top: 5%;	}
-		.paso-sig{ margin-top: 20px; }
-		.consola { padding: 0; margin-right: 5px; }
-		.corner { left: -189px; top: 60px; }
-		
-		.equiv{ margin-left: 30%; }		
-		.equiv #equiv-int{ padding: 4% 20%;	}
-		
-		.gam_select{ width: 22%; }
-		
-		.bloque-store .titulos-res{ width: 140px; margin-left: 15%; }
-		.img-nuevo, .img-usado { width: 140px; height: 140px; }		
-		.titulos p, .titulos_store p { height: 48px; }		
-		.juego-nuevo, .juego-usado{ width: 100%; }
-		
-		#resultado-store{ margin-left: 8%; }
-		.lupa-int { margin-left: -6px; }
-		.cbuscar{ width: 73%; }	
-   }
-    
-   /*** iPhone (portrait) ***/
-  @media only screen and (max-width: 767px) {
-   		.span_4 { width: 33.3333333333%; }
-   		.span_5 { width: 65%; }
-   	
-   		.info{ width: 100%; margin-top: 10%; }
-		.igual{ padding-left: 30%; margin-top: 5%; }
-		.paso-sig{ margin-top: 0px; }
+/*** PC ***/
+@media only screen and (min-width: 960px) {
+    .span_3 { width: 25% !important; }
+    #resultado-store{ font-family: Rockwell;	font-size: 12px;	margin-left: 8%; }
+}
 
-     	.equiv{ margin-left: 32%; }
-      
-		.bloque-store .titulos-res{ width: 140px; margin-left: 15%; }        
-		.img-nuevo, .img-usado{ width: 140px; height: 140px; }		
-   		.titulos p, .titulos_store p { height: 48px; }
-		.juego-nuevo, .juego-usado{ width: 100%; }
-		.corner { left: -188px; top: 68px; }
-		
-		#plataformas-int{ width: 20%; }
-		.buscador-alquiler{ width: 72%; }
-		#buscar-alq{ width: 8%;  }
-		.lupa-int{ margin-left: -2px; }
-   }
-  
-   /*** iPhone (landscape) ***/
-  @media only screen and (min-width: 480px) and (max-width: 767px) {
-	  	.span_4 { width: 50%; }       	
-	    	
-	    .info { margin-top: 15px; width: 100%; }
-	    .paso-sig{ font-size: 14px; padding: 10px 15px; margin-top: 70px; }
-	    .button-sig{ margin-top: -80px; }
-	    .titulos, .titulos_store { width: 45%; }
-	    .consola { text-align: left; }
-	    	
-	    .loader1, .loader2{ left: 30%; }
-	  	.loader2{ top: 160%; }
-	  
-	  	.gam_select { width: 56%; }
- 	   .busc-dos{ width: 23%; } 
- 	   #plataformas-store{ width: 91%;  } 
- 	   .cbuscar{ width: 68%; } 
-	   .cbuscar #nombre_juego_store{ width: 100%; }
-  }
-    
-  /*** iPhone (landscape) ***/
-  @media only screen and (max-width: 480px) {
-		.span_4 { width: 46%; margin-left: 4%; }
-		#paso-1, #paso-2, #paso-3 { margin-top: 45px; }
-		
-		.titulos, .titulos_store { width: 94%; padding: 0; }
-		   	
-		.section-int{ margin-top: 50px; }
-		.plataformas{ width: 80%; }
-		.buscador{ width: 91%; font-size: 12px; padding: 2px; }
-		.lupa{ margin-left: 0px; width: 25px; }
-		.cbuscar{ width: 67%; /*border: 4px solid #ccc;*/ }
-		.paso-sig { width: 95%; margin-right: 10px; font-size: 14px; padding: 10px; }
-		.corner { left: -202px;	top: 61px; }
-		.consola { padding: 0; margin-right: 0; text-align: left; }
-		
-		.juego-nuevo, .juego-usado{ width: 100%; }
-		.img-nuevo, .img-usado, .box_2 { width: 120px; height: 140px; }
-		.img-int { margin-left: 25%; width: 160px; }
-		.info { margin-top: 0%; margin-left: 28%; }
-		.igual { padding-left: 70%; }
-		.equiv { margin-left: 17%; width: 85%; }
-		
-		.box_2{ margin: 0; }
-		.bloque-store > .nuevo, .bloque-store > .usado{ width: 100%; margin-bottom: 5%; }
-		.bloque-store > .usado .nuevo a{ min-width: 124px !important; }		
-		.bloque-store .titulos-res { margin-left: 25%; }
-		
-		.loader1, .loader2{ left: 16%; }
-		.loader2 { top: 95%; }
-		
-		.gam_select { width: 100%; }
-   }
-     
-   @media only screen and (max-width: 568px){      	
-       .pasosPedido li.arrow_box{ width: 90px !important; font-size: 14px; }
-       .lupa-int { margin-left: -5px; }
-       
-   }
-     
-   @media only screen and (max-width: 533px){
-   		.lupa-int { margin-left: -7px; }	
-   }
-   
-   @media only screen and (max-width: 414px){
-       #plataformas-int{ width: 25%; }
-		.buscador-alquiler{ width: 62%; }
-     	#buscar-alq { width: 11%; }
-     	.busc-dos{ width: 21%; }
-     	.cbuscar #nombre_juego_store{ width: 100%; }
-     	.banners{margin-top: 110px;}
-   }
-   
-   @media only screen and (max-width: 360px){		 
-		#buscar-alq{ width: 13%; }	
-		.cbuscar{ width: 65%; }
-   }
-   
-   @media only screen and (max-width: 320px){
-   	    .cbuscar{ width: 64%; }
-   }
-   
-   @media only screen and (max-width: 240px){
-      .cbuscar #nombre_juego_store { width: 82%; }
-	  .pasosPedido li.arrow_box{ width: 66px !important; font-size: 11px;}
-	  .pasosPedido li{padding: 13px 6px 29px 22px;}
-	  .bloque-store #nuevo{ float: none; width: 97% !important; margin-left: 6px; margin-bottom: 10px; }
-	  .bloque-store #usado{ float: none; width: 97% !important; }
-   }
+/*** iPad Smaller than 959px ***/
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    .span_5 { width: 65%; }
+
+    .plataformas{ width: 80%; }
+    .lupa { margin-left: 0px; }
+    .info{ width: 100%; margin-top: 10%; }
+    .igual { padding-left: 40%; margin-top: 5%;	}
+    .paso-sig{ margin-top: 20px; }
+    .consola { padding: 0; margin-right: 5px; }
+    .corner { left: -189px; top: 60px; }
+
+    .equiv{ margin-left: 30%; }
+    .equiv #equiv-int{ padding: 4% 20%;	}
+
+    .gam_select{ width: 22%; }
+
+    .bloque-store .titulos-res{ width: 140px; margin-left: 15%; }
+    .img-nuevo, .img-usado { width: 140px; height: 140px; }
+    .titulos p, .titulos_store p { height: 48px; }
+    .juego-nuevo, .juego-usado{ width: 100%; }
+
+    #resultado-store{ margin-left: 8%; }
+    .lupa-int { margin-left: -6px; }
+    .cbuscar{ width: 73%; }
+}
+
+/*** iPhone (portrait) ***/
+@media only screen and (max-width: 767px) {
+    .span_4 { width: 33.3333333333%; }
+    .span_5 { width: 65%; }
+
+    .info{ width: 100%; margin-top: 10%; }
+    .igual{ padding-left: 30%; margin-top: 5%; }
+    .paso-sig{ margin-top: 0px; }
+
+    .equiv{ margin-left: 32%; }
+
+    .bloque-store .titulos-res{ width: 140px; margin-left: 15%; }
+    .img-nuevo, .img-usado{ width: 140px; height: 140px; }
+    .titulos p, .titulos_store p { height: 48px; }
+    .juego-nuevo, .juego-usado{ width: 100%; }
+    .corner { left: -188px; top: 68px; }
+
+    #plataformas-int{ width: 20%; }
+    .buscador-alquiler{ width: 72%; }
+    #buscar-alq{ width: 8%;  }
+    .lupa-int{ margin-left: -2px; }
+}
+
+/*** iPhone (landscape) ***/
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .span_4 { width: 50%; }
+
+    .info { margin-top: 15px; width: 100%; }
+    .paso-sig{ font-size: 14px; padding: 10px 15px; margin-top: 70px; }
+    .button-sig{ margin-top: -80px; }
+    .titulos, .titulos_store { width: 45%; }
+    .consola { text-align: left; }
+
+    .loader1, .loader2{ left: 30%; }
+    .loader2{ top: 160%; }
+
+    .gam_select { width: 56%; }
+   .busc-dos{ width: 23%; }
+   #plataformas-store{ width: 91%;  }
+   .cbuscar{ width: 68%; }
+   .cbuscar #nombre_juego_store{ width: 100%; }
+}
+
+/*** iPhone (landscape) ***/
+@media only screen and (max-width: 480px) {
+    .span_4 { width: 46%; margin-left: 4%; }
+    #paso-1, #paso-2, #paso-3 { margin-top: 45px; }
+
+    .titulos, .titulos_store { width: 94%; padding: 0; }
+
+    .section-int{ margin-top: 50px; }
+    .plataformas{ width: 80%; }
+    .buscador{ width: 91%; font-size: 12px; padding: 2px; }
+    .lupa{ margin-left: 0px; width: 25px; }
+    .cbuscar{ width: 67%; /*border: 4px solid #ccc;*/ }
+    .paso-sig { width: 95%; margin-right: 10px; font-size: 14px; padding: 10px; }
+    .corner { left: -202px;	top: 61px; }
+    .consola { padding: 0; margin-right: 0; text-align: left; }
+
+    .juego-nuevo, .juego-usado{ width: 100%; }
+    .img-nuevo, .img-usado, .box_2 { width: 120px; height: 140px; }
+    .img-int { margin-left: 25%; width: 160px; }
+    .info { margin-top: 0%; margin-left: 28%; }
+    .igual { padding-left: 70%; }
+    .equiv { margin-left: 17%; width: 85%; }
+
+    .box_2{ margin: 0; }
+    .bloque-store > .nuevo, .bloque-store > .usado{ width: 100%; margin-bottom: 5%; }
+    .bloque-store > .usado .nuevo a{ min-width: 124px !important; }
+    .bloque-store .titulos-res { margin-left: 25%; }
+
+    .loader1, .loader2{ left: 16%; }
+    .loader2 { top: 95%; }
+
+    .gam_select { width: 100%; }
+}
+
+@media only screen and (max-width: 568px){
+   .pasosPedido li.arrow_box{ width: 90px !important; font-size: 14px; }
+   .lupa-int { margin-left: -5px; }
+
+}
+
+@media only screen and (max-width: 533px){
+    .lupa-int { margin-left: -7px; }
+}
+
+@media only screen and (max-width: 414px){
+   #plataformas-int{ width: 25%; }
+    .buscador-alquiler{ width: 62%; }
+    #buscar-alq { width: 11%; }
+    .busc-dos{ width: 21%; }
+    .cbuscar #nombre_juego_store{ width: 100%; }
+    .banners{margin-top: 110px;}
+}
+
+@media only screen and (max-width: 360px){
+    #buscar-alq{ width: 13%; }
+    .cbuscar{ width: 65%; }
+}
+
+@media only screen and (max-width: 320px){
+    .cbuscar{ width: 64%; }
+}
+
+@media only screen and (max-width: 240px){
+  .cbuscar #nombre_juego_store { width: 82%; }
+  .pasosPedido li.arrow_box{ width: 66px !important; font-size: 11px;}
+  .pasosPedido li{padding: 13px 6px 29px 22px;}
+  .bloque-store #nuevo{ float: none; width: 97% !important; margin-left: 6px; margin-bottom: 10px; }
+  .bloque-store #usado{ float: none; width: 97% !important; }
+}
