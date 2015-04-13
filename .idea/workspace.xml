@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b25fdeee-e880-4baa-8764-400fcd7abe4e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/getConsolas.php" />
-      <change type="MOVED" beforePath="C:\wamp\www\tienda\getAutocompletar.php" afterPath="$PROJECT_DIR$/getVideoJuegos.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Los Gamers Comunidad_files/calculadora.js" afterPath="$PROJECT_DIR$/Los Gamers Comunidad_files/calculadora.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Los Gamers Comunidad_files/main.js" afterPath="$PROJECT_DIR$/Los Gamers Comunidad_files/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Los Gamers Comunidad_files/select_pais.js" afterPath="$PROJECT_DIR$/Los Gamers Comunidad_files/select_pais.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tienda.php" afterPath="$PROJECT_DIR$/tienda.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/tienda.iml" afterPath="$PROJECT_DIR$/.idea/tienda.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -34,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="tienda.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tienda.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tienda.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.423077" vertical-offset="10891" max-vertical-offset="17323">
-              <caret line="652" column="103" selection-start-line="652" selection-start-column="103" selection-end-line="652" selection-end-column="103" />
+            <state vertical-scroll-proportion="0.06445672" vertical-offset="11525" max-vertical-offset="17102">
+              <caret line="680" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="1000" selection-end-column="7" />
               <folding>
                 <element signature="e#6#95#0#PHP" expanded="true" />
               </folding>
@@ -46,93 +43,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1907" max-vertical-offset="3706">
-              <caret line="153" column="9" selection-start-line="153" selection-start-column="9" selection-end-line="153" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="calculadora.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/calculadora.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.0" vertical-offset="51" max-vertical-offset="17204">
-              <caret line="27" column="36" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="17680">
+              <caret line="6" column="3" selection-start-line="0" selection-start-column="0" selection-end-line="1034" selection-end-column="3" />
               <folding>
-                <marker date="1426820365717" expanded="true" signature="4768:4779" placeholder="..." />
-                <marker date="1426820365717" expanded="true" signature="4882:4920" placeholder="..." />
-                <marker date="1426820365717" expanded="true" signature="12401:12412" placeholder="..." />
-                <marker date="1426820365717" expanded="true" signature="12515:12553" placeholder="..." />
-                <marker date="1426820365717" expanded="true" signature="15733:15752" placeholder="..." />
-                <marker date="1426820365717" expanded="true" signature="15842:15877" placeholder="..." />
-                <marker date="1426820365717" expanded="true" signature="15919:15948" placeholder="..." />
-                <marker date="1426820365717" expanded="true" signature="26365:26384" placeholder="..." />
-                <marker date="1426820365717" expanded="true" signature="26474:26509" placeholder="..." />
-                <marker date="1426820365717" expanded="true" signature="26551:26580" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getVideoJuegos.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/getVideoJuegos.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="850">
-              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="30" selection-end-column="49" />
-              <folding>
-                <marker date="1426728639443" expanded="true" signature="242:986" placeholder="SELECT ps_pr..ps_product_lang..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getConsolas.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/getConsolas.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.078341015" vertical-offset="0" max-vertical-offset="868">
-              <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="12" selection-end-column="50" />
-              <folding>
-                <marker date="1426819233119" expanded="true" signature="95:199" placeholder="SELECT name ..ps_category_lang..." />
-                <marker date="1426819233119" expanded="true" signature="95:336" placeholder="SELECT name ..ps_category_lang..." />
-                <marker date="1426819233119" expanded="true" signature="300:336" placeholder="SELECT name ..ps_category_lang..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="saved_resource" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/saved_resource">
-          <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="247027">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="js_visitor_settings.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/js_visitor_settings.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="102">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="select_pais.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/select_pais.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="3910">
-              <caret line="224" column="11" selection-start-line="224" selection-start-column="11" selection-end-line="224" selection-end-column="11" />
-              <folding>
-                <marker date="1426808954021" expanded="true" signature="5646:5674" placeholder="..." />
+                <marker date="1428529225752" expanded="true" signature="5917:5928" placeholder="..." />
+                <marker date="1428529225752" expanded="true" signature="6031:6069" placeholder="..." />
+                <marker date="1428529225752" expanded="true" signature="13550:13561" placeholder="..." />
+                <marker date="1428529225752" expanded="true" signature="13664:13702" placeholder="..." />
+                <marker date="1428529225752" expanded="true" signature="16882:16901" placeholder="..." />
+                <marker date="1428529225752" expanded="true" signature="16991:17026" placeholder="..." />
+                <marker date="1428529225752" expanded="true" signature="17068:17097" placeholder="..." />
+                <marker date="1428529225752" expanded="true" signature="27514:27533" placeholder="..." />
+                <marker date="1428529225752" expanded="true" signature="27623:27658" placeholder="..." />
+                <marker date="1428529225752" expanded="true" signature="27700:27729" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -140,32 +66,29 @@
       </file>
     </leaf>
   </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="true" />
+    </FindUsagesManager>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
+    <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/getAutocompletar.php" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/Los Gamers Comunidad_files/select_pais.js" />
         <option value="$PROJECT_DIR$/getConsolas.php" />
-        <option value="$PROJECT_DIR$/Los Gamers Comunidad_files/calculadora.js" />
         <option value="$PROJECT_DIR$/tienda.php" />
-        <option value="$PROJECT_DIR$/Los Gamers Comunidad_files/main.js" />
+        <option value="$PROJECT_DIR$/Los Gamers Comunidad_files/calculadora.js" />
       </list>
     </option>
   </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1050" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1376" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -176,6 +99,9 @@
     <OptionsSetting value="true" id="Edit" />
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -205,7 +131,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tienda" />
+              <option name="myItemId" value="neotienda" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -215,7 +141,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tienda" />
+              <option name="myItemId" value="neotienda" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -229,10 +155,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="settings.github" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="FullScreen" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mrpresta_tracking" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -256,8 +183,7 @@
       <node-options />
       <gulpfile />
       <tasks />
-      <arguments />
-      <pass-parent-envs>true</pass-parent-envs>
+      <pass-parent-env-vars>false</pass-parent-env-vars>
       <envs />
       <method />
     </configuration>
@@ -265,7 +191,7 @@
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>C:\Users\larismendi\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -280,33 +206,39 @@
       <option name="project" value="LOCAL" />
       <updated>1426808608988</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Funcion para que cuente el numero de video juegos y los borre">
+      <created>1428529258395</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1428529258395</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13541667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13529412" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -325,13 +257,410 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="act" />
-    <option name="LAST_COMMIT_MESSAGE" value="act" />
+    <MESSAGE value="Funcion para que cuente el numero de video juegos y los borre" />
+    <option name="LAST_COMMIT_MESSAGE" value="Funcion para que cuente el numero de video juegos y los borre" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3124" max-vertical-offset="3706">
+          <caret line="0" column="20" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getVideoJuegos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="850">
+          <caret line="1" column="55" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="55" />
+          <folding>
+            <marker date="1428522323806" expanded="true" signature="-1:-1" placeholder="SELECT ps_pr..ps_category..." />
+            <marker date="1428522323806" expanded="true" signature="-1:-1" placeholder="SELECT ps_ca..ps_category_lang..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getConsolas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="459">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="12" selection-end-column="50" />
+          <folding>
+            <marker date="1428522323795" expanded="true" signature="-1:-1" placeholder="SELECT ps_ca..ps_category_lang..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/saved_resource">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="247027">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/js_visitor_settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/select_pais.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="3910">
+          <caret line="224" column="11" selection-start-line="224" selection-start-column="11" selection-end-line="224" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tienda.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="11168" max-vertical-offset="17102">
+          <caret line="668" column="50" selection-start-line="668" selection-start-column="41" selection-end-line="668" selection-end-column="50" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/calculadora.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="17680">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1428529225752" expanded="true" signature="5917:5928" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="6031:6069" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="13550:13561" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="13664:13702" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="16882:16901" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="16991:17026" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="17068:17097" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27514:27533" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27623:27658" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27700:27729" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3124" max-vertical-offset="3706">
+          <caret line="0" column="20" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getVideoJuegos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="850">
+          <caret line="1" column="55" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="55" />
+          <folding>
+            <marker date="1428522323806" expanded="true" signature="-1:-1" placeholder="SELECT ps_pr..ps_category..." />
+            <marker date="1428522323806" expanded="true" signature="-1:-1" placeholder="SELECT ps_ca..ps_category_lang..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getConsolas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="459">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="12" selection-end-column="50" />
+          <folding>
+            <marker date="1428522323795" expanded="true" signature="-1:-1" placeholder="SELECT ps_ca..ps_category_lang..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/saved_resource">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="247027">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/js_visitor_settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/select_pais.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="3910">
+          <caret line="224" column="11" selection-start-line="224" selection-start-column="11" selection-end-line="224" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tienda.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="11168" max-vertical-offset="17102">
+          <caret line="668" column="50" selection-start-line="668" selection-start-column="41" selection-end-line="668" selection-end-column="50" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/calculadora.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="17697">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1428529225752" expanded="true" signature="5917:5928" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="6031:6069" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="13550:13561" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="13664:13702" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="16882:16901" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="16991:17026" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="17068:17097" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27514:27533" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27623:27658" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27700:27729" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3124" max-vertical-offset="3706">
+          <caret line="0" column="20" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getVideoJuegos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="850">
+          <caret line="1" column="55" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="55" />
+          <folding>
+            <marker date="1428522323806" expanded="true" signature="-1:-1" placeholder="SELECT ps_pr..ps_category..." />
+            <marker date="1428522323806" expanded="true" signature="-1:-1" placeholder="SELECT ps_ca..ps_category_lang..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getConsolas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="459">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="12" selection-end-column="50" />
+          <folding>
+            <marker date="1428522323795" expanded="true" signature="-1:-1" placeholder="SELECT ps_ca..ps_category_lang..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/saved_resource">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="247027">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/js_visitor_settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/select_pais.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="3910">
+          <caret line="224" column="11" selection-start-line="224" selection-start-column="11" selection-end-line="224" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tienda.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="11168" max-vertical-offset="17102">
+          <caret line="668" column="50" selection-start-line="668" selection-start-column="41" selection-end-line="668" selection-end-column="50" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/calculadora.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="17697">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1428529225752" expanded="true" signature="5917:5928" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="6031:6069" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="13550:13561" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="13664:13702" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="16882:16901" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="16991:17026" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="17068:17097" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27514:27533" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27623:27658" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27700:27729" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3124" max-vertical-offset="3706">
+          <caret line="0" column="20" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getVideoJuegos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="850">
+          <caret line="1" column="55" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="55" />
+          <folding>
+            <marker date="1428522323806" expanded="true" signature="-1:-1" placeholder="SELECT ps_pr..ps_category..." />
+            <marker date="1428522323806" expanded="true" signature="-1:-1" placeholder="SELECT ps_ca..ps_category_lang..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getConsolas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="459">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="12" selection-end-column="50" />
+          <folding>
+            <marker date="1428522323795" expanded="true" signature="-1:-1" placeholder="SELECT ps_ca..ps_category_lang..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/saved_resource">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="247027">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/js_visitor_settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/select_pais.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="3910">
+          <caret line="224" column="11" selection-start-line="224" selection-start-column="11" selection-end-line="224" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tienda.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="10891" max-vertical-offset="17323">
+          <caret line="652" column="103" selection-start-line="652" selection-start-column="103" selection-end-line="652" selection-end-column="103" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1907" max-vertical-offset="3706">
+          <caret line="153" column="9" selection-start-line="153" selection-start-column="9" selection-end-line="153" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/calculadora.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="17204">
+          <caret line="27" column="36" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="36" />
+          <folding>
+            <marker date="1428529225752" expanded="true" signature="5917:5928" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="6031:6069" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="13550:13561" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="13664:13702" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="16882:16901" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="16991:17026" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="17068:17097" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27514:27533" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27623:27658" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27700:27729" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getVideoJuegos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="850">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="30" selection-end-column="49" />
+          <folding>
+            <marker date="1428522323806" expanded="true" signature="-1:-1" placeholder="SELECT ps_pr..ps_category..." />
+            <marker date="1428522323806" expanded="true" signature="-1:-1" placeholder="SELECT ps_ca..ps_category_lang..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getConsolas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1428522323795" expanded="true" signature="-1:-1" placeholder="SELECT ps_ca..ps_category_lang..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/saved_resource">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="247027">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/js_visitor_settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/select_pais.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="3910">
+          <caret line="224" column="11" selection-start-line="224" selection-start-column="11" selection-end-line="224" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tienda.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="10875" max-vertical-offset="17408">
@@ -347,16 +676,16 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="17204">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1426820365717" expanded="true" signature="4768:4779" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="4882:4920" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="12401:12412" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="12515:12553" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="15733:15752" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="15842:15877" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="15919:15948" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="26365:26384" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="26474:26509" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="26551:26580" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="5917:5928" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="6031:6069" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="13550:13561" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="13664:13702" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="16882:16901" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="16991:17026" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="17068:17097" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27514:27533" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27623:27658" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27700:27729" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -365,9 +694,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="3910">
           <caret line="224" column="11" selection-start-line="224" selection-start-column="11" selection-end-line="224" selection-end-column="11" />
-          <folding>
-            <marker date="1426808954021" expanded="true" signature="5646:5674" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -382,21 +709,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="3910">
           <caret line="224" column="11" selection-start-line="224" selection-start-column="11" selection-end-line="224" selection-end-column="11" />
-          <folding>
-            <marker date="1426808954021" expanded="true" signature="5646:5674" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/saved_resource">
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="247027">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/js_visitor_settings.php">
@@ -407,72 +732,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/getConsolas.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.3846154" vertical-offset="148" max-vertical-offset="19499">
-          <caret line="20" column="119" selection-start-line="20" selection-start-column="119" selection-end-line="20" selection-end-column="119" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1907" max-vertical-offset="3706">
-          <caret line="153" column="9" selection-start-line="153" selection-start-column="9" selection-end-line="153" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tienda.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.423077" vertical-offset="10891" max-vertical-offset="17323">
-          <caret line="652" column="103" selection-start-line="652" selection-start-column="103" selection-end-line="652" selection-end-column="103" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="459">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="12" selection-end-column="50" />
           <folding>
-            <element signature="e#6#95#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/calculadora.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.0" vertical-offset="51" max-vertical-offset="17204">
-          <caret line="27" column="36" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="36" />
-          <folding>
-            <marker date="1426820365717" expanded="true" signature="4768:4779" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="4882:4920" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="12401:12412" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="12515:12553" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="15733:15752" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="15842:15877" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="15919:15948" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="26365:26384" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="26474:26509" placeholder="..." />
-            <marker date="1426820365717" expanded="true" signature="26551:26580" placeholder="..." />
+            <marker date="1428522323795" expanded="true" signature="-1:-1" placeholder="SELECT ps_ca..ps_category_lang..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/getVideoJuegos.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="850">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="30" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="850">
+          <caret line="1" column="55" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="55" />
           <folding>
-            <marker date="1426728639443" expanded="true" signature="242:986" placeholder="SELECT ps_pr..ps_product_lang..." />
+            <marker date="1428522323806" expanded="true" signature="-1:-1" placeholder="SELECT ps_pr..ps_category..." />
+            <marker date="1428522323806" expanded="true" signature="-1:-1" placeholder="SELECT ps_ca..ps_category_lang..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/getConsolas.php">
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.078341015" vertical-offset="0" max-vertical-offset="868">
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="12" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3124" max-vertical-offset="3706">
+          <caret line="0" column="20" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.469614" vertical-offset="12541" max-vertical-offset="19499">
+          <caret line="20" column="119" selection-start-line="20" selection-start-column="119" selection-end-line="20" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Los Gamers Comunidad_files/calculadora.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="17680">
+          <caret line="6" column="3" selection-start-line="0" selection-start-column="0" selection-end-line="1034" selection-end-column="3" />
           <folding>
-            <marker date="1426819233119" expanded="true" signature="95:199" placeholder="SELECT name ..ps_category_lang..." />
-            <marker date="1426819233119" expanded="true" signature="95:336" placeholder="SELECT name ..ps_category_lang..." />
-            <marker date="1426819233119" expanded="true" signature="300:336" placeholder="SELECT name ..ps_category_lang..." />
+            <marker date="1428529225752" expanded="true" signature="5917:5928" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="6031:6069" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="13550:13561" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="13664:13702" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="16882:16901" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="16991:17026" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="17068:17097" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27514:27533" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27623:27658" placeholder="..." />
+            <marker date="1428529225752" expanded="true" signature="27700:27729" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tienda.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06445672" vertical-offset="11525" max-vertical-offset="17102">
+          <caret line="680" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="1000" selection-end-column="7" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
   </component>
 </project>
+
