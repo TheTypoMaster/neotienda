@@ -41,7 +41,7 @@ while($student=mysql_fetch_array($query)){
     $json[]=array(
         'id'=> $student["id"],
         'sku'=> $student["name"],
-        'label'=> $student["name"]." - ".$student["id"],
+        'label'=> $student["name"]/*." - ".$student["id"]*/,
         'price'=> $student["price"],
         'imagen'=> 'http://victoriaperez.com/261-home_default/zarcillos.jpg'
     );

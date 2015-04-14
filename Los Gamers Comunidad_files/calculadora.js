@@ -44,6 +44,7 @@ $("#buscar-store").click(function(e) {
         buscador_store()
     }
 });
+var precio_total = 0;
 $("#nombre_juego").autocomplete({
     source: function(request, response) {
         $.ajax({
@@ -129,30 +130,34 @@ $("#nombre_juego").autocomplete({
         var sum = Number($("#cont_item").val()) + Number(1);
         $("#cont_item").attr('value', sum);
 
-        var precio_total = 0;
-        precio_total = precio_total + precio;
+
+        precio_total = Number(precio_total) + Number(precio);
 
         $("#resultado-intercambia").hide(500, "linear");
 
         $('<div/>', {
             id: 'res_item_'+id
         }).append(
-            $('<img/>', { name: 'img-int-'+id, src: imagen, width: '79', height: '', alt: titulo }),
+            $('<img/>', { name: 'img-int-'+id, src: imagen, style: 'border: 1px solid #ccc;', width: '79', height: '', alt: titulo }),
             $('<span/>', { id: 'sku-int-'+id, class: 'sku-int' }).html(sku),
-            $('<p/>', { name: 'titulo-int-'+id }).html(titulo),
-            $('<p/>', {
-                class: 'puntos-int'
-            }).append(
-                $('<span/>', { style: 'font-size: 25px;' }).html(precio + ",00")
-            ).html(simb_bs)
+            $('<div/>', { name: 'titulo-int-'+id, class: 'titulo-int' }).append(
+                titulo,
+                $('<div/>', { class: 'puntos-int titulo-int' }).append(
+                    $('<span/>', { id: 'res_item_precio_'+id, style: 'font-size: 20px;' }).html(precio + ",00"),
+                    simb_bs
+                )
+            )
         ).appendTo('#res_item');
 
-        $('#res_item_total').html('Total: '+precio_total);
+        $('#res_item_total').html(precio_total);
 
         $(".close").click(function() {
             $("#item_"+this.id).hide(500, "linear");
             $("#item_"+this.id).remove();
+            $("#res_item_"+this.id).remove();
             var cont = Number($("#cont_item").val()) - Number(1);
+            precio_total = Number($('#res_item_total').val()) - $("#res_item_precio_"+this.id).val();
+            $('#res_item_total').html(precio_total);
             $("#cont_item").attr('value', cont);
             if($("#cont_item").val()==0){
                 $("#intercambio_select").hide(500, "linear");

@@ -699,7 +699,7 @@
                         <div class="bloque-int-2">
                             <div class="col span_12 det-int">
                                 <div id="res_item"></div>
-                                <div id="res_item_total"></div>
+                                <div class="res_total">Total: <span id="res_item_total">0</span> Bs.</div>
                                 <div class="col span_12" style="text-align: left; padding-left: 10px;">
                                     <button class="close-int">CAMBIAR</button>
                                     <img src="./Los Gamers Comunidad_files/editar-int.png" class="img-edit">
