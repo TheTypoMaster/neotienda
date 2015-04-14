@@ -712,26 +712,12 @@
                 <div class="col span_1">&nbsp;</div>
                 <div class="col span_8 sec_buscador">
                     <p style="font-weight: bold; font-size: 14px; margin: 0px; margin-bottom: 18px;">Y QUIERES COMPRAR...</p>
-                    <!--<div class="col span_12">-->
-                    <!--<div class="col span_4">&nbsp;</div>-->
-                    <!--<div class="col span_8">-->
-                    <!--<div class="col span_4">
-                        <p class="consola">&iquest;Cu&aacute;l es tu c&oacute;nsola?</p>
-                    </div>-->
                     <div class="col span_2 busc-dos">
-                        <select id="plataformas-store" class="col span_12 plataformas-st" name="plataformas-2">
-                            <option value="">Bisuteria</option>
-                            <option value="Zarcillos">Zarcillos</option>
-                            <option value="Brazaletes">Brazaletes</option>
-                            <option value="Collares & Zarcillos">Collares & Zarcillos</option>
-                        </select>
+                        <select id="plataformas-store" class="col span_12 plataformas-st" name="plataformas-2"></select>
                     </div>
-                    <!--</div>-->
-                    <!--</div>-->
 
                     <div class="col span_9 cbuscar">
                         <input type="text" name="nombre_juego_store" id="nombre_juego_store" value="" placeholder="Busca el juego que quieres comprar..." class="col span_12 ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
-                        <!--<input type="text" name="nombre_juego_store" id="nombre_juego_store" value="" placeholder="Busca el juego que quieres comprar..." class="col span_12">-->
                     </div>
                     <button class="btn-alq btn-default" style="padding: 8px 12px 3px 12px" id="buscar-store"><img src="./Los Gamers Comunidad_files/lupa.png" class="lupa-int"></button>
 

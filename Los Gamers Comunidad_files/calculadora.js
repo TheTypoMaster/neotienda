@@ -2,7 +2,8 @@ $.ajax({
     type: "POST",
     url: "getConsolas.php",
     success: function(result) {
-        $("#plataformas-int").append(result)
+        $("#plataformas-int").append(result);
+        $("#plataformas-store").append(result);
     }
 });
 function Redimensionar(caja, idclase, padd) {
@@ -47,7 +48,7 @@ $("#nombre_juego").autocomplete({
     source: function(request, response) {
         $.ajax({
             type: "POST",
-            url: "getVideoJuegos.php",
+            url: "getVideoJuegosUsados.php",
             data: {
                 store: "2",
                 plataforma: $("#plataformas-int").val(),
