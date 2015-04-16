@@ -289,11 +289,11 @@ h1 {
   font-family: 'Rockwell';
 }
 h2 {
-  color: #ff0000;
+  color: #ff1400;
   font-size: 20px;
   font-weight: normal;
   margin-bottom: 5px;
-  font-family: 'Rockwell';
+  /*font-family: 'Rockwell';*/
 }
 h2.small {
   margin: 0 0 5px 0;
@@ -998,7 +998,7 @@ background-size: 400px 400px;  background-position: -300px -200px; content: ''; 
   .engagement-options {
     margin-top: 10px;
   }
-¨ ul.bg-controls {
+ï¿½ ul.bg-controls {
     display: none;
   }
 }

@@ -45,6 +45,7 @@ $("#buscar-store").click(function(e) {
     }
 });
 var precio_total = 0;
+var precio_total_f2 = 0;
 $("#nombre_juego").autocomplete({
     source: function(request, response) {
         $.ajax({
@@ -202,9 +203,9 @@ $("#paso-2-sig").click(function() {
             $(".op1").removeClass("activo");
             $(".op2").addClass("activo");
             $("#nombre_juego_store").focus();
-            $("html, body").stop().animate({
+            /*$("html, body").stop().animate({
                 scrollTop: $("#ancla-1").offset().top
-            }, 1000)
+            }, 1000)*/
         }
     } else {
         $(".alert-acept").css({
@@ -242,7 +243,6 @@ $("#nombre_juego_store").autocomplete({
             type: "POST",
             url: "getVideoJuegos.php",
             data: {
-                store: store,
                 plataforma: $("#plataformas-int").val(),
                 tipo: "simple",
                 titulo: request.term,
@@ -252,7 +252,8 @@ $("#nombre_juego_store").autocomplete({
             success: function(data) {
                 response($.map(data, function(item) {
                     return {
-                        sku: item.sku,
+                        id: item.id,
+                        //sku: item.sku,
                         label: item.label,
                         price: item.price,
                         precio_usado: item.precio_usado,
@@ -272,93 +273,79 @@ $("#nombre_juego_store").autocomplete({
     },
     minLength: 2,
     select: function(event, ui) {
-        var sku_nuevo = ui.item.sku;
+        var id = ui.item.id;
+        //var sku_nuevo = ui.item.sku;
         var titulo_nuevo = ui.item.label;
         var precio_nuevo = ui.item.price;
         var precio_usado = ui.item.precio_usado;
         var imagen_nuevo = ui.item.imagen;
         var simb_bs = "Bs. ";
-        $("#img-nuevo").attr("src", imagen_nuevo);
-        $("#sku-nuevo").html(sku_nuevo);
-        $("#titulo-nuevo").html(titulo_nuevo);
-        $("#precio-nuevo").html(simb_bs + precio_nuevo);
 
-        var ptos = 1;
-        var puntos_nuevo = (precio_nuevo * ptos);
-        puntos_nuevo = puntos_nuevo.toFixed(0);
-        $("#puntos-nuevo").html(puntos_nuevo)
+        var sum = Number($("#cont_item_inv").val()) + Number(1);
+        $("#cont_item_inv").attr('value', sum);
 
-        var ptos_int = parseInt($("#puntos-int-2").text());
-        var ptos_nuevo = parseInt(puntos_nuevo);
+        precio_total_f2 = Number(precio_total_f2) + Number(precio_nuevo);
+
+        $("#precio-nuevo").html(simb_bs + precio_total_f2 + ',00');
+
+        $('<div/>', {
+            class: 'bloque-int',
+            style: 'margin-bottom: 0px; border: 1px solid #ccc; margin-top: 50px;',
+            id: 'item_inv_'+id
+        }).append(
+            $('<i/>', { class: 'close-f2', id: id }).append("X"),
+            $('<div/>', { class: 'col span_4 titulos-res'}).append(
+                $('<div/>', { class: 'box_2'}).append(
+                    (precio_usado)?$('<div/>', { class: 'corner usado'}).append(
+                        $('<span/>', { href: '#', class: 'usado'}).append('USADO')
+                    ):'',
+                    $('<img/>', { class: 'img-f2', src: imagen_nuevo, width: '120', height: '' })
+                ),
+                $('<div/>', { class: 'disp'}).html('DISPONIBLE')
+            ),
+            $('<div/>', { class: 'col span_8' }).append(
+                $('<div/>', { class: 'col span_8 info' }).append(
+                    $('<p/>', { id: 'titulo-int' }).html(titulo_nuevo)
+                )
+            ),
+            $('<div/>', {
+                class: 'col span_8 equiv-f2'
+            }).append(
+                $('<p/>').append(
+                    'Equivale a...',
+                    $('<br/>'),
+                    $('<br/>'),
+                    $('<span/>',{ id: 'equiv-int-'+id, class: 'equiv-int' }).html(simb_bs + precio_nuevo + ",00"),
+                    $('<br/>'),
+                    $('<br/>'),
+                    $('<span/>',{ class: 'usar' }).append('...para usar en nuestra tienda.')
+                )
+            )
+        ).appendTo($('#intercambio_fase2'));
+
+
+        var ptos_int = parseInt($("#res_item_total").text());
+        var ptos_nuevo = parseInt(precio_nuevo);
         var dif = (ptos_nuevo - ptos_int);
         if (dif > 0) {
-            if (pais == "ve") {
-                var ptos = 1;
-                var dif = (dif / ptos)
-            } else {
-                if (pais == "us") {
-                    var ptos = 100;
-                    var dif = (dif / ptos)
-                } else {
-                    if (pais == "do") {
-                        var ptos = 1.5;
-                        var dif = (dif / ptos);
-                        dif = dif.toFixed(0)
-                    }
-                }
-            }
-            $("#dif-nuevo").html(simb_bs + " " + dif);
+            $("#dif-nuevo").html(simb_bs + " " + dif + ",00");
             $(".ptos-favor").css("display", "none")
         } else {
             $("#dif-nuevo").html("0");
             $(".ptos-favor").css("display", "block");
             $("#fav-nuevo").html(dif * -1)
         }
-        if (pais == "us" || pais == "do") {
-            $("div.bloque-store > div#usado").hide()
-        }
-        if (precio_usado > "0") {
+        /*if (precio_usado > "0") {
             $("div.bloque-store > #usado").show();
             $("#img-usado").attr("src", imagen_nuevo);
             $("#sku-usado").html(sku_nuevo);
             $("#titulo-usado").html(titulo_nuevo);
             $("#precio-usado").html(simb_bs + precio_usado);
-            if (pais == "ve") {
-                var ptos = 1;
-                var puntos_usado = (precio_usado * ptos);
-                $("#puntos-usado").html(puntos_usado)
-            } else {
-                if (pais == "us") {
-                    var ptos = 100;
-                    var puntos_usado = (precio_usado * ptos);
-                    $("#puntos-usado").html(puntos_usado)
-                } else {
-                    if (pais == "do") {
-                        var ptos = 0.44;
-                        var puntos_usado = (precio_usado * ptos);
-                        puntos_usado = puntos_usado.toFixed(0);
-                        $("#puntos-usado").html(puntos_usado)
-                    }
-                }
-            }
+            $("#puntos-usado").html(puntos_usado)
+
             var ptos_usado = parseInt(puntos_usado);
             var dif = (ptos_usado - ptos_int);
             if (dif > 0) {
-                if (pais == "ve") {
-                    var ptos = 1;
-                    var dif = (dif / ptos)
-                } else {
-                    if (pais == "us") {
-                        var ptos = 100;
-                        var dif = (dif / ptos)
-                    } else {
-                        if (pais == "do") {
-                            var ptos = 1.5;
-                            var dif = (dif / ptos);
-                            dif = dif.toFixed(0)
-                        }
-                    }
-                }
                 $("#dif-usado").html(simb_bs + dif);
                 $(".ptos-favor-u").css("display", "none")
             } else {
@@ -368,10 +355,10 @@ $("#nombre_juego_store").autocomplete({
             }
         } else {
             $("div.bloque-store > #usado").hide()
-        }
+        }*/
         $("#store_select").show();
         $("#resultado-store").hide(500, "linear");
-        var id_usuario = getCookie("login");
+        /*var id_usuario = getCookie("login");
         var sku_int = $("#sku-int-2").text();
         var pedidos_id = "";
         $.ajax({
@@ -386,10 +373,23 @@ $("#nombre_juego_store").autocomplete({
             url: "http://www.losgamers.com/intercambia/setCalculadora",
             async: true,
             success: function(result) {}
-        });
+        });*/
         $(".close_store").click(function() {
             $("#store_select").hide(500, "linear");
-            $("#resultado-store").show(500, "linear")
+            $("#resultado-store").show(500, "linear");
+        });
+        $(".close-f2").click(function() {
+            $("#item_inv_"+this.id).hide(500, "linear");
+            $("#item_inv_"+this.id).remove();
+            var cont = Number($("#cont_item_inv").val()) - Number(1);
+            precio_total = parseInt($('#precio-nuevo').text()) - parseInt($("#equiv-int-"+this.id).text());
+            $('#precio-nuevo').html(precio_total);
+            $("#cont_item_inv").attr('value', cont);
+            if($("#cont_item").val()==0){
+                $("#intercambio_select").hide(500, "linear");
+                $("#resultado-intercambia").show(500, "linear");
+                //buscador_intercambio()
+            }*/
         });
         Redimensionar("bloque-nu", ".", "20")
     }
@@ -400,7 +400,7 @@ $("#nombre_juego_store").autocomplete({
     } else {
         $(".footer").css("margin-top", "300px")
     }
-    return $("<li>").data("item.autocomplete", item).append("<a style='height:60px'><img width='' height='50' id='img-result5' src='" + item.imagen + "' style='float:left'><span style='font-size:11px; font-family: Rockwell;'>&nbsp;" + item.label + "</span> <br />&nbsp;<span class='puntos-aut'> " + item.price + " Bs.</span></a>").appendTo(ul)
+    return $("<li>").data("item.autocomplete", item).append("<a style='height:60px'><img width='' height='50' id='img-result5' src='" + item.imagen + "' style='float:left'><span style='font-size:11px; font-family: Arial, helvetica, sans-serif;'>&nbsp;" + item.label + "</span> <br />&nbsp;<span class='puntos-aut'> " + item.price + " Bs.</span></a>").appendTo(ul)
 };
 (function($) {
     $.get = function(key) {
@@ -613,10 +613,10 @@ $(".close-int, .op1").click(function() {
     $("#paso-2").hide();
     $(".op2").removeClass("activo");
     $(".op1").addClass("activo");
-    $("html, body").stop().animate({
+    /*$("html, body").stop().animate({
         scrollTop: $("#ancla-1").offset().top
     }, 1000);
-    /*
+
      $("#intercambio_select").hide(500, "linear");
      $("#resultado-intercambia").show(500, "linear")
      */

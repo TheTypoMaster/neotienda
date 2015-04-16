@@ -269,33 +269,25 @@
                 <input type="text" name="nombre_juego_store" id="nombre_juego_store" value="" placeholder="Busca el juego que quieres comprar..." class="col span_12 ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
             </div>
             <button class="btn-alq btn-default" style="padding: 8px 12px 3px 12px" id="buscar-store"><img src="./Los Gamers Comunidad_files/lupa.png" class="lupa-int"></button>
-
+			
+			<input type="hidden" id="cont_item" value="0" />
             <div class="col span_12">
                 <div class="col span_12" id="store_select" style="margin-top: 30px; display: none;">
-                    <div class="bloque-store" style="margin-bottom: 0px;">
+                    <div id="intercambio_fase2" class="bloque-store" style="margin-bottom: 0px;">
                         <div class="col span_6 nuevo bloque-nu juego-select" id="nuevo">
                             <i class="close-store">X</i>
-                            <div class="col span_4 titulos-res">
-                                <div class="box_2">
-                                    <div class="corner">
-                                        <span href="#">NUEVO</span>
-                                    </div>
-                                    <img id="img-nuevo" class="img-nuevo" src="">
-                                </div>
-                                <div class="disp">DISPONIBLE</div>
-                            </div>
-                            <div class="col span_8 juego-nuevo" style="padding-left: 10px">
-                                <span id="sku-nuevo"> </span>
-                                <p id="titulo-nuevo"></p>
-                                <br>
-                                <p class="detalle">Precio original: <span id="precio-nuevo"></span></p>
-                                <p class="detalle">Valor en puntos: <span id="puntos-nuevo"></span><span style="font-size: 14px"> </span></p>
-                                <p class="detalle" style="font-size: 14px ! important; font-weight: bold; color: #000000; margin-top: 10px ! important;">Diferencia a pagar: <br><span id="dif-nuevo"></span><span style="font-size: 14px"></span></p>
-                                <p class="ptos-favor">Puntos a favor: <span id="fav-nuevo"></span><span style="font-size: 14px"></span></p>
+                            <div class="col span_12 juego-nuevo" style="padding-left: 10px">
+                                <h2>Detalle del cambio:</h2>
+                                <p class="detalle" style="font-size: 14px ! important; font-weight: bold; color: #000000; margin-top: 10px ! important;">
+                                    Precio total: <span id="precio-nuevo"></span>
+                                </p>
+                                <p class="detalle" style="font-size: 14px ! important; font-weight: bold; color: #000000; margin-top: 10px ! important;">
+                                    Diferencia a pagar: <br><span id="dif-nuevo"></span><span style="font-size: 14px"></span>
+                                </p>
                             </div>
                             <div class="col span_12" style="text-align:center; margin-top: 12px;"><a href="javascript:void(0)" class="btn btn-primary intercambiar-nuevo">INTERCAMBIAR</a></div>
                         </div>
-
+                        <!--
                         <div class="col span_6 usado bloque-nu juego-select" id="usado">
                             <i class="close-store">X</i>
                             <div class="col span_4 titulos-res">
@@ -321,7 +313,7 @@
                                 <div class="ref">PRECIO REFERENCIAL</div><a href="javascript:void(0)" class="btn btn-primary intercambiar-usado" style="display: none;">INTERCAMBIAR</a>
                             </div>
                         </div>
-                        <!--
+
                         <div class="col span_12" style="clear: both; float: right; margin: 10px 0px 5px 0px; text-align: center;">
                             <button class="close_store">CAMBIAR</button>
                             <img src="/themes/default/img/editar-int.png" class="img-edit-store"/>
