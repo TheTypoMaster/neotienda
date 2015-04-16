@@ -29,17 +29,17 @@ $query=mysql_query("SELECT
                     GROUP BY id
                     ORDER BY ps_product_lang.name");
 $json=array();
- 
+
 while($student=mysql_fetch_array($query)){
     $json[]=array(
         'id'=> $student["id"],
         'sku'=> $student["name"],
         'label'=> $student["name"]." - ".$student["id"],
-        'price'=> $student["price"],
+        'price'=> round($student["price"]),
         'imagen'=> 'http://victoriaperez.com/261-home_default/zarcillos.jpg'
     );
 }
- 
+
 echo json_encode($json);
- 
+
 ?>

@@ -179,21 +179,65 @@ $("#nombre_juego").autocomplete({
     } else {
         $(".footer").css("margin-top", "300px")
     }
-    return $("<li>").data("item.autocomplete", item).append("<a style='height:60px'><img width='' height='50' id='img-result5' src='" + item.imagen + "' style='float:left'><span style='font-size:11px; font-family: Rockwell;'>&nbsp;" + item.label + "</span> <br />&nbsp;<span class='puntos-aut'> " + item.price + " Puntos</span></a>").appendTo(ul)
+    return $("<li>").data("item.autocomplete", item).append("<a style='height:60px'><img width='' height='50' id='img-result5' src='" + item.imagen + "' style='float:left'><span style='font-size:11px; font-family: Rockwell;'>&nbsp;" + item.label + "</span> <br />&nbsp;<span class='puntos-aut'> " + item.price + " Bs.</span></a>").appendTo(ul)
 };
+$("#acepto").click(function() {
+    if ($("#acepto").is(":checked")) {
+        if (!$(".alert-acept").is(":hidden")) {
+            $(".alert-acept").css({
+                display: "none"
+            })
+        }
+    }
+});
+$("#paso-2-sig").click(function() {
+    if ($("#acepto").is(":checked")) {
+        $(".alert-acept").css({
+            display: "none"
+        });
+        var interc = $("#titulo-int").html();
+        if (interc != "") {
+            $("#paso-1").hide();
+            $("#paso-2").show();
+            $(".op1").removeClass("activo");
+            $(".op2").addClass("activo");
+            $("#nombre_juego_store").focus();
+            $("html, body").stop().animate({
+                scrollTop: $("#ancla-1").offset().top
+            }, 1000)
+        }
+    } else {
+        $(".alert-acept").css({
+            display: "block"
+        });
+        return false;
+    }
+});
+$(".op2").click(function() {
+    if ($("#acepto").is(":checked")) {
+        $(".alert-acept").css({
+            display: "none"
+        });
+        var store = $("#titulo-int-2").html();
+        if (store != "") {
+            $("#paso-1").hide();
+            $("#paso-2").show();
+            $(".op1").removeClass("activo");
+            $(".op2").addClass("activo");
+            $("#nombre_juego_store").focus();
+            /*$("html, body").stop().animate({
+             scrollTop: $("#ancla-1").offset().top
+             }, 1000)*/
+        }
+    } else {
+        $(".alert-acept").css({
+            display: "block"
+        });
+        return false;
+    }
+});
 $("#nombre_juego_store").autocomplete({
     source: function(request, response) {
-        if (pais == "ve") {
-            var store = 3
-        } else {
-            if (pais == "us") {
-                var store = 1
-            } else {
-                if (pais == "do") {
-                    var store = 4
-                }
-            }
-        }
         $.ajax({
             type: "POST",
             url: "getVideoJuegos.php",
@@ -233,46 +277,17 @@ $("#nombre_juego_store").autocomplete({
         var precio_nuevo = ui.item.price;
         var precio_usado = ui.item.precio_usado;
         var imagen_nuevo = ui.item.imagen;
-        var bs = 1;
-        var dolar = 1;
         var simb_bs = "Bs. ";
-        var simb_dolar = "US$ ";
-        var simb_pesos = "RD$ ";
-        if (pais == "ve") {
-            var moneda = simb_bs
-        } else {
-            if (pais == "us") {
-                var moneda = simb_dolar
-            } else {
-                if (pais == "do") {
-                    var moneda = simb_pesos
-                }
-            }
-        }
         $("#img-nuevo").attr("src", imagen_nuevo);
         $("#sku-nuevo").html(sku_nuevo);
         $("#titulo-nuevo").html(titulo_nuevo);
-        $("#precio-nuevo").html(moneda + precio_nuevo);
-        if (pais == "ve") {
-            var ptos = 1;
-            var puntos_nuevo = (precio_nuevo * ptos);
-            puntos_nuevo = puntos_nuevo.toFixed(0);
-            $("#puntos-nuevo").html(puntos_nuevo)
-        } else {
-            if (pais == "us") {
-                var ptos = 100;
-                var puntos_nuevo = (precio_nuevo * ptos);
-                puntos_nuevo = puntos_nuevo.toFixed(0);
-                $("#puntos-nuevo").html(puntos_nuevo)
-            } else {
-                if (pais == "do") {
-                    var ptos = 1.5;
-                    var puntos_nuevo = (precio_nuevo * ptos);
-                    puntos_nuevo = puntos_nuevo.toFixed(0);
-                    $("#puntos-nuevo").html(puntos_nuevo)
-                }
-            }
-        }
+        $("#precio-nuevo").html(simb_bs + precio_nuevo);
+
+        var ptos = 1;
+        var puntos_nuevo = (precio_nuevo * ptos);
+        puntos_nuevo = puntos_nuevo.toFixed(0);
+        $("#puntos-nuevo").html(puntos_nuevo)
+
         var ptos_int = parseInt($("#puntos-int-2").text());
         var ptos_nuevo = parseInt(puntos_nuevo);
         var dif = (ptos_nuevo - ptos_int);
@@ -292,7 +307,7 @@ $("#nombre_juego_store").autocomplete({
                     }
                 }
             }
-            $("#dif-nuevo").html(moneda + " " + dif);
+            $("#dif-nuevo").html(simb_bs + " " + dif);
             $(".ptos-favor").css("display", "none")
         } else {
             $("#dif-nuevo").html("0");
@@ -307,7 +322,7 @@ $("#nombre_juego_store").autocomplete({
             $("#img-usado").attr("src", imagen_nuevo);
             $("#sku-usado").html(sku_nuevo);
             $("#titulo-usado").html(titulo_nuevo);
-            $("#precio-usado").html(moneda + precio_usado);
+            $("#precio-usado").html(simb_bs + precio_usado);
             if (pais == "ve") {
                 var ptos = 1;
                 var puntos_usado = (precio_usado * ptos);
@@ -344,10 +359,10 @@ $("#nombre_juego_store").autocomplete({
                         }
                     }
                 }
-                $("#dif-usado").html(moneda + dif);
+                $("#dif-usado").html(simb_bs + dif);
                 $(".ptos-favor-u").css("display", "none")
             } else {
-                $("#dif-usado").html(moneda + "0");
+                $("#dif-usado").html(simb_bs + "0");
                 $(".ptos-favor-u").css("display", "block");
                 $("#fav-usado").html(dif * -1)
             }
@@ -385,7 +400,7 @@ $("#nombre_juego_store").autocomplete({
     } else {
         $(".footer").css("margin-top", "300px")
     }
-    return $("<li>").data("item.autocomplete", item).append("<a style='height:60px'><img width='' height='50' id='img-result5' src='" + item.imagen + "' style='float:left'><span style='font-size:11px; font-family: Rockwell;'>&nbsp;" + item.label + "</span> <br />&nbsp;<span class='puntos-aut'> " + item.price + " Puntos</span></a>").appendTo(ul)
+    return $("<li>").data("item.autocomplete", item).append("<a style='height:60px'><img width='' height='50' id='img-result5' src='" + item.imagen + "' style='float:left'><span style='font-size:11px; font-family: Rockwell;'>&nbsp;" + item.label + "</span> <br />&nbsp;<span class='puntos-aut'> " + item.price + " Bs.</span></a>").appendTo(ul)
 };
 (function($) {
     $.get = function(key) {
@@ -411,9 +426,10 @@ $("#intercambio_select").hide();
 $("#store_select").hide();
 $("#nombre_juego").focus();
 $(".op1").addClass("activo");
-$("html, body").animate({
-    scrollTop: $("#ancla-1").offset().top
-});
+/* error con cambio
+ $("html, body").animate({
+ scrollTop: $("#ancla-1").offset().top
+ });*/
 
 
 function buscador_intercambio() {
@@ -591,32 +607,7 @@ function buscador_intercambio() {
         }
     })
 }
-$("#paso-2-sig").click(function() {
-    var interc = $("#titulo-int").html();
-    if (interc != "") {
-        $("#paso-1").hide();
-        $("#paso-2").show();
-        $(".op1").removeClass("activo");
-        $(".op2").addClass("activo");
-        $("#nombre_juego_store").focus();
-        $("html, body").stop().animate({
-            scrollTop: $("#ancla-1").offset().top
-        }, 1000)
-    }
-});
-$(".op2").click(function() {
-    var store = $("#titulo-int-2").html();
-    if (store != "") {
-        $("#paso-1").hide();
-        $("#paso-2").show();
-        $(".op1").removeClass("activo");
-        $(".op2").addClass("activo");
-        $("#nombre_juego_store").focus();
-        $("html, body").stop().animate({
-            scrollTop: $("#ancla-1").offset().top
-        }, 1000)
-    }
-});
+
 $(".close-int, .op1").click(function() {
     $("#paso-1").show();
     $("#paso-2").hide();
