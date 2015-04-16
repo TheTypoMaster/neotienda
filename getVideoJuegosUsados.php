@@ -42,7 +42,7 @@ while($student=mysql_fetch_array($query)){
         'id'=> $student["id"],
         'sku'=> $student["name"],
         'label'=> $student["name"]/*." - ".$student["id"]*/,
-        'price'=> $student["price"],
+        'price'=> round($student["price"]),
         'imagen'=> 'http://victoriaperez.com/261-home_default/zarcillos.jpg'
     );
 }

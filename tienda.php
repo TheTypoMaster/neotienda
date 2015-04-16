@@ -216,7 +216,13 @@
                 </div>
                 <div class="col span_12 resultado-intercambia" id="resultado-intercambia"></div>
                 <div class="clear"></div>
-                <div class="col span_12 nota-intercambia"><input type="checkbox" name="acepto" id="acepto" value="1" /> <b>Acepto que mis video juegos estan en perfecto estado, caja, manual y disco.</b></div>
+                <div class="col span_12 nota-intercambia">
+                    <div class="alert-acept" style="display: none; margin: 0 auto; width: 40%;">
+                        <img style="float: left; width: 8%; margin: 0%;" src="./Los Gamers Comunidad_files/alerta.png">
+                        <h3 style="font-size: 15px; color: #FF0000;">DEBES ACEPTAR LOS TÉRMINOS</h3>
+                    </div>
+                    <input type="checkbox" name="acepto" id="acepto" value="1" /> <b>Acepto que mis video juegos estan en perfecto estado, caja, manual y disco.</b>
+                </div>
             </section>
         </div>
 
