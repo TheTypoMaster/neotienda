@@ -152,7 +152,7 @@ margin-left: 10%; cursor: pointer; }
 .pasosPedido .op3 { z-index: 1; }
 
 /*** CINTAS ***/
-.box_2 { position: relative; background: #FFFFFF; overflow: hidden; left: 46px; top: 45px; width: 120px; }
+.box_2 { position: relative; background: #FFFFFF; overflow: hidden; left: 46px; /*top: 45px;*/ width: 120px; }
 .corner{ background-color: #ff0000;	overflow: hidden; position: absolute; left: -213px;	top: 47px;
 -moz-transform: rotate(-48deg);	-webkit-transform: rotate(-49deg); transform: rotate(-49deg); }
 .corner.usado{ background-color: #000000; }
@@ -183,7 +183,8 @@ font-size: 14px; font-family: Rockwell; letter-spacing: 1.3px; }
 line-height: 30px; }
 
 .info{ background: #ffffff; border: 1px solid #ccc; margin-top: 30px; width: 90%; }
-.info p{ font-weight: bold; }
+.info-f2{ background: #ffffff; border: 1px solid #ccc; width: 90%; }
+.info p, .info-f2 p{ font-weight: bold; }
 .equiv{	width: 39%;	}
 .equiv-f2{ width: 50%; }
 .equiv p, .equiv-f2 p{ font-family: Arial; margin-top: 0px; font-size: 14px; color: #333333; }
