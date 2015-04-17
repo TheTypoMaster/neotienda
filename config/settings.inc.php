@@ -1,0 +1,19 @@
+<?php
+define('_DB_SERVER_', 'localhost');
+define('_DB_NAME_', 'neoliam_tienda');
+define('_DB_USER_', 'neoliam_tienda');
+define('_DB_PASSWD_', 'HolaNeo123.');
+define('_DB_PREFIX_', 'ps_');
+define('_MYSQL_ENGINE_', 'InnoDB');
+define('_PS_CACHING_SYSTEM_', 'CacheMemcache');
+define('_PS_CACHE_ENABLED_', '0');
+define('_MEDIA_SERVER_1_', '');
+define('_MEDIA_SERVER_2_', '');
+define('_MEDIA_SERVER_3_', '');
+define('_COOKIE_KEY_', 'SKRu0pqrnKMtbcHChonhjjIqWjSBrbzjTEApZRVrp25YGGhqUszRcpZV');
+define('_COOKIE_IV_', '8amnAtaV');
+define('_PS_CREATION_DATE_', '2015-02-10');
+if (!defined('_PS_VERSION_'))
+	define('_PS_VERSION_', '1.6.0.9');
+define('_RIJNDAEL_KEY_', 'n8pYA7F0fWNzpZexZZPE98VakdydhNze');
+define('_RIJNDAEL_IV_', 'H/nzvAmxfm6uOHvf1TZT2A==');
