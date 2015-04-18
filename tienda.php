@@ -106,336 +106,328 @@
     </style>
 </head>
 <body>
-    <div id="mobile-menu" class="mobile-menu">
-        <i class="icon-home icon-menu-mobile"></i>
-    </div>
-    <script>
-        $(document).ready(function() {
-            //TOOLTIPS
-            $('.tooltipster').tooltipster({
-                animation: 'fade',
-                delay: 200,
-                theme: 'tooltipster-red',
-                touchDevices: true,
-                trigger: 'hover',
-                maxWidth: 240,
-                position: 'bottom'
-            });
-
-            //VIDEO PRUEBALO
-            if (screen.width <= 360) {
-                $(".video-pruebalo-princ").fancybox({
-                    fitToView	: false,
-                    width		: '90%',
-                    height		: '200',
-                    autoSize	: false,
-                    closeClick	: false,
-                    openEffect	: 'elastic',
-                    closeEffect	: 'elastic'
-                });
-            }else if (screen.width <= 640){
-                $(".video-pruebalo-princ").fancybox({
-                    fitToView	: false,
-                    width		: '400',
-                    height		: '300',
-                    autoSize	: false,
-                    closeClick	: false,
-                    openEffect	: 'elastic',
-                    closeEffect	: 'elastic'
-                });
-            }else{
-                $(".video-pruebalo-princ").fancybox({
-                    fitToView	: false,
-                    width		: '600',
-                    height		: '400',
-                    autoSize	: false,
-                    closeClick	: false,
-                    openEffect	: 'elastic',
-                    closeEffect	: 'elastic'
-                });
-            }
+<div id="mobile-menu" class="mobile-menu">
+    <i class="icon-home icon-menu-mobile"></i>
+</div>
+<script>
+    $(document).ready(function() {
+        //TOOLTIPS
+        $('.tooltipster').tooltipster({
+            animation: 'fade',
+            delay: 200,
+            theme: 'tooltipster-red',
+            touchDevices: true,
+            trigger: 'hover',
+            maxWidth: 240,
+            position: 'bottom'
         });
-    </script>
-    <div id="main" class="main-content">
-        <link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/intercambio_usados.css">
-        <!-- <link rel="stylesheet" type="text/css" href="/themes/default/css/jquery.ui.css"/> -->
 
-        <!-- PASO 1 -->
-        <div class="section-int banners" id="paso-1">
-            <div id="jquery-loader" class="blue-with-image-2 loader1" style="display: none;"></div>
+        //VIDEO PRUEBALO
+        if (screen.width <= 360) {
+            $(".video-pruebalo-princ").fancybox({
+                fitToView	: false,
+                width		: '90%',
+                height		: '200',
+                autoSize	: false,
+                closeClick	: false,
+                openEffect	: 'elastic',
+                closeEffect	: 'elastic'
+            });
+        }else if (screen.width <= 640){
+            $(".video-pruebalo-princ").fancybox({
+                fitToView	: false,
+                width		: '400',
+                height		: '300',
+                autoSize	: false,
+                closeClick	: false,
+                openEffect	: 'elastic',
+                closeEffect	: 'elastic'
+            });
+        }else{
+            $(".video-pruebalo-princ").fancybox({
+                fitToView	: false,
+                width		: '600',
+                height		: '400',
+                autoSize	: false,
+                closeClick	: false,
+                openEffect	: 'elastic',
+                closeEffect	: 'elastic'
+            });
+        }
+    });
+</script>
+<div id="main" class="main-content">
+<link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/intercambio_usados.css">
+<!-- <link rel="stylesheet" type="text/css" href="/themes/default/css/jquery.ui.css"/> -->
 
-            <section id="banners" class="section banners row span_12">
-                <div class="col span_12 mb">
-                    <div class="col span_8">
-                        <h2>INTERCAMBIO DE USADOS</h2>
-                        <ul class="pasosPedido">
-                            <li class="arrow_box op1 activo" style="height: 40px; width: 120px">PASO 1 </li>
-                            <li class="arrow_box op2" style="height: 40px; width: 120px">PASO 2 </li>
-                            <li class="arrow_box op3" style="height: 40px; width: 120px">PASO 3 </li>
-                        </ul>
-                        <p class="subt">Encuentra el juego que quieres intercambiar.</p>
-                    </div>
-                </div>
+<!-- PASO 1 -->
+<div class="section-int banners" id="paso-1">
+    <div id="jquery-loader" class="blue-with-image-2 loader1" style="display: none;"></div>
 
-                <!-- BUSCADOR -->
-                <div class="col span_12">
-                    <div class="col span_2" id="margin-busc-1">&nbsp;</div>
-                    <div class="col span_8">
-                        <div class="input-group">
+    <section id="banners" class="section banners row span_12">
+        <div class="col span_12 mb">
+            <div class="col span_8">
+                <h2>INTERCAMBIO DE USADOS</h2>
+                <ul class="pasosPedido">
+                    <li class="arrow_box op1 activo" style="height: 40px; width: 120px">PASO 1 </li>
+                    <li class="arrow_box op2" style="height: 40px; width: 120px">PASO 2 </li>
+                    <li class="arrow_box op3" style="height: 40px; width: 120px">PASO 3 </li>
+                </ul>
+                <p class="subt">Encuentra el juego que quieres intercambiar.</p>
+            </div>
+        </div>
+
+        <!-- BUSCADOR -->
+        <div class="col span_12">
+            <div class="col span_2" id="margin-busc-1">&nbsp;</div>
+            <div class="col span_8">
+                <div class="input-group">
                             <span class="input-group-busc">
                                 <select name="plataformas-int" class="col span_2" id="plataformas-int"></select>
                                 <input type="text" class="col span_9 buscador-alquiler ui-autocomplete-input ui-corner-all" placeholder="Nombre del juego" value="" id="nombre_juego" name="nombre_juego" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
                                 <button tabindex="-1" id="buscar-int" class="btn-alq btn-default col span_1" type="button"><img class="lupa-int" src="./Los Gamers Comunidad_files/lupa.png"></button>
                             </span>
-                        </div>
-                    </div>
-                    <div class="col span_2" id="margin-busc-3">&nbsp;</div>
                 </div>
-                <!-- FIN BUSCADOR -->
+            </div>
+            <div class="col span_2" id="margin-busc-3">&nbsp;</div>
+        </div>
+        <!-- FIN BUSCADOR -->
 
+        <div class="col span_12">
+            <div class="col span_3">&nbsp;</div>
+            <div class="col span_6" id="display"></div>
+            <div class="col span_3"></div>
+        </div>
+
+        <input type="hidden" id="cont_item" value="0" />
+        <div class="col span_12">
+            <div class="col span_1">&nbsp;</div>
+            <div class="col span_10" id="intercambio_select" style="display: none;">
                 <div class="col span_12">
-                    <div class="col span_3">&nbsp;</div>
-                    <div class="col span_6" id="display"></div>
-                    <div class="col span_3"></div>
+                    <p>*El monto que te acreditamos por tus juegos usados está sujeto a variaciones.
+                        <br>*Te garantizamos los puntos que esperas recibir sólo si la consulta y el envío son el mismo día.</p>
+                    <div class="col span_4" style="float: right"><div class="button-sig"><button id="paso-2-sig" class="paso-sig">SIGUIENTE PASO</button></div></div>
                 </div>
+            </div>
+            <div class="col span_1">&nbsp;</div>
+        </div>
+        <div class="col span_12 nota-intercambia" id="nota-intercambia">
+            Si no encuentras tu video juego haznolo saber enviando un correo a <a href="mailto:gcabrera@neotienda.com">gcabrera@neotienda.com</a>.
+        </div>
+        <div class="col span_12 resultado-intercambia" id="resultado-intercambia"></div>
+        <div class="clear"></div>
+        <div class="col span_12 nota-intercambia">
+            <div class="alert-acept" style="display: none; margin: 0 auto; width: 40%;">
+                <img style="float: left; width: 8%; margin: 0%;" src="./Los Gamers Comunidad_files/alerta.png">
+                <h3 style="font-size: 15px; color: #FF0000;">DEBES ACEPTAR LOS TÉRMINOS</h3>
+            </div>
+            <input type="checkbox" name="acepto" id="acepto" value="1" /> <b>Acepto que mis video juegos estan en perfecto estado, caja, manual y disco.</b>
+        </div>
+    </section>
+</div>
 
-                <input type="hidden" id="cont_item" value="0" />
-                <div class="col span_12">
+<!-- PASO 2 -->
+<div class="section-int banners" id="paso-2" style="display: none;">
+    <div id="jquery-loader2" class="blue-with-image-2 loader2" style="display: none;"></div>
+    <section id="news" class="section news row">
+        <div class="col span_12" style="margin-bottom: 30px;">
+            <div class="col span_8">
+                <h2 style="color: #000000">ESCOGE EL JUEGO QUE QUIERES COMPRAR</h2>
+                <ul class="pasosPedido">
+                    <li class="arrow_box op1 activo" style="height: 40px; width: 120px">PASO 1 </li>
+                    <li class="arrow_box op2" style="height: 40px; width: 120px">PASO 2 </li>
+                    <li class="arrow_box op3" style="height: 40px; width: 120px">PASO 3 </li>
+                </ul>
+                <p class="subt">Confirma el juego que seleccionaste y busca el juego que quieres obtener a cambio.</p>
+            </div>
+        </div>
+
+        <div class="col span_3 gam_select">
+            <h3 class="small" style="margin: 10px;">TUS JUEGO:</h3>
+            <div class="col span_12" id="juego_select">
+                <div class="bloque-int-2">
+                    <div class="col span_12 det-int">
+                        <div id="res_item"></div>
+                        <div class="res_total">Total: <span id="res_item_total">0</span> Bs.</div>
+                        <div class="col span_12" style="text-align: left; padding-left: 10px;">
+                            <button class="close-int">CAMBIAR</button>
+                            <img src="./Los Gamers Comunidad_files/editar-int.png" class="img-edit">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col span_1">&nbsp;</div>
+        <div class="col span_8 sec_buscador">
+            <p style="font-weight: bold; font-size: 14px; margin: 0px; margin-bottom: 18px;">Y QUIERES COMPRAR...</p>
+            <div class="col span_2 busc-dos">
+                <select id="plataformas-store" class="col span_12 plataformas-st" name="plataformas-2"></select>
+            </div>
+
+            <div class="col span_9 cbuscar">
+                <input type="text" name="nombre_juego_store" id="nombre_juego_store" value="" placeholder="Busca el juego que quieres comprar..." class="col span_12 ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+            </div>
+            <button class="btn-alq btn-default" style="padding: 8px 12px 3px 12px" id="buscar-store"><img src="./Los Gamers Comunidad_files/lupa.png" class="lupa-int"></button>
+			
+			<input type="hidden" id="cont_item" value="0" />
+            <div class="col span_12">
+                <div class="col span_12" id="store_select" style="margin-top: 30px; display: none;">
+                    <div id="intercambio_fase2" class="bloque-store" style="margin-bottom: 0px;">
+                        <div class="col span_6 nuevo bloque-nu juego-select" id="nuevo">
+                            <i class="close-store">X</i>
+                            <div class="col span_12 juego-nuevo" style="padding-left: 10px">
+                                <h2>Detalle del cambio:</h2>
+                                <p class="detalle" style="font-size: 14px ! important; font-weight: bold; color: #000000; margin-top: 10px ! important;">
+                                    Precio total: <span id="precio-nuevo"></span>
+                                </p>
+                                <p class="detalle" style="font-size: 14px ! important; font-weight: bold; color: #000000; margin-top: 10px ! important;">
+                                    Diferencia a pagar: <br><span id="dif-nuevo"></span><span style="font-size: 14px"></span>
+                                </p>
+                            </div>
+                            <div class="col span_12" style="text-align:center; margin-top: 12px;"><a href="javascript:void(0)" class="btn btn-primary intercambiar-nuevo">INTERCAMBIAR</a></div>
+                        </div>
+                        <!--
+                        <div class="col span_6 usado bloque-nu juego-select" id="usado">
+                            <i class="close-store">X</i>
+                            <div class="col span_4 titulos-res">
+                                <div class="box_2">
+                                    <div class="corner usado">
+                                        <span href="#" class="usado">USADO</span>
+                                    </div>
+                                    <img id="img-usado" class="img-usado" src="">
+                                </div>
+                                <div class="disp-no">NO DISPONIBLE</div>
+                            </div>
+                            <div class="col span_8 juego-usado" style="padding-left: 10px">
+                                <span id="sku-usado"> </span>
+                                <p id="titulo-usado"></p>
+                                <br>
+                                <p class="detalle">Precio original: <span id="precio-usado"></span></p>
+                                <p class="detalle">Valor en puntos: <span id="puntos-usado"></span></p>
+                                <p class="detalle" style="font-size: 14px ! important; font-weight: bold; color: #000000; margin-top: 10px ! important;">Diferencia a pagar: <br><span id="dif-usado"></span></p>
+                                <p class="ptos-favor-u">Puntos a favor: <span id="fav-usado"></span></p>
+                            </div>
+
+                            <div class="col span_12" style="text-align:center; margin-top: 12px;">
+                                <div class="ref">PRECIO REFERENCIAL</div><a href="javascript:void(0)" class="btn btn-primary intercambiar-usado" style="display: none;">INTERCAMBIAR</a>
+                            </div>
+                        </div>
+
+                        <div class="col span_12" style="clear: both; float: right; margin: 10px 0px 5px 0px; text-align: center;">
+                            <button class="close_store">CAMBIAR</button>
+                            <img src="/themes/default/img/editar-int.png" class="img-edit-store"/>
+                        </div>
+                        -->
+                    </div>
+                    <div class="alert-term" style="display: none; margin-top: 2%;">
+                        <img style="float: left; width: 3%; margin-right: 1%;" src="./Los Gamers Comunidad_files/alerta.png">
+                        <h3 style="font-size: 15px; color: #FF0000;">DEBES ACEPTAR LOS TÉRMINOS Y CONDICIONES</h3>
+                    </div>
+                    <div class="check-term"><input type="checkbox" class="termycond" name="aceptar-termycond" value="">He leído y acepto los <a href="http://www.losgamers.com/intercambia/terminosycondiciones">Términos y Condiciones</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="col span_8" id="resultado-store"></div>
+    </section>
+</div>
+
+<!-- PASO 3 -->
+<div class="section-int banners" id="paso-3" style="display: none;">
+    <section id="banners" class="section banners row span_12">
+        <div class="contenedor">
+            <div class="col span_12" style="margin-bottom: 30px;">
+                <div class="col span_6">
+                    <h2>INTERCAMBIO FINALIZADO</h2>
+                    <ul class="pasosPedido">
+                        <li class="arrow_box op1 activo" style="height: 40px; width: 120px">PASO 1 </li>
+                        <li class="arrow_box op2" style="height: 40px; width: 120px">PASO 2 </li>
+                        <li class="arrow_box op3" style="height: 40px; width: 120px">PASO 3 </li>
+                    </ul>
+                </div>
+                <div class="col span_6"></div>
+            </div>
+            <br><br>
+
+            <h1 class="enc">!Bien Hecho! <span id="usuario-ped"></span></h1>
+            <h3>
+                <b style="font-size: 14px; color: #000000;">Tienes una operación de intercambio <span style="color:green">ACTIVA</span></b> <span id="pedido"></span>
+            </h3>
+            <br>
+
+            <div class="col span_12">
+                <div class="col span_3">&nbsp;</div>
+                <div class="col span_6 inf">
+                    <img src="" width="90" height="" align="left" id="imagen-ped">
+                    <p id="titulo-ped"></p>
+                    <p><span id="puntos-ped"></span> Puntos</p>
+                    <p>Equivalente a: <span id="equiv-ped"></span></p>
+                </div>
+                <div class="col span_3">&nbsp;</div>
+            </div>
+            <br><br><br>
+
+            <div class="col span_12"><h2 style="text-align: left; font-weight: bold;">PASOS A SEGUIR</h2></div>
+            <div class="col span_12">
+                <div class="col span_12 infografia">
                     <div class="col span_1">&nbsp;</div>
-                    <div class="col span_10" id="intercambio_select" style="display: none;">
-                        <div class="col span_12">
-                            <p>*El monto que te acreditamos por tus juegos usados está sujeto a variaciones.
-                                <br>*Te garantizamos los puntos que esperas recibir sólo si la consulta y el envío son el mismo día.</p>
-                            <div class="col span_4" style="float: right"><div class="button-sig"><button id="paso-2-sig" class="paso-sig">SIGUIENTE PASO</button></div></div>
-                        </div>
+                    <div class="col span_3">
+                        1) Envía tu juego por<br>
+                        <b>ZOOM BRM 1436</b> o entrégalo<br>
+                        en una de nuestras tiendas<br>
+                        autorizadas<br><br>
+                        <a href="http://ve.losgamers.com/store/tiendas-autorizadas.html" target="_blank"><img src="./Los Gamers Comunidad_files/tienda-autorizada.png" width="160" id="tienda-autorizada"></a>
                     </div>
-                    <div class="col span_1">&nbsp;</div>
-                </div>
-                <div class="col span_12 nota-intercambia" id="nota-intercambia">
-                    Si no encuentras tu video juego haznolo saber enviando un correo a <a href="mailto:gcabrera@neotienda.com">gcabrera@neotienda.com</a>.
-                </div>
-                <div class="col span_12 resultado-intercambia" id="resultado-intercambia"></div>
-                <div class="clear"></div>
-                <div class="col span_12 nota-intercambia">
-                    <div class="alert-acept" style="display: none; margin: 0 auto; width: 40%;">
-                        <img style="float: left; width: 8%; margin: 0%;" src="./Los Gamers Comunidad_files/alerta.png">
-                        <h3 style="font-size: 15px; color: #FF0000;">DEBES ACEPTAR LOS TÉRMINOS</h3>
+                    <div class="col span_4">
+                        2) Reporta tu envío<br>
+                        <b>enviándonos el código</b> de<br>
+                        confirmación a:<br>
+                        <img src="./Los Gamers Comunidad_files/icon-email.png" id="icon-email">
                     </div>
-                    <input type="checkbox" name="acepto" id="acepto" value="1" /> <b>Acepto que mis video juegos estan en perfecto estado, caja, manual y disco.</b>
+                    <div class="col span_3">
+                        3) Al confirmar tu juego te<br>
+                        acreditamos tus puntos y puedes<br>
+                        <b>usarlos en nuestra tienda.</b><br>
+                        <img src="./Los Gamers Comunidad_files/puntos-cover.png" id="puntos-cover">
+                    </div>
+                    <p style="text-align: left; display: inline-block;">
+                        Queremos brindarte el mejor servicio y siempre ser transparentes contigo, para que juntos hagamos crecer esta comunidad. Por eso queremos recordarte que <b>los precios de los títulos en LosGamers.com estarán sujetos a variaciones imprevistas</b> que dependen de varios factores entre esos la disponibilidad de existencia.
+                    </p>
                 </div>
-            </section>
+                <div class="col span_12" style="font-size: 14px; font-weight: bold; margin-top: 25px;">Te enviaremos un correo con el detalle de la transacción</div>
+            </div>
+            <div class="col span_12">
+                <div style="margin: 30px 0 20px 0">
+                    <button id="finalizar-int">FINALIZAR</button>
+                </div>
+                <div id="status">procesando</div>
+            </div>
+            <br><br>
         </div>
+    </section>
+</div>
+<script type="text/javascript" src="./Los Gamers Comunidad_files/calculadora.js"></script>
+</div>
+<ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" role="listbox" aria-activedescendant="ui-active-menuitem" style="z-index: 1; top: 0px; left: 0px; display: none;"></ul>
+<ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" role="listbox" aria-activedescendant="ui-active-menuitem" style="z-index: 1; top: 0px; left: 0px; display: none;"></ul>
 
-        <!-- PASO 2 -->
-        <div class="section-int banners" id="paso-2" style="display: none;">
-            <div id="jquery-loader2" class="blue-with-image-2 loader2" style="display: none;"></div>
-            <section id="news" class="section news row">
-                <div class="col span_12" style="margin-bottom: 30px;">
-                    <div class="col span_8">
-                        <h2 style="color: #000000">ESCOGE EL JUEGO QUE QUIERES COMPRAR</h2>
-                        <ul class="pasosPedido">
-                            <li class="arrow_box op1 activo" style="height: 40px; width: 120px">PASO 1 </li>
-                            <li class="arrow_box op2" style="height: 40px; width: 120px">PASO 2 </li>
-                            <li class="arrow_box op3" style="height: 40px; width: 120px">PASO 3 </li>
-                        </ul>
-                        <p class="subt">Confirma el juego que seleccionaste y busca el juego que quieres obtener a cambio.</p>
-                    </div>
-                </div>
+<script type="text/javascript">
+    Redimensionar('footer-head','.');
 
-                <div class="col span_3 gam_select">
-                    <h3 class="small" style="margin: 10px;">TUS JUEGO:</h3>
-                    <div class="col span_12" id="juego_select">
-                        <div class="bloque-int-2">
-                            <div class="col span_12 det-int">
-                                <div id="res_item"></div>
-                                <div class="res_total">Total: <span id="res_item_total">0</span> Bs.</div>
-                                <div class="col span_12" style="text-align: left; padding-left: 10px;">
-                                    <button class="close-int">CAMBIAR</button>
-                                    <img src="./Los Gamers Comunidad_files/editar-int.png" class="img-edit">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    function Redimensionar(caja, idclase){
+        var heightBlockMax=0;
+        $(''+idclase+''+caja+'').each(function (){
+            var alto = $(this).height();
+            if( alto > heightBlockMax ){
+                heightBlockMax = alto;
+            }
+        });
+        $(''+idclase+''+caja+'').height(heightBlockMax);
+    }
+</script>
+<script type="text/javascript" src="./Los Gamers Comunidad_files/explorar.js"></script>
+<script type="text/javascript" src="./Los Gamers Comunidad_files/conversion.js"></script>
 
-                <div class="col span_1">&nbsp;</div>
-                <div class="col span_8 sec_buscador">
-                    <p style="font-weight: bold; font-size: 14px; margin: 0px; margin-bottom: 18px;">Y QUIERES COMPRAR...</p>
-                    <div class="col span_2 busc-dos">
-                        <select id="plataformas-store" class="col span_12 plataformas-st" name="plataformas-2"></select>
-                    </div>
-
-                    <div class="col span_9 cbuscar">
-                        <input type="text" name="nombre_juego_store" id="nombre_juego_store" value="" placeholder="Busca el juego que quieres comprar..." class="col span_12 ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
-                    </div>
-                    <button class="btn-alq btn-default" style="padding: 8px 12px 3px 12px" id="buscar-store"><img src="./Los Gamers Comunidad_files/lupa.png" class="lupa-int"></button>
-
-                    <div class="col span_12">
-                        <div class="col span_12" id="store_select" style="margin-top: 30px; display: none;">
-                            <div class="bloque-store" style="margin-bottom: 0px;">
-                                <div class="col span_6 nuevo bloque-nu juego-select" id="nuevo">
-                                    <i class="close-store">X</i>
-                                    <div class="col span_4 titulos-res">
-                                        <div class="box_2">
-                                            <div class="corner">
-                                                <span href="#">NUEVO</span>
-                                            </div>
-                                            <img id="img-nuevo" class="img-nuevo" src="">
-                                        </div>
-                                        <div class="disp">DISPONIBLE</div>
-                                    </div>
-                                    <div class="col span_8 juego-nuevo" style="padding-left: 10px">
-                                        <span id="sku-nuevo"> </span>
-                                        <p id="titulo-nuevo"></p>
-                                        <br>
-                                        <p class="detalle">Precio original: <span id="precio-nuevo"></span></p>
-                                        <p class="detalle">Valor en puntos: <span id="puntos-nuevo"></span><span style="font-size: 14px"> </span></p>
-                                        <p class="detalle" style="font-size: 14px ! important; font-weight: bold; color: #000000; margin-top: 10px ! important;">Diferencia a pagar: <br><span id="dif-nuevo"></span><span style="font-size: 14px"></span></p>
-                                        <p class="ptos-favor">Puntos a favor: <span id="fav-nuevo"></span><span style="font-size: 14px"></span></p>
-                                    </div>
-                                    <div class="col span_12" style="text-align:center; margin-top: 12px;"><a href="javascript:void(0)" class="btn btn-primary intercambiar-nuevo">INTERCAMBIAR</a></div>
-                                </div>
-
-                                <div class="col span_6 usado bloque-nu juego-select" id="usado">
-                                    <i class="close-store">X</i>
-                                    <div class="col span_4 titulos-res">
-                                        <div class="box_2">
-                                            <div class="corner usado">
-                                                <span href="#" class="usado">USADO</span>
-                                            </div>
-                                            <img id="img-usado" class="img-usado" src="">
-                                        </div>
-                                        <div class="disp-no">NO DISPONIBLE</div>
-                                    </div>
-                                    <div class="col span_8 juego-usado" style="padding-left: 10px">
-                                        <span id="sku-usado"> </span>
-                                        <p id="titulo-usado"></p>
-                                        <br>
-                                        <p class="detalle">Precio original: <span id="precio-usado"></span></p>
-                                        <p class="detalle">Valor en puntos: <span id="puntos-usado"></span></p>
-                                        <p class="detalle" style="font-size: 14px ! important; font-weight: bold; color: #000000; margin-top: 10px ! important;">Diferencia a pagar: <br><span id="dif-usado"></span></p>
-                                        <p class="ptos-favor-u">Puntos a favor: <span id="fav-usado"></span></p>
-                                    </div>
-
-                                    <div class="col span_12" style="text-align:center; margin-top: 12px;">
-                                        <div class="ref">PRECIO REFERENCIAL</div><a href="javascript:void(0)" class="btn btn-primary intercambiar-usado" style="display: none;">INTERCAMBIAR</a>
-                                    </div>
-                                </div>
-                                <!--
-                                <div class="col span_12" style="clear: both; float: right; margin: 10px 0px 5px 0px; text-align: center;">
-                                    <button class="close_store">CAMBIAR</button>
-                                    <img src="/themes/default/img/editar-int.png" class="img-edit-store"/>
-                                </div>
-                                -->
-                            </div>
-                            <div class="alert-term" style="display: none; margin-top: 2%;">
-                                <img style="float: left; width: 3%; margin-right: 1%;" src="./Los Gamers Comunidad_files/alerta.png">
-                                <h3 style="font-size: 15px; color: #FF0000;">DEBES ACEPTAR LOS TÉRMINOS Y CONDICIONES</h3>
-                            </div>
-                            <div class="check-term"><input type="checkbox" class="termycond" name="aceptar-termycond" value="">He leído y acepto los <a href="http://www.losgamers.com/intercambia/terminosycondiciones">Términos y Condiciones</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col span_8" id="resultado-store"></div>
-            </section>
-        </div>
-
-        <!-- PASO 3 -->
-        <div class="section-int banners" id="paso-3" style="display: none;">
-            <section id="banners" class="section banners row span_12">
-                <div class="contenedor">
-                    <div class="col span_12" style="margin-bottom: 30px;">
-                        <div class="col span_6">
-                            <h2>INTERCAMBIO FINALIZADO</h2>
-                            <ul class="pasosPedido">
-                                <li class="arrow_box op1 activo" style="height: 40px; width: 120px">PASO 1 </li>
-                                <li class="arrow_box op2" style="height: 40px; width: 120px">PASO 2 </li>
-                                <li class="arrow_box op3" style="height: 40px; width: 120px">PASO 3 </li>
-                            </ul>
-                        </div>
-                        <div class="col span_6"></div>
-                    </div>
-                    <br><br>
-
-                    <h1 class="enc">!Bien Hecho! <span id="usuario-ped"></span></h1>
-                    <h3>
-                        <b style="font-size: 14px; color: #000000;">Tienes una operación de intercambio <span style="color:green">ACTIVA</span></b> <span id="pedido"></span>
-                    </h3>
-                    <br>
-
-                    <div class="col span_12">
-                        <div class="col span_3">&nbsp;</div>
-                        <div class="col span_6 inf">
-                            <img src="" width="90" height="" align="left" id="imagen-ped">
-                            <p id="titulo-ped"></p>
-                            <p><span id="puntos-ped"></span> Puntos</p>
-                            <p>Equivalente a: <span id="equiv-ped"></span></p>
-                        </div>
-                        <div class="col span_3">&nbsp;</div>
-                    </div>
-                    <br><br><br>
-
-                    <div class="col span_12"><h2 style="text-align: left; font-weight: bold;">PASOS A SEGUIR</h2></div>
-                    <div class="col span_12">
-                        <div class="col span_12 infografia">
-                            <div class="col span_1">&nbsp;</div>
-                            <div class="col span_3">
-                                1) Envía tu juego por<br>
-                                <b>ZOOM BRM 1436</b> o entrégalo<br>
-                                en una de nuestras tiendas<br>
-                                autorizadas<br><br>
-                                <a href="http://ve.losgamers.com/store/tiendas-autorizadas.html" target="_blank"><img src="./Los Gamers Comunidad_files/tienda-autorizada.png" width="160" id="tienda-autorizada"></a>
-                            </div>
-                            <div class="col span_4">
-                                2) Reporta tu envío<br>
-                                <b>enviándonos el código</b> de<br>
-                                confirmación a:<br>
-                                <img src="./Los Gamers Comunidad_files/icon-email.png" id="icon-email">
-                            </div>
-                            <div class="col span_3">
-                                3) Al confirmar tu juego te<br>
-                                acreditamos tus puntos y puedes<br>
-                                <b>usarlos en nuestra tienda.</b><br>
-                                <img src="./Los Gamers Comunidad_files/puntos-cover.png" id="puntos-cover">
-                            </div>
-                            <p style="text-align: left; display: inline-block;">
-                                Queremos brindarte el mejor servicio y siempre ser transparentes contigo, para que juntos hagamos crecer esta comunidad. Por eso queremos recordarte que <b>los precios de los títulos en LosGamers.com estarán sujetos a variaciones imprevistas</b> que dependen de varios factores entre esos la disponibilidad de existencia.
-                            </p>
-                        </div>
-                        <div class="col span_12" style="font-size: 14px; font-weight: bold; margin-top: 25px;">Te enviaremos un correo con el detalle de la transacción</div>
-                    </div>
-                    <div class="col span_12">
-                        <div style="margin: 30px 0 20px 0">
-                            <button id="finalizar-int">FINALIZAR</button>
-                        </div>
-                        <div id="status">procesando</div>
-                    </div>
-                    <br><br>
-                </div>
-            </section>
-        </div>
-        <script type="text/javascript" src="./Los Gamers Comunidad_files/calculadora.js"></script>
-    </div>
-    <ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" role="listbox" aria-activedescendant="ui-active-menuitem" style="z-index: 1; top: 0px; left: 0px; display: none;"></ul>
-    <ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" role="listbox" aria-activedescendant="ui-active-menuitem" style="z-index: 1; top: 0px; left: 0px; display: none;"></ul>
-
-    <script type="text/javascript">
-        Redimensionar('footer-head','.');
-
-        function Redimensionar(caja, idclase){
-            var heightBlockMax=0;
-            $(''+idclase+''+caja+'').each(function (){
-                var alto = $(this).height();
-                if( alto > heightBlockMax ){
-                    heightBlockMax = alto;
-                }
-            });
-            $(''+idclase+''+caja+'').height(heightBlockMax);
-        }
-    </script>
-    <script type="text/javascript" src="./Los Gamers Comunidad_files/explorar.js"></script>
-    <script type="text/javascript" src="./Los Gamers Comunidad_files/conversion.js"></script>
-
-    <!-- Google Code para etiquetas de remarketing -->
+<!-- Google Code para etiquetas de remarketing -->
 </body>
 </html>
