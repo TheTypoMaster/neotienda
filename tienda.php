@@ -221,7 +221,7 @@
                 <img style="float: left; width: 8%; margin: 0%;" src="./Los Gamers Comunidad_files/alerta.png">
                 <h3 style="font-size: 15px; color: #FF0000;">DEBES ACEPTAR LOS TÉRMINOS</h3>
             </div>
-            <input type="checkbox" name="acepto" id="acepto" value="1" /> <b>Acepto que mis video juegos estan en perfecto estado, caja, manual y disco.</b>
+            <input type="checkbox" name="acepto" id="acepto" value="1" /> <b class="nota-int">Acepto que mis video juegos estan en perfecto estado, caja, manual y disco.</b>
         </div>
     </section>
 </div>
@@ -250,7 +250,7 @@
                         <div id="res_item"></div>
                         <div class="res_total">Total: <span id="res_item_total">0</span> Bs.</div>
                         <div class="col span_12" style="text-align: left; padding-left: 10px;">
-                            <button class="close-int">CAMBIAR</button>
+                            <button class="close-int">Editar</button>
                             <img src="./Los Gamers Comunidad_files/editar-int.png" class="img-edit">
                         </div>
                     </div>
@@ -269,8 +269,8 @@
                 <input type="text" name="nombre_juego_store" id="nombre_juego_store" value="" placeholder="Busca el juego que quieres comprar..." class="col span_12 ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
             </div>
             <button class="btn-alq btn-default" style="padding: 8px 12px 3px 12px" id="buscar-store"><img src="./Los Gamers Comunidad_files/lupa.png" class="lupa-int"></button>
-			
-			<input type="hidden" id="cont_item" value="0" />
+
+            <input type="hidden" id="cont_item_inv" value="0" />
             <div class="col span_12">
                 <div class="col span_12" id="store_select" style="margin-top: 30px; display: none;">
                     <div id="intercambio_fase2" class="bloque-store" style="margin-bottom: 0px;">
@@ -279,46 +279,15 @@
                             <div class="col span_12 juego-nuevo" style="padding-left: 10px">
                                 <h2>Detalle del cambio:</h2>
                                 <p class="detalle" style="font-size: 14px ! important; font-weight: bold; color: #000000; margin-top: 10px ! important;">
-                                    Precio total: <span id="precio-nuevo"></span>
+                                    Precio total: Bs. <span id="precio-nuevo"></span>
                                 </p>
                                 <p class="detalle" style="font-size: 14px ! important; font-weight: bold; color: #000000; margin-top: 10px ! important;">
                                     Diferencia a pagar: <br><span id="dif-nuevo"></span><span style="font-size: 14px"></span>
                                 </p>
+                                <p class="ptos-favor">Monto a favor: <span id="fav-nuevo"></span><span style="font-size: 14px"></span></p>
                             </div>
                             <div class="col span_12" style="text-align:center; margin-top: 12px;"><a href="javascript:void(0)" class="btn btn-primary intercambiar-nuevo">INTERCAMBIAR</a></div>
                         </div>
-                        <!--
-                        <div class="col span_6 usado bloque-nu juego-select" id="usado">
-                            <i class="close-store">X</i>
-                            <div class="col span_4 titulos-res">
-                                <div class="box_2">
-                                    <div class="corner usado">
-                                        <span href="#" class="usado">USADO</span>
-                                    </div>
-                                    <img id="img-usado" class="img-usado" src="">
-                                </div>
-                                <div class="disp-no">NO DISPONIBLE</div>
-                            </div>
-                            <div class="col span_8 juego-usado" style="padding-left: 10px">
-                                <span id="sku-usado"> </span>
-                                <p id="titulo-usado"></p>
-                                <br>
-                                <p class="detalle">Precio original: <span id="precio-usado"></span></p>
-                                <p class="detalle">Valor en puntos: <span id="puntos-usado"></span></p>
-                                <p class="detalle" style="font-size: 14px ! important; font-weight: bold; color: #000000; margin-top: 10px ! important;">Diferencia a pagar: <br><span id="dif-usado"></span></p>
-                                <p class="ptos-favor-u">Puntos a favor: <span id="fav-usado"></span></p>
-                            </div>
-
-                            <div class="col span_12" style="text-align:center; margin-top: 12px;">
-                                <div class="ref">PRECIO REFERENCIAL</div><a href="javascript:void(0)" class="btn btn-primary intercambiar-usado" style="display: none;">INTERCAMBIAR</a>
-                            </div>
-                        </div>
-
-                        <div class="col span_12" style="clear: both; float: right; margin: 10px 0px 5px 0px; text-align: center;">
-                            <button class="close_store">CAMBIAR</button>
-                            <img src="/themes/default/img/editar-int.png" class="img-edit-store"/>
-                        </div>
-                        -->
                     </div>
                     <div class="alert-term" style="display: none; margin-top: 2%;">
                         <img style="float: left; width: 3%; margin-right: 1%;" src="./Los Gamers Comunidad_files/alerta.png">
