@@ -6,20 +6,16 @@
  * Time: 09:04 PM
  */
 ?>
-<!DOCTYPE html>
-<!-- saved from url=(0036)http://www.losgamers.com/intercambia -->
-<html class="no-js" lang="es" hola_ext_inject="ready">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <title>Los Gamers Comunidad</title>
-    <meta name="description" content="Comunidad Gamer en Español. Intercambio de juegos, compra de videojuegos con precios al mayor. Por ayudar a la comunidad, te obsequiamos cupones para usar en nuestra tienda. Comunícate GRATIS al +1 (855) LGAMERS (5426377) ">
-    <meta name="keywords" content="gamer, #soygamer, Intercambio, videojuegos, losgamers, losgamers.com, comunidad gamer, juegos, comprar videojuegos, juegos de xbox, video juegos, juegos de wii, xbox, playstation 3, juegos de ps3, xbox 360 slim , juegos para ps4, ps3 juegos, juegos de play 3, playstation 4, playstation,  cónsolas">
-    <meta name="robots" content="INDEX,FOLLOW">
-    <meta name="viewport" content="width=device-width">
 
-    <link rel="icon" type="image/x-icon" href="http://www.losgamers.com/themes/default/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/normalize.min.css">
+<?php
+session_start();
+global $smarty;
+require(dirname(__FILE__).'/config/config.inc.php');
+include_once( 'header.php' );
+
+?>
+
+    <!--<link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/normalize.min.css">-->
     <link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/index-menu.css">
     <link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/home.css">
     <!-- Fancybox CSS files -->
@@ -30,12 +26,12 @@
 
     <!--<script async="" charset="utf-8" src="./Los Gamers Comunidad_files/saved_resource" type="text/javascript"></script>-->
     <script type="text/javascript" src="./Los Gamers Comunidad_files/jquery.1.7.1.js"></script>
-    <style type="text/css"></style><script type="text/javascript" src="./Los Gamers Comunidad_files/jquery.ui.1.8.16.js"></script>
+    <script type="text/javascript" src="./Los Gamers Comunidad_files/jquery.ui.1.8.16.js"></script>
     <script type="text/javascript">
         var path = '/';
         var pais = 've';
     </script>
-    <script type="text/javascript" src="./Los Gamers Comunidad_files/main.js"></script>
+    <!--<script type="text/javascript" src="./Los Gamers Comunidad_files/main.js"></script>-->
     <script type="text/javascript" src="./Los Gamers Comunidad_files/respond.min.js"></script>
     <script type="text/javascript" src="./Los Gamers Comunidad_files/linker.js"></script>
     <script type="text/javascript" src="./Los Gamers Comunidad_files/select_pais.js"></script>
@@ -50,7 +46,7 @@
     <style>
         .header-min{
             width: 100%;
-            /* background-image: url('../img/header-bg-0.png'); */
+            *//* background-image: url('../img/header-bg-0.png'); *//*
             background-position: center top;
             background-size: cover 100%;
             background-repeat: no-repeat;
@@ -104,8 +100,7 @@
             text-decoration: none !important;
         }
     </style>
-</head>
-<body>
+
 <div id="mobile-menu" class="mobile-menu">
     <i class="icon-home icon-menu-mobile"></i>
 </div>
@@ -397,6 +392,6 @@
 <script type="text/javascript" src="./Los Gamers Comunidad_files/explorar.js"></script>
 <script type="text/javascript" src="./Los Gamers Comunidad_files/conversion.js"></script>
 
-<!-- Google Code para etiquetas de remarketing -->
-</body>
-</html>
+<?php
+include_once( 'footer.php' );
+?>
