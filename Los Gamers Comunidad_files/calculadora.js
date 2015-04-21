@@ -918,17 +918,15 @@ function realizar_pedido_intercambia() {
     var calc = "";
     var sku_st = $("#sku-nuevo").text();
     var id_usuario = getCookie("login");
-    if (pais == "ve") {
-        var moneda = "VEF"
-    } else {
-        if (pais == "us") {
-            var moneda = "USD"
-        } else {
-            if (pais == "do") {
-                var moneda = "RD$"
-            }
-        }
-    }
+
+    $("#paso-2").hide();
+    $(".op2").removeClass("activo");
+    $(".op3").addClass("activo");
+    $("#store_select").hide();
+    $("#paso-3").show();
+    $(".op1, .op2, .op3").css("pointer-events", "none")
+
+    /*var moneda = "VEF";
     var tipo = "Intercambio";
     var status = "P";
     var imagen = $("#img-int-2").attr("src");
@@ -955,7 +953,7 @@ function realizar_pedido_intercambia() {
                 sku_st: sku_st,
                 calc: calc
             },
-            url: "http://www.losgamers.com/intercambia/setPedidos",
+            url: "setPedidos.php",
             async: true,
             cache: false,
             beforeSend: function() {
@@ -974,26 +972,7 @@ function realizar_pedido_intercambia() {
                     $("#puntos-ped").html(precio);
                     $("#status").html("exitoso");
                     var simb_bs = "Bs. ";
-                    var simb_dolar = "US$ ";
-                    var simb_pesos = "RD$ ";
-                    if (pais == "ve") {
-                        var ptos = 1;
-                        var equiv = (precio / ptos);
-                        $("#equiv-ped").html(simb_bs + " " + equiv)
-                    } else {
-                        if (pais == "us") {
-                            var ptos = 100;
-                            var equiv = (precio / ptos);
-                            $("#equiv-ped").html(simb_dolar + " " + equiv)
-                        } else {
-                            if (pais == "do") {
-                                var ptos = 1.5;
-                                var equiv = (precio / ptos);
-                                equiv = equiv.toFixed(0);
-                                $("#equiv-ped").html(simb_pesos + " " + equiv)
-                            }
-                        }
-                    }
+                    $("#equiv-ped").html(simb_bs + " " + precio);
                     $("#login-cal-modal, .login-cal-content").hide();
                     $("#paso-2").hide();
                     $(".op2").removeClass("activo");
@@ -1012,7 +991,7 @@ function realizar_pedido_intercambia() {
                 alert("NO")
             }
         })
-    }
+    }*/
 }
 $("#finalizar-int").click(function(event) {
     location.reload()

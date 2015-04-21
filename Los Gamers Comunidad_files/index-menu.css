@@ -30,6 +30,9 @@
 }*/
 /* 	DEFAULT ROW STYLES 
 	Set bottom padding according to preference */
+#header {
+    z-index: 0 !important;
+}
 .row {
   padding-bottom: 0em;
   max-width: 960px;
