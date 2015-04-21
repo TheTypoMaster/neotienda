@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-04-20 13:06:39
+<?php /* Smarty version Smarty-3.1.19, created on 2015-04-19 15:21:36
          compiled from "C:\wamp\www\neotienda\modules\dashtrends\views\templates\hook\dashboard_zone_two.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:723755353927ac69a4-12694804%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:18369553407485c6418-93965578%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0fe85fc3bc67289830f18e4eaab10288ef3bc3f1' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\modules\\dashtrends\\views\\templates\\hook\\dashboard_zone_two.tpl',
-      1 => 1423664775,
+      1 => 1429404143,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '723755353927ac69a4-12694804',
+  'nocache_hash' => '18369553407485c6418-93965578',
   'function' => 
   array (
   ),
@@ -22,9 +22,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_55353927ba92e3_05575301',
+  'unifunc' => 'content_553407486bc5c5_37559839',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_55353927ba92e3_05575301')) {function content_55353927ba92e3_05575301($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_553407486bc5c5_37559839')) {function content_553407486bc5c5_37559839($_smarty_tpl) {?>
 <div class="clearfix"></div>
 <section id="dashtrends" class="panel widget<?php if ($_smarty_tpl->tpl_vars['allow_push']->value) {?> allow_push<?php }?>">
 	<header class="panel-heading">

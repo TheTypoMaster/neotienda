@@ -4,7 +4,7 @@
 	VERSION : 3.0
 	LICENSE : GPL & MIT */
 /* 	SET ALL ELEMENTS TO BOX-SIZING : BORDER-BOX */
-* {
+.main-content * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -15,11 +15,11 @@
 }
 /*	MAIN CONTAINER 
 	Set the width to whatever you want the width of your site to be. */
-.container {
+/*.container {
   margin: 0 auto;
-}
+}*/
 /*	SELF CLEARING FLOATS - CLEARFIX METHOD */
-.container:after,
+/*.container:after,
 .row:after,
 .col:after,
 .clr:after,
@@ -27,7 +27,7 @@
   content: "";
   display: table;
   clear: both;
-}
+}*/
 /* 	DEFAULT ROW STYLES 
 	Set bottom padding according to preference */
 .row {
@@ -35,7 +35,6 @@
   max-width: 960px;
   margin: 0 auto !important;
 }
-.clearfix {width: 1200px !important; max-width: 1200px !important;}
 .noticias_cont {padding-bottom: 50px;}
 /* DEFAULT COLUMN STYLES */
 .col {
@@ -136,7 +135,7 @@ iframe {
 }
 
 /********** ********** ********** ********** ********** HEADER ********** ********** ********** ********** **********/
-	.header { width: 100%; background-position: center top; background-size: cover 100%; background-repeat: no-repeat; background-color: #000; height: 73px; }
+	/*.header { width: 100%; background-position: center top; background-size: cover 100%; background-repeat: no-repeat; background-color: #000; height: 73px; }*/
 	.icon-home, #search_mini_form .form-search input { background-image: url('../img/sprite-v3.png'); background-repeat: no-repeat; display: inline-block; 
 	background-size: 400px 400px; }
 
@@ -284,11 +283,11 @@ iframe {
     background-image: url('../img/sprite-2x-v3.png');
   }
 }
-h1 {
+.main-content h1 {
   font-size: 40px;
   font-family: 'Rockwell';
 }
-h2 {
+.main-content h2 {
   color: #ff1400;
   font-size: 20px;
   font-weight: normal;
@@ -349,7 +348,7 @@ a {
     text-align: center;
   }
 }
-.btn {
+/*.btn {
   padding: 0;
   display: inline-block;
   margin-bottom: 0;
@@ -398,7 +397,7 @@ fieldset[disabled] .btn {
   filter: alpha(opacity=65);
   -webkit-box-shadow: none;
   box-shadow: none;
-}
+}*/
 .btn.small {
   min-width: 0;
   padding: 0 5px 0 5px;
@@ -590,7 +589,7 @@ label.dark {
   margin-top: 4px;
   float: left;
 }
-.logo {
+/*.logo {
   position: absolute;
   background-position: 0 0;
   width: 210px;
@@ -598,7 +597,7 @@ label.dark {
   left: 0;
   margin-top: -31px !important;
   display: block;
-}
+}*/
 .input.input-search {
   float: left;
   margin-left: 220px;
@@ -2602,7 +2601,6 @@ ul.videos li .special-review-layer {
     }
 }
 @media only screen and (min-width: 800px) and (max-width: 800px) {
-    .clearfix {width: 100% !important;}
     .close-video {right: -2px !important;}
     #boxes #dialog {width: 42% !important; top: 34% !important; left: 8% !important;}
     #video_header {width: 330px !important; height: 143px !important;}
@@ -2618,7 +2616,6 @@ ul.videos li .special-review-layer {
     .txt_searg { width: 360px !important; }
 }
 @media only screen and (min-width: 768px) and (max-width: 768px) {
-    .clearfix {width: 100% !important;}
     .close-video {right: -15px !important;}
     #boxes #dialog {width: 42% !important; top: 34% !important; left: 8% !important;}
     #video_header {width: 330px !important; height: 143px !important;}
@@ -2626,13 +2623,11 @@ ul.videos li .special-review-layer {
     .details {margin-left: 70px !important;}
 }
 @media only screen and (min-width: 603px) and (max-width: 603px) {
-    .clearfix {width: 100% !important;}
     .close-video {right: -2px !important;}
     #boxes #dialog {width: 56% !important; left: 20% !important; top: 35% !important;}
     #video_header {width: 330px !important; height: 141px !important;}
     .span_5 {width: 85.66% !important; text-align: center;}
     .details {margin-left: 70px !important;}
-    
     .cart-top-title {margin: 4px 0px 0px 0px !important; float: right !important;}
     .engagement-options {/*margin-left: 0px !important;*/ margin-right: 8px !important;}
     .belt .dd-container {margin-right: -40px;}
@@ -2640,7 +2635,6 @@ ul.videos li .special-review-layer {
     .product-shop-info {margin-top: 635px !important; margin-left: 40px !important;}
 }
 @media only screen and (min-width: 600px) and (max-width: 600px) {
-    .clearfix {width: 100% !important;}
     .close-video {right: -4px !important;}
     #boxes #dialog {width: 56% !important; left: 19% !important; top: 35% !important;}
     #video_header {width: 330px !important; height: 143px !important;}
@@ -2650,7 +2644,6 @@ ul.videos li .special-review-layer {
     .belt .dd-container { margin-right: -46px; }
 }
 @media only screen and (min-width: 533px) and (max-width: 533px) {
-    .clearfix {width: 100% !important;}
     .close-video {right: 1px !important;}
     #boxes #dialog {width: 64% !important; left: 15% !important; top: 35% !important;}
     #video_header {width: 330px !important; height: 143px !important;}
@@ -2658,31 +2651,18 @@ ul.videos li .special-review-layer {
     .details {margin-left: 70px !important;}
 }
 @media only screen and (min-width: 360px) and (max-width: 360px) {
-    .clearfix {width: 100% !important;}
     .header-title {font-size: 36px !important;}
     #search_mini_form {
         margin-left: 0px !important;
         width: 100% !important;
     }
 }
-@media only screen and (min-width: 320px) and (max-width: 320px) {
-    .clearfix {width: 100% !important;}
-}
-@media only screen and (min-width: 240px) and (max-width: 240px) {
-    .clearfix {width: 100% !important;}
-}
-@media only screen and (min-width: 176px) and (max-width: 176px) {
-    .clearfix {width: 100% !important;}
-}
 @media only screen and (min-width: 801px) {
     .video-js {padding-left: 50% !important; padding-right: 50% !important;}
 }
-.menu-tienda {position: relative; z-index: 10000; background: #000; margin-top: 8px;
-              width: 125px; text-align: center; display: none;}
+.menu-tienda {position: relative; z-index: 10000; background: #000; margin-top: 8px; width: 125px; text-align: center; display: none;}
 .menu-tienda ul {display: table;}
-.menu-tienda li {background: none !important; border: none !important; height: 50px !important;
-                 padding: 5px 0 5px 0; height: 25px !important; width: 100%; text-align: left !important;
-                 padding-left: 15px !important;}
+.menu-tienda li {background: none !important; border: none !important; height: 50px !important; padding: 5px 0 5px 0; height: 25px !important; width: 100%; text-align: left !important; padding-left: 15px !important;}
 .menu-tienda li:hover {background: #fff !important; color: #000;}
 .menu-tienda a {border: none !important; color: #fff; font-weight: bold;}
 .menu-tienda a:hover {text-decoration: none !important; color: #000;}

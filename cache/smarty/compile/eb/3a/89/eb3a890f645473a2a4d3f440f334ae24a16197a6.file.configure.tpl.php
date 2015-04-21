@@ -1,23 +1,23 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-04-20 13:12:21
+<?php /* Smarty version Smarty-3.1.19, created on 2015-04-19 15:29:40
          compiled from "C:\wamp\www\neotienda\admin1183\themes\default\template\controllers\modules\configure.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1938255353a7db3dfd3-05488546%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:156885534092c20fbe8-68755694%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'eb3a890f645473a2a4d3f440f334ae24a16197a6' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\admin1183\\themes\\default\\template\\controllers\\modules\\configure.tpl',
-      1 => 1406835656,
+      1 => 1429404027,
       2 => 'file',
     ),
     '9104d497be201f0c8adb6c572a0e2cd99bda90ec' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\admin1183\\themes\\default\\template\\page_header_toolbar.tpl',
-      1 => 1406835656,
+      1 => 1429404028,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1938255353a7db3dfd3-05488546',
+  'nocache_hash' => '156885534092c20fbe8-68755694',
   'function' => 
   array (
   ),
@@ -40,9 +40,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_55353a7e327c87_40784988',
+  'unifunc' => 'content_5534092cd75e17_74410221',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_55353a7e327c87_40784988')) {function content_55353a7e327c87_40784988($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5534092cd75e17_74410221')) {function content_5534092cd75e17_74410221($_smarty_tpl) {?>
 
 
 <?php if (!isset($_smarty_tpl->tpl_vars['title']->value)&&isset($_smarty_tpl->tpl_vars['page_header_toolbar_title']->value)) {?>

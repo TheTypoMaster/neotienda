@@ -6,20 +6,16 @@
  * Time: 09:04 PM
  */
 ?>
-<!DOCTYPE html>
-<!-- saved from url=(0036)http://www.losgamers.com/intercambia -->
-<html class="no-js" lang="es" hola_ext_inject="ready">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <title>Los Gamers Comunidad</title>
-    <meta name="description" content="Comunidad Gamer en Español. Intercambio de juegos, compra de videojuegos con precios al mayor. Por ayudar a la comunidad, te obsequiamos cupones para usar en nuestra tienda. Comunícate GRATIS al +1 (855) LGAMERS (5426377) ">
-    <meta name="keywords" content="gamer, #soygamer, Intercambio, videojuegos, losgamers, losgamers.com, comunidad gamer, juegos, comprar videojuegos, juegos de xbox, video juegos, juegos de wii, xbox, playstation 3, juegos de ps3, xbox 360 slim , juegos para ps4, ps3 juegos, juegos de play 3, playstation 4, playstation,  cónsolas">
-    <meta name="robots" content="INDEX,FOLLOW">
-    <meta name="viewport" content="width=device-width">
 
-    <link rel="icon" type="image/x-icon" href="http://www.losgamers.com/themes/default/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/normalize.min.css">
+<?php
+session_start();
+global $smarty;
+require(dirname(__FILE__).'/config/config.inc.php');
+include_once( 'header.php' );
+
+?>
+
+    <!--<link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/normalize.min.css">-->
     <link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/index-menu.css">
     <link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/home.css">
     <!-- Fancybox CSS files -->
@@ -30,12 +26,12 @@
 
     <!--<script async="" charset="utf-8" src="./Los Gamers Comunidad_files/saved_resource" type="text/javascript"></script>-->
     <script type="text/javascript" src="./Los Gamers Comunidad_files/jquery.1.7.1.js"></script>
-    <style type="text/css"></style><script type="text/javascript" src="./Los Gamers Comunidad_files/jquery.ui.1.8.16.js"></script>
+    <script type="text/javascript" src="./Los Gamers Comunidad_files/jquery.ui.1.8.16.js"></script>
     <script type="text/javascript">
         var path = '/';
         var pais = 've';
     </script>
-    <script type="text/javascript" src="./Los Gamers Comunidad_files/main.js"></script>
+    <!--<script type="text/javascript" src="./Los Gamers Comunidad_files/main.js"></script>-->
     <script type="text/javascript" src="./Los Gamers Comunidad_files/respond.min.js"></script>
     <script type="text/javascript" src="./Los Gamers Comunidad_files/linker.js"></script>
     <script type="text/javascript" src="./Los Gamers Comunidad_files/select_pais.js"></script>
@@ -50,7 +46,7 @@
     <style>
         .header-min{
             width: 100%;
-            /* background-image: url('../img/header-bg-0.png'); */
+            *//* background-image: url('../img/header-bg-0.png'); *//*
             background-position: center top;
             background-size: cover 100%;
             background-repeat: no-repeat;
@@ -104,8 +100,7 @@
             text-decoration: none !important;
         }
     </style>
-</head>
-<body>
+
 <div id="mobile-menu" class="mobile-menu">
     <i class="icon-home icon-menu-mobile"></i>
 </div>
@@ -181,12 +176,12 @@
         <div class="col span_12">
             <div class="col span_2" id="margin-busc-1">&nbsp;</div>
             <div class="col span_8">
-                <div class="input-group">
-                            <span class="input-group-busc">
-                                <select name="plataformas-int" class="col span_2" id="plataformas-int"></select>
-                                <input type="text" class="col span_9 buscador-alquiler ui-autocomplete-input ui-corner-all" placeholder="Nombre del juego" value="" id="nombre_juego" name="nombre_juego" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
-                                <button tabindex="-1" id="buscar-int" class="btn-alq btn-default col span_1" type="button"><img class="lupa-int" src="./Los Gamers Comunidad_files/lupa.png"></button>
-                            </span>
+                <div class="input-group-">
+                    <span class="input-group-busc">
+                        <select name="plataformas-int" class="col span_2" id="plataformas-int"></select>
+                        <input type="text" class="col span_9 buscador-alquiler ui-autocomplete-input ui-corner-all" placeholder="Nombre del juego" value="" id="nombre_juego" name="nombre_juego" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+                        <button tabindex="-1" id="buscar-int" class="btn-alq btn-default col span_1" type="button"><img class="lupa-int" src="./Los Gamers Comunidad_files/lupa.png"></button>
+                    </span>
                 </div>
             </div>
             <div class="col span_2" id="margin-busc-3">&nbsp;</div>
@@ -242,19 +237,35 @@
             </div>
         </div>
 
-        <div class="col span_3 gam_select">
-            <h3 class="small" style="margin: 10px;">TUS JUEGO:</h3>
-            <div class="col span_12" id="juego_select">
-                <div class="bloque-int-2">
-                    <div class="col span_12 det-int">
-                        <div id="res_item"></div>
-                        <div class="res_total">Total: <span id="res_item_total">0</span> Bs.</div>
-                        <div class="col span_12" style="text-align: left; padding-left: 10px;">
-                            <button class="close-int">Editar</button>
-                            <img src="./Los Gamers Comunidad_files/editar-int.png" class="img-edit">
+        <div class="col span_3">
+            <div class="col gam_select">
+                <h3 class="small" style="margin: 10px;">TUS JUEGO:</h3>
+                <div class="col span_12" id="juego_select">
+                    <div class="bloque-int-2">
+                        <div class="col span_12 det-int">
+                            <div id="res_item"></div>
+                            <div class="res_total">Total: <span id="res_item_total">0</span> Bs.</div>
+                            <div class="col span_12" style="text-align: left; padding-left: 10px;">
+                                <button class="close-int">Editar</button>
+                                <img src="./Los Gamers Comunidad_files/editar-int.png" class="img-edit">
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div style="height: 213.399999976158px;clear: both;display: none;" id="nuevo" class="col gam_select">
+                <div style="padding-left: 10px" class="col span_12 juego-nuevo">
+                    <h2>Detalle del cambio:</h2>
+                    <p style="font-size: 14px ! important; font-weight: bold; color: #000000; margin-top: 10px ! important;" class="detalle">
+                        Precio total: Bs. <span id="precio-nuevo">0</span>
+                    </p>
+                    <p style="font-size: 14px ! important; font-weight: bold; color: #000000; margin-top: 10px ! important;" class="detalle">
+                        Diferencia a pagar: <br><span id="dif-nuevo">0</span><span style="font-size: 14px"></span>
+                    </p>
+                    <p style="display: block;" class="ptos-favor">Monto a favor: <span id="fav-nuevo">0</span><span style="font-size: 14px"></span></p>
+                </div>
+                <div style="text-align:center; margin-top: 12px;" class="col span_12"><a class="btn btn-primary intercambiar-nuevo" href="javascript:void(0)">INTERCAMBIAR</a></div>
             </div>
         </div>
 
@@ -268,26 +279,13 @@
             <div class="col span_9 cbuscar">
                 <input type="text" name="nombre_juego_store" id="nombre_juego_store" value="" placeholder="Busca el juego que quieres comprar..." class="col span_12 ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
             </div>
-            <button class="btn-alq btn-default" style="padding: 8px 12px 3px 12px" id="buscar-store"><img src="./Los Gamers Comunidad_files/lupa.png" class="lupa-int"></button>
+            <button class="btn-alq btn-default" style="padding: 8px 12px 8px 12px" id="buscar-store"><img src="./Los Gamers Comunidad_files/lupa.png" class="lupa-int"></button>
 
             <input type="hidden" id="cont_item_inv" value="0" />
             <div class="col span_12">
                 <div class="col span_12" id="store_select" style="margin-top: 30px; display: none;">
                     <div id="intercambio_fase2" class="bloque-store" style="margin-bottom: 0px;">
-                        <div class="col span_6 nuevo bloque-nu juego-select" id="nuevo">
-                            <i class="close-store">X</i>
-                            <div class="col span_12 juego-nuevo" style="padding-left: 10px">
-                                <h2>Detalle del cambio:</h2>
-                                <p class="detalle" style="font-size: 14px ! important; font-weight: bold; color: #000000; margin-top: 10px ! important;">
-                                    Precio total: Bs. <span id="precio-nuevo"></span>
-                                </p>
-                                <p class="detalle" style="font-size: 14px ! important; font-weight: bold; color: #000000; margin-top: 10px ! important;">
-                                    Diferencia a pagar: <br><span id="dif-nuevo"></span><span style="font-size: 14px"></span>
-                                </p>
-                                <p class="ptos-favor">Monto a favor: <span id="fav-nuevo"></span><span style="font-size: 14px"></span></p>
-                            </div>
-                            <div class="col span_12" style="text-align:center; margin-top: 12px;"><a href="javascript:void(0)" class="btn btn-primary intercambiar-nuevo">INTERCAMBIAR</a></div>
-                        </div>
+
                     </div>
                     <div class="alert-term" style="display: none; margin-top: 2%;">
                         <img style="float: left; width: 3%; margin-right: 1%;" src="./Los Gamers Comunidad_files/alerta.png">
@@ -397,6 +395,6 @@
 <script type="text/javascript" src="./Los Gamers Comunidad_files/explorar.js"></script>
 <script type="text/javascript" src="./Los Gamers Comunidad_files/conversion.js"></script>
 
-<!-- Google Code para etiquetas de remarketing -->
-</body>
-</html>
+<?php
+include_once( 'footer.php' );
+?>

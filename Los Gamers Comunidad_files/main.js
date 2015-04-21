@@ -202,12 +202,12 @@ function PickRandomBg() {
 }
 
 function PickBg(i) {
-    $("#header").css("background-image", "url('https://s3.amazonaws.com/comunidad.losgamers/general/header-bg-" + i + ".png')");
+    /*$("#header").css("background-image", "url('https://s3.amazonaws.com/comunidad.losgamers/general/header-bg-" + i + ".png')");
     $("#footer").css("background-image", "url('https://s3.amazonaws.com/comunidad.losgamers/general/footer-bg-" + i + ".png')");
     $("ul.bg-controls li").removeClass("active");
     $("ul.bg-controls li[data-index=" + i + "]").addClass("active");
     $(".header-animation").hide();
     if ($(document).width() >= 768) {
         $(".animation-" + i).show()
-    }
+    }*/
 };

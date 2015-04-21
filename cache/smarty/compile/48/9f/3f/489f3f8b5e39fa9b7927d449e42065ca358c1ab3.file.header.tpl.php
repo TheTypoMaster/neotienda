@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-04-20 13:06:41
+<?php /* Smarty version Smarty-3.1.19, created on 2015-04-19 15:19:25
          compiled from "C:\wamp\www\neotienda\admin1183\themes\default\template\header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:203085535392922bcd9-82001476%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:4407553406c5927908-56382089%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '489f3f8b5e39fa9b7927d449e42065ca358c1ab3' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\admin1183\\themes\\default\\template\\header.tpl',
-      1 => 1406835656,
+      1 => 1429404028,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '203085535392922bcd9-82001476',
+  'nocache_hash' => '4407553406c5927908-56382089',
   'function' => 
   array (
   ),
@@ -60,9 +60,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_553539299d8c17_43226985',
+  'unifunc' => 'content_553406c64e1fa7_91882995',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_553539299d8c17_43226985')) {function content_553539299d8c17_43226985($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_553406c64e1fa7_91882995')) {function content_553406c64e1fa7_91882995($_smarty_tpl) {?>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 lt-ie6 " lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie7" lang="en"> <![endif]-->
@@ -222,7 +222,7 @@ prestashop-avatar.png" alt="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['
 
 				<ul id="header_notifs_icon_wrapper">
 <?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['show_new_orders']->value;?>
-<?php $_tmp1=ob_get_clean();?><?php if ($_tmp1==1) {?>
+<?php $_tmp3=ob_get_clean();?><?php if ($_tmp3==1) {?>
 					<li id="orders_notif" class="dropdown" data-type="order">
 						<a href="javascript:void(0);" class="dropdown-toggle notifs" data-toggle="dropdown">
 							<i class="icon-shopping-cart"></i>
@@ -252,7 +252,7 @@ prestashop-avatar.png" alt="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['
 					</li>
 <?php }?>
 <?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['show_new_customers']->value;?>
-<?php $_tmp2=ob_get_clean();?><?php if ($_tmp2==1) {?>
+<?php $_tmp4=ob_get_clean();?><?php if ($_tmp4==1) {?>
 					<li id="customers_notif" class="dropdown" data-type="customer">
 						<a href="javascript:void(0);" class="dropdown-toggle notifs" data-toggle="dropdown">
 							<i class="icon-user"></i>
@@ -282,7 +282,7 @@ prestashop-avatar.png" alt="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['
 					</li>
 <?php }?>
 <?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['show_new_messages']->value;?>
-<?php $_tmp3=ob_get_clean();?><?php if ($_tmp3==1) {?>
+<?php $_tmp5=ob_get_clean();?><?php if ($_tmp5==1) {?>
 					<li id="customer_messages_notif" class="dropdown" data-type="customer_message">
 						<a href="javascript:void(0);" class="dropdown-toggle notifs" data-toggle="dropdown">
 							<i class="icon-envelope"></i>
@@ -346,7 +346,7 @@ $_smarty_tpl->tpl_vars['quick']->_loop = true;
 						</li>
 					<?php }?>
 <?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
-<?php $_tmp4=ob_get_clean();?><?php if ($_tmp4) {?>
+<?php $_tmp6=ob_get_clean();?><?php if ($_tmp6) {?>
 					<li>
 						<a href="<?php if (isset($_smarty_tpl->tpl_vars['base_url_tc']->value)) {?><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['base_url_tc']->value, ENT_QUOTES, 'UTF-8', true);?>
 <?php } else { ?><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['base_url']->value, ENT_QUOTES, 'UTF-8', true);?>

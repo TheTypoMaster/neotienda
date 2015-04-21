@@ -1,29 +1,29 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-04-20 13:12:18
+<?php /* Smarty version Smarty-3.1.19, created on 2015-04-19 15:39:48
          compiled from "C:\wamp\www\neotienda\modules\blocktopmenu\views\templates\admin\_configure\helpers\form\form.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2737055353a7aacc086-59142094%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:3230755340b8c518418-52459966%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'b993cb4be50540b1585977308566d268150de8c7' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\modules\\blocktopmenu\\views\\templates\\admin\\_configure\\helpers\\form\\form.tpl',
-      1 => 1423664799,
+      1 => 1429404143,
       2 => 'file',
     ),
     'bc38fe65d3110b60134f41aa9dd5f1500003a3d2' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\admin1183\\themes\\default\\template\\helpers\\form\\form.tpl',
-      1 => 1406835656,
+      1 => 1429404028,
       2 => 'file',
     ),
     'dcd2753b306639a1fe8fff85a3d13cae8d8812c0' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\admin1183\\themes\\default\\template\\helpers\\form\\form_group.tpl',
-      1 => 1406835656,
+      1 => 1429404028,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2737055353a7aacc086-59142094',
+  'nocache_hash' => '3230755340b8c518418-52459966',
   'function' => 
   array (
   ),
@@ -79,9 +79,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_55353a7d229a35_78791700',
+  'unifunc' => 'content_55340b8fe54574_19390501',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_55353a7d229a35_78791700')) {function content_55353a7d229a35_78791700($_smarty_tpl) {?><?php if (!is_callable('smarty_function_counter')) include 'C:\\wamp\\www\\neotienda\\tools\\smarty\\plugins\\function.counter.php';
+<?php if ($_valid && !is_callable('content_55340b8fe54574_19390501')) {function content_55340b8fe54574_19390501($_smarty_tpl) {?><?php if (!is_callable('smarty_function_counter')) include 'C:\\wamp\\www\\neotienda\\tools\\smarty\\plugins\\function.counter.php';
 ?>
 <?php if (isset($_smarty_tpl->tpl_vars['fields']->value['title'])) {?><h3><?php echo $_smarty_tpl->tpl_vars['fields']->value['title'];?>
 </h3><?php }?>
@@ -1085,8 +1085,8 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
 									<?php $_smarty_tpl->tpl_vars['groups'] = new Smarty_variable($_smarty_tpl->tpl_vars['input']->value['values'], null, 0);?>
 									<?php /*  Call merged included template "helpers/form/form_group.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
- $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate('helpers/form/form_group.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '2737055353a7aacc086-59142094');
-content_55353a7c64c126_84297175($_smarty_tpl);
+ $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate('helpers/form/form_group.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '3230755340b8c518418-52459966');
+content_55340b8ed88fb4_97414557($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "helpers/form/form_group.tpl" */?>
 								<?php } elseif ($_smarty_tpl->tpl_vars['input']->value['type']=='shop') {?>
@@ -1536,9 +1536,9 @@ function move(up)
 	</script>
 <?php }?>
 <?php }} ?>
-<?php /* Smarty version Smarty-3.1.19, created on 2015-04-20 13:12:20
+<?php /* Smarty version Smarty-3.1.19, created on 2015-04-19 15:39:50
          compiled from "C:\wamp\www\neotienda\admin1183\themes\default\template\helpers\form\form_group.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_55353a7c64c126_84297175')) {function content_55353a7c64c126_84297175($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_55340b8ed88fb4_97414557')) {function content_55340b8ed88fb4_97414557($_smarty_tpl) {?>
 
 <?php if (count($_smarty_tpl->tpl_vars['groups']->value)&&isset($_smarty_tpl->tpl_vars['groups']->value)) {?>
 <div class="row">
