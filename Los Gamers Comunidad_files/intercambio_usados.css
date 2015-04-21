@@ -17,7 +17,7 @@ background-image: url('../img/ajax-loader.gif'); background-position: center cen
 
 /*** TITULOS ***/
 #titulo-int{ font-weight: bold; font-family: Rockwell, Rock; margin-top: 10px; font-size: 20px; }
-.titulo-int{ float: right; padding: 5px; width: 65%; }
+.titulo-int{ float: right; padding: 5px; width: 64%; }
 #titulo-nuevo, #titulo-usado{ color:#000000; font-weight: bold; font-family: Rockwell, Rock; }
 #precio-nuevo, #puntos-nuevo, #fav-nuevo, #precio-usado, #puntos-usado, #fav-usado { font-family: Rockwell, Rock; font-weight: bold; font-size: 15px; }
 #dif-nuevo, #dif-usado { font-family: Rockwell, Rock; font-weight: bold; font-size: 20px; color: #ff0000; }
@@ -48,8 +48,8 @@ background-image: url('../img/ajax-loader.gif'); background-position: center cen
     margin-top: 0px;
     margin-bottom: 0px;
     padding-left: 1%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 11px;
+    padding-bottom: 11px;
     -webkit-border-top-left-radius: 4px;
     -moz-border-radius-topleft: 4px;
     border-top-left-radius: 4px;
@@ -63,18 +63,18 @@ background-image: url('../img/ajax-loader.gif'); background-position: center cen
     margin-top: 0px;
     margin-bottom: 0px;
     padding-top: 11px;
-    padding-bottom: 11px;
+    padding-bottom: 10px;
     padding-left: 1%;
     border: 1px #ccc solid;
     border-left: 0;
 }
 .btn-alq{
     display: inline-block;
-    padding: 8.3px 15px;
+    padding: 8.5px 15px;
     margin-bottom: 0;
     font-size: 14px;
     font-weight: normal;
-    margin-top: -0.5px;
+    margin-top: 0px;
     line-height: 1.56;
     text-align: center;
     white-space: nowrap;
@@ -177,20 +177,19 @@ font-size: 14px; font-family: Rockwell; letter-spacing: 1.3px; }
 
 .det-int{ background: #FFFFFF; padding-left: 5px; padding-bottom: 10px; }
 
-.res_total{ font-size: 24px; }
+.res_total{ font-size: 24px; margin: 10px 0; }
 
-.intercambiar-nuevo, .intercambiar-usado { border-radius: 0px; min-width: 160px; font-family: Rockwell; font-weight: bold; letter-spacing: 1px; height: 30px;
-line-height: 30px; }
+.intercambiar-nuevo, .intercambiar-usado { padding: 0 !important; border-radius: 0px; min-width: 160px; font-family: Rockwell; font-weight: bold; letter-spacing: 1px; height: 30px; line-height: 30px; }
 
 .info{ background: #ffffff; border: 1px solid #ccc; margin-top: 30px; width: 90%; }
 .info-f2{ background: #ffffff; border: 1px solid #ccc; width: 90%; }
 .info p, .info-f2 p{ font-weight: bold; }
-.equiv{	width: 39%;	}
+.equiv{	width: 38%;	}
 .equiv-f2{ width: 50%; }
 .equiv p, .equiv-f2 p{ font-family: Arial; margin-top: 0px; font-size: 14px; color: #333333; }
-.equiv .equiv-int, .equiv-f2 .equiv-int{ font-size: 30px; color: #ffffff; font-family: Rockwell, Rock; padding: 5% 20%; background: #000000; }
+.equiv .equiv-int, .equiv-f2 .equiv-int{ font-size: 30px; color: #ffffff; font-family: Rockwell, Rock; padding: 3% 20%; background: #000000; }
 .usar{ margin-left: 30px;}
-.gam_select{ background: #ffffff; border: 3px solid #ccc; width: 22%; }
+.gam_select{ background: #ffffff; border: 3px solid #ccc; margin-bottom: 5px; /*width: 22%;*/ }
 .button-sig{ float: right; }
 
 .bloque-store > .nuevo{ background: #ffffff; width: 48%; border: 1px solid #ccc; padding: 10px; min-height: 228px; }
@@ -239,7 +238,7 @@ background: #dadadd; font-weight: bold;	color: #66308e;	}
     .equiv{ margin-left: 30%; }
     .equiv .equiv-int{ padding: 4% 20%;	}
 
-    .gam_select{ width: 22%; }
+    .gam_select{ /*width: 22%;*/ }
 
     .bloque-store .titulos-res{ width: 140px; margin-left: 15%; }
     .img-nuevo, .img-usado { width: 140px; height: 140px; }
@@ -287,7 +286,7 @@ background: #dadadd; font-weight: bold;	color: #66308e;	}
     .loader1, .loader2{ left: 30%; }
     .loader2{ top: 160%; }
 
-    .gam_select { width: 56%; }
+    .gam_select { /*width: 56%;*/ }
    .busc-dos{ width: 23%; }
    #plataformas-store{ width: 91%;  }
    .cbuscar{ width: 68%; }

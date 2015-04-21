@@ -140,12 +140,10 @@ $("#nombre_juego").autocomplete({
         }).append(
             $('<img/>', { name: 'img-int-'+id, src: imagen, style: 'border: 1px solid #ccc;', width: '79', height: '', alt: titulo }),
             $('<span/>', { id: 'sku-int-'+id, class: 'sku-int' }).html(sku),
-            $('<div/>', { name: 'titulo-int-'+id, class: 'titulo-int' }).append(
-                titulo,
-                $('<div/>', { class: 'puntos-int titulo-int' }).append(
-                    $('<span/>', { id: 'res_item_precio_'+id, style: 'font-size: 20px;' }).html(precio + ",00"),
-                    simb_bs
-                )
+            $('<div/>', { name: 'titulo-int-'+id, class: 'titulo-int' }).append(titulo),
+            $('<div/>', { class: 'puntos-int' }).append(
+                $('<span/>', { id: 'res_item_precio_'+id, style: 'font-size: 20px;' }).html(precio + ",00"),
+                simb_bs
             )
         ).appendTo('#res_item');
 
@@ -300,6 +298,7 @@ $("#nombre_juego_store").autocomplete({
         precio_total_f2 = Number(precio_total_f2) + Number(precio_nuevo);
 
         $("#precio-nuevo").html(precio_total_f2 + ',00');
+        $("#nuevo").css("display", "block");
 
         $('<div/>', {
             class: 'bloque-int',
@@ -380,6 +379,7 @@ $("#nombre_juego_store").autocomplete({
 
                 if($("#cont_item_inv").val()==0){
                     $("#store_select").hide(500, "linear");
+                    $("#nuevo").css("display", "none");
                     //$("#intercambio_fase2").html("");
                     $("#nombre_juego_store").attr("value","");
                     $("#precio-nuevo").html("0");
