@@ -161,14 +161,14 @@ include_once( 'header.php' );
 
     <section id="banners" class="section banners row span_12">
         <div class="col span_12 mb">
-            <div class="col span_8">
-                <h2>INTERCAMBIO DE USADOS</h2>
+            <div class="col">
+                <h2>INTERCAMBIA TUS VIDEO JUEGOS</h2>
                 <ul class="pasosPedido">
-                    <li class="arrow_box op1 activo" style="height: 40px; width: 120px">PASO 1 </li>
-                    <li class="arrow_box op2" style="height: 40px; width: 120px">PASO 2 </li>
-                    <li class="arrow_box op3" style="height: 40px; width: 120px">PASO 3 </li>
+                    <li class="arrow_box op1 activo" style="height: 40px; width: 32%">TUS VIDEO JUEGOS</li>
+                    <li class="arrow_box op2" style="height: 40px; width: 32%">INTERCAMBIO</li>
+                    <li class="arrow_box op3" style="height: 40px; width: 32%">COMPLETADO</li>
                 </ul>
-                <p class="subt">Encuentra el juego que quieres intercambiar.</p>
+                <p class="subt">Encuentra tus video juegos a intercambiar.</p>
             </div>
         </div>
 
@@ -179,7 +179,7 @@ include_once( 'header.php' );
                 <div class="input-group-">
                     <span class="input-group-busc">
                         <select name="plataformas-int" class="col span_2" id="plataformas-int"></select>
-                        <input type="text" class="col span_9 buscador-alquiler ui-autocomplete-input ui-corner-all" placeholder="Nombre del juego" value="" id="nombre_juego" name="nombre_juego" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+                        <input type="text" class="col span_9 buscador-alquiler ui-autocomplete-input ui-corner-all" placeholder="Agrega tus juegos aquí" value="" id="nombre_juego" name="nombre_juego" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
                         <button tabindex="-1" id="buscar-int" class="btn-alq btn-default col span_1" type="button"><img class="lupa-int" src="./Los Gamers Comunidad_files/lupa.png"></button>
                     </span>
                 </div>
@@ -207,7 +207,7 @@ include_once( 'header.php' );
             <div class="col span_1">&nbsp;</div>
         </div>
         <div class="col span_12 nota-intercambia" id="nota-intercambia">
-            Si no encuentras tu video juego haznolo saber enviando un correo a <a href="mailto:gcabrera@neotienda.com">gcabrera@neotienda.com</a>.
+            Si no encuentras tu video juego haznolo saber enviando un correo a <a href="mailto:gcabrera@neotienda.com"><b>gcabrera@neotienda.com</b></a>.
         </div>
         <div class="col span_12 resultado-intercambia" id="resultado-intercambia"></div>
         <div class="clear"></div>
@@ -226,12 +226,12 @@ include_once( 'header.php' );
     <div id="jquery-loader2" class="blue-with-image-2 loader2" style="display: none;"></div>
     <section id="news" class="section news row">
         <div class="col span_12" style="margin-bottom: 30px;">
-            <div class="col span_8">
+            <div class="col">
                 <h2 style="color: #000000">ESCOGE EL JUEGO QUE QUIERES COMPRAR</h2>
                 <ul class="pasosPedido">
-                    <li class="arrow_box op1 activo" style="height: 40px; width: 120px">PASO 1 </li>
-                    <li class="arrow_box op2" style="height: 40px; width: 120px">PASO 2 </li>
-                    <li class="arrow_box op3" style="height: 40px; width: 120px">PASO 3 </li>
+                    <li class="arrow_box op1 activo" style="height: 40px; width: 32%">TUS VIDEO JUEGOS</li>
+                    <li class="arrow_box op2" style="height: 40px; width: 32%">INTERCAMBIO</li>
+                    <li class="arrow_box op3" style="height: 40px; width: 32%">COMPLETADO</li>
                 </ul>
                 <p class="subt">Confirma el juego que seleccionaste y busca el juego que quieres obtener a cambio.</p>
             </div>
@@ -304,12 +304,12 @@ include_once( 'header.php' );
     <section id="banners" class="section banners row span_12">
         <div class="contenedor">
             <div class="col span_12" style="margin-bottom: 30px;">
-                <div class="col span_6">
+                <div class="col">
                     <h2>INTERCAMBIO FINALIZADO</h2>
                     <ul class="pasosPedido">
-                        <li class="arrow_box op1 activo" style="height: 40px; width: 120px">PASO 1 </li>
-                        <li class="arrow_box op2" style="height: 40px; width: 120px">PASO 2 </li>
-                        <li class="arrow_box op3" style="height: 40px; width: 120px">PASO 3 </li>
+                        <li class="arrow_box op1 activo" style="height: 40px; width: 32%">TUS VIDEO JUEGOS</li>
+                        <li class="arrow_box op2" style="height: 40px; width: 32%">INTERCAMBIO</li>
+                        <li class="arrow_box op3" style="height: 40px; width: 32%">COMPLETADO</li>
                     </ul>
                 </div>
                 <div class="col span_6"></div>

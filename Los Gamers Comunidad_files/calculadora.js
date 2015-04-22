@@ -98,6 +98,7 @@ $("#nombre_juego").autocomplete({
         var imagen = ui.item.imagen;
         var simb_bs = "Bs. ";
         $("#intercambio_select").show();
+        $(".nota-intercambia").show();
 
         precio = ((precio * 1) / 1).toFixed(0);
 
@@ -161,6 +162,8 @@ $("#nombre_juego").autocomplete({
             }
         }
 
+        $("#nombre_juego").val('');
+
         $(".close").click(function() {
             if($("#item_"+this.id).length > 0){
                 $("#item_"+this.id).hide(500, "linear");
@@ -173,6 +176,9 @@ $("#nombre_juego").autocomplete({
                 if($("#cont_item").val()==0){
                     $("#intercambio_select").hide(500, "linear");
                     $("#resultado-intercambia").show(500, "linear");
+                    $(".nota-intercambia").hide(500, "linear");
+                    $("#acepto").attr("checked",false);
+                    $("#nombre_juego").val('');
                     //buscador_intercambio()
                 }
             }
@@ -200,6 +206,16 @@ $("#acepto").click(function() {
                 display: "none"
             })
         }
+    }
+});
+$(".nota-int").click(function(){
+    if ($("#acepto").is(":checked")) {
+        $("#acepto").attr("checked",false);
+    } else {
+        $("#acepto").attr("checked","checked");
+        $(".alert-acept").css({
+            display: "none"
+        })
     }
 });
 $("#paso-2-sig").click(function() {
@@ -398,13 +414,6 @@ $("#nombre_juego_store").autocomplete({
     }
     return $("<li>").data("item.autocomplete", item).append("<a style='height:60px'><img width='' height='50' id='img-result5' src='" + item.imagen + "' style='float:left'><span style='font-size:11px; font-family: Arial, helvetica, sans-serif;'>&nbsp;" + item.label + "</span> <br />&nbsp;<span class='puntos-aut'> " + item.price + " Bs.</span></a>").appendTo(ul)
 };
-$(".nota-int").click(function(){
-    if ($("#acepto").is(":checked")) {
-        $("#acepto").attr("checked",false);
-    } else {
-        $("#acepto").attr("checked","checked");
-    }
-});
 (function($) {
     $.get = function(key) {
         key = key.replace(/[\[]/, "\\[");
@@ -623,10 +632,6 @@ $(".close-int, .op1").click(function() {
      $("#intercambio_select").hide(500, "linear");
      $("#resultado-intercambia").show(500, "linear")
      */
-});
-$(".close-store").click(function() {
-    $("#store_select").hide(500, "linear");
-    $("#resultado-store").show(500, "linear")
 });
 
 function buscador_store() {
