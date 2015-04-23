@@ -172,6 +172,10 @@ include_once( 'header.php' );
             </div>
         </div>
 
+        <div class="col span_12 nota">
+            Si no encuentras tu video juego haznolo saber enviando un correo a <a href="mailto:gcabrera@neotienda.com"><b>gcabrera@neotienda.com</b></a>.<br>
+        </div>
+
         <!-- BUSCADOR -->
         <div class="col span_12">
             <div class="col span_2" id="margin-busc-1">&nbsp;</div>
@@ -205,9 +209,6 @@ include_once( 'header.php' );
                 </div>
             </div>
             <div class="col span_1">&nbsp;</div>
-        </div>
-        <div class="col span_12 nota-intercambia" id="nota-intercambia">
-            Si no encuentras tu video juego haznolo saber enviando un correo a <a href="mailto:gcabrera@neotienda.com"><b>gcabrera@neotienda.com</b></a>.
         </div>
         <div class="col span_12 resultado-intercambia" id="resultado-intercambia"></div>
         <div class="clear"></div>

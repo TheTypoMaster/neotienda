@@ -46,6 +46,8 @@ $("#buscar-store").click(function(e) {
 });
 var precio_total = 0;
 var precio_total_f2 = 0;
+var num_item_v = 0;
+var num_item_c = 0;
 $("#nombre_juego").autocomplete({
     source: function(request, response) {
         $.ajax({
@@ -89,7 +91,6 @@ $("#nombre_juego").autocomplete({
     },
     minLength: 2,
     select: function(event, ui) {
-        $("#nota-intercambia").hide();
         $(".footer").css("margin-top", "0");
         var id = ui.item.id;
         var sku = ui.item.sku;
@@ -101,13 +102,14 @@ $("#nombre_juego").autocomplete({
         $(".nota-intercambia").show();
 
         precio = ((precio * 1) / 1).toFixed(0);
+        num_item_c = Number(num_item_c) + Number(1);
 
         $('<div/>', {
             class: 'bloque-int',
             style: 'margin-bottom: 0px; border: 1px solid #ccc; margin-top: 50px;',
-            id: 'item_'+id
+            id: 'item_'+num_item_c+'_'+id
         }).append(
-            $('<i/>', { class: 'close', id: id }).append("X"),
+            $('<i/>', { class: 'close', id: num_item_c+'_'+id }).append("X"),
             $('<img/>', { class: 'img-int', src: imagen, width: '120', height: '' }),
             $('<div/>', { class: 'col span_5' }).append(
                 $('<div/>', { class: 'col span_5 info' }).append(
@@ -137,16 +139,18 @@ $("#nombre_juego").autocomplete({
         $("#resultado-intercambia").hide(500, "linear");
 
         $('<div/>', {
-            id: 'res_item_'+id
+            id: 'res_item_'+num_item_c+'_'+id
         }).append(
-            $('<img/>', { name: 'img-int-'+id, src: imagen, style: 'border: 1px solid #ccc;', width: '79', height: '', alt: titulo }),
-            $('<span/>', { id: 'sku-int-'+id, class: 'sku-int' }).html(sku),
-            $('<div/>', { name: 'titulo-int-'+id, class: 'titulo-int' }).append(titulo),
+            $('<img/>', { name: 'img-int-'+num_item_c+'_'+id, src: imagen, style: 'border: 1px solid #ccc;', width: '79', height: '', alt: titulo }),
+            $('<span/>', { id: 'sku-int-'+num_item_c+'_'+id, class: 'sku-int' }).html(sku),
+            $('<div/>', { name: 'titulo-int-'+num_item_c+'_'+id, class: 'titulo-int' }).append(titulo),
             $('<div/>', { class: 'puntos-int' }).append(
-                $('<span/>', { id: 'res_item_precio_'+id, style: 'font-size: 20px;' }).html(precio + ",00"),
-                simb_bs
+                $('<span/>', { id: 'res_item_precio_'+num_item_c+'_'+id, style: 'font-size: 20px;', name: precio }),
+                ",00 "+simb_bs
             )
         ).appendTo('#res_item');
+
+        $('#res_item_precio_'+num_item_c+'_'+id).html(precio);
 
         $('#res_item_total').html(precio_total);
 
@@ -162,14 +166,15 @@ $("#nombre_juego").autocomplete({
             }
         }
 
-        $("#nombre_juego").val('');
-
         $(".close").click(function() {
             if($("#item_"+this.id).length > 0){
                 $("#item_"+this.id).hide(500, "linear");
                 $("#item_"+this.id).remove();
                 $("#res_item_"+this.id).remove();
                 var cont = Number($("#cont_item").val()) - Number(1);
+
+                alert( this.id + '-' + $('#res_item_total').text() + '-' + $("#res_item_precio_1_1318").text() + '-' + $("#res_item_precio_1_1318").attr('name') );
+
                 precio_total = Number($('#res_item_total').val()) - $("#res_item_precio_"+this.id).val();
                 $('#res_item_total').html(precio_total);
                 $("#cont_item").attr('value', cont);
@@ -188,7 +193,8 @@ $("#nombre_juego").autocomplete({
         $(this).removeClass("ui-corner-all").addClass("ui-corner-top")
     },
     close: function() {
-        $(this).removeClass("ui-corner-top").addClass("ui-corner-all")
+        $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+        $("#nombre_juego").val('');
     }
 }).data("autocomplete")._renderItem = function(ul, item) {
     var display = $("#intercambio_select").css("display");
@@ -220,9 +226,7 @@ $(".nota-int").click(function(){
 });
 $("#paso-2-sig").click(function() {
     if ($("#acepto").is(":checked")) {
-        $(".alert-acept").css({
-            display: "none"
-        });
+        $(".alert-acept").css({ display: "none" });
         var interc = $("#titulo-int").html();
         if (interc != "") {
             $("#paso-1").hide();
@@ -230,22 +234,16 @@ $("#paso-2-sig").click(function() {
             $(".op1").removeClass("activo");
             $(".op2").addClass("activo");
             $("#nombre_juego_store").focus();
-            /*$("html, body").stop().animate({
-             scrollTop: $("#ancla-1").offset().top
-             }, 1000)*/
         }
     } else {
-        $(".alert-acept").css({
-            display: "block"
-        });
+        $(".alert-acept").css({display: "block"});
+        $('html, body').animate({ scrollTop: $('.alert-acept').offset().top }, 'slow');
         return false;
     }
 });
 $(".op2").click(function() {
     if ($("#acepto").is(":checked")) {
-        $(".alert-acept").css({
-            display: "none"
-        });
+        $(".alert-acept").css({ display: "none" });
         var store = $("#titulo-int-2").html();
         if (store != "") {
             $("#paso-1").hide();
@@ -253,14 +251,10 @@ $(".op2").click(function() {
             $(".op1").removeClass("activo");
             $(".op2").addClass("activo");
             $("#nombre_juego_store").focus();
-            /*$("html, body").stop().animate({
-             scrollTop: $("#ancla-1").offset().top
-             }, 1000)*/
         }
     } else {
-        $(".alert-acept").css({
-            display: "block"
-        });
+        $(".alert-acept").css({ display: "block" });
+        $('html, body').animate({ scrollTop: $('.alert-acept').offset().top }, 'slow');
         return false;
     }
 });
@@ -312,6 +306,7 @@ $("#nombre_juego_store").autocomplete({
         $("#cont_item_inv").attr('value', sum);
 
         precio_total_f2 = Number(precio_total_f2) + Number(precio_nuevo);
+        num_item_v = Number(num_item_v) + Number(1);
 
         $("#precio-nuevo").html(precio_total_f2 + ',00');
         $("#nuevo").css("display", "block");
@@ -319,9 +314,9 @@ $("#nombre_juego_store").autocomplete({
         $('<div/>', {
             class: 'bloque-int',
             style: 'margin-bottom: 0px; border: 1px solid #ccc; margin-top: 50px;',
-            id: 'item_inv_'+id
+            id: 'item_inv_'+num_item_v+'_'+id
         }).append(
-            $('<i/>', { class: 'close-f2', id: id }).append("X"),
+            $('<i/>', { class: 'close-f2', id: num_item_v+'_'+id }).append("X"),
             $('<div/>', { class: 'col span_4 titulos-res', style: 'clear:both' }).append(
                 $('<div/>', { class: 'box_2'}).append(
                     (precio_usado)?$('<div/>', { class: 'corner usado'}).append(
@@ -344,7 +339,7 @@ $("#nombre_juego_store").autocomplete({
                     $('<br/>'),
                     $('<span/>',{ class: 'equiv-int' }).append(
                         simb_bs,
-                        $('<span/>',{ id: 'equiv-int-'+id }).html(precio_nuevo),
+                        $('<span/>',{ id: 'equiv-int-'+num_item_v+'_'+id }).html(precio_nuevo),
                         ",00"
                     ),
                     $('<br/>'),
@@ -404,6 +399,9 @@ $("#nombre_juego_store").autocomplete({
             }
         });
         Redimensionar("bloque-nu", ".", "20")
+    },
+    close: function() {
+        $("#nombre_juego_store").val('');
     }
 }).data("autocomplete")._renderItem = function(ul, item) {
     var display = $("#intercambio_select").css("display");
@@ -444,7 +442,7 @@ $(".op1").addClass("activo");
  });*/
 
 
-function buscador_intercambio() {
+function buscador_intercambio() {alert('in on interca');
     $("ul.ui-autocomplete").css("display", "none");
     var titulo_int = $("#nombre_juego").val();
     var titulo = titulo_int.split(" ").join("-");
