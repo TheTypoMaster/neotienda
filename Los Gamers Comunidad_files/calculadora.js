@@ -146,7 +146,8 @@ $("#nombre_juego").autocomplete({
             $('<div/>', { name: 'titulo-int-'+num_item_c+'_'+id, class: 'titulo-int' }).append(titulo),
             $('<div/>', { class: 'puntos-int' }).append(
                 $('<span/>', { id: 'res_item_precio_'+num_item_c+'_'+id, style: 'font-size: 20px;', name: precio }),
-                ",00 "+simb_bs
+                ",00 "+simb_bs,
+                '<input id="input_" type="hidden" />'
             )
         ).appendTo('#res_item');
 
@@ -169,15 +170,26 @@ $("#nombre_juego").autocomplete({
         $(".close").click(function() {
             if($("#item_"+this.id).length > 0){
                 $("#item_"+this.id).hide(500, "linear");
+                var cont = Number($("#cont_item").val()) - Number(1);
+                $("#cont_item").attr('value', cont);
+                precio_total = parseInt($('#res_item_total').text()) - parseInt($("#res_item_precio_"+this.id).text());
+                $('#res_item_total').html(precio_total);
+
+                if($("#precio-nuevo").length > 0){
+                    var fav_nuevo = precio_total - parseInt($("#precio-nuevo").text());
+                    if(fav_nuevo > 0){
+                        $('#fav-nuevo').html(fav_nuevo+',00');
+                        $('.ptos-favor').css("display", "block");
+                        $("#dif-nuevo").html("0");
+                    }else{
+                        $('#dif-nuevo').html((fav_nuevo * -1)+',00');
+                        $('#fav-nuevo').html('0');
+                        $('.ptos-favor').css("display", "none");
+                    }
+                }
+
                 $("#item_"+this.id).remove();
                 $("#res_item_"+this.id).remove();
-                var cont = Number($("#cont_item").val()) - Number(1);
-
-                alert( this.id + '-' + $('#res_item_total').text() + '-' + $("#res_item_precio_1_1318").text() + '-' + $("#res_item_precio_1_1318").attr('name') );
-
-                precio_total = Number($('#res_item_total').val()) - $("#res_item_precio_"+this.id).val();
-                $('#res_item_total').html(precio_total);
-                $("#cont_item").attr('value', cont);
                 if($("#cont_item").val()==0){
                     $("#intercambio_select").hide(500, "linear");
                     $("#resultado-intercambia").show(500, "linear");
@@ -350,7 +362,7 @@ $("#nombre_juego_store").autocomplete({
         ).appendTo($('#intercambio_fase2'));
 
         var dif_int = parseInt($("#res_item_total").text());
-        var dif_nuevo = parseInt(precio_total_f2);
+        var dif_nuevo = precio_total_f2;
         var dif = (dif_nuevo - dif_int);
         if (dif > 0) {
             $("#dif-nuevo").html(simb_bs + " " + dif + ",00");
@@ -358,7 +370,7 @@ $("#nombre_juego_store").autocomplete({
         } else {
             $("#dif-nuevo").html("0");
             $(".ptos-favor").css("display", "block");
-            $("#fav-nuevo").html(dif * -1)
+            $("#fav-nuevo").html(simb_bs + " " +dif * -1 + ",00")
         }
         $("#store_select").show();
         $("#resultado-store").hide(500, "linear");
@@ -371,9 +383,9 @@ $("#nombre_juego_store").autocomplete({
                 var cont = Number($("#cont_item_inv").val()) - Number(1);
                 $("#cont_item_inv").attr('value', cont);
 
-                precio_total_f2 = (Number(precio_total_f2) - Number($("#equiv-int-"+this.id).text()));
+                precio_total_f2 = (precio_total_f2 - parseInt($("#equiv-int-"+this.id).text()));
 
-                $('#precio-nuevo').html(precio_total_f2);
+                $('#precio-nuevo').html(precio_total_f2+',00');
 
                 var dif = (precio_total_f2 - parseInt($("#res_item_total").text()));
                 if (dif > 0) {
