@@ -116,6 +116,9 @@ $("#nombre_juego").autocomplete({
                     $('<p/>', { id: 'titulo-int' }).html(titulo)
                 )
             ),
+            $('<div/>', { id: 'list_item', class: 'collapse'}).append(
+                id
+            ),
             $('<div/>', {
                 class: 'col span_5 equiv'
             }).append(
@@ -341,6 +344,9 @@ $("#nombre_juego_store").autocomplete({
                 $('<div/>', { class: 'col span_8 info-f2' }).append(
                     $('<p/>', { id: 'titulo-int' }).html(titulo_nuevo)
                 )
+            ),
+            $('<div/>', { id: 'list_item_buy', class: 'collapse'}).append(
+                id
             ),
             $('<div/>', {
                 class: 'col span_8 equiv-f2'
@@ -931,26 +937,29 @@ $(".intercambiar-usado").click(function() {
 
 function realizar_pedido_intercambia() {
     var calc = "";
-    var sku_st = $("#sku-nuevo").text();
     var id_usuario = getCookie("login");
+    var items_sale = [];
+    var items_buy = [];
 
     $("#paso-2").hide();
     $(".op2").removeClass("activo");
     $(".op3").addClass("activo");
     $("#store_select").hide();
     $("#paso-3").show();
-    $(".op1, .op2, .op3").css("pointer-events", "none")
+    $(".op1, .op2, .op3").css("pointer-events", "none");
 
-    /*var moneda = "VEF";
+    $("div[id='list_item']").each(function( index ) {
+        items_sale.push( $( this ).text() );
+    });
+
+    $("div[id='list_item_buy']").each(function( index ) {
+        items_buy.push( $( this ).text() );
+    });
+
+    var moneda = "VEF";
     var tipo = "Intercambio";
     var status = "P";
-    var imagen = $("#img-int-2").attr("src");
-    var sku = $("#sku-int-2").text();
-    var titulo_int = $("#titulo-int-2").text();
-    var precio = $("#puntos-int-2").text();
-    var cantidad = "1";
-    var total = precio * cantidad;
-    if (sku != "") {
+
         $.ajax({
             type: "POST",
             dataType: "json",
@@ -959,14 +968,8 @@ function realizar_pedido_intercambia() {
                 moneda: moneda,
                 tipo: tipo,
                 status: status,
-                imagen: imagen,
-                sku: sku,
-                titulo: titulo_int,
-                precio: precio,
-                cantidad: cantidad,
-                total: total,
-                sku_st: sku_st,
-                calc: calc
+                items_sale: items_sale,
+                items_buy: items_buy
             },
             url: "setPedidos.php",
             async: true,
@@ -976,7 +979,12 @@ function realizar_pedido_intercambia() {
             },
             success: function(result) {
                 $("#jquery-loader2").hide();
-                if (result.success) {
+
+                console.log(result);
+
+                return false;
+
+                /*if (result.success) {
                     var msg = result.msg;
                     var nombre = result.nombre;
                     nombre = nombre.split("-").join(" ");
@@ -997,7 +1005,7 @@ function realizar_pedido_intercambia() {
                     $(".op1, .op2, .op3").css("pointer-events", "none")
                 } else {
                     alert(result.msg)
-                }
+                }*/
             },
             error: function(result) {
                 $("#resultado-pedido").html('<p align="center">Error al registrar el pedido</p>');
@@ -1006,7 +1014,7 @@ function realizar_pedido_intercambia() {
                 alert("NO")
             }
         })
-    }*/
+
 }
 $("#finalizar-int").click(function(event) {
     location.reload()
