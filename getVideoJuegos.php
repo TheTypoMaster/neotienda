@@ -1,4 +1,7 @@
 <?php
+session_start();
+require(dirname(__FILE__).'/config/config.inc.php');
+
 mysql_connect("localhost","neoliam_tienda","HolaNeo123.");
 mysql_select_db("neoliam_tienda");
 
@@ -8,35 +11,42 @@ $tipo=$_REQUEST["tipo"];
 $titulo=$_REQUEST["titulo"];
 
 $query=mysql_query("SELECT
-                            ps_product_lang.id_product id,
-                            ps_product_lang.name,
-                            ps_product_shop.price,
+                            ppl.id_product id,
+                            ppl.name,
+                            pps.price,
                             pcl2.name status
                     FROM
-                            ps_category,
-                            ps_category_lang pcl2,
-                            ps_category_product,
-                            ps_product_shop,
-                            ps_product_lang
+                            "._DB_PREFIX_."category pc,
+                            "._DB_PREFIX_."category_lang pcl2,
+                            "._DB_PREFIX_."category_product pcp,
+                            "._DB_PREFIX_."product_shop pps,
+                            "._DB_PREFIX_."product_lang ppl
                     WHERE
-                            ps_category.id_parent IN (SELECT ps_category_lang.id_category FROM ps_category_lang WHERE ps_category_lang.name LIKE '%".$plataforma."%')
-                            AND pcl2.id_category = ps_category.id_category
-                            AND pcl2.id_category = ps_category_product.id_category
-                            AND ps_category_product.id_category = ps_product_shop.id_category_default
-                            AND ps_product_shop.id_product = ps_product_lang.id_product
-                            AND ps_product_lang.name LIKE '%".$titulo."%'
+                            pc.id_parent IN (SELECT id_category FROM "._DB_PREFIX_."category_lang WHERE name LIKE '%".$plataforma."%')
+                            AND pcl2.id_category = pc.id_category
+                            AND pcl2.id_category = pcp.id_category
+                            AND pcp.id_category = pps.id_category_default
+                            AND pps.id_product = ppl.id_product
+                            AND ppl.name LIKE '%".$titulo."%'
                     GROUP BY id
-                    ORDER BY ps_product_lang.name");
+                    ORDER BY ppl.name");
 $json=array();
 
 while($student=mysql_fetch_array($query)){
+    $id_image = Product::getCover($student["id"]);
+    $image_url='';
+    if (sizeof($id_image) > 0) {
+        $image = new Image($id_image['id_image']);
+        // get image full URL
+        $image_url = _PS_BASE_URL_._THEME_PROD_DIR_.$image->getExistingImgPath().".jpg";
+    }
     $json[]=array(
         'id'=> $student["id"],
         'sku'=> $student["name"],
         'label'=> $student["name"]." - ".$student["id"],
         'price'=> round($student["price"]),
         'precio_usado'=> ($student['status']=='Usados')?round($student["price"]):0,
-        'imagen'=> 'http://victoriaperez.com/261-home_default/zarcillos.jpg'
+        'imagen'=> $image_url
     );
 }
 
