@@ -9,6 +9,13 @@ session_start();
 require_once(dirname(__FILE__).'/config/config.inc.php');
 require_once(dirname(__FILE__).'/neo_exchanges/Exchange.php');
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+$_POST['id_usuario'] = 1011;
+$_POST['items_sale'] = array(1318, 20);
+$_POST['items_buy'] = array(339, 100);
+
 if(isset($_POST['id_usuario'])){
 
     $inter = new Exchange();
@@ -26,22 +33,26 @@ if(isset($_POST['id_usuario'])){
         $price2 += round($resultado2['price']);
     }
 
-    $favor = $price - $price2;
-    if($favor >= 0){
-        $diferencia = 0;
-    }else{
-        $favor = 0;
-        $diferencia = ($favor * -1);
-    }
+    echo 'Mio='.$price.'<br>';
+    echo 'Neo='.$price2.'<br>';
 
-    $idorder = $inter->setOrder(array(
+    $diferencia = $price2 - $price;
+    if($diferencia >= 0){
+        $favor = 0;
+    }else{
+        $favor = ($diferencia * -1);
+        $diferencia = 0;
+    }
+    echo 'favor='.$favor.'<br>';
+    echo 'diferencia='.$diferencia.'<br>';
+
+    /*$idorder = $inter->setOrder(array(
             'id_customer' => $_POST['id_usuario'],
             'total_in_favor' => $favor,
             'total_dif' => $diferencia
         )
     );
-
-
-
+    var_dump($idorder);
+    */
 }
 ?>

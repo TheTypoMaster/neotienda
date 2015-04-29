@@ -105,15 +105,12 @@ class Exchange {
     }
 
     function setOrder($fields){
-        if(!is_array($fields)){
-            return Db::getInstance()->insert('orders', array(
-                'id_customer' => (int)$fields['id_customer'],
-                'total_in_favor' => (int)$fields['total_in_favor'],
-                'total_dif' => pSQL($fields['total_dif']),
-                'created_at' => 'now()',
-                'status' => 1
-            ));
-        }
-        return false;
+        //if(!is_array($fields)){
+            $sql = "INSERT INTO orders (id_customer, total_in_favor, total_dif, created_at, status)
+                    VALUES ('".$fields['id_customer']."','".$fields['total_in_favor']."','".$fields['total_dif']."','now()',1)";
+            //echo $sql;die;
+            return Db::getInstance()->execute($sql);
+        //}
+        //return false;
     }
 }
