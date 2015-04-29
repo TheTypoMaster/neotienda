@@ -16,32 +16,32 @@ include_once( 'header.php' );
 ?>
 
     <!--<link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/normalize.min.css">-->
-    <link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/index-menu.css">
-    <link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/home.css">
+    <link rel="stylesheet" type="text/css" href="neo_exchanges/index-menu.css">
+    <link rel="stylesheet" type="text/css" href="neo_exchanges/home.css">
     <!-- Fancybox CSS files -->
-    <link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/jquery.fancybox.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="neo_exchanges/jquery.fancybox.css" media="screen">
     <!-- Tooltips -->
-    <link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/tooltipster.css">
-    <link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/tooltipster-red.css">
+    <link rel="stylesheet" type="text/css" href="neo_exchanges/tooltipster.css">
+    <link rel="stylesheet" type="text/css" href="neo_exchanges/tooltipster-red.css">
 
     <!--<script async="" charset="utf-8" src="./Los Gamers Comunidad_files/saved_resource" type="text/javascript"></script>-->
-    <script type="text/javascript" src="./Los Gamers Comunidad_files/jquery.1.7.1.js"></script>
-    <script type="text/javascript" src="./Los Gamers Comunidad_files/jquery.ui.1.8.16.js"></script>
+    <script type="text/javascript" src="neo_exchanges/jquery.1.7.1.js"></script>
+    <script type="text/javascript" src="neo_exchanges/jquery.ui.1.8.16.js"></script>
     <script type="text/javascript">
         var path = '/';
         var pais = 've';
     </script>
     <!--<script type="text/javascript" src="./Los Gamers Comunidad_files/main.js"></script>-->
-    <script type="text/javascript" src="./Los Gamers Comunidad_files/respond.min.js"></script>
-    <script type="text/javascript" src="./Los Gamers Comunidad_files/linker.js"></script>
-    <script type="text/javascript" src="./Los Gamers Comunidad_files/select_pais.js"></script>
+    <script type="text/javascript" src="neo_exchanges/respond.min.js"></script>
+    <script type="text/javascript" src="neo_exchanges/linker.js"></script>
+    <script type="text/javascript" src="neo_exchanges/select_pais.js"></script>
     <style id="css-ddslick" type="text/css">.select-bandera-content{float: right}p.text-selec-pais{float: right; margin: 0 0 0 5px; color: #000000;}.dd-select{ border:none; position:relative; cursor:pointer; color:#f6f6f6; font-family: Rockwell, Noto Sans; margin: 0 30%; }.dd-desc { color:#aaa; display:block; overflow: hidden; font-weight:normal; line-height: 1.4em !important; }.dd-selected{ float:left; font-size: 10px !important; overflow:hidden; display:block; padding:3px; hight:auto;}.dd-pointer{ width:0; height:0; position:absolute; top:50%; margin-top:7px;}.dd-pointer-down{ border:solid 5px transparent; border-top:solid 5px #000; }.dd-pointer-up{border:solid 5px transparent !important; border-bottom:solid 5px #000 !important; margin-top:-8px;}.dd-options{ border:solid 1px #ccc; border-top:none; list-style:none; box-shadow:0px 1px 5px #ddd; display:none; position:absolute; z-index:2000; margin:0 2%; padding:0;background:#fff; overflow:auto;}.dd-option{ font-size: 10px !important; padding:3px; display:block; border-bottom:solid 1px #ddd; overflow:hidden; text-decoration:none; color:#333 !important; cursor:pointer;-webkit-transition: all 0.25s ease-in-out; -moz-transition: all 0.25s ease-in-out;-o-transition: all 0.25s ease-in-out;-ms-transition: all 0.25s ease-in-out; }.dd-options > li:last-child > .dd-option{ border-bottom:none;}.dd-option:hover{ background:red; color:#000;}.dd-selected-description-truncated { text-overflow: ellipsis; white-space:nowrap; }.dd-option-selected { background:#f6f6f6; }.dd-option-image, .dd-selected-image { vertical-align:middle; float:left; margin-right:5px; max-width:64px; width:25px; margin-top: 0px;}.dd-image-right { float:right; margin-right:15px; margin-left:5px; margin-top:0px;}.dd-container{ margin: 0 auto;} .dd-selected-text { float:left;}.dd-selected:hover{ color: red;transition: background-color 100ms ease-in-out; -webkit-transition: background-color 100ms ease-in-out;}@media only screen and (max-width: 680px){ .dd-option-image, .dd-selected-image{margin-top: 1px;} .dd-pointer{margin-top: 8px;}}@media only screen and (max-width: 480px){ p.text-selec-pais, .dd-select{color:#000; font-size:10px;} .select-bandera-content{margin-left:3px;}}</style>
-    <script type="text/javascript" src="./Los Gamers Comunidad_files/jquery.simplemodal.js"></script>
-    <script type="text/javascript" src="./Los Gamers Comunidad_files/home.js"></script>
+    <script type="text/javascript" src="neo_exchanges/jquery.simplemodal.js"></script>
+    <script type="text/javascript" src="neo_exchanges/home.js"></script>
     <!-- Fancybox JS files-->
-    <script type="text/javascript" src="./Los Gamers Comunidad_files/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="neo_exchanges/jquery.fancybox.js"></script>
     <!-- Tooltips -->
-    <script type="text/javascript" src="./Los Gamers Comunidad_files/jquery.tooltipster.min.js"></script>
+    <script type="text/javascript" src="neo_exchanges/jquery.tooltipster.min.js"></script>
 
     <style>
         .header-min{
@@ -152,7 +152,7 @@ include_once( 'header.php' );
     });
 </script>
 <div id="main" class="main-content">
-<link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/intercambio_usados.css">
+<link rel="stylesheet" type="text/css" href="neo_exchanges/intercambio_usados.css">
 <!-- <link rel="stylesheet" type="text/css" href="/themes/default/css/jquery.ui.css"/> -->
 
 <!-- PASO 1 -->
@@ -184,7 +184,7 @@ include_once( 'header.php' );
                     <span class="input-group-busc">
                         <select name="plataformas-int" class="col span_2" id="plataformas-int"></select>
                         <input type="text" class="col span_9 buscador-alquiler ui-autocomplete-input ui-corner-all" placeholder="Agrega tus juegos aquí" value="" id="nombre_juego" name="nombre_juego" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
-                        <button tabindex="-1" id="buscar-int" class="btn-alq btn-default col span_1" type="button"><img class="lupa-int" src="./Los Gamers Comunidad_files/lupa.png"></button>
+                        <button tabindex="-1" id="buscar-int" class="btn-alq btn-default col span_1" type="button"><img class="lupa-int" src="neo_exchanges/lupa.png"></button>
                     </span>
                 </div>
             </div>
@@ -214,7 +214,7 @@ include_once( 'header.php' );
         <div class="clear"></div>
         <div class="col span_12 nota-intercambia">
             <div class="alert-acept" style="display: none; margin: 0 auto; width: 40%;">
-                <img style="float: left; width: 8%; margin: 0%;" src="./Los Gamers Comunidad_files/alerta.png">
+                <img style="float: left; width: 8%; margin: 0%;" src="neo_exchanges/alerta.png">
                 <h3 style="font-size: 15px; color: #FF0000;">DEBES ACEPTAR LOS TÉRMINOS</h3>
             </div>
             <input type="checkbox" name="acepto" id="acepto" value="1" /> <b class="nota-int">Acepto que mis video juegos estan en perfecto estado, caja, manual y disco.</b>
@@ -248,7 +248,7 @@ include_once( 'header.php' );
                             <div class="res_total">Total: <span id="res_item_total">0</span> Bs.</div>
                             <div class="col span_12" style="text-align: left; padding-left: 10px;">
                                 <button class="close-int">Editar</button>
-                                <img src="./Los Gamers Comunidad_files/editar-int.png" class="img-edit">
+                                <img src="neo_exchanges/editar-int.png" class="img-edit">
                             </div>
                         </div>
                     </div>
@@ -280,7 +280,7 @@ include_once( 'header.php' );
             <div class="col span_9 cbuscar">
                 <input type="text" name="nombre_juego_store" id="nombre_juego_store" value="" placeholder="Busca el juego que quieres comprar..." class="col span_12 ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
             </div>
-            <button class="btn-alq btn-default" style="padding: 8px 12px 8px 12px" id="buscar-store"><img src="./Los Gamers Comunidad_files/lupa.png" class="lupa-int"></button>
+            <button class="btn-alq btn-default" style="padding: 8px 12px 8px 12px" id="buscar-store"><img src="neo_exchanges/lupa.png" class="lupa-int"></button>
 
             <input type="hidden" id="cont_item_inv" value="0" />
             <div class="col span_12">
@@ -289,7 +289,7 @@ include_once( 'header.php' );
 
                     </div>
                     <div class="alert-term" style="display: none; margin-top: 2%;">
-                        <img style="float: left; width: 3%; margin-right: 1%;" src="./Los Gamers Comunidad_files/alerta.png">
+                        <img style="float: left; width: 3%; margin-right: 1%;" src="neo_exchanges/alerta.png">
                         <h3 style="font-size: 15px; color: #FF0000;">DEBES ACEPTAR LOS TÉRMINOS Y CONDICIONES</h3>
                     </div>
                     <div class="check-term"><input type="checkbox" class="termycond" name="aceptar-termycond" value="">He leído y acepto los <a href="http://www.losgamers.com/intercambia/terminosycondiciones">Términos y Condiciones</a></div>
@@ -344,19 +344,19 @@ include_once( 'header.php' );
                         <b>ZOOM BRM 1436</b> o entrégalo<br>
                         en una de nuestras tiendas<br>
                         autorizadas<br><br>
-                        <a href="http://ve.losgamers.com/store/tiendas-autorizadas.html" target="_blank"><img src="./Los Gamers Comunidad_files/tienda-autorizada.png" width="160" id="tienda-autorizada"></a>
+                        <a href="http://ve.losgamers.com/store/tiendas-autorizadas.html" target="_blank"><img src="neo_exchanges/tienda-autorizada.png" width="160" id="tienda-autorizada"></a>
                     </div>
                     <div class="col span_4">
                         2) Reporta tu envío<br>
                         <b>enviándonos el código</b> de<br>
                         confirmación a:<br>
-                        <img src="./Los Gamers Comunidad_files/icon-email.png" id="icon-email">
+                        <img src="neo_exchanges/icon-email.png" id="icon-email">
                     </div>
                     <div class="col span_3">
                         3) Al confirmar tu juego te<br>
                         acreditamos tus puntos y puedes<br>
                         <b>usarlos en nuestra tienda.</b><br>
-                        <img src="./Los Gamers Comunidad_files/puntos-cover.png" id="puntos-cover">
+                        <img src="neo_exchanges/puntos-cover.png" id="puntos-cover">
                     </div>
                     <p style="text-align: left; display: inline-block;">
                         Queremos brindarte el mejor servicio y siempre ser transparentes contigo, para que juntos hagamos crecer esta comunidad. Por eso queremos recordarte que <b>los precios de los títulos en LosGamers.com estarán sujetos a variaciones imprevistas</b> que dependen de varios factores entre esos la disponibilidad de existencia.
@@ -374,7 +374,7 @@ include_once( 'header.php' );
         </div>
     </section>
 </div>
-<script type="text/javascript" src="./Los Gamers Comunidad_files/calculadora.js"></script>
+<script type="text/javascript" src="neo_exchanges/calculadora.js"></script>
 </div>
 <ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" role="listbox" aria-activedescendant="ui-active-menuitem" style="z-index: 1; top: 0px; left: 0px; display: none;"></ul>
 <ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" role="listbox" aria-activedescendant="ui-active-menuitem" style="z-index: 1; top: 0px; left: 0px; display: none;"></ul>
@@ -393,8 +393,8 @@ include_once( 'header.php' );
         $(''+idclase+''+caja+'').height(heightBlockMax);
     }
 </script>
-<script type="text/javascript" src="./Los Gamers Comunidad_files/explorar.js"></script>
-<script type="text/javascript" src="./Los Gamers Comunidad_files/conversion.js"></script>
+<script type="text/javascript" src="neo_exchanges/explorar.js"></script>
+<script type="text/javascript" src="neo_exchanges/conversion.js"></script>
 
 <?php
 include_once( 'footer.php' );
