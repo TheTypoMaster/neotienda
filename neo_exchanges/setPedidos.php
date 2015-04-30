@@ -6,8 +6,8 @@
  * Time: 11:38 AM
  */
 session_start();
-require_once(dirname(__FILE__).'/config/config.inc.php');
-require_once(dirname(__FILE__).'/neo_exchanges/Exchange.php');
+require_once(dirname(__FILE__) . '/../config/config.inc.php');
+require_once(dirname(__FILE__) . '/../neo_exchanges/Exchange.php');
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -33,9 +33,6 @@ if(isset($_POST['id_usuario'])){
         $price2 += round($resultado2['price']);
     }
 
-    echo 'Mio='.$price.'<br>';
-    echo 'Neo='.$price2.'<br>';
-
     $diferencia = $price2 - $price;
     if($diferencia >= 0){
         $favor = 0;
@@ -43,16 +40,13 @@ if(isset($_POST['id_usuario'])){
         $favor = ($diferencia * -1);
         $diferencia = 0;
     }
-    echo 'favor='.$favor.'<br>';
-    echo 'diferencia='.$diferencia.'<br>';
 
-    /*$idorder = $inter->setOrder(array(
+    $idorder = $inter->setOrder(array(
             'id_customer' => $_POST['id_usuario'],
             'total_in_favor' => $favor,
             'total_dif' => $diferencia
         )
     );
     var_dump($idorder);
-    */
 }
 ?>

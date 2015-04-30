@@ -5,9 +5,8 @@
  * Date: 06/04/15
  * Time: 10:52 PM
  */
-
-mysql_connect("localhost","neoliam_tienda","HolaNeo123.");
-mysql_select_db("neoliam_tienda");
+session_start();
+require(dirname(__FILE__) . '/../config/config.inc.php');
 
 $pais=$_REQUEST["pais"];
 $plataforma=$_REQUEST["plataforma"];
@@ -15,7 +14,7 @@ $store=$_REQUEST["store"];
 $tipo=$_REQUEST["tipo"];
 $titulo=$_REQUEST["titulo"];
 
-$query=mysql_query("SELECT
+$query=("SELECT
                             ps_product_lang.id_product id,
                             ps_product_lang.name,
                             ps_product_shop.price
@@ -37,14 +36,15 @@ $query=mysql_query("SELECT
                     ORDER BY ps_product_lang.name");
 $json=array();
 
-while($student=mysql_fetch_array($query)){
-    $json[]=array(
-        'sku'=> $student["name"],
-        'label'=> $student["name"]." - ".$student["id"],
-        'price'=> $student["price"],
-        'imagen'=> 'http://neotienda.com/261-home_default/zarcillos.jpg'
-    );
-}
+if ($results = Db::getInstance()->ExecuteS($sql))
+    foreach ($results as $row){
+        $json[]=array(
+            'sku'=> $row["name"],
+            'label'=> $row["name"]." - ".$row["id"],
+            'price'=> $row["price"],
+            'imagen'=> 'http://neotienda.com/261-home_default/zarcillos.jpg'
+        );
+    }
 
 echo json_encode($json);
 

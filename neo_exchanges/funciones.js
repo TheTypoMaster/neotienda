@@ -43,7 +43,7 @@ $(document).ready(function(){
    		//$('#login-form').submit();
         $.ajax({
             type:"POST",
-            url:'login_proc.php',
+            url:'neo_exchanges/login_proc.php',
             async:true,
             cache:false,
             beforeSend: function(){
@@ -93,7 +93,7 @@ $(document).ready(function(){
 		//$('#login-from-rest').submit();		
 		$.ajax({
 				type:"POST",
-				url:'./password_reset.php',
+				url:'neo_exchanges/password_reset.php',
 				async:true,
 				cache:false,
 				beforeSend: function(){						

@@ -12,10 +12,7 @@ session_start();
 global $smarty;
 require(dirname(__FILE__).'/config/config.inc.php');
 include_once( 'header.php' );
-
 ?>
-
-    <!--<link rel="stylesheet" type="text/css" href="./Los Gamers Comunidad_files/normalize.min.css">-->
     <link rel="stylesheet" type="text/css" href="neo_exchanges/index-menu.css">
     <link rel="stylesheet" type="text/css" href="neo_exchanges/home.css">
     <!-- Fancybox CSS files -->
@@ -24,14 +21,12 @@ include_once( 'header.php' );
     <link rel="stylesheet" type="text/css" href="neo_exchanges/tooltipster.css">
     <link rel="stylesheet" type="text/css" href="neo_exchanges/tooltipster-red.css">
 
-    <!--<script async="" charset="utf-8" src="./Los Gamers Comunidad_files/saved_resource" type="text/javascript"></script>-->
     <script type="text/javascript" src="neo_exchanges/jquery.1.7.1.js"></script>
     <script type="text/javascript" src="neo_exchanges/jquery.ui.1.8.16.js"></script>
     <script type="text/javascript">
         var path = '/';
         var pais = 've';
     </script>
-    <!--<script type="text/javascript" src="./Los Gamers Comunidad_files/main.js"></script>-->
     <script type="text/javascript" src="neo_exchanges/respond.min.js"></script>
     <script type="text/javascript" src="neo_exchanges/linker.js"></script>
     <script type="text/javascript" src="neo_exchanges/select_pais.js"></script>
@@ -153,7 +148,6 @@ include_once( 'header.php' );
 </script>
 <div id="main" class="main-content">
 <link rel="stylesheet" type="text/css" href="neo_exchanges/intercambio_usados.css">
-<!-- <link rel="stylesheet" type="text/css" href="/themes/default/css/jquery.ui.css"/> -->
 
 <!-- PASO 1 -->
 <div class="section-int banners" id="paso-1">
@@ -258,13 +252,23 @@ include_once( 'header.php' );
             <div style="height: 213.399999976158px;clear: both;display: none;" id="nuevo" class="col gam_select">
                 <div style="padding-left: 10px" class="col span_12 juego-nuevo">
                     <h2>Detalle del cambio:</h2>
-                    <p style="font-size: 14px ! important; font-weight: bold; color: #000000; margin-top: 10px ! important;" class="detalle">
+                    <p style="font-size: 14px !important; font-weight: bold; color: #000000; margin-top: 10px !important;" class="detalle">
                         Precio total: Bs. <span id="precio-nuevo">0</span>
                     </p>
-                    <p style="font-size: 14px ! important; font-weight: bold; color: #000000; margin-top: 10px ! important;" class="detalle">
-                        Diferencia a pagar: <br><span id="dif-nuevo">0</span><span style="font-size: 14px"></span>
+                    <p style="font-size: 14px !important; font-weight: bold; color: #000000; margin-top: 10px !important;" class="detalle">
+                        Diferencia a pagar: <br><span id="dif-nuevo">0</span>
+                        <div id="div_forma">Indicar forma de pago: <br>
+                        <select id="forma_pago" name="forma_pago">
+                            <option value="">Seleccione</option>
+                            <option value="Transferencia">Transferencia</option>
+                            <option value="Depósito">Depósito</option>
+                            <option value="Efectivo">Efectivo</option>
+                        </select>
+                        </div>
                     </p>
-                    <p style="display: block;" class="ptos-favor">Monto a favor: <span id="fav-nuevo">0</span><span style="font-size: 14px"></span></p>
+                    <p style="display: block;" class="ptos-favor">
+                        Monto a favor: <span id="fav-nuevo">0</span>
+                    </p>
                 </div>
                 <div style="text-align:center; margin-top: 12px;" class="col span_12"><a class="btn btn-primary intercambiar-nuevo" href="javascript:void(0)">INTERCAMBIAR</a></div>
             </div>
