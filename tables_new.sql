@@ -26,6 +26,8 @@ CREATE TABLE `items_buys` (
   `name` varchar(200) DEFAULT NULL,
   `price` decimal(20,2) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   `status` smallint(1) DEFAULT NULL,
   PRIMARY KEY (`id_item_buy`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -45,6 +47,8 @@ CREATE TABLE `items_sales` (
   `name` varchar(200) DEFAULT NULL,
   `price` decimal(20,2) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `update_at` datetime DEFAULT NULL,
   `status` smallint(1) DEFAULT NULL,
   PRIMARY KEY (`id_item_sale`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

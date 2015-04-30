@@ -29,7 +29,6 @@ class Exchange {
                             AND ppl.id_product = '".$item."'
                         ");
         }
-
         return $results;
     }
 
@@ -48,79 +47,56 @@ class Exchange {
                             AND ppl.id_product = '".$item."'
                         ");
         }
-
         return $results;
     }
 
-    function setItemSales($id_product, $id_order, $items){
+    function setItemSales($id_order, $items){
         if(count($items)){
             foreach($items as $item) {
-                $id_image = Product::getCover($id_product);
+                $id_image = Product::getCover($item['id']);
                 $image_url='';
                 if (sizeof($id_image) > 0) {
                     $image = new Image($id_image['id_image']);
                     // get image full URL
                     $image_url = _PS_BASE_URL_._THEME_PROD_DIR_.$image->getExistingImgPath().".jpg";
                 }
-                Db::getInstance()->insert('items_sales', array(
-                    'id_product' => (int)$id_product,
-                    'id_order'   => (int)$id_order,
-                    'name' => pSQL($item['name']),
-                    'price' => $item['price'],
-                    'image' => $image_url,
-                    'status' => 1
-                ));
+                $sql = "INSERT INTO items_sales (id_product, id_order, name, price, image, created_at, status)
+                    VALUES ('".$item['id']."','".$id_order."','".pSQL($item['name'])."','".$item['price']."','".$image_url."',now(),1)";
+                Db::getInstance()->executeS($sql);
             }
-            $result = true;
+            return true;
         }else{
-            $result = false;
+            return false;
         }
-        return $result;
     }
 
-    function setItemBuys($id_product, $id_order, $items){
+    function setItemBuys($id_order, $items){
         if(count($items)){
             foreach($items as $item) {
-                $id_image = Product::getCover($id_product);
+                $id_image = Product::getCover($item['id']);
                 $image_url='';
                 if (sizeof($id_image) > 0) {
                     $image = new Image($id_image['id_image']);
                     // get image full URL
                     $image_url = _PS_BASE_URL_._THEME_PROD_DIR_.$image->getExistingImgPath().".jpg";
                 }
-                Db::getInstance()->insert('items_buys', array(
-                    'id_product' => (int)$id_product,
-                    'id_order'   => (int)$id_order,
-                    'name' => pSQL($item['name']),
-                    'price' => $item['price'],
-                    'image' => $image_url,
-                    'status' => 1
-                ));
+                $sql = "INSERT INTO items_buys (id_product, id_order, name, price, image, created_at, status)
+                    VALUES ('".$item['id']."','".$id_order."','".pSQL($item['name'])."','".$item['price']."','".$image_url."',now(),1)";
+                Db::getInstance()->executeS($sql);
             }
-            $result = true;
+            return true;
         }else{
-            $result = false;
+            return false;
         }
-        return $result;
     }
 
     function setOrder($fields){
-        //if(!is_array($fields)){
-
-        return Db::getInstance()->insert('orders', array(
-            'id_customer' => (int)$fields['id_customer'],
-            'total_in_favor'   => (int)$fields['total_in_favor'],
-            'total_dif' => $fields['total_dif'],
-            'created_at' => 'NOW()',
-            'status' => 1
-        ), $add_prefix = false);
-
-        //$sql = "INSERT INTO orders (id_customer, total_in_favor, total_dif, created_at, status)
-        //        VALUES ('".$fields['id_customer']."','".$fields['total_in_favor']."','".$fields['total_dif']."',now(),1)";
-        //echo $sql;die;
-        //return Db::getInstance()->executeS($sql);
-
-        //}
-        //return false;
+        if(is_array($fields)){
+            $sql = "INSERT INTO orders (id_customer, total_in_favor, total_dif, created_at, status)
+                    VALUES ('".$fields['id_customer']."','".$fields['total_in_favor']."','".$fields['total_dif']."',now(),1)";
+            Db::getInstance()->executeS($sql);
+            return Db::getInstance()->Insert_ID();
+        }
+        return false;
     }
 }
