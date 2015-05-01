@@ -911,8 +911,8 @@ $(".termycond").click(function() {
     }
 });
 $(".intercambiar-nuevo").click(function() {
-    if ($(".termycond").is(":checked")) {
-        if($("#div_forma").css("display") == "block" && $("#forma_pago option:selected").text() != "Seleccione"){
+    if ($(".termycond").is(":checked")) {alert($("#div_forma").css("display"));
+        if($("#div_forma").css("display") == "none" || ($("#div_forma").css("display") == "block" && $("#forma_pago option:selected").text() != "Seleccione") ){
             var id_usuario = getCookie("login");
             if (id_usuario != "0") {
                 realizar_pedido_intercambia()

@@ -91,7 +91,7 @@ class Exchange {
     }
 
     function setOrder($fields){
-        if(is_array($fields)){
+        if(isset($fields['id_customer'])){
             $sql = "INSERT INTO orders (id_customer, total_in_favor, total_dif, created_at, status)
                     VALUES ('".$fields['id_customer']."','".$fields['total_in_favor']."','".$fields['total_dif']."',now(),1)";
             Db::getInstance()->executeS($sql);

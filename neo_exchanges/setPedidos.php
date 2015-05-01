@@ -41,7 +41,7 @@ if(isset($_POST['id_usuario'])){
         $id_order = $inter->setOrder(array(
                 'id_customer' => $_POST['id_usuario'],
                 'total_in_favor' => $favor,
-                'total_dif' => $diferencia
+                'total_dif' => $dif
             )
         );
         $inter->setItemSales($id_order, $results);
