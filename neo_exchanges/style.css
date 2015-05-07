@@ -127,7 +127,7 @@ img.fb_conex{
 
 /* LOGIN */
 div.login-content{
-	width:200px;
+	/*width:200px;*/
 }
 div.login-content img.fb_conex{	
 	margin-top: 15px;
@@ -166,7 +166,7 @@ div.login-content button{
 	border-radius: 5px;
 	padding: 0 10px;
 }
-	
+
 /* REGISTRAR */
 /*
 div.regist-alquiler-conten{
@@ -246,7 +246,7 @@ button{
 	margin-top: 10px;
 	font-size: 20px;
 	font-weight: bold;
-	background-color: #ff0000;
+	background-color: #43ab54;
 	height: 30px;
 	border-radius: 5px;
 	border: 0px;

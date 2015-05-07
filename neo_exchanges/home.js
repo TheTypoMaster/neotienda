@@ -189,7 +189,7 @@ function login(from) {
     } else {
         var _from = ""
     }
-    $.modal('<iframe src="login.php' + _from + '" frameborder="0"></iframe>', {
+    $.modal('<iframe src="neo_exchanges/login.php' + _from + '" frameborder="0"></iframe>', {
         containerCss: {
             height: 345,
             padding: 0,
@@ -200,7 +200,7 @@ function login(from) {
 }
 
 function logout() {
-    $.modal('<iframe src="http://store.losgamers.com/ws/login/' + url_login + 'login_proc.php?logout=100" frameborder="0"></iframe>', {
+    $.modal('<iframe src="neo_exchanges/login_proc.php?logout=100" frameborder="0"></iframe>', {
         closeHTML: "<img src='" + path + "themes/default/img/ajax-loader.GIF'/>",
         containerCss: {
             height: 50,

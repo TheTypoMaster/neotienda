@@ -2,6 +2,7 @@
 .clear{	clear: both; height: 50px; }
 h2{ text-align: left; }
 .mb{ margin-bottom: 30px; }
+.titulo_intercambio{font-size: 16px; color: #333333; margin-top: 15px; }
 .subt{ font-family: Rockwell; font-size: 14px; color: #333333; }
 .resultado-intercambia{ font-family: Rockwell; }
 .nota-intercambia{float: none; margin: 0 auto;  text-align: center; width: 75%;display: none;}
@@ -125,7 +126,7 @@ background-image: url('../img/ajax-loader.gif'); background-position: center cen
 .close_store{ border: none; background: #cccccc; border-radius: 5px; padding: 6px 20px 6px 30px; font-family: Rockwell; font-weight: bold;  }
 .siguiente{	cursor: pointer; }
 .buscador{	width: 90%;	height: 50px; font-size: 14px; padding: 6px 10px; border: none; }
-.paso-sig{ border: none; background: red; color: #ffffff; font-family: Rockwell; border-radius: 5px; padding: 10px 20px; font-size: 18px; }
+.paso-sig{ border: none; background: #43ab54; color: #ffffff; font-family: Rockwell; border-radius: 5px; padding: 10px 20px; font-size: 18px; }
 .lupa{ cursor: pointer; margin-top: 10px; margin-left: 10px; }
 .igual{ margin-top: 18%; padding-left: 30px; }
 .cbuscar{ border: 1px solid #ccc;/*border: 6px solid #ccc;*/ background: #ffffff; }
@@ -137,7 +138,7 @@ margin-left: 10%; cursor: pointer; }
 .img-edit-store{ width: 16px; position: absolute; margin-top: 5px; margin-left: -108px; }
 
 /*** MENU ***/ 
-.pasosPedido { list-style: none; padding: 0px; margin: 0px; overflow: hidden; }
+/*.pasosPedido { list-style: none; padding: 0px; margin: 0px; overflow: hidden; }
 .pasosPedido li { float: left; font-size: 18px; padding: 9px 7px 5px 35px; width: 200px; font-family: Rockwell; }
 .pasosPedido li.arrow_box { background: #efefef; background: -webkit-gradient(linear, left top, right top, from(#efefef), to(#e4e4e4));
   background: -moz-linear-gradient(left, #efefef 0%, #e4e4e4 100%); position: relative; cursor: pointer; }
@@ -149,7 +150,11 @@ margin-left: 10%; cursor: pointer; }
 .pasosPedido .op1 { z-index: 3; }
 .pasosPedido .op2 { z-index: 2; }
 .pasosPedido .op2:after{  }
-.pasosPedido .op3 { z-index: 1; }
+.pasosPedido .op3 { z-index: 1; }*/
+
+ul.pasosPedido li {
+    width: 32.4% !important;
+}
 
 /*** CINTAS ***/
 .box_2 { position: relative; background: #FFFFFF; overflow: hidden; left: 46px; /*top: 45px;*/ width: 120px; }
@@ -187,7 +192,7 @@ font-size: 14px; font-family: Rockwell; letter-spacing: 1.3px; }
 .equiv{	width: 38%;	}
 .equiv-f2{ width: 50%; }
 .equiv p, .equiv-f2 p{ font-family: Arial; margin-top: 0px; font-size: 14px; color: #333333; }
-.equiv .equiv-int, .equiv-f2 .equiv-int{ font-size: 30px; color: #ffffff; font-family: Rockwell, Rock; padding: 3% 20%; background: #333333; }
+.equiv .equiv-int, .equiv-f2 .equiv-int{ font-size: 30px; color: #ffffff; font-family: Rockwell, Rock; padding: 3% 12%; background: #333333; }
 .usar{ margin-left: 30px;}
 .gam_select{ background: #ffffff; border: 3px solid #ccc; margin-bottom: 5px; /*width: 22%;*/ }
 .button-sig{ float: right; }
