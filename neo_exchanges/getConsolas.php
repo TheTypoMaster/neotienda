@@ -11,7 +11,8 @@ require(dirname(__FILE__) . '/../config/config.inc.php');
 
 $json=array();
 
-$sql = "SELECT
+if($_POST['start']){
+    $sql = "SELECT
             cl.name
         FROM
             "._DB_PREFIX_."category_lang cl,
@@ -21,11 +22,12 @@ $sql = "SELECT
             AND c.id_parent IN (3, 57, 58)
         ORDER BY cl.name";
 
-echo '<option value="">Consolas</option>';
+    echo '<option value="">Plataformas</option>';
 
-if ($results = Db::getInstance()->ExecuteS($sql))
-    foreach ($results as $row){
-        echo '<option value="'.$row["name"].'">'.$row["name"].'</option>';
-    }
+    if ($results = Db::getInstance()->ExecuteS($sql))
+        foreach ($results as $row){
+            echo '<option value="'.$row["name"].'">'.$row["name"].'</option>';
+        }
+}
 
 ?>

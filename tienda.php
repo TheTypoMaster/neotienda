@@ -156,13 +156,18 @@ include_once( 'header.php' );
     <section id="banners" class="section banners row span_12">
         <div class="col span_12 mb">
             <div class="col">
-                <h2>INTERCAMBIA TUS VIDEO JUEGOS</h2>
-                <ul class="pasosPedido">
-                    <li class="arrow_box op1 activo" style="height: 40px; width: 32%">TUS VIDEO JUEGOS</li>
-                    <li class="arrow_box op2" style="height: 40px; width: 32%">INTERCAMBIO</li>
-                    <li class="arrow_box op3" style="height: 40px; width: 32%">COMPLETADO</li>
+                <ul id="order_step" class="step pasosPedido clearfix">
+                    <li class="step_current op1 first">
+                        <span><em>01.</em> Tus Video Juegos</span>
+                    </li>
+                    <li class="step_todo op2 second">
+                        <span><em>02.</em> Intercambio</span>
+                    </li>
+                    <li class="step_todo op3 third">
+                        <span><em>03.</em> Completado</span>
+                    </li>
                 </ul>
-                <p class="subt">Encuentra tus video juegos a intercambiar.</p>
+                <p class="titulo_intercambio">Encuentra tus video juegos a intercambiar.</p>
             </div>
         </div>
 
@@ -197,9 +202,8 @@ include_once( 'header.php' );
             <div class="col span_1">&nbsp;</div>
             <div class="col span_10" id="intercambio_select" style="display: none;">
                 <div class="col span_12">
-                    <p>*El monto que te acreditamos por tus juegos usados está sujeto a variaciones.
-                        <br>*Te garantizamos los puntos que esperas recibir sólo si la consulta y el envío son el mismo día.</p>
-                    <div class="col span_4" style="float: right"><div class="button-sig"><button id="paso-2-sig" class="paso-sig">SIGUIENTE PASO</button></div></div>
+                    <p>-. El monto que te acreditamos por tus juegos usados está sujeto a variaciones.</p>
+                    <div class="col span_4" style="float: right"><div class="button-sig"><button id="paso-2-sig" class="paso-sig">SIGUIENTE</button></div></div>
                 </div>
             </div>
             <div class="col span_1">&nbsp;</div>
@@ -211,7 +215,7 @@ include_once( 'header.php' );
                 <img style="float: left; width: 8%; margin: 0%;" src="neo_exchanges/alerta.png">
                 <h3 style="font-size: 15px; color: #FF0000;">DEBES ACEPTAR LOS TÉRMINOS</h3>
             </div>
-            <input type="checkbox" name="acepto" id="acepto" value="1" /> <b class="nota-int">Acepto que mis video juegos estan en perfecto estado, caja, manual y disco.</b>
+            <input type="checkbox" name="acepto" id="acepto" value="1" /> <b class="nota-int">Acepto que mis video juegos estan en perfecto estado de caja, manual y disco.</b>
         </div>
     </section>
 </div>
@@ -223,10 +227,16 @@ include_once( 'header.php' );
         <div class="col span_12" style="margin-bottom: 30px;">
             <div class="col">
                 <h2 style="color: #000000">ESCOGE EL JUEGO QUE QUIERES COMPRAR</h2>
-                <ul class="pasosPedido">
-                    <li class="arrow_box op1 activo" style="height: 40px; width: 32%">TUS VIDEO JUEGOS</li>
-                    <li class="arrow_box op2" style="height: 40px; width: 32%">INTERCAMBIO</li>
-                    <li class="arrow_box op3" style="height: 40px; width: 32%">COMPLETADO</li>
+                <ul id="order_step" class="step pasosPedido clearfix">
+                    <li class="step_todo op1 first">
+                        <span><em>01.</em> Tus Video Juegos</span>
+                    </li>
+                    <li class="step_current op2 second">
+                        <span><em>02.</em> Intercambio</span>
+                    </li>
+                    <li class="step_todo op3 third">
+                        <span><em>03.</em> Completado</span>
+                    </li>
                 </ul>
                 <p class="subt">Confirma el juego que seleccionaste y busca el juego que quieres obtener a cambio.</p>
             </div>
@@ -249,7 +259,7 @@ include_once( 'header.php' );
                 </div>
             </div>
 
-            <div style="height: 213.399999976158px;clear: both;display: none;" id="nuevo" class="col gam_select">
+            <div style="height: 250px;clear: both;display: none;" id="nuevo" class="col gam_select">
                 <div style="padding-left: 10px" class="col span_12 juego-nuevo">
                     <h2>Detalle del cambio:</h2>
                     <p style="font-size: 14px !important; font-weight: bold; color: #000000; margin-top: 10px !important;" class="detalle">
@@ -270,7 +280,11 @@ include_once( 'header.php' );
                         Monto a favor: <span id="fav-nuevo">0</span>
                     </p>
                 </div>
-                <div style="text-align:center; margin-top: 12px;" class="col span_12"><a class="btn btn-primary intercambiar-nuevo" href="javascript:void(0)">INTERCAMBIAR</a></div>
+                <div style="text-align:center; margin-top: 12px;" class="col span_12">
+                    <a class="button btn btn-default standard-checkout button-medium intercambiar-nuevo" href="javascript:void(0)">
+                        <span>INTERCAMBIAR<i class="icon-chevron-right right"></i></span>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -310,20 +324,25 @@ include_once( 'header.php' );
         <div class="contenedor">
             <div class="col span_12" style="margin-bottom: 30px;">
                 <div class="col">
-                    <h2>INTERCAMBIO FINALIZADO</h2>
-                    <ul class="pasosPedido">
-                        <li class="arrow_box op1 activo" style="height: 40px; width: 32%">TUS VIDEO JUEGOS</li>
-                        <li class="arrow_box op2" style="height: 40px; width: 32%">INTERCAMBIO</li>
-                        <li class="arrow_box op3" style="height: 40px; width: 32%">COMPLETADO</li>
+                    <ul id="order_step" class="step pasosPedido clearfix">
+                        <li class="step_todo op1 first">
+                            <span><em>01.</em> Tus Video Juegos</span>
+                        </li>
+                        <li class="step_todo op2 second">
+                            <span><em>02.</em> Intercambio</span>
+                        </li>
+                        <li class="step_current op3 third">
+                            <span><em>03.</em> Completado</span>
+                        </li>
                     </ul>
                 </div>
                 <div class="col span_6"></div>
             </div>
             <br><br>
 
-            <h1 class="enc">!Bien Hecho! <span id="usuario-ped"></span></h1>
+            <h1 class="enc">¡Solicitud Exitosa! <span id="usuario-ped"></span></h1>
             <h3>
-                <b style="font-size: 14px; color: #000000;">Tienes una operación de intercambio <span style="color:green">ACTIVA</span></b> <span id="pedido"></span>
+                <b style="font-size: 14px; color: #000000;">Tienes una solicitud en <span style="color:green">PROCESO</span></b> <span id="pedido"></span>
             </h3>
             <br>
 
