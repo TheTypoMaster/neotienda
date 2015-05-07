@@ -33,7 +33,7 @@ background-image: url('../img/ajax-loader.gif'); background-position: center cen
 .puntos-int{ color: #ff0000; font-family: Rockwell, Rock; font-weight: bold; }
 .puntos-int span { font-size: 30px; }
 .detalle { font-size: 12px !important; color: #666666; margin: 0 !important; }
-.enc { margin:0; color: #0152a3; }
+.enc { margin:0; color: #333333; }
 .consola { background: #eeeeee; padding: 8px 0px; margin: 8px 0; margin-right: 10px; text-align: right; }
 .disp, .disp-no{ text-align: center; font-weight: bold; color: #0070bc; font-size: 12px; padding: 5px 0 10px 0; }
 .disp-no{ color: #E74949;  }
@@ -184,7 +184,7 @@ font-size: 14px; font-family: Rockwell; letter-spacing: 1.3px; }
 
 .res_total{ font-size: 24px; margin: 10px 0; }
 
-.intercambiar-nuevo, .intercambiar-usado { padding: 0 !important; border-radius: 0px; min-width: 160px; font-family: Rockwell; font-weight: bold; letter-spacing: 1px; height: 30px; line-height: 30px; }
+.intercambiar-nuevo, .intercambiar-usado { padding: 0 !important; border-radius: 0px; min-width: 160px; font-family: Rockwell; font-weight: bold; letter-spacing: 1px; line-height: 30px; }
 
 .info{ background: #ffffff; border: 1px solid #ccc; margin-top: 30px; width: 90%; }
 .info-f2{ background: #ffffff; border: 1px solid #ccc; width: 90%; }

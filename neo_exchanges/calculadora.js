@@ -137,9 +137,7 @@ $("#nombre_juego").autocomplete({
 
         var sum = Number($("#cont_item").val()) + Number(1);
         $("#cont_item").attr('value', sum);
-
         precio_total = Number(precio_total) + Number(precio);
-
         $("#resultado-intercambia").hide(500, "linear");
 
         $('<div/>', {
@@ -154,11 +152,9 @@ $("#nombre_juego").autocomplete({
                 '<input id="input_" type="hidden" />'
             )
         ).appendTo('#res_item');
-
         $('#res_item_precio_'+num_item_c+'_'+id).html(precio);
-
         $('#res_item_total').html(precio_total);
-
+        $("#tus-juegos").html(precio_total);
         if($("#precio-nuevo").length > 0) {
             var dif = precio_total_f2 - precio_total;
             if (dif > 0) {
@@ -170,7 +166,6 @@ $("#nombre_juego").autocomplete({
                 $("#fav-nuevo").html(dif * -1)
             }
         }
-
         $(".close").click(function() {
             if($("#item_"+this.id).length > 0){
                 $("#item_"+this.id).hide(500, "linear");
@@ -178,6 +173,7 @@ $("#nombre_juego").autocomplete({
                 $("#cont_item").attr('value', cont);
                 precio_total = parseInt($('#res_item_total').text()) - parseInt($("#res_item_precio_"+this.id).text());
                 $('#res_item_total').html(precio_total);
+                $("#tus-juegos").html(precio_total);
 
                 if($("#precio-nuevo").length > 0){
                     var fav_nuevo = precio_total - parseInt($("#precio-nuevo").text());
@@ -191,7 +187,6 @@ $("#nombre_juego").autocomplete({
                         $('.ptos-favor').css("display", "none");
                     }
                 }
-
                 $("#item_"+this.id).remove();
                 $("#res_item_"+this.id).remove();
                 if($("#cont_item").val()==0){
@@ -317,7 +312,6 @@ $("#nombre_juego_store").autocomplete({
         var precio_usado = ui.item.precio_usado;
         var imagen_nuevo = ui.item.imagen;
         var simb_bs = "Bs. ";
-
         var sum = Number($("#cont_item_inv").val()) + Number(1);
         $("#cont_item_inv").attr('value', sum);
 
@@ -381,6 +375,7 @@ $("#nombre_juego_store").autocomplete({
             $("#fav-nuevo").html(simb_bs + " " +dif * -1 + ",00");
             $("#div_forma").css("display", "none")
         }
+        $("#total-inter").html(precio_total_f2);
         $("#store_select").show();
         $("#resultado-store").hide(500, "linear");
         $(".close_store").click(function() {
@@ -395,6 +390,7 @@ $("#nombre_juego_store").autocomplete({
                 precio_total_f2 = (precio_total_f2 - parseInt($("#equiv-int-"+this.id).text()));
 
                 $('#precio-nuevo').html(precio_total_f2+',00');
+                $("#total-inter").html(precio_total_f2+',00');
 
                 var dif = (precio_total_f2 - parseInt($("#res_item_total").text()));
                 if (dif > 0) {

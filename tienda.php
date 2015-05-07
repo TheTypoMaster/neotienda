@@ -203,7 +203,13 @@ include_once( 'header.php' );
             <div class="col span_10" id="intercambio_select" style="display: none;">
                 <div class="col span_12">
                     <p>-. El monto que te acreditamos por tus juegos usados está sujeto a variaciones.</p>
-                    <div class="col span_4" style="float: right"><div class="button-sig"><button id="paso-2-sig" class="paso-sig">SIGUIENTE</button></div></div>
+                    <div class="col span_4" style="float: right">
+                        <div class="button-sig">
+                            <a href="javascript:void(0)" id="paso-2-sig" class="paso-sig button btn btn-default standard-checkout button-medium">
+                                <span>SIGUIENTE<i class="icon-chevron-right right"></i></span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col span_1">&nbsp;</div>
@@ -244,7 +250,7 @@ include_once( 'header.php' );
 
         <div class="col span_3">
             <div class="col gam_select">
-                <h3 class="small" style="margin: 10px;">TUS JUEGO:</h3>
+                <h3 class="small" style="margin: 10px;">TUS JUEGOS:</h3>
                 <div class="col span_12" id="juego_select">
                     <div class="bloque-int-2">
                         <div class="col span_12 det-int">
@@ -349,9 +355,8 @@ include_once( 'header.php' );
             <div class="col span_12">
                 <div class="col span_3">&nbsp;</div>
                 <div class="col span_6 inf">
-                    <img src="" width="90" height="" align="left" id="imagen-ped">
-                    <p id="titulo-ped"></p>
-                    <p><span id="puntos-ped"></span> Puntos</p>
+                    <p>Total tus Juegos: <span id="tus-juegos"></span> Bs.</p>
+                    <p>Total intercambio: <span id="total-inter"></span> Bs.</p>
                     <p>Equivalente a: <span id="equiv-ped"></span></p>
                 </div>
                 <div class="col span_3">&nbsp;</div>
