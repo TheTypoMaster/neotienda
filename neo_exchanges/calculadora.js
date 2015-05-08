@@ -368,12 +368,16 @@ $("#nombre_juego_store").autocomplete({
         if (dif > 0) {
             $("#dif-nuevo").html(simb_bs + " " + dif + ",00");
             $(".ptos-favor").css("display", "none");
-            $("#div_forma").css("display", "block")
+            $("#div_forma").css("display", "block");
+            $("#dif-pago").html(dif);
+            $("#dif-favor").html("0")
         } else {
             $("#dif-nuevo").html("0");
             $(".ptos-favor").css("display", "block");
             $("#fav-nuevo").html(simb_bs + " " +dif * -1 + ",00");
-            $("#div_forma").css("display", "none")
+            $("#div_forma").css("display", "none");
+            $("#dif-pago").html("0");
+            $("#dif-favor").html(dif*-1)
         }
         $("#total-inter").html(precio_total_f2);
         $("#store_select").show();
@@ -396,12 +400,16 @@ $("#nombre_juego_store").autocomplete({
                 if (dif > 0) {
                     $("#dif-nuevo").html(simb_bs + " " + dif + ",00");
                     $(".ptos-favor").css("display", "none");
-                    $("#div_forma").css("display", "block")
+                    $("#div_forma").css("display", "block");
+                    $("#dif-pago").html(dif);
+                    $("#dif-favor").html("0")
                 } else {
                     $("#dif-nuevo").html("0");
                     $(".ptos-favor").css("display", "block");
                     $("#fav-nuevo").html(simb_bs + " " + dif * -1 + ",00");
-                    $("#div_forma").css("display", "none")
+                    $("#div_forma").css("display", "none");
+                    $("#dif-pago").html("0");
+                    $("#dif-favor").html(dif*-1)
                 }
 
                 $("#item_inv_"+this.id).hide(500, "linear");

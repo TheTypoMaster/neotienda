@@ -353,48 +353,22 @@ include_once( 'header.php' );
             <br>
 
             <div class="col span_12">
-                <div class="col span_3">&nbsp;</div>
-                <div class="col span_6 inf">
+                <div class="col span_4">&nbsp;</div>
+                <div class="col span_4 inf ref">
                     <p>Total tus Juegos: <span id="tus-juegos"></span> Bs.</p>
                     <p>Total intercambio: <span id="total-inter"></span> Bs.</p>
-                    <p>Equivalente a: <span id="equiv-ped"></span></p>
+                    <p>Diferencia a pagar: <span id="dif-pago">0</span> Bs.</p>
+                    <p>Diferencia a favor: <span id="dif-favor">0</span> Bs.</p>
                 </div>
                 <div class="col span_3">&nbsp;</div>
             </div>
             <br><br><br>
 
-            <div class="col span_12"><h2 style="text-align: left; font-weight: bold;">PASOS A SEGUIR</h2></div>
-            <div class="col span_12">
-                <div class="col span_12 infografia">
-                    <div class="col span_1">&nbsp;</div>
-                    <div class="col span_3">
-                        1) Envía tu juego por<br>
-                        <b>ZOOM BRM 1436</b> o entrégalo<br>
-                        en una de nuestras tiendas<br>
-                        autorizadas<br><br>
-                        <a href="http://ve.losgamers.com/store/tiendas-autorizadas.html" target="_blank"><img src="neo_exchanges/tienda-autorizada.png" width="160" id="tienda-autorizada"></a>
-                    </div>
-                    <div class="col span_4">
-                        2) Reporta tu envío<br>
-                        <b>enviándonos el código</b> de<br>
-                        confirmación a:<br>
-                        <img src="neo_exchanges/icon-email.png" id="icon-email">
-                    </div>
-                    <div class="col span_3">
-                        3) Al confirmar tu juego te<br>
-                        acreditamos tus puntos y puedes<br>
-                        <b>usarlos en nuestra tienda.</b><br>
-                        <img src="neo_exchanges/puntos-cover.png" id="puntos-cover">
-                    </div>
-                    <p style="text-align: left; display: inline-block;">
-                        Queremos brindarte el mejor servicio y siempre ser transparentes contigo, para que juntos hagamos crecer esta comunidad. Por eso queremos recordarte que <b>los precios de los títulos en LosGamers.com estarán sujetos a variaciones imprevistas</b> que dependen de varios factores entre esos la disponibilidad de existencia.
-                    </p>
-                </div>
-                <div class="col span_12" style="font-size: 14px; font-weight: bold; margin-top: 25px;">Te enviaremos un correo con el detalle de la transacción</div>
-            </div>
-            <div class="col span_12">
-                <div style="margin: 30px 0 20px 0">
-                    <button id="finalizar-int">FINALIZAR</button>
+            <div class="col span_12" style="margin-top: 20px">
+                <div style="">
+                    <a href="javascript:void(0)" id="finalizar-int" class="button btn btn-default standard-checkout button-medium">
+                        <span>FINALIZAR</span>
+                    </a>
                 </div>
                 <div id="status">procesando</div>
             </div>
