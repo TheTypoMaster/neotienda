@@ -235,6 +235,11 @@ $(".nota-int").click(function(){
         })
     }
 });
+$("#check-dinero").click(function(){
+    if ($("#check-dinero").is(":checked")) {
+        $("#f2-continue").show();
+    }
+});
 $("#paso-2-sig").click(function() {
     if ($("#acepto").is(":checked")) {
         $(".alert-acept").css({ display: "none" });

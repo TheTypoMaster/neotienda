@@ -152,7 +152,6 @@ include_once( 'header.php' );
 <!-- PASO 1 -->
 <div class="section-int banners" id="paso-1">
     <div id="jquery-loader" class="blue-with-image-2 loader1" style="display: none;"></div>
-
     <section id="banners" class="section banners row span_12">
         <div class="col span_12 mb">
             <div class="col">
@@ -170,11 +169,9 @@ include_once( 'header.php' );
                 <p class="titulo_intercambio">Encuentra tus video juegos a intercambiar.</p>
             </div>
         </div>
-
         <div class="col span_12 nota">
             Si no encuentras tu video juego haznolo saber enviando un correo a <a href="mailto:gcabrera@neotienda.com"><b>gcabrera@neotienda.com</b></a>.<br>
         </div>
-
         <!-- BUSCADOR -->
         <div class="col span_12">
             <div class="col span_2" id="margin-busc-1">&nbsp;</div>
@@ -190,13 +187,11 @@ include_once( 'header.php' );
             <div class="col span_2" id="margin-busc-3">&nbsp;</div>
         </div>
         <!-- FIN BUSCADOR -->
-
         <div class="col span_12">
             <div class="col span_3">&nbsp;</div>
             <div class="col span_6" id="display"></div>
             <div class="col span_3"></div>
         </div>
-
         <input type="hidden" id="cont_item" value="0" />
         <div class="col span_12">
             <div class="col span_1">&nbsp;</div>
@@ -225,7 +220,6 @@ include_once( 'header.php' );
         </div>
     </section>
 </div>
-
 <!-- PASO 2 -->
 <div class="section-int banners" id="paso-2" style="display: none;">
     <div id="jquery-loader2" class="blue-with-image-2 loader2" style="display: none;"></div>
@@ -244,10 +238,9 @@ include_once( 'header.php' );
                         <span><em>03.</em> Completado</span>
                     </li>
                 </ul>
-                <p class="subt">Confirma el juego que seleccionaste y busca el juego que quieres obtener a cambio.</p>
+                <p class="titulo_intercambio">Confirma el juego que seleccionaste y busca el juego que quieres obtener a cambio.</p>
             </div>
         </div>
-
         <div class="col span_3">
             <div class="col gam_select">
                 <h3 class="small" style="margin: 10px;">TUS JUEGOS:</h3>
@@ -264,7 +257,6 @@ include_once( 'header.php' );
                     </div>
                 </div>
             </div>
-
             <div style="height: 250px;clear: both;display: none;" id="nuevo" class="col gam_select">
                 <div style="padding-left: 10px" class="col span_12 juego-nuevo">
                     <h2>Detalle del cambio:</h2>
@@ -293,24 +285,28 @@ include_once( 'header.php' );
                 </div>
             </div>
         </div>
-
         <div class="col span_1">&nbsp;</div>
         <div class="col span_8 sec_buscador">
-            <p style="font-weight: bold; font-size: 14px; margin: 0px; margin-bottom: 18px;">Y QUIERES COMPRAR...</p>
+            <p style="font-weight: bold; font-size: 14px; margin: 0px; margin-bottom: 18px;">POR CUALES QUIERES INTERCAMBIAR...</p>
             <div class="col span_2 busc-dos">
                 <select id="plataformas-store" class="col span_12 plataformas-st" name="plataformas-2"></select>
             </div>
-
             <div class="col span_9 cbuscar">
                 <input type="text" name="nombre_juego_store" id="nombre_juego_store" value="" placeholder="Busca el juego que quieres comprar..." class="col span_12 ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
             </div>
             <button class="btn-alq btn-default" style="padding: 8px 12px 8px 12px" id="buscar-store"><img src="neo_exchanges/lupa.png" class="lupa-int"></button>
-
             <input type="hidden" id="cont_item_inv" value="0" />
+            <div id="solo-dinero">
+                <input type="checkbox" id="check-dinero" value="">No hay lo que busco, sólo dame el dinero.
+            </div>
+            <div id="f2-continue" style="text-align:center; margin-top: 12px;" class="col span_12">
+                <a class="button btn btn-default standard-checkout button-medium intercambiar-nuevo" href="javascript:void(0)">
+                    <span>CONTINUAR<i class="icon-chevron-right right"></i></span>
+                </a>
+            </div>
             <div class="col span_12">
                 <div class="col span_12" id="store_select" style="margin-top: 30px; display: none;">
                     <div id="intercambio_fase2" class="bloque-store" style="margin-bottom: 0px;">
-
                     </div>
                     <div class="alert-term" style="display: none; margin-top: 2%;">
                         <img style="float: left; width: 3%; margin-right: 1%;" src="neo_exchanges/alerta.png">

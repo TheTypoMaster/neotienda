@@ -38,6 +38,9 @@ background-image: url('../img/ajax-loader.gif'); background-position: center cen
 .disp, .disp-no{ text-align: center; font-weight: bold; color: #0070bc; font-size: 12px; padding: 5px 0 10px 0; }
 .disp-no{ color: #E74949;  }
 .ref { font-size: 14px; margin-top: 10px; font-weight: bold; color: #000; }
+#solo-dinero{ clear: both; margin-top: 10px; font-size: 14px; }
+#solo-dinero input{ margin-right: 5px; }
+#f2-continue{display: none;}
 #status{color:#FFFFFF;}
 
 /*** BUSCADOR ***/
