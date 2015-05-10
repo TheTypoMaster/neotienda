@@ -155,6 +155,7 @@ $("#nombre_juego").autocomplete({
         $('#res_item_precio_'+num_item_c+'_'+id).html(precio);
         $('#res_item_total').html(precio_total);
         $("#tus-juegos").html(precio_total);
+        $("#dif-favor").html(precio_total);
         if($("#precio-nuevo").length > 0) {
             var dif = precio_total_f2 - precio_total;
             if (dif > 0) {
@@ -664,7 +665,7 @@ $(".close-int, .op1").click(function() {
      */
 });
 
-function buscador_store() {
+                function buscador_store() {
     $("ul.ui-autocomplete").css("display", "none");
     var titulo_st = $("#nombre_juego_store").val();
     var titulo = titulo_st.split(" ").join("-");
@@ -939,6 +940,14 @@ $(".intercambiar-nuevo").click(function() {
         $(".alert-term").css({
             display: "block"
         })
+    }
+});
+$(".intercambiar-continuar").click(function() {
+    var id_usuario = getCookie("login");
+    if (id_usuario != "0") {
+        realizar_pedido_intercambia()
+    } else {
+        login("intercambia")
     }
 });
 $("#forma_pago").change(function(){

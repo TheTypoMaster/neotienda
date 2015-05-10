@@ -46,6 +46,7 @@ if(isset($_POST['id_usuario'])){
         );
         $inter->setItemSales($id_order, $results);
         $inter->setItemBuys($id_order, $results2);
+        //$send = Mail::Send($id_land, $template_name, $title, $templateVars, $customer-&gt;email, $toName, $from, $fromName, $fileAttachment, NULL, $mailDir);
     } catch (Exception $e) {
         echo 'Excepción capturada: ',  $e->getMessage(), "\n";
     }

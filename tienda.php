@@ -33,11 +33,13 @@ include_once( 'header.php' );
     <style id="css-ddslick" type="text/css">.select-bandera-content{float: right}p.text-selec-pais{float: right; margin: 0 0 0 5px; color: #000000;}.dd-select{ border:none; position:relative; cursor:pointer; color:#f6f6f6; font-family: Rockwell, Noto Sans; margin: 0 30%; }.dd-desc { color:#aaa; display:block; overflow: hidden; font-weight:normal; line-height: 1.4em !important; }.dd-selected{ float:left; font-size: 10px !important; overflow:hidden; display:block; padding:3px; hight:auto;}.dd-pointer{ width:0; height:0; position:absolute; top:50%; margin-top:7px;}.dd-pointer-down{ border:solid 5px transparent; border-top:solid 5px #000; }.dd-pointer-up{border:solid 5px transparent !important; border-bottom:solid 5px #000 !important; margin-top:-8px;}.dd-options{ border:solid 1px #ccc; border-top:none; list-style:none; box-shadow:0px 1px 5px #ddd; display:none; position:absolute; z-index:2000; margin:0 2%; padding:0;background:#fff; overflow:auto;}.dd-option{ font-size: 10px !important; padding:3px; display:block; border-bottom:solid 1px #ddd; overflow:hidden; text-decoration:none; color:#333 !important; cursor:pointer;-webkit-transition: all 0.25s ease-in-out; -moz-transition: all 0.25s ease-in-out;-o-transition: all 0.25s ease-in-out;-ms-transition: all 0.25s ease-in-out; }.dd-options > li:last-child > .dd-option{ border-bottom:none;}.dd-option:hover{ background:red; color:#000;}.dd-selected-description-truncated { text-overflow: ellipsis; white-space:nowrap; }.dd-option-selected { background:#f6f6f6; }.dd-option-image, .dd-selected-image { vertical-align:middle; float:left; margin-right:5px; max-width:64px; width:25px; margin-top: 0px;}.dd-image-right { float:right; margin-right:15px; margin-left:5px; margin-top:0px;}.dd-container{ margin: 0 auto;} .dd-selected-text { float:left;}.dd-selected:hover{ color: red;transition: background-color 100ms ease-in-out; -webkit-transition: background-color 100ms ease-in-out;}@media only screen and (max-width: 680px){ .dd-option-image, .dd-selected-image{margin-top: 1px;} .dd-pointer{margin-top: 8px;}}@media only screen and (max-width: 480px){ p.text-selec-pais, .dd-select{color:#000; font-size:10px;} .select-bandera-content{margin-left:3px;}}</style>
     <script type="text/javascript" src="neo_exchanges/jquery.simplemodal.js"></script>
     <script type="text/javascript" src="neo_exchanges/home.js"></script>
+    <script type="text/javascript">
+        setCookie("login",0);
+    </script>
     <!-- Fancybox JS files-->
     <script type="text/javascript" src="neo_exchanges/jquery.fancybox.js"></script>
     <!-- Tooltips -->
     <script type="text/javascript" src="neo_exchanges/jquery.tooltipster.min.js"></script>
-
     <style>
         .header-min{
             width: 100%;
@@ -95,7 +97,6 @@ include_once( 'header.php' );
             text-decoration: none !important;
         }
     </style>
-
 <div id="mobile-menu" class="mobile-menu">
     <i class="icon-home icon-menu-mobile"></i>
 </div>
@@ -111,7 +112,6 @@ include_once( 'header.php' );
             maxWidth: 240,
             position: 'bottom'
         });
-
         //VIDEO PRUEBALO
         if (screen.width <= 360) {
             $(".video-pruebalo-princ").fancybox({
@@ -300,7 +300,7 @@ include_once( 'header.php' );
                 <input type="checkbox" id="check-dinero" value="">No hay lo que busco, sólo dame el dinero.
             </div>
             <div id="f2-continue" style="text-align:center; margin-top: 12px;" class="col span_12">
-                <a class="button btn btn-default standard-checkout button-medium intercambiar-nuevo" href="javascript:void(0)">
+                <a class="button btn btn-default standard-checkout button-medium intercambiar-continuar" href="javascript:void(0)">
                     <span>CONTINUAR<i class="icon-chevron-right right"></i></span>
                 </a>
             </div>
@@ -319,7 +319,6 @@ include_once( 'header.php' );
         <div class="col span_8" id="resultado-store"></div>
     </section>
 </div>
-
 <!-- PASO 3 -->
 <div class="section-int banners" id="paso-3" style="display: none;">
     <section id="banners" class="section banners row span_12">
@@ -350,20 +349,24 @@ include_once( 'header.php' );
 
             <div class="col span_12">
                 <div class="col span_4">&nbsp;</div>
-                <div class="col span_4 inf ref">
-                    <p>Total tus Juegos: <span id="tus-juegos"></span> Bs.</p>
-                    <p>Total intercambio: <span id="total-inter"></span> Bs.</p>
-                    <p>Diferencia a pagar: <span id="dif-pago">0</span> Bs.</p>
-                    <p>Diferencia a favor: <span id="dif-favor">0</span> Bs.</p>
+                <div class="col span_4 inf ref green">
+                    <p>Total de tus Juegos: <span id="tus-juegos">0</span> Bs.</p>
+                    <p>Total intercambio: <span id="total-inter">0</span> Bs.</p>
+                    <p>Monto a pagar: <span id="dif-pago">0</span> Bs.</p>
+                    <p>Monto a favor: <span id="dif-favor">0</span> Bs.</p>
                 </div>
                 <div class="col span_3">&nbsp;</div>
             </div>
+            <br><br><br>
+            <h3>
+                <b style="font-size: 14px; color: #000000;">Te hemos enviado un correo con los pasos a seguir para completar tu solicitud.</b>
+            </h3>
             <br><br><br>
 
             <div class="col span_12" style="margin-top: 20px">
                 <div style="">
                     <a href="javascript:void(0)" id="finalizar-int" class="button btn btn-default standard-checkout button-medium">
-                        <span>FINALIZAR</span>
+                        Confirmo mi pedido
                     </a>
                 </div>
                 <div id="status">procesando</div>
@@ -376,10 +379,8 @@ include_once( 'header.php' );
 </div>
 <ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" role="listbox" aria-activedescendant="ui-active-menuitem" style="z-index: 1; top: 0px; left: 0px; display: none;"></ul>
 <ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" role="listbox" aria-activedescendant="ui-active-menuitem" style="z-index: 1; top: 0px; left: 0px; display: none;"></ul>
-
 <script type="text/javascript">
     Redimensionar('footer-head','.');
-
     function Redimensionar(caja, idclase){
         var heightBlockMax=0;
         $(''+idclase+''+caja+'').each(function (){
@@ -393,7 +394,6 @@ include_once( 'header.php' );
 </script>
 <script type="text/javascript" src="neo_exchanges/explorar.js"></script>
 <script type="text/javascript" src="neo_exchanges/conversion.js"></script>
-
 <?php
 include_once( 'footer.php' );
 ?>
