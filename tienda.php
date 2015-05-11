@@ -166,7 +166,7 @@ include_once( 'header.php' );
                         <span><em>03.</em> Completado</span>
                     </li>
                 </ul>
-                <p class="titulo_intercambio">Encuentra tus video juegos a intercambiar.</p>
+                <div class="subt">Encuentra tus video juegos a intercambiar.</div>
             </div>
         </div>
         <div class="col span_12 nota">

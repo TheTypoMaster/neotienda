@@ -215,7 +215,7 @@ $("#nombre_juego").autocomplete({
     } else {
         $(".footer").css("margin-top", "300px")
     }
-    return $("<li>").data("item.autocomplete", item).append("<a style='height:60px'><img width='' height='50' id='img-result5' src='" + item.imagen + "' style='float:left'><span style='font-size:11px; font-family: Rockwell;'>&nbsp;" + item.label + "</span> <br />&nbsp;<span class='puntos-aut'> " + item.price + " Bs.</span></a>").appendTo(ul)
+    return $("<li>").data("item.autocomplete", item).append("<a style='height:60px'><img width='' height='50' id='img-result5' src='" + item.imagen + "' style='float:left'><span style='font-size:11px;'>&nbsp;" + item.label + "</span> <br />&nbsp;<span class='puntos-aut'> " + item.price + " Bs.</span></a>").appendTo(ul)
 };
 $("#acepto").click(function() {
     if ($("#acepto").is(":checked")) {
@@ -665,8 +665,8 @@ $(".close-int, .op1").click(function() {
      */
 });
 
-                function buscador_store() {
-    $("ul.ui-autocomplete").css("display", "none");
+function buscador_store() {
+    /*$("ul.ui-autocomplete").css("display", "none");
     var titulo_st = $("#nombre_juego_store").val();
     var titulo = titulo_st.split(" ").join("-");
     var plataforma_st = $("#plataformas-store").val();
@@ -910,7 +910,7 @@ $(".close-int, .op1").click(function() {
             $("#resultado-store").show();
             $("#jquery-loader2").hide()
         }
-    })
+    })*/
 }
 $(".termycond").click(function() {
     if ($(".termycond").is(":checked")) {

@@ -44,9 +44,47 @@ if(isset($_POST['id_usuario'])){
                 'total_dif' => $dif
             )
         );
-        $inter->setItemSales($id_order, $results);
-        $inter->setItemBuys($id_order, $results2);
-        //$send = Mail::Send($id_land, $template_name, $title, $templateVars, $customer-&gt;email, $toName, $from, $fromName, $fileAttachment, NULL, $mailDir);
+        $sales = $inter->setItemSales($id_order, $results);
+        $buys = $inter->setItemBuys($id_order, $results2);
+
+        $customer = new Customer((int)$_POST['id_usuario']);
+
+        $configuration = Configuration::getMultiple(array('PS_LANG_DEFAULT', 'PS_SHOP_EMAIL', 'PS_SHOP_NAME'));
+        $id_lang = (int)$configuration['PS_LANG_DEFAULT'];
+        $template = 'intercambio';
+        $subject = 'Neotienda pedido de intercambio';//$this->l('New Account', $id_lang);
+        $templateVars = array(
+            '{firstname}' => $customer->firstname,
+            '{lastname}' => $customer->lastname,
+            '{customer_id}' => (int)$customer->id,
+            '{inter1}' => $sales,
+            '{inter2}' => $buys
+        );
+        $iso = Language::getIsoById((int)($id_lang));
+        if (file_exists(dirname(__FILE__).'/mails/'.$iso.'/'.$template.'.txt') AND file_exists(dirname(__FILE__).'/mails/'.$iso.'/'.$template.'.html'))
+            Mail::Send($id_lang, $template, $subject, $templateVars, $customer->email,$customer->firstname.' '.$customer->lastname, $configuration['PS_SHOP_EMAIL'], $configuration['PS_SHOP_NAME'], NULL, NULL, dirname(__FILE__).'/mails/');
+
+        /*$id_land = 'es';
+        $template_name = 'intercambio';
+        $title = 'Titulo';
+        $templateVars['{lastname}'] = $customer->lastname;
+        $templateVars['{firstname}'] = $customer->firstname;
+        $from = 'neotiendas@gmail.com';
+        $fromName = 'Neotienda pedido de intercambio';
+        $fileAttachment = null;
+        $send = Mail::Send(
+            $id_land,
+            $template_name,
+            $title,
+            $templateVars,
+            $customer->email,
+            $customer->firstname.' '.$customer->lastname,
+            $from,
+            $fromName,
+            $fileAttachment,
+            NULL,
+            _PS_MAIL_DIR_
+        );*/
     } catch (Exception $e) {
         echo 'Excepción capturada: ',  $e->getMessage(), "\n";
     }
