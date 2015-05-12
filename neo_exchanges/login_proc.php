@@ -6,7 +6,7 @@
  * Time: 11:38 AM
  */
 session_start();
-require(dirname(__FILE__) . '/config/config.inc.php');
+require(dirname(__FILE__) . '/../config/config.inc.php');
 
 if($_POST){
     $customer = array();

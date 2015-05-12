@@ -666,7 +666,7 @@ $(".close-int, .op1").click(function() {
 });
 
 function buscador_store() {
-    /*$("ul.ui-autocomplete").css("display", "none");
+    $("ul.ui-autocomplete").css("display", "none");
     var titulo_st = $("#nombre_juego_store").val();
     var titulo = titulo_st.split(" ").join("-");
     var plataforma_st = $("#plataformas-store").val();
@@ -910,7 +910,7 @@ function buscador_store() {
             $("#resultado-store").show();
             $("#jquery-loader2").hide()
         }
-    })*/
+    })
 }
 $(".termycond").click(function() {
     if ($(".termycond").is(":checked")) {

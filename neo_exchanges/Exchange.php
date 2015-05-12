@@ -13,6 +13,8 @@ class Exchange {
     }
 
     function getItemSales($items){
+        $results = array();
+        if(is_array($items))
         foreach($items as $item) {
             $results[] = Db::getInstance()->GetRow("
                         SELECT
@@ -33,6 +35,8 @@ class Exchange {
     }
 
     function getItemBuys($items){
+        $results = array();
+        if(is_array($items))
         foreach($items as $item) {
             $results[] = Db::getInstance()->GetRow("
                         SELECT
@@ -64,7 +68,7 @@ class Exchange {
                 $sql = "INSERT INTO items_sales (id_product, id_order, name, price, image, created_at, status)
                     VALUES ('".$item['id']."','".$id_order."','".pSQL($item['name'])."','".$item['price']."','".$image_url."',now(),1)";
                 Db::getInstance()->executeS($sql);
-                $sales[] = '<div><img src="'.$image_url.'"/> '.$item['name'].' '.$item['price'].'</div>';
+                $sales[] = '<div><img style="border:1px solid rgb(204,204,204);width:79px;" alt="'.$item['name'].'" src="'.$image_url.'"/> '.$item['name'].' '.$item['price'].'</div>';
             }
             return $sales;
         }else{
@@ -74,6 +78,7 @@ class Exchange {
 
     function setItemBuys($id_order, $items){
         if(count($items)){
+            $buys = array();
             foreach($items as $item) {
                 $id_image = Product::getCover($item['id']);
                 $image_url='';
@@ -85,7 +90,7 @@ class Exchange {
                 $sql = "INSERT INTO items_buys (id_product, id_order, name, price, image, created_at, status)
                     VALUES ('".$item['id']."','".$id_order."','".pSQL($item['name'])."','".$item['price']."','".$image_url."',now(),1)";
                 Db::getInstance()->executeS($sql);
-                $buys[] = '<div><img src="'.$image_url.'"/> '.$item['name'].' '.$item['price'].'</div>';
+                $buys[] = '<div><img style="border:1px solid rgb(204,204,204);width:79px;" alt="'.$item['name'].'" src="'.$image_url.'"/> '.$item['name'].' '.$item['price'].'</div>';
             }
             return $buys;
         }else{

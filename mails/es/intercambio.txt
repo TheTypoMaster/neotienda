@@ -1,0 +1,26 @@
+
+[{shop_url}] 
+
+Hola {firstname} {lastname},
+
+Usted a creado un pedido de intercambio satisfactoriamente en {shop_name}.
+
+Detalles de su pedido en {shop_name}
+
+Estos son sus juegos a intercambiar:
+{inter1}
+
+Estos son los juegos que quiere:
+{inter2}
+
+Pasos a seguir:
+
+* Envía tus juegos por Zoom a...
+* Notificanos y haznos llegar el código de tu envío a neotiendas@gmail.com.
+* Nos pondremos en contacto contigo para finalizar el proceso.
+
+Ahora podrá realizar pedidos en nuestra tienda: {shop_name}
+[{shop_url}] 
+
+{shop_name} [{shop_url}] creado por
+AccionCreativa [http://www.accioncreativa.com.ve/]

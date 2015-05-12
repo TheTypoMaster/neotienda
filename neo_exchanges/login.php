@@ -2,7 +2,7 @@
 <html class="no-js" lang="es"><head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Los Gamers Comunidad</title>
+    <title>Neotienda</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="jquery-2.js"></script>
     <script type="text/javascript" src="funciones.js"></script>
