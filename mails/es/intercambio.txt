@@ -10,7 +10,6 @@ Detalles de su pedido en {shop_name}
 Estos son sus juegos a intercambiar:
 {inter1}
 
-Estos son los juegos que quiere:
 {inter2}
 
 Pasos a seguir:

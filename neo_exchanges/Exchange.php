@@ -68,7 +68,7 @@ class Exchange {
                 $sql = "INSERT INTO items_sales (id_product, id_order, name, price, image, created_at, status)
                     VALUES ('".$item['id']."','".$id_order."','".pSQL($item['name'])."','".$item['price']."','".$image_url."',now(),1)";
                 Db::getInstance()->executeS($sql);
-                $sales[] = '<div><img style="border:1px solid rgb(204,204,204);width:79px;" alt="'.$item['name'].'" src="'.$image_url.'"/> '.$item['name'].' '.$item['price'].'</div>';
+                $sales[] = '<div style="vertical-align:top"><img style="float:left;margin-right:10px;border:1px solid rgb(204,204,204);height:79px" alt="'.$item['name'].'" src="'.$image_url.'"/> '.$item['name'].'<br><br>'.$item['price'].'</div>';
             }
             return $sales;
         }else{
@@ -90,7 +90,7 @@ class Exchange {
                 $sql = "INSERT INTO items_buys (id_product, id_order, name, price, image, created_at, status)
                     VALUES ('".$item['id']."','".$id_order."','".pSQL($item['name'])."','".$item['price']."','".$image_url."',now(),1)";
                 Db::getInstance()->executeS($sql);
-                $buys[] = '<div><img style="border:1px solid rgb(204,204,204);width:79px;" alt="'.$item['name'].'" src="'.$image_url.'"/> '.$item['name'].' '.$item['price'].'</div>';
+                $buys[] = '<div style="vertical-align:top"><img style="float:left;margin-right:10px;border:1px solid rgb(204,204,204);height:79px" alt="'.$item['name'].'" src="'.$image_url.'"/> '.$item['name'].'<br><br>'.$item['price'].'</div>';
             }
             return $buys;
         }else{

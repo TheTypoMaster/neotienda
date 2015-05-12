@@ -18,19 +18,17 @@ if(isset($_REQUEST['id_usuario'])){
     $price = 0;
     $price2 = 0;
     $inter1 = $inter2 = '';
-
     $inter = new Exchange();
 
     if(isset($_REQUEST['items_sale']))
-    $results  = $inter->getItemSales($_REQUEST['items_sale']);
+        $results  = $inter->getItemSales($_REQUEST['items_sale']);
 
     if(isset($_REQUEST['items_buy']))
-    $results2 = $inter->getItemBuys($_REQUEST['items_buy']);
+        $results2 = $inter->getItemBuys($_REQUEST['items_buy']);
 
     foreach($results as $result){
         $price += round($result['price']);
     }
-
     foreach($results2 as $result2){
         $price2 += round($result2['price']);
     }
@@ -65,7 +63,6 @@ if(isset($_REQUEST['id_usuario'])){
         }
 
         $customer = new Customer((int)$_REQUEST['id_usuario']);
-
         $configuration = Configuration::getMultiple(array('PS_LANG_DEFAULT', 'PS_SHOP_EMAIL', 'PS_SHOP_NAME'));
         $id_lang = (int)$configuration['PS_LANG_DEFAULT'];
         $template = 'intercambio';
@@ -75,20 +72,13 @@ if(isset($_REQUEST['id_usuario'])){
             '{lastname}' => $customer->lastname,
             '{customer_id}' => (int)$customer->id,
             '{inter1}' => $inter1,
-            '{inter2}' => $inter2
+            '{inter2}' => $inter2?'Estos son los juegos que quiere:<br>'.$inter2:'',
+            '{price}'  => 'Valor de tus Juegos: '.$price,
+            '{favor}'  => 'Saldo a favor: '.$favor,
+            '{price2}' => $price2?'Total de los juegos a intercambiar: '.$price2:'',
+            '{dif}'    => $dif?'Diferencia a pagar: '.$dif:''
         );
         $iso = Language::getIsoById((int)($id_lang));
-        var_dump(array($id_lang,
-            $template,
-            $subject,
-            $templateVars,
-            $customer->email,
-            $customer->firstname.' '.$customer->lastname,
-            $configuration['PS_SHOP_EMAIL'],
-            $configuration['PS_SHOP_NAME'],
-            NULL,
-            NULL,
-            _PS_ROOT_DIR_.'/mails/'));
         if (file_exists(_PS_ROOT_DIR_.'/mails/'.$iso.'/'.$template.'.html')){
             $sol = Mail::Send(
                 $id_lang,
@@ -103,8 +93,8 @@ if(isset($_REQUEST['id_usuario'])){
                 NULL,
                 _PS_ROOT_DIR_.'/mails/'
             );
-            echo 'fin='.$sol;
         }
+        return true;
     } catch (Exception $e) {
         echo 'Excepción capturada: ',  $e->getMessage(), "\n";
     }

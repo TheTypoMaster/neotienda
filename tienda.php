@@ -347,7 +347,7 @@ include_once( 'header.php' );
             </h3>
             <br>
 
-            <div class="col span_12">
+            <div class="col span_12" style="margin-bottom: 20px">
                 <div class="col span_4">&nbsp;</div>
                 <div class="col span_4 inf ref green">
                     <p>Total de tus Juegos: <span id="tus-juegos">0</span> Bs.</p>
@@ -357,12 +357,11 @@ include_once( 'header.php' );
                 </div>
                 <div class="col span_3">&nbsp;</div>
             </div>
-            <br><br><br>
+            <br><br>
             <h3>
                 <b style="font-size: 14px; color: #000000;">Te hemos enviado un correo con los pasos a seguir para completar tu solicitud.</b>
             </h3>
-            <br><br><br>
-
+            <br>
             <div class="col span_12" style="margin-top: 20px">
                 <div style="">
                     <a href="javascript:void(0)" id="finalizar-int" class="button btn btn-default standard-checkout button-medium">
