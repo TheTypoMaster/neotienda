@@ -165,11 +165,11 @@ iframe {
 		.dropdown-content .consolas .col-der {float: left; width: 580px; height: 110px !important; /*height: 360px;*/ background: #ffffff;}
 		.dropdown-content .consolas .col-der .col-consola {display: none;}
 		.dropdown-content .consolas .col-der .col-consola.active {display: block;}
-		.dropdown-content .consolas .col-der .col-consola ul li { font-family: 'Rockwell'; font-size: 14px; font-weight: normal; position: relative; margin-right: 1%; line-height: 15px; }
+		.dropdown-content .consolas .col-der .col-consola ul li { font-family: inherit; font-size: 14px; font-weight: normal; position: relative; margin-right: 1%; line-height: 15px; }
 		#col-apple-itunes ul li{ margin-right: 4%; }	
-		#explore-menu .mensaje-pruebalo { background: #5D99E7; text-align: center; padding: 5px; font-size: 14px; letter-spacing: 1px; color: #fff; font-family: 'Rockwell'; }
+		#explore-menu .mensaje-pruebalo { background: #5D99E7; text-align: center; padding: 5px; font-size: 14px; letter-spacing: 1px; color: #fff; font-family: inherit; }
 		.menu-wrapper-mobile .mensaje-pruebalo { background: #5D99E7; text-align: center; padding: 10px; font-size: 23px; line-height: 15px;
-		 padding: 8px; color: #fff; font-family: 'Rockwell'; margin-top: 20px !important; }
+		 padding: 8px; color: #fff; font-family: inherit; margin-top: 20px !important; }
 	
 	/***** ****** ****** MENU DOS ***** ***** *****/
 		.menu-dos-wrapper { background: #cecdcd; width: 100%; }
@@ -288,14 +288,12 @@ iframe {
 }
 .main-content h1 {
   font-size: 40px;
-  font-family: 'Rockwell';
 }
 .main-content h2 {
-  color: #ff1400;
+  color: #208931;
   font-size: 20px;
   font-weight: normal;
   margin-bottom: 5px;
-  /*font-family: 'Rockwell';*/
 }
 h2.small {
   margin: 0 0 5px 0;
@@ -312,7 +310,6 @@ h3 {
   font-size: 20px;
   font-weight: normal;
   margin: 5px 0 15px 0;
-  font-family: 'Rockwell';
 }
 h3.small {
   margin: 0 0 5px 0;
@@ -320,27 +317,12 @@ h3.small {
   letter-spacing: 0px;
 }
 h4 {
-  font-family: 'Rockwell';
   color: #ff0000;
   font-weight: normal !important;
   margin-top: 0;
 }
 a {
   text-decoration: none;
-}
-@font-face {
-  font-family: 'Dimitri';
-  src: url('../fonts/dimitri_-webfont.eot');
-  src: url('../fonts/dimitri_-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/dimitri_-webfont.woff') format('woff'), url('../fonts/dimitri_-webfont.ttf') format('truetype'), url('../fonts/dimitri_-webfont.svg#Dimitri') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Rockwell';
-  src: url('../fonts/rockwell-webfont.eot');
-  src: url('../fonts/rockwell-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/rockwell-webfont.woff') format('woff'), url('../fonts/rockwell-webfont.ttf') format('truetype'), url('../fonts/rockwell-webfont.svg#rockwellregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
 }
 @media only screen and (max-width: 768px) {
   h1,
@@ -419,7 +401,6 @@ fieldset[disabled] .btn {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffef01', endColorstr='#ffffcf13', GradientType=0);
   font-size: 20px;
   font-weight: bold;
-  font-family: 'Rockwell';
   position: relative;
   z-index: 1000;
 }
@@ -546,7 +527,7 @@ label.dark {
   margin-top: -3px !important;
 }
 .header-title {
-  font-family: 'Dimitri', 'Arial';
+  font-family: inherit;
   color: #fff;
   font-weight: normal;
   line-height: 48px;
@@ -565,7 +546,6 @@ label.dark {
   display: block;
   position: relative;
   z-index: 1000;
-  font-family: Rockwell;
 }
 .details:hover {
   text-decoration: underline;
@@ -845,7 +825,7 @@ li.menu-dropdown .divider {
   background-color: #000;
   height: 328px;
 }
-.footer-head { font-family: 'Noto Sans', Rockwell; font-weight: bold; font-size: 16px; letter-spacing: 1px; line-height: 18px; display: inline-block; }
+.footer-head { font-family: inherit; font-weight: bold; font-size: 16px; letter-spacing: 1px; line-height: 18px; display: inline-block; }
 .footer-content { padding: 40px 50px 0 50px; }
 .footer-links > div{ display: inline-block;	vertical-align: text-top; color: #4E4D4D; padding: 4% 0; width: 33%; }
 .footer-min { background-color: #CCCCCC; }
@@ -854,7 +834,7 @@ li.menu-dropdown .divider {
 .site-map { padding-right: 20px; display: inline-block; color: #fff; float: left; }
 .site-map a { color: #fff; -webkit-text-shadow: 1px 1px 1px #000; text-shadow: 1px 1px 1px #000; }
 .sitemap-links { padding: 0; list-style-type: none; font-size: 12px; margin-top: 15px; }
-.sitemap-links li { margin-bottom: 10px; display: block !important; line-height: 13px; margin-left: 15%; font-size: 14px; font-family: 'Noto Sans', Rockwell;
+.sitemap-links li { margin-bottom: 10px; display: block !important; line-height: 13px; margin-left: 15%; font-size: 14px; font-family: inherit;
 border-bottom: 1px #4E4D4D dashed; }
 .sitemap-links li a { color: #4E4D4D; line-height: normal; }
 .sitemap-links li a:hover { color: #000000; }
@@ -863,12 +843,12 @@ border-bottom: 1px #4E4D4D dashed; }
 background-size: 400px 400px;  background-position: -300px -200px; content: ''; position: relative; top: 3px; */
 }
 
-.footer-personaje{ font-family: 'Noto Sans', Rockwell; font-size: 25px;	text-align: center;	font-weight: bold; letter-spacing: 1.2px; color: #000000; padding: 1% 0;
+.footer-personaje{ font-family: inherit; font-size: 25px;	text-align: center;	font-weight: bold; letter-spacing: 1.2px; color: #000000; padding: 1% 0;
 	background-image: -webkit-linear-gradient(top, #b3b3b3 10%, #666666 100%); background-image: linear-gradient(to bottom, #b3b3b3 10%, #666666 100%);
 	background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b3b3b3', endColorstr='#666666', GradientType=0);
 }
 .footer-personaje p{ margin: 0; }
-.banda-negra{ background: #000000; color: #ffffff; text-align: center; font-size: 20px; padding: 0;	font-family: 'Rockwell'; }
+.banda-negra{ background: #000000; color: #ffffff; text-align: center; font-size: 20px; padding: 0;	font-family: inherit; }
 .banda-negra p{ vertical-align: super; display: inline-block; margin-right: 2%; }
 
 .social-networks-footer { display: inline-block; margin: 0; width: 146px; }

@@ -37,17 +37,17 @@ $(document).ready(function(){
 			}else{
 				$("#login-pass").css('border','1px solid #e0e0e0');
 			}
-		$("#login-msjresp").html("<img src='img/ajax-loader.GIF' style='margin-top:50px;'/>");
+		$("#login-msjresp").html("<img src='../img/ajax-loader.GIF' style='margin-top:50px;'/>");
 		$("#login-msjresp").show();
 
    		//$('#login-form').submit();
         $.ajax({
             type:"POST",
-            url:'neo_exchanges/login_proc.php',
+            url:'login_proc.php',
             async:true,
             cache:false,
             beforeSend: function(){
-                $("#login-msjresp").html("<img src='img/ajax-loader.GIF' style='margin-top:50px;'/>");
+                $("#login-msjresp").html("<img src='../img/ajax-loader.GIF' style='margin-top:50px;'/>");
                 $("#login-msjresp").show();
             },
             data: {login_email: login_email, login_pass: login_pass},
@@ -97,7 +97,7 @@ $(document).ready(function(){
 				async:true,
 				cache:false,
 				beforeSend: function(){						
-					$("#login-msjresp").html("<img src='img/ajax-loader.GIF' style='margin-top:50px;'/>");
+					$("#login-msjresp").html("<img src='../img/ajax-loader.GIF' style='margin-top:50px;'/>");
 					$("#login-msjresp").show();								
 				},
 				data: ({login_rest_email:_email}),				
@@ -161,7 +161,7 @@ $(document).ready(function(){
 					cont++;
 				}							
 				if(cont==5){
-					$("#login-msjresp").html("<img src='img/ajax-loader.GIF' style='margin-top:50px;'/>");
+					$("#login-msjresp").html("<img src='../img/ajax-loader.GIF' style='margin-top:50px;'/>");
 					$("#login-msjresp").show();
 					$('#regist-form').submit();
 				}
@@ -379,7 +379,7 @@ function FBConex(obj) {
 };
 
 function FBLogin(nomb,apel,email){
-		$("#login-msjresp").html("<img src='img/ajax-loader.GIF' style='margin-top:50px;'/>");
+		$("#login-msjresp").html("<img src='../img/ajax-loader.GIF' style='margin-top:50px;'/>");
 		$("#login-msjresp").show();
 		
 		//alert('login echo '+fb.user.name);
@@ -389,7 +389,7 @@ function FBLogin(nomb,apel,email){
 		location.href = "login_social.php?nomb="+nomb+"&apel="+apel+"&email="+email+"&from="+from;
 };
 function FBRegistro(id,nomb,apel,email,img){
-		$("#login-msjresp").html("<img src='img/ajax-loader.GIF' style='margin-top:50px;'/>");
+		$("#login-msjresp").html("<img src='../img/ajax-loader.GIF' style='margin-top:50px;'/>");
 		$("#login-msjresp").show();
 		
 		//alert('login echo '+fb.user.name);

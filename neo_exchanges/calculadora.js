@@ -137,9 +137,7 @@ $("#nombre_juego").autocomplete({
 
         var sum = Number($("#cont_item").val()) + Number(1);
         $("#cont_item").attr('value', sum);
-
         precio_total = Number(precio_total) + Number(precio);
-
         $("#resultado-intercambia").hide(500, "linear");
 
         $('<div/>', {
@@ -154,11 +152,10 @@ $("#nombre_juego").autocomplete({
                 '<input id="input_" type="hidden" />'
             )
         ).appendTo('#res_item');
-
         $('#res_item_precio_'+num_item_c+'_'+id).html(precio);
-
         $('#res_item_total').html(precio_total);
-
+        $("#tus-juegos").html(precio_total);
+        $("#dif-favor").html(precio_total);
         if($("#precio-nuevo").length > 0) {
             var dif = precio_total_f2 - precio_total;
             if (dif > 0) {
@@ -170,7 +167,6 @@ $("#nombre_juego").autocomplete({
                 $("#fav-nuevo").html(dif * -1)
             }
         }
-
         $(".close").click(function() {
             if($("#item_"+this.id).length > 0){
                 $("#item_"+this.id).hide(500, "linear");
@@ -178,6 +174,7 @@ $("#nombre_juego").autocomplete({
                 $("#cont_item").attr('value', cont);
                 precio_total = parseInt($('#res_item_total').text()) - parseInt($("#res_item_precio_"+this.id).text());
                 $('#res_item_total').html(precio_total);
+                $("#tus-juegos").html(precio_total);
 
                 if($("#precio-nuevo").length > 0){
                     var fav_nuevo = precio_total - parseInt($("#precio-nuevo").text());
@@ -191,7 +188,6 @@ $("#nombre_juego").autocomplete({
                         $('.ptos-favor').css("display", "none");
                     }
                 }
-
                 $("#item_"+this.id).remove();
                 $("#res_item_"+this.id).remove();
                 if($("#cont_item").val()==0){
@@ -219,7 +215,7 @@ $("#nombre_juego").autocomplete({
     } else {
         $(".footer").css("margin-top", "300px")
     }
-    return $("<li>").data("item.autocomplete", item).append("<a style='height:60px'><img width='' height='50' id='img-result5' src='" + item.imagen + "' style='float:left'><span style='font-size:11px; font-family: Rockwell;'>&nbsp;" + item.label + "</span> <br />&nbsp;<span class='puntos-aut'> " + item.price + " Bs.</span></a>").appendTo(ul)
+    return $("<li>").data("item.autocomplete", item).append("<a style='height:60px'><img width='' height='50' id='img-result5' src='" + item.imagen + "' style='float:left'><span style='font-size:11px;'>&nbsp;" + item.label + "</span> <br />&nbsp;<span class='puntos-aut'> " + item.price + " Bs.</span></a>").appendTo(ul)
 };
 $("#acepto").click(function() {
     if ($("#acepto").is(":checked")) {
@@ -238,6 +234,11 @@ $(".nota-int").click(function(){
         $(".alert-acept").css({
             display: "none"
         })
+    }
+});
+$("#check-dinero").click(function(){
+    if ($("#check-dinero").is(":checked")) {
+        $("#f2-continue").show();
     }
 });
 $("#paso-2-sig").click(function() {
@@ -317,7 +318,6 @@ $("#nombre_juego_store").autocomplete({
         var precio_usado = ui.item.precio_usado;
         var imagen_nuevo = ui.item.imagen;
         var simb_bs = "Bs. ";
-
         var sum = Number($("#cont_item_inv").val()) + Number(1);
         $("#cont_item_inv").attr('value', sum);
 
@@ -374,13 +374,18 @@ $("#nombre_juego_store").autocomplete({
         if (dif > 0) {
             $("#dif-nuevo").html(simb_bs + " " + dif + ",00");
             $(".ptos-favor").css("display", "none");
-            $("#div_forma").css("display", "block")
+            $("#div_forma").css("display", "block");
+            $("#dif-pago").html(dif);
+            $("#dif-favor").html("0")
         } else {
             $("#dif-nuevo").html("0");
             $(".ptos-favor").css("display", "block");
             $("#fav-nuevo").html(simb_bs + " " +dif * -1 + ",00");
-            $("#div_forma").css("display", "none")
+            $("#div_forma").css("display", "none");
+            $("#dif-pago").html("0");
+            $("#dif-favor").html(dif*-1)
         }
+        $("#total-inter").html(precio_total_f2);
         $("#store_select").show();
         $("#resultado-store").hide(500, "linear");
         $(".close_store").click(function() {
@@ -395,17 +400,22 @@ $("#nombre_juego_store").autocomplete({
                 precio_total_f2 = (precio_total_f2 - parseInt($("#equiv-int-"+this.id).text()));
 
                 $('#precio-nuevo').html(precio_total_f2+',00');
+                $("#total-inter").html(precio_total_f2+',00');
 
                 var dif = (precio_total_f2 - parseInt($("#res_item_total").text()));
                 if (dif > 0) {
                     $("#dif-nuevo").html(simb_bs + " " + dif + ",00");
                     $(".ptos-favor").css("display", "none");
-                    $("#div_forma").css("display", "block")
+                    $("#div_forma").css("display", "block");
+                    $("#dif-pago").html(dif);
+                    $("#dif-favor").html("0")
                 } else {
                     $("#dif-nuevo").html("0");
                     $(".ptos-favor").css("display", "block");
                     $("#fav-nuevo").html(simb_bs + " " + dif * -1 + ",00");
-                    $("#div_forma").css("display", "none")
+                    $("#div_forma").css("display", "none");
+                    $("#dif-pago").html("0");
+                    $("#dif-favor").html(dif*-1)
                 }
 
                 $("#item_inv_"+this.id).hide(500, "linear");
@@ -656,7 +666,7 @@ $(".close-int, .op1").click(function() {
 });
 
 function buscador_store() {
-    $("ul.ui-autocomplete").css("display", "none");
+    /*$("ul.ui-autocomplete").css("display", "none");
     var titulo_st = $("#nombre_juego_store").val();
     var titulo = titulo_st.split(" ").join("-");
     var plataforma_st = $("#plataformas-store").val();
@@ -900,7 +910,7 @@ function buscador_store() {
             $("#resultado-store").show();
             $("#jquery-loader2").hide()
         }
-    })
+    })*/
 }
 $(".termycond").click(function() {
     if ($(".termycond").is(":checked")) {
@@ -930,6 +940,14 @@ $(".intercambiar-nuevo").click(function() {
         $(".alert-term").css({
             display: "block"
         })
+    }
+});
+$(".intercambiar-continuar").click(function() {
+    var id_usuario = getCookie("login");
+    if (id_usuario != "0") {
+        realizar_pedido_intercambia()
+    } else {
+        login("intercambia")
     }
 });
 $("#forma_pago").change(function(){

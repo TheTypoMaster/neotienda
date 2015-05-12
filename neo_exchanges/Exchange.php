@@ -52,6 +52,7 @@ class Exchange {
 
     function setItemSales($id_order, $items){
         if(count($items)){
+            $sales = array();
             foreach($items as $item) {
                 $id_image = Product::getCover($item['id']);
                 $image_url='';
@@ -63,8 +64,9 @@ class Exchange {
                 $sql = "INSERT INTO items_sales (id_product, id_order, name, price, image, created_at, status)
                     VALUES ('".$item['id']."','".$id_order."','".pSQL($item['name'])."','".$item['price']."','".$image_url."',now(),1)";
                 Db::getInstance()->executeS($sql);
+                $sales[] = '<div><img src="'.$image_url.'"/> '.$item['name'].' '.$item['price'].'</div>';
             }
-            return true;
+            return $sales;
         }else{
             return false;
         }
@@ -83,8 +85,9 @@ class Exchange {
                 $sql = "INSERT INTO items_buys (id_product, id_order, name, price, image, created_at, status)
                     VALUES ('".$item['id']."','".$id_order."','".pSQL($item['name'])."','".$item['price']."','".$image_url."',now(),1)";
                 Db::getInstance()->executeS($sql);
+                $buys[] = '<div><img src="'.$image_url.'"/> '.$item['name'].' '.$item['price'].'</div>';
             }
-            return true;
+            return $buys;
         }else{
             return false;
         }

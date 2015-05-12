@@ -169,7 +169,12 @@ function getCookie(e) {
     }
     return "0"
 }
-if (location.hostname == "www.losgamers.com") {
+
+function deleteCookie(e){
+    document.cookie = e + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+}
+
+/*if (location.hostname == "www.losgamers.com") {
     var url_login = "prod_home/"
 } else {
     if (location.hostname == "pruebalo.losgamers.com") {
@@ -181,7 +186,7 @@ if (location.hostname == "www.losgamers.com") {
             var url_login = "pruebas/"
         }
     }
-}
+}*/
 
 function login(from) {
     if (from) {
