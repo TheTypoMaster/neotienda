@@ -297,7 +297,7 @@ include_once( 'header.php' );
             <button class="btn-alq btn-default" style="padding: 8px 12px 8px 12px" id="buscar-store"><img src="neo_exchanges/lupa.png" class="lupa-int"></button>
             <input type="hidden" id="cont_item_inv" value="0" />
             <div id="solo-dinero">
-                <input type="checkbox" id="check-dinero" value="">No hay lo que busco, sólo dame el dinero.
+                <input type="checkbox" id="check-dinero" value="">No hay lo que busco, prefiero el dinero.
             </div>
             <div id="f2-continue" style="text-align:center; margin-top: 12px;" class="col span_12">
                 <a class="button btn btn-default standard-checkout button-medium intercambiar-continuar" href="javascript:void(0)">
@@ -312,7 +312,7 @@ include_once( 'header.php' );
                         <img style="float: left; width: 3%; margin-right: 1%;" src="neo_exchanges/alerta.png">
                         <h3 style="font-size: 15px; color: #FF0000;">DEBES ACEPTAR LOS TÉRMINOS Y CONDICIONES</h3>
                     </div>
-                    <div class="check-term"><input type="checkbox" class="termycond" name="aceptar-termycond" value="">He leído y acepto los <a href="http://www.losgamers.com/intercambia/terminosycondiciones">Términos y Condiciones</a></div>
+                    <div class="check-term"><input type="checkbox" class="termycond" name="aceptar-termycond" value="">He leído y acepto los <a href="#">Términos y Condiciones</a></div>
                 </div>
             </div>
         </div>
@@ -349,7 +349,7 @@ include_once( 'header.php' );
 
             <div class="col span_12" style="margin-bottom: 20px">
                 <div class="col span_4">&nbsp;</div>
-                <div class="col span_4 inf ref green">
+                <div class="col span_4 inf ref">
                     <p>Total de tus Juegos: <span id="tus-juegos">0</span> Bs.</p>
                     <p>Total intercambio: <span id="total-inter">0</span> Bs.</p>
                     <p>Monto a pagar: <span id="dif-pago">0</span> Bs.</p>
@@ -365,7 +365,7 @@ include_once( 'header.php' );
             <div class="col span_12" style="margin-top: 20px">
                 <div style="">
                     <a href="javascript:void(0)" id="finalizar-int" class="button btn btn-default standard-checkout button-medium">
-                        Confirmo mi pedido
+                        Finalizar
                     </a>
                 </div>
                 <div id="status">procesando</div>

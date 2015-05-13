@@ -37,7 +37,7 @@ background-image: url('../img/ajax-loader.gif'); background-position: center cen
 .consola { background: #eeeeee; padding: 8px 0px; margin: 8px 0; margin-right: 10px; text-align: right; }
 .disp, .disp-no{ text-align: center; font-weight: bold; color: #0070bc; font-size: 12px; padding: 5px 0 10px 0; }
 .disp-no{ color: #E74949;  }
-.ref { font-size: 14px; margin-top: 10px; font-weight: bold; color: #000; }
+.ref { font-size: 18px; margin-top: 10px; font-weight: bold; color: #000; }
 .green { color: green; }
 #solo-dinero{ clear: both; margin-top: 10px; font-size: 14px; }
 #solo-dinero input{ margin-right: 5px; }
