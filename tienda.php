@@ -178,8 +178,8 @@ include_once( 'header.php' );
             <div class="col span_8">
                 <div class="input-group-">
                     <span class="input-group-busc">
-                        <select name="plataformas-int" class="col span_2" id="plataformas-int"></select>
-                        <input type="text" class="col span_9 buscador-alquiler ui-autocomplete-input ui-corner-all" placeholder="Agrega tus juegos aquí" value="" id="nombre_juego" name="nombre_juego" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+                        <select name="plataformas-int" class="col span_3" id="plataformas-int"></select>
+                        <input type="text" class="col span_8 buscador-alquiler ui-autocomplete-input ui-corner-all" placeholder="Agrega tus juegos aquí" value="" id="nombre_juego" name="nombre_juego" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
                         <button tabindex="-1" id="buscar-int" class="btn-alq btn-default col span_1" type="button"><img class="lupa-int" src="neo_exchanges/lupa.png"></button>
                     </span>
                 </div>
@@ -257,28 +257,28 @@ include_once( 'header.php' );
                     </div>
                 </div>
             </div>
-            <div style="height: 250px;clear: both;display: none;" id="nuevo" class="col gam_select">
+            <div style="clear: both;display: none;" id="nuevo" class="col gam_select">
                 <div style="padding-left: 10px" class="col span_12 juego-nuevo">
                     <h2>Detalle del cambio:</h2>
-                    <p style="font-size: 14px !important; font-weight: bold; color: #000000; margin-top: 10px !important;" class="detalle">
+                    <p style="font-size: 14px !important;font-weight:bold;color:#000000;margin-top:10px !important" class="detalle">
                         Precio total: Bs. <span id="precio-nuevo">0</span>
                     </p>
-                    <p style="font-size: 14px !important; font-weight: bold; color: #000000; margin-top: 10px !important;" class="detalle">
+                    <p style="font-size:14px !important;font-weight:bold;color:#000000;margin-top:5px !important" class="detalle">
                         Diferencia a pagar: <br><span id="dif-nuevo">0</span>
-                        <div id="div_forma">Indicar forma de pago: <br>
+                    </p>
+                    <p style="font-size:14px !important;font-weight:bold;color:#000" class="ptos-favor">
+                        Monto a favor: <span id="fav-nuevo">0</span>
+                    </p>
+                    <div id="div_forma" style="font-size:14px;font-weight:bold;color:#000;margin-top:5px !important">Indicar forma de pago:<br>
                         <select id="forma_pago" name="forma_pago">
                             <option value="">Seleccione</option>
                             <option value="Transferencia">Transferencia</option>
                             <option value="Depósito">Depósito</option>
                             <option value="Efectivo">Efectivo</option>
                         </select>
-                        </div>
-                    </p>
-                    <p style="display: block;" class="ptos-favor">
-                        Monto a favor: <span id="fav-nuevo">0</span>
-                    </p>
+                    </div>
                 </div>
-                <div style="text-align:center; margin-top: 12px;" class="col span_12">
+                <div style="text-align:center; margin: 12px 0;" class="col span_12">
                     <a class="button btn btn-default standard-checkout button-medium intercambiar-nuevo" href="javascript:void(0)">
                         <span>INTERCAMBIAR<i class="icon-chevron-right right"></i></span>
                     </a>
@@ -288,10 +288,10 @@ include_once( 'header.php' );
         <div class="col span_1">&nbsp;</div>
         <div class="col span_8 sec_buscador">
             <p style="font-weight: bold; font-size: 14px; margin: 0px; margin-bottom: 18px;">POR CUALES QUIERES INTERCAMBIAR...</p>
-            <div class="col span_2 busc-dos">
+            <div class="col span_3 busc-dos">
                 <select id="plataformas-store" class="col span_12 plataformas-st" name="plataformas-2"></select>
             </div>
-            <div class="col span_9 cbuscar">
+            <div class="col span_8 cbuscar">
                 <input type="text" name="nombre_juego_store" id="nombre_juego_store" value="" placeholder="Busca el juego que quieres comprar..." class="col span_12 ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
             </div>
             <button class="btn-alq btn-default" style="padding: 8px 12px 8px 12px" id="buscar-store"><img src="neo_exchanges/lupa.png" class="lupa-int"></button>

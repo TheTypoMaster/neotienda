@@ -2213,9 +2213,6 @@ ul.videos li .special-review-layer {
   /* TOP MENU */
     .belt .btn-primary {margin-left: 1%;}
     .belt .dd-container { margin-right: -15px; }
-	.dv_search_game { width: 400px !important;	}
-    .txt_searg { width: 360px !important; }
-   
     
   .swipe-help {
     display: inline-block;
@@ -2595,8 +2592,6 @@ ul.videos li .special-review-layer {
     .product-shop-info {margin-top: 440px !important;}
     /* TOP MENU */
     .belt .btn-primary {margin-left: 1%;}
-	.dv_search_game { width: 400px !important;	}
-    .txt_searg { width: 360px !important; }
 }
 @media only screen and (min-width: 768px) and (max-width: 768px) {
     .close-video {right: -15px !important;}
@@ -2662,9 +2657,6 @@ ul.videos li .special-review-layer {
 }
 @media only screen and (min-width: 533px) and (max-width: 603px) {
     .menu-explore-wrapper {height: 1175px !important;}
-    /* TOP MENU */
-    .dv_search_game{ width: 285px !important; }
-    .txt_searg { width: 242px !important; }
 }
 @media only screen and (min-width: 768px) and (max-width: 768px) {
     .cart-top-container {margin: 4px 0px 0px 0px !important;}
@@ -2782,8 +2774,6 @@ ul.videos li .special-review-layer {
 	
 	/***** ****** ****** HEADER ***** ***** *****/
 	.header-min { z-index: 10020; position: relative; height: 168px !important; margin-bottom: 0 !important; padding-top: 20px;	}
-	.dv_search_game { margin-left: 50px !important; width: 280px !important; }
-	.txt_searg { width: 230px !important; }
 	.belt .btn-primary { margin-left: 13%; }
 	.belt .dd-container { margin-right: 80px; margin-top: -10px; }
 	.engagement-options { width: 100% !important; }
