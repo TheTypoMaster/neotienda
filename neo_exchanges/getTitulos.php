@@ -8,44 +8,74 @@
 session_start();
 require(dirname(__FILE__) . '/../config/config.inc.php');
 
-$pais=$_REQUEST["pais"];
-$plataforma=$_REQUEST["plataforma"];
-$store=$_REQUEST["store"];
-$tipo=$_REQUEST["tipo"];
-$titulo=$_REQUEST["titulo"];
-
-$query=("SELECT
-                            ps_product_lang.id_product id,
-                            ps_product_lang.name,
-                            ps_product_shop.price
-                    FROM
-                            ps_category,
-                            ps_category_lang pcl2,
-                            ps_category_product,
-                            ps_product_shop,
-                            ps_product_lang
-                    WHERE
-                            ps_category.id_parent IN (SELECT ps_category_lang.id_category FROM ps_category_lang WHERE ps_category_lang.name LIKE '%".$plataforma."%')
-                            AND pcl2.id_category = ps_category.id_category
-                            AND pcl2.name LIKE '%Nuevos%'
-                            AND pcl2.id_category = ps_category_product.id_category
-                            AND ps_category_product.id_category = ps_product_shop.id_category_default
-                            AND ps_product_shop.id_product = ps_product_lang.id_product
-                            AND ps_product_lang.name LIKE '%".$titulo."%'
-                    GROUP BY id
-                    ORDER BY ps_product_lang.name");
 $json=array();
+$total=0;
 
-if ($results = Db::getInstance()->ExecuteS($sql))
-    foreach ($results as $row){
-        $json[]=array(
-            'sku'=> $row["name"],
-            'label'=> $row["name"]." - ".$row["id"],
-            'price'=> $row["price"],
-            'imagen'=> 'http://neotienda.com/261-home_default/zarcillos.jpg'
+if($_POST){
+    $pais       = $_POST["pais"];
+    $plataforma = $_POST["plataforma"];
+    $tipo       = $_POST["tipo"];
+    $titulo     = $_POST["titulo"];
+
+    $query=("SELECT
+                    ppl.id_product id,
+                    ppl.name,
+                    pps.price,
+                    pcl2.name status
+            FROM
+                    "._DB_PREFIX_."category pc,
+                    "._DB_PREFIX_."category_lang pcl2,
+                    "._DB_PREFIX_."category_product pcp,
+                    "._DB_PREFIX_."product_shop pps,
+                    "._DB_PREFIX_."product_lang ppl
+            WHERE
+                    pc.id_parent IN (SELECT id_category FROM "._DB_PREFIX_."category_lang WHERE name LIKE '%".$plataforma."%')
+                    AND pcl2.id_category = pc.id_category
+                    AND pcl2.id_category = pcp.id_category
+                    AND pcp.id_category = pps.id_category_default
+                    AND pps.id_product = ppl.id_product
+                    AND ppl.name LIKE '%".$titulo."%'
+            GROUP BY id
+            ORDER BY ppl.name");
+    if ($results = Db::getInstance()->ExecuteS($sql)){
+        foreach ($results as $row){
+            $id_image = Product::getCover($row["id"]);
+            $image_url='';
+            if (sizeof($id_image) > 0) {
+                $image = new Image($id_image['id_image']);
+                // get image full URL
+                $image_url = _PS_BASE_URL_._THEME_PROD_DIR_.$image->getExistingImgPath().".jpg";
+            }
+            $json[]=array(
+                'id'=> $row["id"],
+                'sku'=> $row["name"],
+                'label'=> $row["name"]." - ".$row["id"],
+                'price'=> round($row["price"]),
+                'precio_usado'=> ($row['status']=='Usados')?round($row["price"]):0,
+                'imagen'=> $image_url
+            );
+            $total++;
+        }
+        $result = array(
+            'success' => true,
+            'totalCount' => $total,
+            'resultado' => $json
+        );
+    }else{
+        $result = array(
+            'success' => true,
+            'totalCount' => $total,
+            'resultado' => ''
         );
     }
+}else{
+    $result = array(
+        'success' => false,
+        'totalCount' => $total,
+        'resultado' => ''
+    );
+}
 
-echo json_encode($json);
+echo json_encode($result);
 
 ?>
