@@ -17,7 +17,7 @@ if($_POST){
     $tipo       = $_POST["tipo"];
     $titulo     = $_POST["titulo"];
 
-    $query=("SELECT
+    $sql=("SELECT
                     ppl.id_product id,
                     ppl.name,
                     pps.price,
