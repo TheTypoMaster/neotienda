@@ -15,7 +15,8 @@ class AdminIntercambioController extends AdminController
     public function __construct()
     {
         $this->bootstrap = true;
-        $this->table = 'order';
+        $this->table = 'orders';
+        $this->add_prefix = false;
         $this->className = 'Order';
         $this->lang = false;
         $this->addRowAction('view');
@@ -25,6 +26,23 @@ class AdminIntercambioController extends AdminController
         $this->context = Context::getContext();
 
         $this->_select = '
+		a.id_order,
+		a.reference,
+		CONCAT(LEFT(c.`firstname`, 1), \'. \', c.`lastname`) AS `customer`,
+		osl.`name` AS `osname`,
+		os.`color`,
+		IF((SELECT COUNT(so.id_order) FROM `'._DB_PREFIX_.'orders` so WHERE so.id_customer = a.id_customer) > 1, 0, 1) as new,
+		country_lang.name as cname,
+		IF(a.valid, 1, 0) badge_success
+
+
+		orders';
+
+        $this->_join = '
+        LEFT JOIN `'._DB_PREFIX_.'customer` c ON (c.`id_customer` = a.`id_customer`)
+        ';
+
+        /*$this->_select = '
 		a.id_currency,
 		a.id_order AS id_pdf,
 		CONCAT(LEFT(c.`firstname`, 1), \'. \', c.`lastname`) AS `customer`,
@@ -40,7 +58,7 @@ class AdminIntercambioController extends AdminController
 		INNER JOIN `'._DB_PREFIX_.'country` country ON address.id_country = country.id_country
 		INNER JOIN `'._DB_PREFIX_.'country_lang` country_lang ON (country.`id_country` = country_lang.`id_country` AND country_lang.`id_lang` = '.(int)$this->context->language->id.')
 		LEFT JOIN `'._DB_PREFIX_.'order_state` os ON (os.`id_order_state` = a.`current_state`)
-		LEFT JOIN `'._DB_PREFIX_.'order_state_lang` osl ON (os.`id_order_state` = osl.`id_order_state` AND osl.`id_lang` = '.(int)$this->context->language->id.')';
+		LEFT JOIN `'._DB_PREFIX_.'order_state_lang` osl ON (os.`id_order_state` = osl.`id_order_state` AND osl.`id_lang` = '.(int)$this->context->language->id.')';*/
         $this->_orderBy = 'id_order';
         $this->_orderWay = 'DESC';
 
@@ -107,17 +125,17 @@ class AdminIntercambioController extends AdminController
                 'type' => 'datetime',
                 'filter_key' => 'a!date_add'
             ),
-            'id_pdf' => array(
+            /*'id_pdf' => array(
                 'title' => $this->l('PDF'),
                 'align' => 'text-center',
                 'callback' => 'printPDFIcons',
                 'orderby' => false,
                 'search' => false,
                 'remove_onclick' => true
-            )
+            )*/
         ));
 
-        if (Country::isCurrentlyUsed('country', true))
+        /*if (Country::isCurrentlyUsed('country', true))
         {
             $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 			SELECT DISTINCT c.id_country, cl.`name`
@@ -143,7 +161,7 @@ class AdminIntercambioController extends AdminController
                 'order_key' => 'cname'
             );
             $this->fields_list = array_merge($part1, $part2);
-        }
+        }*/
 
         $this->shopLinkType = 'shop';
         $this->shopShareDatas = Shop::SHARE_ORDER;

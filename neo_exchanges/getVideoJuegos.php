@@ -48,7 +48,7 @@ if($_POST){
             $json[]=array(
                 'id'=> $row["id"],
                 'sku'=> $row["name"],
-                'label'=> $row["name"]." - ".$row["id"],
+                'label'=> $row["name"],
                 'price'=> round($row["price"]),
                 'precio_usado'=> ($row['status']=='Usados')?round($row["price"]):0,
                 'imagen'=> $image_url

@@ -344,6 +344,7 @@ $("#nombre_juego_store").autocomplete({
 
         $("#precio-nuevo").html(precio_total_f2 + ',00');
         $("#nuevo").css("display", "block");
+        $("#solo-dinero").hide();
 
         $('<div/>', {
             class: 'bloque-int',
@@ -446,6 +447,7 @@ $("#nombre_juego_store").autocomplete({
                 if($("#cont_item_inv").val()==0){
                     $("#store_select").hide(500, "linear");
                     $("#nuevo").css("display", "none");
+                    $("#solo-dinero").show();
                     //$("#intercambio_fase2").html("");
                     $("#nombre_juego_store").attr("value","");
                     $("#precio-nuevo").html("0");
@@ -743,7 +745,7 @@ function buscador_store() {
                 var totalCount = result.totalCount;
                 $("#resultado-store").empty();
                 if (totalCount == 0) {
-                    $("#resultado-store").html('<div style="text-align: center;"><img src="neo_exchanges/alerta.png"/><h2 style="text-align:center; margin-top: 6px;">No encontramos resultados</h2><p style="font-size: 18px; margin: 0px;">¡Intenta realizar otra búsqueda!<br>o escríbenos a info@losgamers.com</p></div>')
+                    $("#resultado-store").html('<div style="text-align: center;"><img src="neo_exchanges/alerta.png"/><h2 style="text-align:center; margin-top: 6px;">No encontramos resultados</h2><p style="font-size: 18px; margin: 0px;">¡Intenta realizar otra búsqueda!<br>o escríbenos a info@neotienda.com</p></div>')
                 }
                 $.each(arreglo, function(key, value) {
                     var datos = value;

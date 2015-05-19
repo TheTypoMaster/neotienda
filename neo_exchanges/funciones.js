@@ -51,26 +51,33 @@ $(document).ready(function(){
             },
             data: {login_email: login_email, login_pass: login_pass},
             success:function(result){
-				$("#login-msjresp").css({ "background-color": "#ffe", "border-left": "1px solid #ccc" });
+				$("#login-msjresp").css({ "background-color": "#ffe", "border": "1px solid #ccc", "cursor": "pointer" });
 				if(result){
 					setCookie('login',result);
 					$("#login-msjresp").css({"color": "green"}).html("Se autentico correctamente.");
+                    $("#login-msjresp").show();
+                    $("#login-msjresp").click(function(){
+                        $("#login-msjresp").hide();
+                        $("#simplemodal-container").hide();
+                    });
+                    setTimeout(function(){
+                        $("#simplemodal-container").fadeOut(1000);
+                    },5000);
 				}else{
 					$("#login-msjresp").css({"color": "red"}).html("Usuario o clave incorrecta.");
+                    $("#login-msjresp").show();
+                    $("#login-msjresp").click(function(){
+                        //$("#login-msjresp,#login-from-rest").hide();
+                        $("#login-msjresp").hide();
+                        $("#login-rest-email").val('');
+                        $("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
+                    });
+                    setTimeout(function(){
+                        $("#login-msjresp").fadeOut(1000);
+                        //$("#login-msjresp,#login-from-rest").hide();
+                        $("#login-rest-email").val('');
+                    },5000);
 				}
-                $("#login-msjresp").show();
-				$("#login-msjresp").click(function(){
-					//$("#login-msjresp,#login-from-rest").hide();
-					$("#login-msjresp").hide();
-					$("#login-rest-email").val('');
-					$("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
-				});
-				setTimeout(function(){
-                    $("#login-msjresp").fadeOut(1000);
-                    //$("#login-msjresp,#login-from-rest").hide();
-                    $("#login-rest-email").val('');
-                    $("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
-                },50000);
             },
             error: function(result){
                 $("#torn-msjresp").html("<div class='notif_error'>Ocurrio un Error recargue el navegador y vuelva a intentar</div>");
