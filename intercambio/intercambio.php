@@ -29,9 +29,60 @@ class Intercambio extends Module{
 		if (!parent::install() ||    
 			!$this->registerHook('leftColumn') ||    
 			!$this->registerHook('header') ||    
-			!Configuration::updateValue('MYMODULE_NAME', 'my friend')  )    
+			!Configuration::updateValue('MYMODULE_NAME', 'my friend')  ||
+            !$this->installModuleTab('Intercambio', array(1=>'Ordenes de intercambio'), 0))
 			return false;   
 
 		return true;
 	}
+
+    public function uninstall()
+    {
+        if (!parent::uninstall()
+            || !$this->uninstallModuleTab('Intercambio', array(1=>'Ordenes de intercambio'), 0))
+            return false;
+        return true;
+    }
+
+    private function installModuleTab($tabClass, $tabName, $idTabParent)
+
+    {
+        $tab = new Tab();
+
+        $tab->name = $tabName;
+
+        $tab->class_name = $tabClass;
+
+        $tab->module = $this->name;
+
+        $tab->id_parent = $idTabParent;
+
+        if(!$tab->save())
+
+            return false;
+
+        return true;
+
+    }
+
+    private function uninstallModuleTab($tabClass)
+
+    {
+        $idTab = Tab::getIdFromClassName($tabClass);
+
+        if($idTab != 0)
+
+        {
+
+            $tab = new Tab($idTab);
+
+            $tab->delete();
+
+            return true;
+
+        }
+
+        return false;
+
+    }
 }

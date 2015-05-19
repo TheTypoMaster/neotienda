@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-04-19 15:19:25
+<?php /* Smarty version Smarty-3.1.19, created on 2015-05-18 18:59:00
          compiled from "C:\wamp\www\neotienda\admin1183\themes\default\template\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4407553406c5927908-56382089%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '489f3f8b5e39fa9b7927d449e42065ca358c1ab3' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\admin1183\\themes\\default\\template\\header.tpl',
-      1 => 1429404028,
+      1 => 1431991739,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.19',
+  'unifunc' => 'content_553406c64e1fa7_91882995',
   'variables' => 
   array (
     'iso' => 0,
@@ -59,8 +61,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'lite_display' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_553406c64e1fa7_91882995',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_553406c64e1fa7_91882995')) {function content_553406c64e1fa7_91882995($_smarty_tpl) {?>
 <!DOCTYPE html>
@@ -222,7 +222,7 @@ prestashop-avatar.png" alt="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['
 
 				<ul id="header_notifs_icon_wrapper">
 <?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['show_new_orders']->value;?>
-<?php $_tmp3=ob_get_clean();?><?php if ($_tmp3==1) {?>
+<?php $_tmp1=ob_get_clean();?><?php if ($_tmp1==1) {?>
 					<li id="orders_notif" class="dropdown" data-type="order">
 						<a href="javascript:void(0);" class="dropdown-toggle notifs" data-toggle="dropdown">
 							<i class="icon-shopping-cart"></i>
@@ -252,7 +252,7 @@ prestashop-avatar.png" alt="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['
 					</li>
 <?php }?>
 <?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['show_new_customers']->value;?>
-<?php $_tmp4=ob_get_clean();?><?php if ($_tmp4==1) {?>
+<?php $_tmp2=ob_get_clean();?><?php if ($_tmp2==1) {?>
 					<li id="customers_notif" class="dropdown" data-type="customer">
 						<a href="javascript:void(0);" class="dropdown-toggle notifs" data-toggle="dropdown">
 							<i class="icon-user"></i>
@@ -282,7 +282,7 @@ prestashop-avatar.png" alt="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['
 					</li>
 <?php }?>
 <?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['show_new_messages']->value;?>
-<?php $_tmp5=ob_get_clean();?><?php if ($_tmp5==1) {?>
+<?php $_tmp3=ob_get_clean();?><?php if ($_tmp3==1) {?>
 					<li id="customer_messages_notif" class="dropdown" data-type="customer_message">
 						<a href="javascript:void(0);" class="dropdown-toggle notifs" data-toggle="dropdown">
 							<i class="icon-envelope"></i>
@@ -346,7 +346,7 @@ $_smarty_tpl->tpl_vars['quick']->_loop = true;
 						</li>
 					<?php }?>
 <?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
-<?php $_tmp6=ob_get_clean();?><?php if ($_tmp6) {?>
+<?php $_tmp4=ob_get_clean();?><?php if ($_tmp4) {?>
 					<li>
 						<a href="<?php if (isset($_smarty_tpl->tpl_vars['base_url_tc']->value)) {?><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['base_url_tc']->value, ENT_QUOTES, 'UTF-8', true);?>
 <?php } else { ?><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['base_url']->value, ENT_QUOTES, 'UTF-8', true);?>
