@@ -101,7 +101,6 @@ $("#nombre_juego").autocomplete({
         var simb_bs = "Bs. ";
         $("#intercambio_select").show();
         $(".nota-intercambia").show();
-
         precio = ((precio * 1) / 1).toFixed(0);
         num_item_c = Number(num_item_c) + Number(1);
 
@@ -134,12 +133,10 @@ $("#nombre_juego").autocomplete({
                 )
             )
         ).appendTo('#intercambio_select');
-
         var sum = Number($("#cont_item").val()) + Number(1);
         $("#cont_item").attr('value', sum);
         precio_total = Number(precio_total) + Number(precio);
         $("#resultado-intercambia").hide(500, "linear");
-
         $('<div/>', {
             id: 'res_item_'+num_item_c+'_'+id
         }).append(
@@ -341,7 +338,6 @@ $("#nombre_juego_store").autocomplete({
         $("#cont_item_inv").attr('value', sum);
         precio_total_f2 = Number(precio_total_f2) + Number(precio_nuevo);
         num_item_v = Number(num_item_v) + Number(1);
-
         $("#precio-nuevo").html(precio_total_f2 + ',00');
         $("#nuevo").css("display", "block");
         $("#solo-dinero").hide();
@@ -386,7 +382,6 @@ $("#nombre_juego_store").autocomplete({
                 )
             )
         ).appendTo($('#intercambio_fase2'));
-
         var dif_int = parseInt($("#res_item_total").text());
         var dif_nuevo = precio_total_f2;
         var dif = (dif_nuevo - dif_int);
@@ -411,10 +406,6 @@ $("#nombre_juego_store").autocomplete({
         $("#total-inter").html(precio_total_f2);
         $("#store_select").show();
         $("#resultado-store").hide(500, "linear");
-        $(".close_store").click(function() {
-            $("#store_select").hide(500, "linear");
-            $("#resultado-store").show(500, "linear");
-        });
         $(".close-f2").click(function() {
             if($("#item_inv_"+this.id).length > 0) {
                 var cont = Number($("#cont_item_inv").val()) - Number(1);
@@ -422,7 +413,6 @@ $("#nombre_juego_store").autocomplete({
                 precio_total_f2 = (precio_total_f2 - parseInt($("#equiv-int-"+this.id).text()));
                 $('#precio-nuevo').html(precio_total_f2+',00');
                 $("#total-inter").html(precio_total_f2);
-
                 var dif = (precio_total_f2 - parseInt($("#res_item_total").text()));
                 if (dif > 0) {
                     $("#dif-nuevo").html(simb_bs + " " + dif + ",00");
@@ -448,7 +438,6 @@ $("#nombre_juego_store").autocomplete({
                     $("#store_select").hide(500, "linear");
                     $("#nuevo").css("display", "none");
                     $("#solo-dinero").show();
-                    //$("#intercambio_fase2").html("");
                     $("#nombre_juego_store").attr("value","");
                     $("#precio-nuevo").html("0");
                     //buscador_intercambio()
@@ -493,7 +482,6 @@ $("#intercambio_select").hide();
 $("#store_select").hide();
 $("#nombre_juego").focus();
 $(".op1").addClass("activo");
-
 function buscador_intercambio() {
     $("ul.ui-autocomplete").css("display", "none");
     var titulo_int = $("#nombre_juego").val();
@@ -501,7 +489,6 @@ function buscador_intercambio() {
     var store = 2;
     var tipo = "buyback";
     $("#resultado-intercambia").empty();
-    $("#intercambio_select").hide(500, "linear");
     $("#paso-2").hide(500, "linear");
     $.ajax({
         type: "POST",
@@ -530,7 +517,6 @@ function buscador_intercambio() {
             $("#nombre_juego").val("");
             $("#nota-intercambia").hide();
             $("#resultado-intercambia").show();
-
             if (result.success) {
                 var totalCount = result.totalCount;
                 $("#resultado-intercambia").empty();
@@ -568,10 +554,8 @@ function buscador_intercambio() {
                         $("#intercambio_select").show();
                         $(".nota-intercambia").show();
                         $("#resultado-intercambia").hide();
-
                         precio = ((precio * 1) / 1).toFixed(0);
                         num_item_c = Number(num_item_c) + Number(1);
-
                         $('<div/>', {
                             class: 'bloque-int',
                             style: 'margin-bottom: 0px; border: 1px solid #ccc; margin-top: 50px;',
@@ -601,12 +585,10 @@ function buscador_intercambio() {
                                 )
                             )
                         ).appendTo('#intercambio_select');
-
                         var sum = Number($("#cont_item").val()) + Number(1);
                         $("#cont_item").attr('value', sum);
                         precio_total = Number(precio_total) + Number(precio);
                         $("#resultado-intercambia").hide(500, "linear");
-
                         $('<div/>', {
                             id: 'res_item_'+num_item_c+'_'+id
                         }).append(
@@ -619,7 +601,6 @@ function buscador_intercambio() {
                                 '<input id="input_" type="hidden" />'
                             )
                         ).appendTo('#res_item');
-
                         $('#res_item_precio_'+num_item_c+'_'+id).html(precio);
                         $('#res_item_total').html(precio_total);
                         $("#tus-juegos").html(precio_total);
@@ -653,7 +634,6 @@ function buscador_intercambio() {
                                 precio_total = parseInt($('#res_item_total').text()) - parseInt($("#res_item_precio_"+this.id).text());
                                 $('#res_item_total').html(precio_total);
                                 $("#tus-juegos").html(precio_total);
-
                                 if($("#precio-nuevo").length > 0){
                                     var dif = precio_total_f2 - precio_total;
                                     if (dif > 0) {
@@ -715,7 +695,6 @@ function buscador_store() {
     var store = 3
     var tipo = "simple";
     $("#resultado-store").empty();
-    $("#store_select").hide(500, "linear");
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -777,6 +756,7 @@ function buscador_store() {
                         var precio_usado = parseFloat($("#precio-usado-store" + j).text());
                         var simb_bs = "Bs. ";
                         var sum = Number($("#cont_item_inv").val()) + Number(1);
+                        $("#nombre_juego_store").val('');
                         $("#cont_item_inv").attr('value', sum);
                         precio_total_f2 = Number(precio_total_f2) + Number(precio_nuevo);
                         num_item_v = Number(num_item_v) + Number(1);
@@ -824,7 +804,6 @@ function buscador_store() {
                                 )
                             )
                         ).appendTo($('#intercambio_fase2'));
-
                         var dif_int = parseInt($("#res_item_total").text());
                         var dif_nuevo = precio_total_f2;
                         var dif = (dif_nuevo - dif_int);
@@ -849,10 +828,6 @@ function buscador_store() {
                         $("#total-inter").html(precio_total_f2);
                         $("#store_select").show();
                         $("#resultado-store").hide(500, "linear");
-                        $(".close_store").click(function() {
-                            $("#store_select").hide(500, "linear");
-                            $("#resultado-store").show(500, "linear");
-                        });
                         $(".close-f2").click(function() {
                             if($("#item_inv_"+this.id).length > 0) {
                                 var cont = Number($("#cont_item_inv").val()) - Number(1);
@@ -885,7 +860,6 @@ function buscador_store() {
                                 if($("#cont_item_inv").val()==0){
                                     $("#store_select").hide(500, "linear");
                                     $("#nuevo").css("display", "none");
-                                    //$("#intercambio_fase2").html("");
                                     $("#nombre_juego_store").attr("value","");
                                     $("#precio-nuevo").html("0");
                                     //buscador_intercambio()
@@ -965,32 +939,26 @@ $(".intercambiar-usado").click(function() {
         })
     }
 });
-
 function realizar_pedido_intercambia() {
     var calc = "";
     var id_usuario = getCookie("login");
     var items_sale = [];
     var items_buy = [];
-
     $("#paso-2").hide();
     $(".op2").removeClass("activo");
     $(".op3").addClass("activo");
-    $("#store_select").hide();
     $("#paso-3").show();
     $(".op1, .op2, .op3").css("pointer-events", "none");
-
     $("div[id='list_item']").each(function( index ) {
         items_sale.push( $( this ).text() );
     });
-
     $("div[id='list_item_buy']").each(function( index ) {
         items_buy.push( $( this ).text() );
     });
-
     var moneda = "VEF";
     var tipo = "Intercambio";
-    var status = "P";
-
+    var status = "1";
+    var forma_pago = $("#forma_pago option:selected").text();
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -998,6 +966,7 @@ function realizar_pedido_intercambia() {
             id_usuario: id_usuario,
             moneda: moneda,
             tipo: tipo,
+            forma_pago: forma_pago,
             status: status,
             items_sale: items_sale,
             items_buy: items_buy
@@ -1010,11 +979,8 @@ function realizar_pedido_intercambia() {
         },
         success: function(result) {
             $("#jquery-loader2").hide();
-
             console.log(result);
-
             return false;
-
             /*if (result.success) {
                 var msg = result.msg;
                 var nombre = result.nombre;

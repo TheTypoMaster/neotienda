@@ -28,10 +28,10 @@ if($_POST){
                     "._DB_PREFIX_."category_lang pcl2,
                     "._DB_PREFIX_."category_product pcp,
                     "._DB_PREFIX_."product_shop pps,
-                    whitelist w,
+                    "._DB_PREFIX_."neo_whitelist w,
                     "._DB_PREFIX_."product_lang ppl
             WHERE
-                    pc.id_parent IN (SELECT id_category FROM ps_category_lang WHERE name LIKE '%".$plataforma."%')
+                    pc.id_parent IN (SELECT id_category FROM "._DB_PREFIX_."category_lang WHERE name LIKE '%".$plataforma."%')
                     AND pcl2.id_category = pc.id_category
                     AND pcl2.id_category = pcp.id_category
                     AND pcp.id_category = pps.id_category_default

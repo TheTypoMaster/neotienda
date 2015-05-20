@@ -15,7 +15,7 @@ class AdminIntercambioController extends AdminController
     public function __construct()
     {
         $this->bootstrap = true;
-        $this->table = 'orders';
+        $this->table = 'neo_exchanges';
         $this->add_prefix = false;
         $this->className = 'Order';
         $this->lang = false;
@@ -26,48 +26,26 @@ class AdminIntercambioController extends AdminController
         $this->context = Context::getContext();
 
         $this->_select = '
-		a.id_order,
+		a.id_neo_exchange,
 		a.reference,
 		CONCAT(LEFT(c.`firstname`, 1), \'. \', c.`lastname`) AS `customer`,
-		osl.`name` AS `osname`,
-		os.`color`,
-		IF((SELECT COUNT(so.id_order) FROM `'._DB_PREFIX_.'orders` so WHERE so.id_customer = a.id_customer) > 1, 0, 1) as new,
-		country_lang.name as cname,
-		IF(a.valid, 1, 0) badge_success
-
-
-		orders';
+		s.`denominacion` AS `osname`,
+		IF((SELECT COUNT(so.id_neo_exchange) FROM `'._DB_PREFIX_.'neo_exchanges` so WHERE so.id_customer = a.id_customer) > 1, 0, 1) as new';
 
         $this->_join = '
         LEFT JOIN `'._DB_PREFIX_.'customer` c ON (c.`id_customer` = a.`id_customer`)
+        LEFT JOIN `'._DB_PREFIX_.'neo_status` s ON (s.`id_neo_status` = a.`id_neo_status`)
         ';
 
-        /*$this->_select = '
-		a.id_currency,
-		a.id_order AS id_pdf,
-		CONCAT(LEFT(c.`firstname`, 1), \'. \', c.`lastname`) AS `customer`,
-		osl.`name` AS `osname`,
-		os.`color`,
-		IF((SELECT COUNT(so.id_order) FROM `'._DB_PREFIX_.'orders` so WHERE so.id_customer = a.id_customer) > 1, 0, 1) as new,
-		country_lang.name as cname,
-		IF(a.valid, 1, 0) badge_success';
-
-        $this->_join = '
-		LEFT JOIN `'._DB_PREFIX_.'customer` c ON (c.`id_customer` = a.`id_customer`)
-		INNER JOIN `'._DB_PREFIX_.'address` address ON address.id_address = a.id_address_delivery
-		INNER JOIN `'._DB_PREFIX_.'country` country ON address.id_country = country.id_country
-		INNER JOIN `'._DB_PREFIX_.'country_lang` country_lang ON (country.`id_country` = country_lang.`id_country` AND country_lang.`id_lang` = '.(int)$this->context->language->id.')
-		LEFT JOIN `'._DB_PREFIX_.'order_state` os ON (os.`id_order_state` = a.`current_state`)
-		LEFT JOIN `'._DB_PREFIX_.'order_state_lang` osl ON (os.`id_order_state` = osl.`id_order_state` AND osl.`id_lang` = '.(int)$this->context->language->id.')';*/
-        $this->_orderBy = 'id_order';
+        $this->_orderBy = 'id_neo_exchange';
         $this->_orderWay = 'DESC';
 
         $statuses = OrderState::getOrderStates((int)$this->context->language->id);
         foreach ($statuses as $status)
-            $this->statuses_array[$status['id_order_state']] = $status['name'];
+            $this->statuses_array[$status['id_neo_status']] = $status['name'];
 
         $this->fields_list = array(
-            'id_order' => array(
+            'id_neo_exchange' => array(
                 'title' => $this->l('ID'),
                 'align' => 'text-center',
                 'class' => 'fixed-width-xs'
@@ -88,42 +66,38 @@ class AdminIntercambioController extends AdminController
             ),
         );
 
-        if (Configuration::get('PS_B2B_ENABLE'))
-        {
-            $this->fields_list = array_merge($this->fields_list, array(
-                'company' => array(
-                    'title' => $this->l('Company'),
-                    'filter_key' => 'c!company'
-                ),
-            ));
-        }
-
         $this->fields_list = array_merge($this->fields_list, array(
-            'total_paid_tax_incl' => array(
+            'total_in_favor' => array(
                 'title' => $this->l('Total'),
                 'align' => 'text-right',
                 'type' => 'price',
                 'currency' => true,
-                'callback' => 'setOrderCurrency',
-                'badge_success' => true
+                'callback' => 'setOrderCurrency'
             ),
-            'payment' => array(
-                'title' => $this->l('Payment')
+            'total_dif' => array(
+                'title' => $this->l('Total').' Dif',
+                'align' => 'text-right',
+                'type' => 'price',
+                'currency' => true,
+                'callback' => 'setOrderCurrency'
+            ),
+            'forma_pago' => array(
+                'title' => 'Forma de pago'
             ),
             'osname' => array(
                 'title' => $this->l('Status'),
                 'type' => 'select',
                 'color' => 'color',
                 'list' => $this->statuses_array,
-                'filter_key' => 'os!id_order_state',
+                'filter_key' => 'os!id_neo_status',
                 'filter_type' => 'int',
                 'order_key' => 'osname'
             ),
-            'date_add' => array(
+            'created_at' => array(
                 'title' => $this->l('Date'),
                 'align' => 'text-right',
                 'type' => 'datetime',
-                'filter_key' => 'a!date_add'
+                'filter_key' => 'a!created_at'
             ),
             /*'id_pdf' => array(
                 'title' => $this->l('PDF'),
@@ -166,10 +140,10 @@ class AdminIntercambioController extends AdminController
         $this->shopLinkType = 'shop';
         $this->shopShareDatas = Shop::SHARE_ORDER;
 
-        if (Tools::isSubmit('id_order'))
+        if (Tools::isSubmit('id_neo_exchange'))
         {
             // Save context (in order to apply cart rule)
-            $order = new Order((int)Tools::getValue('id_order'));
+            $order = new Order((int)Tools::getValue('id_neo_exchange'));
             $this->context->cart = new Cart($order->id_cart);
             $this->context->customer = new Customer($order->id_customer);
         }
@@ -183,7 +157,7 @@ class AdminIntercambioController extends AdminController
 
     public static function setOrderCurrency($echo, $tr)
     {
-        $order = new Order($tr['id_order']);
+        $order = new Order($tr['id_neo_exchange']);
         return Tools::displayPrice($echo, (int)$order->id_currency);
     }
 
@@ -191,7 +165,7 @@ class AdminIntercambioController extends AdminController
     {
         parent::initPageHeaderToolbar();
 
-        if (empty($this->display))
+        /*if (empty($this->display))
             $this->page_header_toolbar_btn['new_order'] = array(
                 'href' => self::$currentIndex.'&addorder&token='.$this->token,
                 'desc' => $this->l('Add new order', null, null, false),
@@ -203,7 +177,7 @@ class AdminIntercambioController extends AdminController
 
         if (Context::getContext()->shop->getContext() != Shop::CONTEXT_SHOP && isset($this->page_header_toolbar_btn['new_order'])
             && Shop::isFeatureActive())
-            unset($this->page_header_toolbar_btn['new_order']);
+            unset($this->page_header_toolbar_btn['new_order']);*/
     }
 
     public function renderForm()
@@ -311,9 +285,9 @@ class AdminIntercambioController extends AdminController
         }
     }
 
-    public function printPDFIcons($id_order, $tr)
+    public function printPDFIcons($id_neo_exchange, $tr)
     {
-        $order = new Order($id_order);
+        $order = new Order($id_neo_exchange);
         $order_state = $order->getCurrentOrderState();
         if (!Validate::isLoadedObject($order_state) || !Validate::isLoadedObject($order))
             return '';
@@ -330,32 +304,32 @@ class AdminIntercambioController extends AdminController
     public function processBulkUpdateOrderStatus()
     {
         if (Tools::isSubmit('submitUpdateOrderStatus')
-            && ($id_order_state = (int)Tools::getValue('id_order_state')))
+            && ($id_neo_status = (int)Tools::getValue('id_neo_status')))
         {
             if ($this->tabAccess['edit'] !== '1')
                 $this->errors[] = Tools::displayError('You do not have permission to edit this.');
             else
             {
-                $order_state = new OrderState($id_order_state);
+                $order_state = new OrderState($id_neo_status);
 
                 if (!Validate::isLoadedObject($order_state))
-                    $this->errors[] = sprintf(Tools::displayError('Order status #%d cannot be loaded'), $id_order_state);
+                    $this->errors[] = sprintf(Tools::displayError('Order status #%d cannot be loaded'), $id_neo_status);
                 else
                 {
-                    foreach (Tools::getValue('orderBox') as $id_order)
+                    foreach (Tools::getValue('orderBox') as $id_neo_exchange)
                     {
-                        $order = new Order((int)$id_order);
+                        $order = new Order((int)$id_neo_exchange);
                         if (!Validate::isLoadedObject($order))
-                            $this->errors[] = sprintf(Tools::displayError('Order #%d cannot be loaded'), $id_order);
+                            $this->errors[] = sprintf(Tools::displayError('Order #%d cannot be loaded'), $id_neo_exchange);
                         else
                         {
                             $current_order_state = $order->getCurrentOrderState();
                             if ($current_order_state->id == $order_state->id)
-                                $this->errors[] = sprintf(Tools::displayError('Order #%d has already been assigned this status.'), $id_order);
+                                $this->errors[] = sprintf(Tools::displayError('Order #%d has already been assigned this status.'), $id_neo_exchange);
                             else
                             {
                                 $history = new OrderHistory();
-                                $history->id_order = $order->id;
+                                $history->id_neo_exchange = $order->id;
                                 $history->id_employee = (int)$this->context->employee->id;
 
                                 $use_existings_payment = !$order->hasInvoice();
@@ -363,7 +337,7 @@ class AdminIntercambioController extends AdminController
 
                                 $carrier = new Carrier($order->id_carrier, $order->id_lang);
                                 $templateVars = array();
-                                if ($history->id_order_state == Configuration::get('PS_OS_SHIPPING') && $order->shipping_number)
+                                if ($history->id_neo_status == Configuration::get('PS_OS_SHIPPING') && $order->shipping_number)
                                     $templateVars = array('{followup}' => str_replace('@', $order->shipping_number, $carrier->url));
 
                                 if ($history->addWithemail(true, $templateVars))
@@ -374,7 +348,7 @@ class AdminIntercambioController extends AdminController
                                                 StockAvailable::synchronize($product['product_id'], (int)$product['id_shop']);
                                 }
                                 else
-                                    $this->errors[] = sprintf(Tools::displayError('Cannot change status for order #%d.'), $id_order);
+                                    $this->errors[] = sprintf(Tools::displayError('Cannot change status for order #%d.'), $id_neo_exchange);
                             }
                         }
                     }
@@ -403,10 +377,10 @@ class AdminIntercambioController extends AdminController
 
     public function postProcess()
     {
-        // If id_order is sent, we instanciate a new Order object
-        if (Tools::isSubmit('id_order') && Tools::getValue('id_order') > 0)
+        // If id_neo_exchange is sent, we instanciate a new Order object
+        if (Tools::isSubmit('id_neo_exchange') && Tools::getValue('id_neo_exchange') > 0)
         {
-            $order = new Order(Tools::getValue('id_order'));
+            $order = new Order(Tools::getValue('id_neo_exchange'));
             if (!Validate::isLoadedObject($order))
                 $this->errors[] = Tools::displayError('The order cannot be found within your database.');
             ShopUrl::cacheMainDomainForShop((int)$order->id_shop);
@@ -417,7 +391,7 @@ class AdminIntercambioController extends AdminController
         {
             if ($this->tabAccess['edit'] === '1')
             {
-                $order_carrier = new OrderCarrier(Tools::getValue('id_order_carrier'));
+                /*$order_carrier = new OrderCarrier(Tools::getValue('id_order_carrier'));
                 if (!Validate::isLoadedObject($order_carrier))
                     $this->errors[] = Tools::displayError('The order carrier ID is invalid.');
                 elseif (!Validate::isTrackingNumber(Tools::getValue('tracking_number')))
@@ -460,7 +434,7 @@ class AdminIntercambioController extends AdminController
                     }
                     else
                         $this->errors[] = Tools::displayError('The order carrier cannot be updated.');
-                }
+                }*/
             }
             else
                 $this->errors[] = Tools::displayError('You do not have permission to edit this.');
@@ -471,7 +445,7 @@ class AdminIntercambioController extends AdminController
         {
             if ($this->tabAccess['edit'] === '1')
             {
-                $order_state = new OrderState(Tools::getValue('id_order_state'));
+                $order_state = new OrderState(Tools::getValue('id_neo_status'));
 
                 if (!Validate::isLoadedObject($order_state))
                     $this->errors[] = Tools::displayError('The new order status is invalid.');
@@ -482,7 +456,7 @@ class AdminIntercambioController extends AdminController
                     {
                         // Create new OrderHistory
                         $history = new OrderHistory();
-                        $history->id_order = $order->id;
+                        $history->id_neo_exchange = $order->id;
                         $history->id_employee = (int)$this->context->employee->id;
 
                         $use_existings_payment = false;
@@ -492,7 +466,7 @@ class AdminIntercambioController extends AdminController
 
                         $carrier = new Carrier($order->id_carrier, $order->id_lang);
                         $templateVars = array();
-                        if ($history->id_order_state == Configuration::get('PS_OS_SHIPPING') && $order->shipping_number)
+                        if ($history->id_neo_status == Configuration::get('PS_OS_SHIPPING') && $order->shipping_number)
                             $templateVars = array('{followup}' => str_replace('@', $order->shipping_number, $carrier->url));
                         // Save all changes
                         if ($history->addWithemail(true, $templateVars))
@@ -1384,11 +1358,10 @@ class AdminIntercambioController extends AdminController
 
     public function renderKpis()
     {
-        $time = time();
+        /*$time = time();
         $kpis = array();
 
-        /* The data generation is located in AdminStatsControllerCore */
-
+        // The data generation is located in AdminStatsControllerCore
         $helper = new HelperKpi();
         $helper->id = 'box-conversion-rate';
         $helper->icon = 'icon-sort-by-attributes-alt';
@@ -1443,7 +1416,8 @@ class AdminIntercambioController extends AdminController
 
         $helper = new HelperKpiRow();
         $helper->kpis = $kpis;
-        return $helper->generate();
+        return $helper->generate();*/
+        return false;
     }
 
     public function renderView()

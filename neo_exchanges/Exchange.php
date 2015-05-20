@@ -24,7 +24,7 @@ class Exchange {
                         FROM
                             "._DB_PREFIX_."product_lang ppl,
                             "._DB_PREFIX_."product_shop pps,
-                            whitelist w
+                            "._DB_PREFIX_."neo_whitelist w
                         WHERE
                             pps.id_product = ppl.id_product
                             AND w.id_product = pps.id_product
@@ -65,7 +65,7 @@ class Exchange {
                     // get image full URL
                     $image_url = _PS_BASE_URL_._THEME_PROD_DIR_.$image->getExistingImgPath().".jpg";
                 }
-                $sql = "INSERT INTO items_sales (id_product, id_order, name, price, image, created_at, status)
+                $sql = "INSERT INTO "._DB_PREFIX_."neo_items_sales (id_product, id_neo_exchange, name, price, image, created_at, status)
                     VALUES ('".$item['id']."','".$id_order."','".pSQL($item['name'])."','".$item['price']."','".$image_url."',now(),1)";
                 Db::getInstance()->executeS($sql);
                 $sales[] = '<div style="vertical-align:top"><img style="float:left;margin-right:10px;border:1px solid rgb(204,204,204);height:79px" alt="'.$item['name'].'" src="'.$image_url.'"/> '.$item['name'].'<br><br>'.$item['price'].'</div>';
@@ -87,7 +87,7 @@ class Exchange {
                     // get image full URL
                     $image_url = _PS_BASE_URL_._THEME_PROD_DIR_.$image->getExistingImgPath().".jpg";
                 }
-                $sql = "INSERT INTO items_buys (id_product, id_order, name, price, image, created_at, status)
+                $sql = "INSERT INTO "._DB_PREFIX_."neo_items_buys (id_product, id_neo_exchange, name, price, image, created_at, status)
                     VALUES ('".$item['id']."','".$id_order."','".pSQL($item['name'])."','".$item['price']."','".$image_url."',now(),1)";
                 Db::getInstance()->executeS($sql);
                 $buys[] = '<div style="vertical-align:top"><img style="float:left;margin-right:10px;border:1px solid rgb(204,204,204);height:79px" alt="'.$item['name'].'" src="'.$image_url.'"/> '.$item['name'].'<br><br>'.$item['price'].'</div>';
@@ -98,12 +98,20 @@ class Exchange {
         }
     }
 
-    function setOrder($fields){
+    function setExchange($fields){
         if(isset($fields['id_customer'])){
-            $sql = "INSERT INTO orders (id_customer, total_in_favor, total_dif, created_at, status)
-                    VALUES ('".$fields['id_customer']."','".$fields['total_in_favor']."','".$fields['total_dif']."',now(),1)";
+            $sql = "INSERT INTO "._DB_PREFIX_."neo_exchanges (id_customer, forma_pago, total_in_favor, total_dif, created_at, id_neo_status)
+                    VALUES ('".$fields['id_customer']."','".$fields['forma_pago']."','".$fields['total_in_favor']."','".$fields['total_dif']."',now(),1)";
             Db::getInstance()->executeS($sql);
             return Db::getInstance()->Insert_ID();
+        }
+        return false;
+    }
+
+    function setReferencia($referencia, $id){
+        if($referencia){
+            $sql = "UPDATE "._DB_PREFIX_."neo_exchanges SET reference = '".$referencia."' WHERE id_neo_exchange = '".$id."'";
+            return Db::getInstance()->execute($sql);
         }
         return false;
     }

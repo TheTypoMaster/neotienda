@@ -12,19 +12,19 @@ require_once(dirname(__FILE__) . '/../neo_exchanges/Exchange.php');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-if(isset($_REQUEST['id_usuario'])){
+if(isset($_POST['id_usuario'])){
     $results  = array();
     $results2 = array();
     $price = 0;
     $price2 = 0;
-    $inter1 = $inter2 = '';
+    $inter1 = $inter2 = $forma_pago = '';
     $inter = new Exchange();
 
-    if(isset($_REQUEST['items_sale']))
-        $results  = $inter->getItemSales($_REQUEST['items_sale']);
+    if(isset($_POST['items_sale']))
+        $results  = $inter->getItemSales($_POST['items_sale']);
 
-    if(isset($_REQUEST['items_buy']))
-        $results2 = $inter->getItemBuys($_REQUEST['items_buy']);
+    if(isset($_POST['items_buy']))
+        $results2 = $inter->getItemBuys($_POST['items_buy']);
 
     foreach($results as $result){
         $price += round($result['price']);
@@ -42,14 +42,17 @@ if(isset($_REQUEST['id_usuario'])){
     }
 
     try {
-        $id_order = $inter->setOrder(array(
-                'id_customer' => $_REQUEST['id_usuario'],
+        $id_exchange = $inter->setExchange(array(
+                'id_customer' => $_POST['id_usuario'],
+                'forma_pago' => $_POST['forma_pago'],
                 'total_in_favor' => $favor,
                 'total_dif' => $dif
             )
         );
-        $sales = $inter->setItemSales($id_order, $results);
-        $buys = $inter->setItemBuys($id_order, $results2);
+        $reference = date('Ym').sprintf('%03d', $id_exchange);
+        $inter->setReferencia($reference, $id_exchange);
+        $sales = $inter->setItemSales($id_exchange, $results);
+        $buys = $inter->setItemBuys($id_exchange, $results2);
 
         if(is_array($sales)){
             foreach($sales as $sale){
@@ -62,7 +65,7 @@ if(isset($_REQUEST['id_usuario'])){
             }
         }
 
-        $customer = new Customer((int)$_REQUEST['id_usuario']);
+        $customer = new Customer((int)$_POST['id_usuario']);
         $configuration = Configuration::getMultiple(array('PS_LANG_DEFAULT', 'PS_SHOP_EMAIL', 'PS_SHOP_NAME'));
         $id_lang = (int)$configuration['PS_LANG_DEFAULT'];
         $template = 'intercambio';
