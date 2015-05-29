@@ -16,8 +16,7 @@ class AdminIntercambioController extends AdminController
     {
         $this->bootstrap = true;
         $this->table = 'neo_exchanges';
-        $this->add_prefix = false;
-        $this->className = 'Order';
+        $this->className = 'NeoExchanges';
         $this->lang = false;
         $this->addRowAction('view');
         $this->explicitSelect = true;
@@ -40,9 +39,9 @@ class AdminIntercambioController extends AdminController
         $this->_orderBy = 'id_neo_exchange';
         $this->_orderWay = 'DESC';
 
-        $statuses = OrderState::getOrderStates((int)$this->context->language->id);
+        $statuses = NeoStatus::getOrderStates();
         foreach ($statuses as $status)
-            $this->statuses_array[$status['id_neo_status']] = $status['name'];
+            $this->statuses_array[$status['id_neo_status']] = $status['denominacion'];
 
         $this->fields_list = array(
             'id_neo_exchange' => array(
@@ -143,7 +142,7 @@ class AdminIntercambioController extends AdminController
         if (Tools::isSubmit('id_neo_exchange'))
         {
             // Save context (in order to apply cart rule)
-            $order = new Order((int)Tools::getValue('id_neo_exchange'));
+            $order = new NeoExchanges((int)Tools::getValue('id_neo_exchange'));
             $this->context->cart = new Cart($order->id_cart);
             $this->context->customer = new Customer($order->id_customer);
         }
@@ -301,7 +300,7 @@ class AdminIntercambioController extends AdminController
         return $this->createTemplate('_print_pdf_icon.tpl')->fetch();
     }
 
-    public function processBulkUpdateOrderStatus()
+    public function processBulkUpdateNeoStatus()
     {
         if (Tools::isSubmit('submitUpdateOrderStatus')
             && ($id_neo_status = (int)Tools::getValue('id_neo_status')))

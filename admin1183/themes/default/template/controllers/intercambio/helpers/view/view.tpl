@@ -59,7 +59,7 @@
 	{if ($hook_invoice)}
 	<div>{$hook_invoice}</div>
 	{/if}
-
+asdfasdfsadfsadf
 	<div class="panel kpi-container">
 		<div class="row">
 			<div class="col-xs-6 col-sm-3 box-stats color3" >
