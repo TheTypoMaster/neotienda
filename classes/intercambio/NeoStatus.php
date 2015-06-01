@@ -49,8 +49,8 @@ class NeoStatusCore extends ObjectModel
      * @see ObjectModel::$definition
      */
     public static $definition = array(
-        'table' => 'order_state',
-        'primary' => 'id_order_state',
+        'table' => 'neo_status',
+        'primary' => 'id_neo_status',
         'multilang' => true,
         'fields' => array(
             'send_email' => array('type' => self::TYPE_BOOL, 'validate' => 'isBool'),
@@ -92,7 +92,7 @@ class NeoStatusCore extends ObjectModel
      * @param integer $id_lang Language id for status name
      * @return array Order statuses
      */
-    public static function getOrderStates()
+    public static function getNeoStatus()
     {
         $cache_id = 'OrderState::getOrderStates';
         if (!Cache::isStored($cache_id))

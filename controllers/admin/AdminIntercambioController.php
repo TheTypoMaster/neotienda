@@ -16,6 +16,7 @@ class AdminIntercambioController extends AdminController
     {
         $this->bootstrap = true;
         $this->table = 'neo_exchanges';
+        $this->identifier = 'id_neo_exchange';
         $this->className = 'NeoExchanges';
         $this->lang = false;
         $this->addRowAction('view');
@@ -39,7 +40,7 @@ class AdminIntercambioController extends AdminController
         $this->_orderBy = 'id_neo_exchange';
         $this->_orderWay = 'DESC';
 
-        $statuses = NeoStatus::getOrderStates();
+        $statuses = NeoStatus::getNeoStatus();
         foreach ($statuses as $status)
             $this->statuses_array[$status['id_neo_status']] = $status['denominacion'];
 
@@ -98,43 +99,7 @@ class AdminIntercambioController extends AdminController
                 'type' => 'datetime',
                 'filter_key' => 'a!created_at'
             ),
-            /*'id_pdf' => array(
-                'title' => $this->l('PDF'),
-                'align' => 'text-center',
-                'callback' => 'printPDFIcons',
-                'orderby' => false,
-                'search' => false,
-                'remove_onclick' => true
-            )*/
         ));
-
-        /*if (Country::isCurrentlyUsed('country', true))
-        {
-            $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
-			SELECT DISTINCT c.id_country, cl.`name`
-			FROM `'._DB_PREFIX_.'orders` o
-			'.Shop::addSqlAssociation('orders', 'o').'
-			INNER JOIN `'._DB_PREFIX_.'address` a ON a.id_address = o.id_address_delivery
-			INNER JOIN `'._DB_PREFIX_.'country` c ON a.id_country = c.id_country
-			INNER JOIN `'._DB_PREFIX_.'country_lang` cl ON (c.`id_country` = cl.`id_country` AND cl.`id_lang` = '.(int)$this->context->language->id.')
-			ORDER BY cl.name ASC');
-
-            $country_array = array();
-            foreach ($result as $row)
-                $country_array[$row['id_country']] = $row['name'];
-
-            $part1 = array_slice($this->fields_list, 0, 3);
-            $part2 = array_slice($this->fields_list, 3);
-            $part1['cname'] = array(
-                'title' => $this->l('Delivery'),
-                'type' => 'select',
-                'list' => $country_array,
-                'filter_key' => 'country!id_country',
-                'filter_type' => 'int',
-                'order_key' => 'cname'
-            );
-            $this->fields_list = array_merge($part1, $part2);
-        }*/
 
         $this->shopLinkType = 'shop';
         $this->shopShareDatas = Shop::SHARE_ORDER;
@@ -1421,14 +1386,15 @@ class AdminIntercambioController extends AdminController
 
     public function renderView()
     {
-        $order = new Order(Tools::getValue('id_order'));
+        $order = new NeoExchanges(Tools::getValue('id_neo_exchange'));
         if (!Validate::isLoadedObject($order))
             $this->errors[] = Tools::displayError('The order cannot be found within your database.');
-
+        //var_dump($order);die;
         $customer = new Customer($order->id_customer);
         $carrier = new Carrier($order->id_carrier);
         $products = $this->getProducts($order);
         $currency = new Currency((int)$order->id_currency);
+
         // Carrier module call
         $carrier_module_call = null;
         if ($carrier->is_module)
@@ -2011,7 +1977,7 @@ class AdminIntercambioController extends AdminController
     }
 
     public function ajaxProcessLoadProductInformation()
-    {
+    {echo 'ajaxProcessLoadProductInformation ';
         $order_detail = new OrderDetail(Tools::getValue('id_order_detail'));
         if (!Validate::isLoadedObject($order_detail))
             die(Tools::jsonEncode(array(
@@ -2043,7 +2009,7 @@ class AdminIntercambioController extends AdminController
     }
 
     public function ajaxProcessEditProductOnOrder()
-    {
+    {echo 'ajaxProcessEditProductOnOrder ';
         // Return value
         $res = true;
 

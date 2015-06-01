@@ -59,7 +59,7 @@
 	{if ($hook_invoice)}
 	<div>{$hook_invoice}</div>
 	{/if}
-asdfasdfsadfsadf
+view.tpl
 	<div class="panel kpi-container">
 		<div class="row">
 			<div class="col-xs-6 col-sm-3 box-stats color3" >
@@ -100,7 +100,7 @@ asdfasdfsadfsadf
 			<div class="panel">
 				<div class="panel-heading">
 					<i class="icon-credit-card"></i>
-					{l s='Order'}
+					{l s='Intercambio'}
 					<span class="badge">{$order->reference}</span>
 					<span class="badge">{l s="#"}{$order->id}</span>
 					<div class="panel-heading-action">
