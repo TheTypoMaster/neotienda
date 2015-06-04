@@ -54,7 +54,7 @@ class NeoStatusCore extends ObjectModel
         'multilang' => true,
         'fields' => array(
             'send_email' => array('type' => self::TYPE_BOOL, 'validate' => 'isBool'),
-            'module_name' =>array('type' => self::TYPE_STRING, 'validate' => 'isModuleName'),
+            //'module_name' =>array('type' => self::TYPE_STRING, 'validate' => 'isModuleName'),
             'invoice' => 	array('type' => self::TYPE_BOOL, 'validate' => 'isBool'),
             'color' => 		array('type' => self::TYPE_STRING, 'validate' => 'isColor'),
             'logable' => 	array('type' => self::TYPE_BOOL, 'validate' => 'isBool'),
@@ -66,8 +66,8 @@ class NeoStatusCore extends ObjectModel
             'deleted' =>	array('type' => self::TYPE_BOOL, 'validate' => 'isBool'),
 
             // Lang fields
-            'name' => 		array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'required' => true, 'size' => 64),
-            'template' => 	array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isTplName', 'size' => 64),
+            'denominacion' => array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'required' => true, 'size' => 64),
+            //'template' => 	  array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isTplName', 'size' => 64),
         ),
     );
 
@@ -85,7 +85,6 @@ class NeoStatusCore extends ObjectModel
     const FLAG_SHIPPED		= 8;  /* 01000 */
     const FLAG_PAID			= 16; /* 10000 */
 
-
     /**
      * Get all available order statuses
      *
@@ -94,7 +93,7 @@ class NeoStatusCore extends ObjectModel
      */
     public static function getNeoStatus()
     {
-        $cache_id = 'OrderState::getOrderStates';
+        $cache_id = 'NeoStatus::getNeoStatus';
         if (!Cache::isStored($cache_id))
         {
             $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS('
@@ -119,8 +118,8 @@ class NeoStatusCore extends ObjectModel
         if (Configuration::get('PS_INVOICE'))
             $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getValue('
 			SELECT `invoice`
-			FROM `'._DB_PREFIX_.'order_state`
-			WHERE `id_order_state` = '.(int)$id_order_state);
+			FROM `'._DB_PREFIX_.'neo_status`
+			WHERE `id_neo_status` = '.(int)$id_order_state);
         return (bool)$result;
     }
 

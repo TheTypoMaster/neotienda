@@ -1,47 +1,48 @@
 <?php
 
+
+/*
 class IntercambioCore extends ObjectModel
 {
-    /** @var string Name */
+    // @var string Name
     public $name;
 
-    /** @var string Template name if there is any e-mail to send */
+    // @var string Template name if there is any e-mail to send
     public $template;
 
-    /** @var boolean Send an e-mail to customer ? */
+    // @var boolean Send an e-mail to customer ?
     public $send_email;
 
     public $module_name;
 
-    /** @var boolean Allow customer to view and download invoice when order is at this state */
+    // @var boolean Allow customer to view and download invoice when order is at this state
     public $invoice;
 
-    /** @var string Display state in the specified color */
+    // @var string Display state in the specified color
     public $color;
 
     public $unremovable;
 
-    /** @var boolean Log authorization */
+    // @var boolean Log authorization
     public $logable;
 
-    /** @var boolean Delivery */
+    // @var boolean Delivery
     public $delivery;
 
-    /** @var boolean Hidden */
+    // @var boolean Hidden
     public $hidden;
 
-    /** @var boolean Shipped */
+    // @var boolean Shipped
     public $shipped;
 
-    /** @var boolean Paid */
+    // @var boolean Paid
     public $paid;
 
-    /** @var boolean True if carrier has been deleted (staying in database as deleted) */
+    // @var boolean True if carrier has been deleted (staying in database as deleted)
     public $deleted = 0;
 
-    /**
-     * @see ObjectModel::$definition
-     */
+    // @see ObjectModel::$definition
+
     public static $definition = array(
         'table' => 'order_state',
         'primary' => 'id_order_state',
@@ -73,22 +74,17 @@ class IntercambioCore extends ObjectModel
         ),
     );
 
-    const FLAG_NO_HIDDEN	= 1;  /* 00001 */
-    const FLAG_LOGABLE		= 2;  /* 00010 */
-    const FLAG_DELIVERY		= 4;  /* 00100 */
-    const FLAG_SHIPPED		= 8;  /* 01000 */
-    const FLAG_PAID			= 16; /* 10000 */
+    const FLAG_NO_HIDDEN	= 1;  // 00001
+    const FLAG_LOGABLE		= 2;  // 00010
+    const FLAG_DELIVERY		= 4;  // 00100
+    const FLAG_SHIPPED		= 8;  // 01000
+    const FLAG_PAID			= 16; // 10000
 
 
-    /**
-     * Get all available order statuses
-     *
-     * @param integer $id_lang Language id for status name
-     * @return array Order statuses
-     */
-    public static function getOrderStates()
+    // Get all available order statuses * @param integer $id_lang Language id for status name * @return array Order statuses
+    public static function getNeoStatus()
     {
-        $cache_id = 'OrderState::getOrderStates';
+        $cache_id = 'Intercambio::getNeoStatus';
         if (!Cache::isStored($cache_id))
         {
             $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS('
@@ -101,12 +97,7 @@ class IntercambioCore extends ObjectModel
         return Cache::retrieve($cache_id);
     }
 
-    /**
-     * Check if we can make a invoice when order is in this state
-     *
-     * @param integer $id_order_state State ID
-     * @return boolean availability
-     */
+    // Check if we can make a invoice when order is in this state * @param integer $id_order_state State ID * @return boolean availability
     public static function invoiceAvailable($id_order_state)
     {
         $result = false;
@@ -122,4 +113,4 @@ class IntercambioCore extends ObjectModel
     {
         return !($this->unremovable);
     }
-}
+}*/

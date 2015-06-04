@@ -434,10 +434,10 @@ class NeoExchanges extends ObjectModel
      *
      * @return array History entries ordered by date DESC
      */
-    public function getHistory($id_lang, $id_order_state = false, $no_hidden = false, $filters = 0)
+    public function getHistory($id_lang, $id_neo_status = false, $no_hidden = false, $filters = 0)
     {
-        if (!$id_order_state)
-            $id_order_state = 0;
+        if (!$id_neo_status)
+            $id_neo_status = 0;
 
         $logable = false;
         $delivery = false;
@@ -445,41 +445,41 @@ class NeoExchanges extends ObjectModel
         $shipped = false;
         if ($filters > 0)
         {
-            if ($filters & OrderState::FLAG_NO_HIDDEN)
+            if ($filters & NeoStatus::FLAG_NO_HIDDEN)
                 $no_hidden = true;
-            if ($filters & OrderState::FLAG_DELIVERY)
+            if ($filters & NeoStatus::FLAG_DELIVERY)
                 $delivery = true;
-            if ($filters & OrderState::FLAG_LOGABLE)
+            if ($filters & NeoStatus::FLAG_LOGABLE)
                 $logable = true;
-            if ($filters & OrderState::FLAG_PAID)
+            if ($filters & NeoStatus::FLAG_PAID)
                 $paid = true;
-            if ($filters & OrderState::FLAG_SHIPPED)
+            if ($filters & NeoStatus::FLAG_SHIPPED)
                 $shipped = true;
         }
 
-        if (!isset(self::$_historyCache[$this->id.'_'.$id_order_state.'_'.$filters]) || $no_hidden)
+        if (!isset(self::$_historyCache[$this->id.'_'.$id_neo_status.'_'.$filters]) || $no_hidden)
         {
-            $id_lang = $id_lang ? (int)($id_lang) : 'o.`id_lang`';
+            //$id_lang = $id_lang ? (int)($id_lang) : 'o.`id_lang`';
+
             $result = Db::getInstance()->executeS('
-			SELECT os.*, oh.*, e.`firstname` as employee_firstname, e.`lastname` as employee_lastname, osl.`name` as ostate_name
-			FROM `'._DB_PREFIX_.'orders` o
-			LEFT JOIN `'._DB_PREFIX_.'order_history` oh ON o.`id_order` = oh.`id_order`
-			LEFT JOIN `'._DB_PREFIX_.'order_state` os ON os.`id_order_state` = oh.`id_order_state`
-			LEFT JOIN `'._DB_PREFIX_.'order_state_lang` osl ON (os.`id_order_state` = osl.`id_order_state` AND osl.`id_lang` = '.(int)($id_lang).')
-			LEFT JOIN `'._DB_PREFIX_.'employee` e ON e.`id_employee` = oh.`id_employee`
-			WHERE oh.id_order = '.(int)($this->id).'
+			SELECT os.*, oh.*, e.`firstname` AS employee_firstname, e.`lastname` AS employee_lastname, os.`denominacion` AS ostate_name
+            FROM `ps_neo_exchanges` o
+            LEFT JOIN `ps_neo_exchanges_history` oh ON o.`id_neo_exchange` = oh.`id_neo_exchange`
+            LEFT JOIN `ps_neo_status` os ON os.`id_neo_status` = oh.`id_neo_status`
+            LEFT JOIN `ps_employee` e ON e.`id_employee` = oh.`id_employee`
+            WHERE oh.`id_neo_exchange` = '.(int)($this->id).'
 			'.($no_hidden ? ' AND os.hidden = 0' : '').'
 			'.($logable ? ' AND os.logable = 1' : '').'
 			'.($delivery ? ' AND os.delivery = 1' : '').'
 			'.($paid ? ' AND os.paid = 1' : '').'
 			'.($shipped ? ' AND os.shipped = 1' : '').'
-			'.((int)($id_order_state) ? ' AND oh.`id_order_state` = '.(int)($id_order_state) : '').'
-			ORDER BY oh.date_add DESC, oh.id_order_history DESC');
+			'.((int)($id_neo_status) ? ' AND oh.`id_neo_status` = '.(int)($id_neo_status) : '').'
+            ORDER BY oh.date_add DESC, oh.`id_neo_exchanges_history` DESC');
             if ($no_hidden)
                 return $result;
-            self::$_historyCache[$this->id.'_'.$id_order_state.'_'.$filters] = $result;
+            self::$_historyCache[$this->id.'_'.$id_neo_status.'_'.$filters] = $result;
         }
-        return self::$_historyCache[$this->id.'_'.$id_order_state.'_'.$filters];
+        return self::$_historyCache[$this->id.'_'.$id_neo_status.'_'.$filters];
     }
 
     public function getProductsDetail()
@@ -488,7 +488,7 @@ class NeoExchanges extends ObjectModel
 		SELECT *
 		FROM `'._DB_PREFIX_.'neo_items_buys` od
 		LEFT JOIN `'._DB_PREFIX_.'product` p ON (p.id_product = od.id_product)
-		LEFT JOIN `'._DB_PREFIX_.'product_shop` ps ON (ps.id_product = p.id_product AND ps.id_shop = od.id_shop)
+		/*LEFT JOIN `'._DB_PREFIX_.'product_shop` ps ON (ps.id_product = p.id_product AND ps.id_shop = od.id_shop)*/
 		WHERE od.`id_neo_exchange` = '.(int)($this->id));
     }
 
@@ -750,15 +750,14 @@ class NeoExchanges extends ObjectModel
     public function getCurrentStateFull($id_lang)
     {
         return Db::getInstance()->getRow('
-			SELECT os.`id_order_state`, osl.`name`, os.`logable`, os.`shipped`
-			FROM `'._DB_PREFIX_.'order_state` os
-			LEFT JOIN `'._DB_PREFIX_.'order_state_lang` osl ON (osl.`id_order_state` = os.`id_order_state`)
-			WHERE osl.`id_lang` = '.(int)$id_lang.' AND os.`id_order_state` = '.(int)$this->current_state);
+			SELECT ns.`id_neo_status`, ns.`denominacion`, ns.`logable`, ns.`shipped`
+			FROM `'._DB_PREFIX_.'neo_status` ns
+			WHERE ns.`id_neo_status` = '.(int)$this->current_state);
     }
 
     public function hasBeenDelivered()
     {
-        return count($this->getHistory((int)($this->id_lang), false, false, OrderState::FLAG_DELIVERY));
+        return count($this->getHistory((int)($this->id_lang), false, false, NeoStatus::FLAG_DELIVERY));
     }
 
     /**
@@ -769,21 +768,19 @@ class NeoExchanges extends ObjectModel
         return Db::getInstance(_PS_USE_SQL_SLAVE_)->getValue('
 			SELECT IFNULL(SUM(ord.product_quantity), SUM(product_quantity_return))
 			FROM `'._DB_PREFIX_.'orders` o
-			INNER JOIN `'._DB_PREFIX_.'order_detail` od
-			ON od.id_order = o.id_order
-			LEFT JOIN `'._DB_PREFIX_.'order_return_detail` ord
-			ON ord.id_order_detail = od.id_order_detail
+			INNER JOIN `'._DB_PREFIX_.'order_detail` od ON od.id_order = o.id_order
+			LEFT JOIN `'._DB_PREFIX_.'order_return_detail` ord ON ord.id_order_detail = od.id_order_detail
 			WHERE o.id_order = '.(int)$this->id);
     }
 
     public function hasBeenPaid()
     {
-        return count($this->getHistory((int)($this->id_lang), false, false, OrderState::FLAG_PAID));
+        return count($this->getHistory((int)($this->id_lang), false, false, NeoStatus::FLAG_PAID));
     }
 
     public function hasBeenShipped()
     {
-        return count($this->getHistory((int)($this->id_lang), false, false, OrderState::FLAG_SHIPPED));
+        return count($this->getHistory((int)($this->id_lang), false, false, NeoStatus::FLAG_SHIPPED));
     }
 
     public function isInPreparation()
@@ -1932,12 +1929,12 @@ class NeoExchanges extends ObjectModel
 
     /**
      * @since 1.5.0.4
-     * @return OrderState or null if Order haven't a state
+     * @return NeoStatus or null if Order haven't a state
      */
     public function getCurrentOrderState()
     {
         if ($this->current_state)
-            return new OrderState($this->current_state);
+            return new NeoStatus($this->current_state);
         return null;
     }
 

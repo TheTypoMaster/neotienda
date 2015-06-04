@@ -187,14 +187,16 @@ class AdminIntercambioController extends AdminController
         $this->content .= $this->createTemplate('form.tpl')->fetch();
     }
 
+    // cabecera de detalle
     public function initToolbar()
     {
         if ($this->display == 'view')
         {
             $order = $this->loadObject();
+
             $customer = $this->context->customer;
 
-            $this->toolbar_title[] = sprintf($this->l('Order %1$s from %2$s %3$s'), $order->reference, $customer->firstname, $customer->lastname);
+            $this->toolbar_title[] = sprintf($this->l('Referencia %1$s a nombre de %2$s %3$s'), $order->reference, $customer->firstname, $customer->lastname);
 
             if ($order->hasBeenShipped())
                 $type = $this->l('Return products');
@@ -265,6 +267,7 @@ class AdminIntercambioController extends AdminController
         return $this->createTemplate('_print_pdf_icon.tpl')->fetch();
     }
 
+    // proceso de actualización de estatus
     public function processBulkUpdateNeoStatus()
     {
         if (Tools::isSubmit('submitUpdateOrderStatus')
@@ -329,7 +332,7 @@ class AdminIntercambioController extends AdminController
         {
             if (Tools::getIsset('cancel'))
                 Tools::redirectAdmin(self::$currentIndex.'&token='.$this->token);
-
+var_dump($this->statuses_array);die;
             $this->tpl_list_vars['updateOrderStatus_mode'] = true;
             $this->tpl_list_vars['order_statuses'] = $this->statuses_array;
             $this->tpl_list_vars['REQUEST_URI'] = $_SERVER['REQUEST_URI'];
