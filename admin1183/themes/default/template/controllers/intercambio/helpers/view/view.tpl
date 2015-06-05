@@ -48,6 +48,9 @@
 	var txt_confirm = "{l s='Are you sure?' js=1}";
 	var statesShipped = new Array();
 	var has_voucher = {if count($discounts)}1{else}0{/if};
+
+
+
 	{foreach from=$states item=state}
 		{if (!$currentState->shipped && $state['shipped'])}
 			statesShipped.push({$state['id_order_state']});
@@ -59,6 +62,9 @@
 	{if ($hook_invoice)}
 	<div>{$hook_invoice}</div>
 	{/if}
+
+    {$products@print_r}
+
 view.tpl
 	<div class="panel kpi-container">
 		<div class="row">
@@ -174,12 +180,16 @@ view.tpl
 							{l s='Status'} <span class="badge">{$history|@count}</span>
 						</a>
 					</li>
+                    <!-- @larismendi deshabilito documents -->
+                    {*
 					<li>
 						<a href="#documents">
 							<i class="icon-file-text"></i>
 							{l s='Documents'} <span class="badge">{$order->getDocuments()|@count}</span>
 						</a>
 					</li>
+					*}
+                    <!-- @larismendi fin deshabilito documents -->
 				</ul>
 				<!-- Tab content -->
 				<div class="tab-content panel">
@@ -231,11 +241,15 @@ view.tpl
 						</form>
 					</div>
 					<!-- Tab documents -->
+                    <!-- @larismendi deshabilito documents -->
+                    {*
 					<div class="tab-pane" id="documents">
 						<h4 class="visible-print">{l s='Documents'} <span class="badge">({$order->getDocuments()|@count})</span></h4>
-						{* Include document template *}
+						<!-- Include document template -->
 						{include file='controllers/orders/_documents.tpl'}
 					</div>
+                    *}
+                    <!-- @larismendi fin deshabilito documents -->
 				</div>
 				<script>
 					$('#tabOrder a').click(function (e) {
@@ -243,7 +257,11 @@ view.tpl
 						$(this).tab('show')
 					})
 				</script>
-				<hr />
+
+                <!-- Tab content -->
+                <!-- @larismendi deshabilito sección de shipping -->
+                {*
+                <hr />
 				<!-- Tab nav -->
 				<ul class="nav nav-tabs" id="myTab">
 					{$HOOK_TAB_SHIP}
@@ -260,7 +278,6 @@ view.tpl
 						</a>
 					</li>
 				</ul>
-				<!-- Tab content -->
 				<div class="tab-content panel">
 				{$HOOK_CONTENT_SHIP}
 					<!-- Tab shipping -->
@@ -366,8 +383,13 @@ view.tpl
 						$(this).tab('show')
 					})
 				</script>
+                *}
+                <!-- @larismendi fin deshabilitación -->
 			</div>
+
 			<!-- Payments block -->
+            <!-- @larismendi deshabilito sección de shipping -->
+            {*
 			<div id="formAddPaymentPanel" class="panel">
 				<div class="panel-heading">
 					<i class="icon-money"></i>
@@ -539,6 +561,8 @@ view.tpl
 					</form>
 				{/if}
 			</div>
+            *}
+            <!-- @larismendi fin de deshabilita seccion -->
 		</div>
 		<div class="col-lg-5">
 			<!-- Customer informations -->
@@ -546,7 +570,7 @@ view.tpl
 				{if $customer->id}
 					<div class="panel-heading">
 						<i class="icon-user"></i>
-						{l s='Customer'}
+						{l s='Cliente'}
 						<span class="badge">
 							<a href="?tab=AdminCustomers&amp;id_customer={$customer->id}&amp;viewcustomer&amp;token={getAdminToken tab='AdminCustomers'}">
 								{if Configuration::get('PS_B2B_ENABLE')}{$customer->company} - {/if}
@@ -623,8 +647,10 @@ view.tpl
 						</div>
 					</div>
 				{/if}
-				<!-- Tab nav -->
-				<div class="row">
+				<!-- Tab nav de Dirección de envío y facturación -->
+				<!-- Deshabilito -->
+				{if (false)}
+                <div class="row">
 					<ul class="nav nav-tabs" id="tabAddresses">
 						<li class="active">
 							<a href="#addressShipping">
@@ -639,7 +665,7 @@ view.tpl
 							</a>
 						</li>
 					</ul>
-					<!-- Tab content -->
+					< !-- Tab content -->
 					<div class="tab-content panel">
 						<!-- Tab status -->
 						<div class="tab-pane  in active" id="addressShipping">
@@ -751,6 +777,8 @@ view.tpl
 						$(this).tab('show')
 					})
 				</script>
+                    <!-- Cierro if que deshabilita seccion -->
+                {/if}
 			</div>
 			<div class="panel">
 				<div class="panel-heading">
@@ -865,7 +893,7 @@ view.tpl
 				<div class="panel">
 					<div class="panel-heading">
 						<i class="icon-shopping-cart"></i>
-						{l s='Products'} <span class="badge">{$products|@count}</span>
+						{l s='Productos que quiere el cliente'} <span class="badge">{$products|@count}</span>
 					</div>
 					<div id="refundForm">
 					<!--
@@ -881,6 +909,11 @@ view.tpl
 							{l s='tax included.'}
 						{/if}
 					{/capture}
+
+                    {*$order|@var_dump*}
+
+                    {$products|@var_dump}
+
 					<div class="table-responsive">
 						<table class="table" id="orderProducts">
 							<thead>
@@ -925,12 +958,12 @@ view.tpl
 							<tbody>
 							{foreach from=$products item=product key=k}
 								{* Include customized datas partial *}
-								{include file='controllers/orders/_customized_data.tpl'}
+								{include file='controllers/intercambio/_customized_data.tpl'}
 								{* Include product line partial *}
-								{include file='controllers/orders/_product_line.tpl'}
+								{include file='controllers/intercambio/_product_line.tpl'}
 							{/foreach}
 							{if $can_edit}
-								{include file='controllers/orders/_new_product.tpl'}
+								{include file='controllers/intercambio/_new_product.tpl'}
 							{/if}
 							</tbody>
 						</table>

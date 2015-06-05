@@ -30,18 +30,18 @@
 	{assign var=product_price value=$product['unit_price_tax_incl']}
 {/if}
 
-{if ($product['product_quantity'] > $product['customizationQuantityTotal'])}
+{*if ($product['product_quantity'] > $product['customizationQuantityTotal'])*}
 <tr class="product-line-row">
 	<td>{if isset($product.image) && $product.image->id}{$product.image_tag}{/if}</td>
 	<td>
-		<a href="index.php?controller=adminproducts&amp;id_product={$product['product_id']}&amp;updateproduct&amp;token={getAdminToken tab='AdminProducts'}">
-			<span class="productName">{$product['product_name']}</span><br />
+		<a href="index.php?controller=adminproducts&amp;id_product={$product['id_product']}&amp;updateproduct&amp;token={getAdminToken tab='AdminProducts'}">
+			<span class="productName">{$product['name']}</span><br />
 			{if $product.product_reference}{l s='Reference number:'} {$product.product_reference}<br />{/if}
 			{if $product.product_supplier_reference}{l s='Supplier reference:'} {$product.product_supplier_reference}{/if}
 		</a>
 	</td>
 	<td>
-		<span class="product_price_show">{displayPrice price=$product_price currency=$currency->id}</span>
+		<span class="product_price_show">{displayPrice price=$product['price'] currency=$currency->id}</span>
 		{if $can_edit}
 		<div class="product_price_edit" style="display:none;">
 			<input type="hidden" name="product_id_order_detail" class="edit_product_id_order_detail" value="{$product['id_order_detail']}" />
@@ -66,7 +66,7 @@
 		{/if}
 	</td>
 	<td class="productQuantity text-center">
-		<span class="product_quantity_show{if (int)$product['product_quantity'] > 1} badge{/if}">{$product['product_quantity']}</span>
+		<span class="product_quantity_show{if (int)$product['product_quantity'] > 1} badge{/if}">1{*$product['product_quantity']*}</span>
 		{if $can_edit}
 		<span class="product_quantity_edit" style="display:none;">
 			<input type="text" name="product_quantity" class="edit_product_quantity" value="{$product['product_quantity']|htmlentities}"/>
@@ -108,7 +108,8 @@
 	{/if}
 	{if $stock_management}<td class="productQuantity product_stock text-center">{$product['current_stock']}</td>{/if}
 	<td class="total_product">
-		{displayPrice price=(Tools::ps_round($product_price, 2) * ($product['product_quantity'] - $product['customizationQuantityTotal'])) currency=$currency->id}
+		{*displayPrice price=(Tools::ps_round($product_price, 2) * ($product['product_quantity'] - $product['customizationQuantityTotal'])) currency=$currency->id*}
+        {displayPrice price=( Tools::ps_round($product['price'], 2) * (1) ) currency=$currency->id}
 	</td>
 	<td colspan="2" style="display: none;" class="add_product_fields">&nbsp;</td>
 	<td class="cancelCheck standard_refund_fields current-edit" style="display:none">
@@ -220,4 +221,4 @@
 	</td>
 	{/if}
 </tr>
-{/if}
+{*/if*}

@@ -145,15 +145,15 @@ class NeoExchanges extends ObjectModel
         'table' => 'neo_exchanges',
         'primary' => 'id_neo_exchange',
         'fields' => array(
-            /*'id_address_delivery' => 		array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
+            'id_address_delivery' => 		array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
             'id_address_invoice' => 		array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
             'id_cart' => 					array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
-            'id_currency' => 				array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),*/
+            'id_currency' => 				array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
             'id_shop_group' => 				array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId'),
             'id_shop' => 					array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId'),
-            //'id_lang' => 					array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
+            'id_lang' => 					array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
             'id_customer' => 				array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
-            //'id_carrier' => 				array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
+            'id_carrier' => 				array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
             'current_state' => 				array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId'),
             'secure_key' => 				array('type' => self::TYPE_STRING, 'validate' => 'isMd5'),
             'payment' => 					array('type' => self::TYPE_STRING, 'validate' => 'isGenericName', 'required' => true),
@@ -1438,11 +1438,11 @@ class NeoExchanges extends ObjectModel
         return true;
     }
 
+    // @larismendi no se usa pero si se usara debería borrar los articulos del intercambio, no tiene uso en realidad
     public function deleteAssociations()
     {
-        return (Db::getInstance()->execute('
-				DELETE FROM `'._DB_PREFIX_.'order_detail`
-				WHERE `id_order` = '.(int)($this->id)) !== false);
+        //return (Db::getInstance()->execute('DELETE FROM `'._DB_PREFIX_.'order_detail` WHERE `id_order` = '.(int)($this->id)) !== false);
+        return false;
     }
 
     /**
@@ -1453,10 +1453,10 @@ class NeoExchanges extends ObjectModel
     public function getPreviousOrderId()
     {
         return Db::getInstance()->getValue('
-			SELECT id_order
-			FROM '._DB_PREFIX_.'orders
-			WHERE id_order < '.(int)$this->id.'
-			ORDER BY id_order DESC');
+			SELECT id_neo_exchange
+			FROM '._DB_PREFIX_.'neo_exchanges
+			WHERE id_neo_exchange < '.(int)$this->id.'
+			ORDER BY id_neo_exchange DESC');
     }
 
     /**
@@ -1467,10 +1467,10 @@ class NeoExchanges extends ObjectModel
     public function getNextOrderId()
     {
         return Db::getInstance()->getValue('
-		SELECT id_order
-		FROM '._DB_PREFIX_.'orders
-		WHERE id_order > '.(int)$this->id.'
-		ORDER BY id_order ASC');
+		SELECT id_neo_exchange
+		FROM '._DB_PREFIX_.'neo_exchanges
+		WHERE id_neo_exchange > '.(int)$this->id.'
+		ORDER BY id_neo_exchange ASC');
     }
 
     /**
@@ -1479,7 +1479,7 @@ class NeoExchanges extends ObjectModel
      */
     public function getOrderDetailList()
     {
-        return OrderDetail::getList($this->id);
+        return NeoItemsBuyCore::getList($this->id);
     }
 
     /**

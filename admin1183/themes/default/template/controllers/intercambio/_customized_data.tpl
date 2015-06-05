@@ -22,6 +22,9 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
+
+_customized_data.tpl
+
 {if $product['customizedDatas']}
 {* Assign product price *}
 {if ($order->getTaxCalculationMethod() == $smarty.const.PS_TAX_EXC)}
@@ -29,6 +32,7 @@
 {else}
 	{assign var=product_price value=$product['unit_price_tax_incl']}
 {/if}
+
 	<tr class="customized customized-{$product['id_order_detail']|intval} product-line-row">
 		<td>
 			<input type="hidden" class="edit_product_id_order_detail" value="{$product['id_order_detail']|intval}" />

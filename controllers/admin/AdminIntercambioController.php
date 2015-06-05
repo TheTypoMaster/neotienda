@@ -1324,7 +1324,7 @@ var_dump($this->statuses_array);die;
     }
 
     public function renderKpis()
-    {
+    {echo 'asdfsadfsad';die;
         /*$time = time();
         $kpis = array();
 
@@ -1389,14 +1389,17 @@ var_dump($this->statuses_array);die;
 
     public function renderView()
     {
-        $order = new NeoExchanges(Tools::getValue('id_neo_exchange'));
-        if (!Validate::isLoadedObject($order))
+        $neoExchange = new NeoExchanges(Tools::getValue('id_neo_exchange'));
+        if (!Validate::isLoadedObject($neoExchange))
             $this->errors[] = Tools::displayError('The order cannot be found within your database.');
-        //var_dump($order);die;
-        $customer = new Customer($order->id_customer);
-        $carrier = new Carrier($order->id_carrier);
-        $products = $this->getProducts($order);
-        $currency = new Currency((int)$order->id_currency);
+
+
+        $customer = new Customer($neoExchange->id_customer);
+        $carrier = new Carrier($neoExchange->id_carrier);
+
+        $products = $this->getProducts($neoExchange);
+
+        $currency = new Currency((int)$neoExchange->id_currency);
 
         // Carrier module call
         $carrier_module_call = null;
@@ -1404,15 +1407,15 @@ var_dump($this->statuses_array);die;
         {
             $module = Module::getInstanceByName($carrier->external_module_name);
             if (method_exists($module, 'displayInfoByCart'))
-                $carrier_module_call = call_user_func(array($module, 'displayInfoByCart'), $order->id_cart);
+                $carrier_module_call = call_user_func(array($module, 'displayInfoByCart'), $neoExchange->id_cart);
         }
 
         // Retrieve addresses information
-        $addressInvoice = new Address($order->id_address_invoice, $this->context->language->id);
+        $addressInvoice = new Address($neoExchange->id_address_invoice, $this->context->language->id);
         if (Validate::isLoadedObject($addressInvoice) && $addressInvoice->id_state)
             $invoiceState = new State((int)$addressInvoice->id_state);
 
-        if ($order->id_address_invoice == $order->id_address_delivery)
+        if ($neoExchange->id_address_invoice == $neoExchange->id_address_delivery)
         {
             $addressDelivery = $addressInvoice;
             if (isset($invoiceState))
@@ -1420,22 +1423,27 @@ var_dump($this->statuses_array);die;
         }
         else
         {
-            $addressDelivery = new Address($order->id_address_delivery, $this->context->language->id);
+            $addressDelivery = new Address($neoExchange->id_address_delivery, $this->context->language->id);
             if (Validate::isLoadedObject($addressDelivery) && $addressDelivery->id_state)
                 $deliveryState = new State((int)($addressDelivery->id_state));
         }
 
-        $this->toolbar_title = sprintf($this->l('Order #%1$d (%2$s) - %3$s %4$s'), $order->id, $order->reference, $customer->firstname, $customer->lastname);
+        $this->toolbar_title = sprintf($this->l('Order #%1$d (%2$s) - %3$s %4$s'), $neoExchange->id, $neoExchange->reference, $customer->firstname, $customer->lastname);
         if (Shop::isFeatureActive())
         {
-            $shop = new Shop((int)$order->id_shop);
+            $shop = new Shop((int)$neoExchange->id_shop);
             $this->toolbar_title .= ' - '.sprintf($this->l('Shop: %s'), $shop->name);
         }
 
         // gets warehouses to ship products, if and only if advanced stock management is activated
         $warehouse_list = null;
 
-        $order_details = $order->getOrderDetailList();
+        $order_details = $neoExchange->getOrderDetailList();
+
+        //var_dump($products);die;
+
+        //var_dump($order_details);die;
+
         foreach ($order_details as $order_detail)
         {
             $product = new Product($order_detail['product_id']);
@@ -1462,16 +1470,22 @@ var_dump($this->statuses_array);die;
 
         // display warning if there are products out of stock
         $display_out_of_stock_warning = false;
-        $current_order_state = $order->getCurrentOrderState();
+        $current_order_state = $neoExchange->getCurrentOrderState();
         if (Configuration::get('PS_STOCK_MANAGEMENT') && (!Validate::isLoadedObject($current_order_state) || ($current_order_state->delivery != 1 && $current_order_state->shipped != 1)))
             $display_out_of_stock_warning = true;
 
         // products current stock (from stock_available)
         foreach ($products as &$product)
         {
-            $product['current_stock'] = StockAvailable::getQuantityAvailableByProduct($product['product_id'], $product['product_attribute_id'], $product['id_shop']);
 
-            $resume = OrderSlip::getProductSlipResume($product['id_order_detail']);
+
+
+            $product['current_stock'] = StockAvailable::getQuantityAvailableByProduct($product['id_product'], $product['product_attribute_id'], $product['id_shop']);
+
+            $resume = OrderSlip::getProductSlipResume($product['id_neo_item_buy']);
+
+            //var_dump($product);die;
+
             $product['quantity_refundable'] = $product['product_quantity'] - $resume['product_quantity'];
             $product['amount_refundable'] = $product['total_price_tax_incl'] - $resume['amount_tax_incl'];
             $product['amount_refund'] = Tools::displayPrice($resume['amount_tax_incl'], $currency);
@@ -1492,15 +1506,15 @@ var_dump($this->statuses_array);die;
 
         $gender = new Gender((int)$customer->id_gender, $this->context->language->id);
 
-        $history = $order->getHistory($this->context->language->id);
+        $history = $neoExchange->getHistory($this->context->language->id);
 
         foreach ($history as &$order_state)
             $order_state['text-color'] = Tools::getBrightness($order_state['color']) < 128 ? 'white' : 'black';
 
         // Smarty assign
         $this->tpl_view_vars = array(
-            'order' => $order,
-            'cart' => new Cart($order->id_cart),
+            'order' => $neoExchange,
+            'cart' => new Cart($neoExchange->id_cart),
             'customer' => $customer,
             'gender' => $gender,
             'customer_addresses' => $customer->getAddresses($this->context->language->id),
@@ -1512,51 +1526,51 @@ var_dump($this->statuses_array);die;
             ),
             'customerStats' => $customer->getStats(),
             'products' => $products,
-            'discounts' => $order->getCartRules(),
-            'orders_total_paid_tax_incl' => $order->getOrdersTotalPaid(), // Get the sum of total_paid_tax_incl of the order with similar reference
-            'total_paid' => $order->getTotalPaid(),
-            'returns' => OrderReturn::getOrdersReturn($order->id_customer, $order->id),
-            'customer_thread_message' => CustomerThread::getCustomerMessages($order->id_customer),
-            'orderMessages' => OrderMessage::getOrderMessages($order->id_lang),
-            'messages' => Message::getMessagesByOrderId($order->id, true),
-            'carrier' => new Carrier($order->id_carrier),
+            'discounts' => $neoExchange->getCartRules(),
+            'orders_total_paid_tax_incl' => $neoExchange->getOrdersTotalPaid(), // Get the sum of total_paid_tax_incl of the order with similar reference
+            'total_paid' => $neoExchange->getTotalPaid(),
+            'returns' => OrderReturn::getOrdersReturn($neoExchange->id_customer, $neoExchange->id),
+            'customer_thread_message' => CustomerThread::getCustomerMessages($neoExchange->id_customer),
+            'orderMessages' => OrderMessage::getOrderMessages($neoExchange->id_lang),
+            'messages' => Message::getMessagesByOrderId($neoExchange->id, true),
+            'carrier' => new Carrier($neoExchange->id_carrier),
             'history' => $history,
             'states' => OrderState::getOrderStates($this->context->language->id),
             'warehouse_list' => $warehouse_list,
-            'sources' => ConnectionsSource::getOrderSources($order->id),
-            'currentState' => $order->getCurrentOrderState(),
-            'currency' => new Currency($order->id_currency),
-            'currencies' => Currency::getCurrenciesByIdShop($order->id_shop),
-            'previousOrder' => $order->getPreviousOrderId(),
-            'nextOrder' => $order->getNextOrderId(),
+            'sources' => ConnectionsSource::getOrderSources($neoExchange->id),
+            'currentState' => $neoExchange->getCurrentOrderState(),
+            'currency' => new Currency($neoExchange->id_currency),
+            'currencies' => Currency::getCurrenciesByIdShop($neoExchange->id_shop),
+            'previousOrder' => $neoExchange->getPreviousOrderId(),
+            'nextOrder' => $neoExchange->getNextOrderId(),
             'current_index' => self::$currentIndex,
             'carrierModuleCall' => $carrier_module_call,
             'iso_code_lang' => $this->context->language->iso_code,
             'id_lang' => $this->context->language->id,
             'can_edit' => ($this->tabAccess['edit'] == 1),
             'current_id_lang' => $this->context->language->id,
-            'invoices_collection' => $order->getInvoicesCollection(),
-            'not_paid_invoices_collection' => $order->getNotPaidInvoicesCollection(),
+            'invoices_collection' => $neoExchange->getInvoicesCollection(),
+            'not_paid_invoices_collection' => $neoExchange->getNotPaidInvoicesCollection(),
             'payment_methods' => $payment_methods,
-            'invoice_management_active' => Configuration::get('PS_INVOICE', null, null, $order->id_shop),
+            'invoice_management_active' => Configuration::get('PS_INVOICE', null, null, $neoExchange->id_shop),
             'display_warehouse' => (int)Configuration::get('PS_ADVANCED_STOCK_MANAGEMENT'),
             'HOOK_CONTENT_ORDER' => Hook::exec('displayAdminOrderContentOrder', array(
-                    'order' => $order,
+                    'order' => $neoExchange,
                     'products' => $products,
                     'customer' => $customer)
             ),
             'HOOK_CONTENT_SHIP' => Hook::exec('displayAdminOrderContentShip', array(
-                    'order' => $order,
+                    'order' => $neoExchange,
                     'products' => $products,
                     'customer' => $customer)
             ),
             'HOOK_TAB_ORDER' => Hook::exec('displayAdminOrderTabOrder', array(
-                    'order' => $order,
+                    'order' => $neoExchange,
                     'products' => $products,
                     'customer' => $customer)
             ),
             'HOOK_TAB_SHIP' => Hook::exec('displayAdminOrderTabShip', array(
-                    'order' => $order,
+                    'order' => $neoExchange,
                     'products' => $products,
                     'customer' => $customer)
             ),
@@ -1567,6 +1581,9 @@ var_dump($this->statuses_array);die;
 
     public function ajaxProcessSearchProducts()
     {
+
+        var_dump(Tools::getValue('id_currency'));die;
+
         Context::getContext()->customer = new Customer((int)Tools::getValue('id_customer'));
         $currency = new Currency((int)Tools::getValue('id_currency'));
         if ($products = Product::searchByName((int)$this->context->language->id, pSQL(Tools::getValue('product_search'))))
@@ -1669,7 +1686,7 @@ var_dump($this->statuses_array);die;
     }
 
     public function ajaxProcessAddProductOnOrder()
-    {
+    {echo 'ajaxProcessAddProductOnOrder';die;
         // Load object
         $order = new Order((int)Tools::getValue('id_order'));
         if (!Validate::isLoadedObject($order))
@@ -2013,6 +2030,8 @@ var_dump($this->statuses_array);die;
 
     public function ajaxProcessEditProductOnOrder()
     {echo 'ajaxProcessEditProductOnOrder ';
+        var_dump(Tools::getValue('id_order'));
+        die;
         // Return value
         $res = true;
 
