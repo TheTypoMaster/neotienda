@@ -503,7 +503,7 @@ function buscador_intercambio() {
         url: "neo_exchanges/getTitulosUsados.php",
         async: true,
         beforeSend: function() {
-            $("#msjresp").html('<img class="msjresp" src="img/ajax-loader.gif"/>');
+            $("#msjresp").html('<img class="msjresp" src="neo_exchanges/ajax-loader.gif"/>');
             $("#msjresp").show()
         },
         cache: false,
@@ -708,7 +708,7 @@ function buscador_store() {
         url: "neo_exchanges/getTitulos.php",
         async: true,
         beforeSend: function() {
-            $("#msjresp").html('<img class="msjresp" src="img/ajax-loader.gif"/>');
+            $("#msjresp").html('<img class="msjresp" src="neo_exchanges/ajax-loader.gif"/>');
             $("#msjresp").show()
         },
         cache: false,

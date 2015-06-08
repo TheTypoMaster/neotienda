@@ -2,21 +2,14 @@ function setCookie(n, v) {
     var d = new Date();
     d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
     var cookie = n + "=" + escape(v) + "; expires=" + d.toGMTString() + "; path=/; ";
-    if (location.hostname != "localhost") {
-        cookie += "domain=.neotienda.com;"
+    if (location.hostname == "neotienda.dev") {
+        cookie += "domain=.neotienda.dev;"
+    }else{
+        if (location.hostname != "localhost") {
+            cookie += "domain=.neotienda.com;"
+        }
     }
     document.cookie = cookie
-}
-
-function setCookiePAIS(n, v) {
-    var d = new Date();
-    d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
-    var cookie = n + "=" + escape(v) + "; expires=" + d.toGMTString() + "; path=/;";
-    if (location.hostname == "www.neotienda.com" || location.hostname == "pruebalo.neotienda.com") {
-        cookie += " domain=.neotienda.com;"
-    }
-    document.cookie = cookie;
-    location.reload()
 }
 
 function getCookie(e) {
@@ -46,14 +39,15 @@ function login(from) {
     } else {
         var _from = ""
     }
-    $.modal('<iframe src="neo_exchanges/login.php' + _from + '" frameborder="0"></iframe>', {
+    /*$.modal('<iframe src="neo_exchanges/login.php' + _from + '" frameborder="0"></iframe>', {
         containerCss: {
             height: 345,
             padding: 0,
             width: 250
         },
         overlayClose: true
-    })
+    })*/
+    $('#nento').modal({overlayClose:true});
 }
 
 function logout() {

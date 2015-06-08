@@ -11,7 +11,7 @@ h2{ text-align: left; }
 
 /*** LOADER ***/
 #jquery-loader.blue-with-image-2, #jquery-loader2.blue-with-image-2  {border: none; padding-top: 35px; background-color: transparent; text-align: center;
-background-image: url('../img/ajax-loader.gif'); background-position: center center; background-repeat: no-repeat; }
+background-image: url('ajax-loader.gif'); background-position: center center; background-repeat: no-repeat; }
 #jquery-loader2.blue-with-image-2 { padding-top: 90px; }
 .loader1, .loader2 { z-index: 30001; width: 200px; height: 60px; position: absolute; }
 .loader1{ left: 45%; top: 78% }

@@ -6,7 +6,6 @@ $(document).ready(function(){
 	$(".msj-notif").click(function(){
 		$("#login-from-rest,#login-rest-pass,#regist-enviar").hide();
 		$("#login-form,#login-acc").show("slow");
-		//$("#login-acc").show("show");
 	});
 	
 	//LOGIN
@@ -25,28 +24,28 @@ $(document).ready(function(){
 		var login_email	= $("#login-email").val(),
 			login_pass	= $("#login-pass").val();
 		
-			if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(login_email))){
-				$("#login-email").css('border','2px solid red');
-				$("#login-email").focus();
-				return false;
-			}		
-			if(login_pass==""){
-				$("#login-pass").css('border','2px solid red');
-				$("#login-pass").focus();
-				return false;
-			}else{
-				$("#login-pass").css('border','1px solid #e0e0e0');
-			}
-		$("#login-msjresp").html("<img src='../img/ajax-loader.GIF' style='margin-top:50px;'/>");
+        if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(login_email))){
+            $("#login-email").css('border','2px solid red');
+            $("#login-email").focus();
+            return false;
+        }
+        if(login_pass==""){
+            $("#login-pass").css('border','2px solid red');
+            $("#login-pass").focus();
+            return false;
+        }else{
+            $("#login-pass").css('border','1px solid #e0e0e0');
+        }
+		$("#login-msjresp").html("<img src='ajax-loader.GIF' style='margin-top:50px;'/>");
 		$("#login-msjresp").show();
-   		//$('#login-form').submit();
+
         $.ajax({
             type:"POST",
             url:'login_proc.php',
             async:true,
             cache:false,
             beforeSend: function(){
-                $("#login-msjresp").html("<img src='../img/ajax-loader.GIF' style='margin-top:50px;'/>");
+                $("#login-msjresp").html("<img src='ajax-loader.GIF' style='margin-top:50px;'/>");
                 $("#login-msjresp").show();
             },
             data: {login_email: login_email, login_pass: login_pass},
@@ -58,23 +57,18 @@ $(document).ready(function(){
                     $("#login-msjresp").show();
                     $("#login-msjresp").click(function(){
                         $("#login-msjresp").hide();
-                        $("#simplemodal-container").hide();
                     });
-                    setTimeout(function(){
-                        $("#simplemodal-container").fadeOut(1000);
-                    },5000);
+                    $.modal.close();
 				}else{
 					$("#login-msjresp").css({"color": "red"}).html("Usuario o clave incorrecta.");
                     $("#login-msjresp").show();
                     $("#login-msjresp").click(function(){
-                        //$("#login-msjresp,#login-from-rest").hide();
                         $("#login-msjresp").hide();
                         $("#login-rest-email").val('');
                         $("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
                     });
                     setTimeout(function(){
                         $("#login-msjresp").fadeOut(1000);
-                        //$("#login-msjresp,#login-from-rest").hide();
                         $("#login-rest-email").val('');
                     },5000);
 				}
@@ -107,7 +101,7 @@ $(document).ready(function(){
 				async:true,
 				cache:false,
 				beforeSend: function(){						
-					$("#login-msjresp").html("<img src='../img/ajax-loader.GIF' style='margin-top:50px;'/>");
+					$("#login-msjresp").html("<img src='ajax-loader.GIF' style='margin-top:50px;'/>");
 					$("#login-msjresp").show();								
 				},
 				data: ({login_rest_email:_email}),				
@@ -116,12 +110,10 @@ $(document).ready(function(){
 						$("#login-msjresp").show();
 						setTimeout(function(){
 							$("#login-msjresp").fadeOut(1000);
-							//$("#login-msjresp,#login-from-rest").hide();
 							$("#login-rest-email").val('');
 							$("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
 						},50000);
 						$("#login-msjresp").click(function(){
-							//$("#login-msjresp,#login-from-rest").hide();
 							$("#login-msjresp").hide();
 							$("#login-rest-email").val('');
 							$("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
@@ -144,7 +136,6 @@ $(document).ready(function(){
 		$("#regist-nomb,#regist-apel,#regist-email,#regist-pass,#regist-pass-conf").each(function(e){
 				if($(this).val()==''){
 					$(this).css('border','2px solid red');
-					//$(this).focus();
 				}else{
 					$(this).css('border','none');
 					if($(this).attr('name')== 'regist-email'){
@@ -171,7 +162,7 @@ $(document).ready(function(){
 					cont++;
 				}							
 				if(cont==5){
-					$("#login-msjresp").html("<img src='../img/ajax-loader.GIF' style='margin-top:50px;'/>");
+					$("#login-msjresp").html("<img src='ajax-loader.GIF' style='margin-top:50px;'/>");
 					$("#login-msjresp").show();
 					$('#regist-form').submit();
 				}
@@ -198,8 +189,12 @@ function setCookie(n, v) {
     var d = new Date();
     d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
     var cookie = n + "=" + escape(v) + "; expires=" + d.toGMTString() + "; path=/; ";
-    if (location.hostname != "localhost") {
-        cookie += "domain=.neotienda.com;"
+    if (location.hostname == "neotienda.dev") {
+        cookie += "domain=.neotienda.dev;"
+    }else{
+        if (location.hostname != "localhost") {
+            cookie += "domain=.neotienda.com;"
+        }
     }
     document.cookie = cookie
 }

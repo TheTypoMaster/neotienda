@@ -1324,7 +1324,7 @@ var_dump($this->statuses_array);die;
     }
 
     public function renderKpis()
-    {echo 'asdfsadfsad';die;
+    {//echo 'asdfsadfsad';die;
         /*$time = time();
         $kpis = array();
 
@@ -1390,16 +1390,19 @@ var_dump($this->statuses_array);die;
     public function renderView()
     {
         $neoExchange = new NeoExchanges(Tools::getValue('id_neo_exchange'));
+
+
+
+
+
         if (!Validate::isLoadedObject($neoExchange))
             $this->errors[] = Tools::displayError('The order cannot be found within your database.');
 
-
         $customer = new Customer($neoExchange->id_customer);
         $carrier = new Carrier($neoExchange->id_carrier);
+        $currency = new Currency((int)$neoExchange->id_currency);
 
         $products = $this->getProducts($neoExchange);
-
-        $currency = new Currency((int)$neoExchange->id_currency);
 
         // Carrier module call
         $carrier_module_call = null;
@@ -1428,7 +1431,7 @@ var_dump($this->statuses_array);die;
                 $deliveryState = new State((int)($addressDelivery->id_state));
         }
 
-        $this->toolbar_title = sprintf($this->l('Order #%1$d (%2$s) - %3$s %4$s'), $neoExchange->id, $neoExchange->reference, $customer->firstname, $customer->lastname);
+        $this->toolbar_title = sprintf($this->l('Intercambio #%1$d (%2$s) - %3$s %4$s'), $neoExchange->id, $neoExchange->reference, $customer->firstname, $customer->lastname);
         if (Shop::isFeatureActive())
         {
             $shop = new Shop((int)$neoExchange->id_shop);
@@ -1477,9 +1480,6 @@ var_dump($this->statuses_array);die;
         // products current stock (from stock_available)
         foreach ($products as &$product)
         {
-
-
-
             $product['current_stock'] = StockAvailable::getQuantityAvailableByProduct($product['id_product'], $product['product_attribute_id'], $product['id_shop']);
 
             $resume = OrderSlip::getProductSlipResume($product['id_neo_item_buy']);

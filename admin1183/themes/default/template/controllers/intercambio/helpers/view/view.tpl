@@ -49,8 +49,6 @@
 	var statesShipped = new Array();
 	var has_voucher = {if count($discounts)}1{else}0{/if};
 
-
-
 	{foreach from=$states item=state}
 		{if (!$currentState->shipped && $state['shipped'])}
 			statesShipped.push({$state['id_order_state']});
@@ -562,7 +560,7 @@ view.tpl
 				{/if}
 			</div>
             *}
-            <!-- @larismendi fin de deshabilita seccion -->
+            <!-- @larismendi fin de deshabilita seccion de shipping -->
 		</div>
 		<div class="col-lg-5">
 			<!-- Customer informations -->
@@ -649,7 +647,7 @@ view.tpl
 				{/if}
 				<!-- Tab nav de Dirección de envío y facturación -->
 				<!-- Deshabilito -->
-				{if (false)}
+				{*
                 <div class="row">
 					<ul class="nav nav-tabs" id="tabAddresses">
 						<li class="active">
@@ -668,7 +666,7 @@ view.tpl
 					< !-- Tab content -->
 					<div class="tab-content panel">
 						<!-- Tab status -->
-						<div class="tab-pane  in active" id="addressShipping">
+						<div class="tab-pane in active" id="addressShipping">
 							<!-- Addresses -->
 							<h4 class="visible-print">{l s='Shipping address'}</h4>
 							{if !$order->isVirtual()}
@@ -720,7 +718,7 @@ view.tpl
 								</div>
 							{/if}
 						</div>
-						<div class="tab-pane " id="addressInvoice">
+						<div class="tab-pane" id="addressInvoice">
 							<!-- Invoice address -->
 							<h4 class="visible-print">{l s='Invoice address'}</h4>
 							{if $can_edit}
@@ -778,9 +776,12 @@ view.tpl
 					})
 				</script>
                     <!-- Cierro if que deshabilita seccion -->
-                {/if}
+                *}
 			</div>
+
+			{* @larismendi inicio quito sección de mensajes
 			<div class="panel">
+
 				<div class="panel-heading">
 					<i class="icon-envelope"></i> {l s='Messages'} <span class="badge">{sizeof($customer_thread_message)}</span>
 				</div>
@@ -809,13 +810,13 @@ view.tpl
 									<p class="message-item-text">
 										{$message['message']|escape:'html':'UTF-8'|nl2br}
 									</p>
-								</div>
+								</div>*}
 								{*if ($message['is_new_for_me'])}
 									<a class="new_message" title="{l s='Mark this message as \'viewed\''}" href="{$smarty.server.REQUEST_URI}&amp;token={$smarty.get.token}&amp;messageReaded={$message['id_message']}">
 										<i class="icon-ok"></i>
 									</a>
 								{/if*}
-							{/foreach}
+							{*{/foreach}
 						</div>
 					</div>
 				{/if}
@@ -865,7 +866,6 @@ view.tpl
 								</div>
 							</div>
 
-
 							<input type="hidden" name="id_order" value="{$order->id}" />
 							<input type="hidden" name="id_customer" value="{$order->id_customer}" />
 							<button type="submit" id="submitMessage" class="btn btn-primary pull-right" name="submitMessage">
@@ -879,6 +879,7 @@ view.tpl
 					</form>
 				</div>
 			</div>
+			@larismendi fin quito sección de mensajes *}
 		</div>
 	</div>
 
@@ -895,24 +896,10 @@ view.tpl
 						<i class="icon-shopping-cart"></i>
 						{l s='Productos que quiere el cliente'} <span class="badge">{$products|@count}</span>
 					</div>
-					<div id="refundForm">
-					<!--
-						<a href="#" class="standard_refund"><img src="../img/admin/add.gif" alt="{l s='Process a standard refund'}" /> {l s='Process a standard refund'}</a>
-						<a href="#" class="partial_refund"><img src="../img/admin/add.gif" alt="{l s='Process a partial refund'}" /> {l s='Process a partial refund'}</a>
-					-->
-					</div>
 
-					{capture "TaxMethod"}
-						{if ($order->getTaxCalculationMethod() == $smarty.const.PS_TAX_EXC)}
-							{l s='tax excluded.'}
-						{else}
-							{l s='tax included.'}
-						{/if}
-					{/capture}
+                    {$order|@var_dump}
 
-                    {*$order|@var_dump*}
-
-                    {$products|@var_dump}
+                    {*$products|@var_dump*}
 
 					<div class="table-responsive">
 						<table class="table" id="orderProducts">
@@ -969,20 +956,6 @@ view.tpl
 						</table>
 					</div>
 
-					{if $can_edit}
-					<div class="row-margin-bottom row-margin-top order_action">
-					{if !$order->hasBeenDelivered()}
-						<button type="button" id="add_product" class="btn btn-default">
-							<i class="icon-plus-sign"></i>
-							{l s='Add a product'}
-						</button>
-					{/if}
-						<button id="add_voucher" class="btn btn-default" type="button" >
-							<i class="icon-ticket"></i>
-							{l s='Add a new discount'}
-						</button>
-					</div>
-					{/if}
 					<div class="row">
 						<div class="col-xs-6">
 							<div class="alert alert-warning">
@@ -1114,6 +1087,7 @@ view.tpl
 							</div>
 						</div>
 					</div>
+
 					<div style="display: none;" class="standard_refund_fields form-horizontal panel">
 						<div class="form-group">
 							{if ($order->hasBeenDelivered() && Configuration::get('PS_ORDER_RETURN'))}
@@ -1172,6 +1146,215 @@ view.tpl
 			</form>
 		</div>
 	</div>
+
+    <div class="row" id="start_products">
+        <div class="col-lg-12">
+            <form class="container-command-top-spacing" action="{$current_index}&amp;vieworder&amp;token={$smarty.get.token|escape:'html':'UTF-8'}&amp;id_order={$order->id|intval}" method="post" onsubmit="return orderDeleteProduct('{l s='This product cannot be returned.'}', '{l s='Quantity to cancel is greater than quantity available.'}');">
+                <input type="hidden" name="id_order" value="{$order->id}" />
+                <div style="display: none">
+                    <input type="hidden" value="{$order->getWarehouseList()|implode}" id="warehouse_list" />
+                </div>
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <i class="icon-shopping-cart"></i>
+                        {l s='Productos que quiere el cliente'} <span class="badge">{$products|@count}</span>
+                    </div>
+
+                    {*$order|@var_dump*}
+
+                    {*$products|@var_dump*}
+
+                    <div class="table-responsive">
+                        <table class="table" id="orderProducts">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th><span class="title_box ">{l s='Product'}</span></th>
+                                <th>
+                                    <span class="title_box ">{l s='Unit Price'}</span>
+                                    <small class="text-muted">{$smarty.capture.TaxMethod}</small>
+                                </th>
+                                <th class="text-center"><span class="title_box ">{l s='Qty'}</span></th>
+                                {if $display_warehouse}<th><span class="title_box ">{l s='Warehouse'}</span></th>{/if}
+                                {if ($order->hasBeenPaid())}<th class="text-center"><span class="title_box ">{l s='Refunded'}</span></th>{/if}
+                                {if ($order->hasBeenDelivered() || $order->hasProductReturned())}
+                                    <th class="text-center"><span class="title_box ">{l s='Returned'}</span></th>
+                                {/if}
+                                {if $stock_management}<th class="text-center"><span class="title_box ">{l s='Available quantity'}</span></th>{/if}
+                                <th>
+                                    <span class="title_box ">{l s='Total'}</span>
+                                    <small class="text-muted">{$smarty.capture.TaxMethod}</small>
+                                </th>
+                                <th style="display: none;" class="add_product_fields"></th>
+                                <th style="display: none;" class="edit_product_fields"></th>
+                                <th style="display: none;" class="standard_refund_fields">
+                                    <i class="icon-minus-sign"></i>
+                                    {if ($order->hasBeenDelivered() || $order->hasBeenShipped())}
+                                        {l s='Return'}
+                                    {elseif ($order->hasBeenPaid())}
+                                        {l s='Refund'}
+                                    {else}
+                                        {l s='Cancel'}
+                                    {/if}
+                                </th>
+                                <th style="display:none" class="partial_refund_fields">
+                                    <span class="title_box ">{l s='Partial refund'}</span>
+                                </th>
+                                {if !$order->hasBeenDelivered()}
+                                    <th></th>
+                                {/if}
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {foreach from=$products item=product key=k}
+                                {* Include customized datas partial *}
+                                {include file='controllers/intercambio/_customized_data.tpl'}
+                                {* Include product line partial *}
+                                {include file='controllers/intercambio/_product_line.tpl'}
+                            {/foreach}
+                            {if $can_edit}
+                                {include file='controllers/intercambio/_new_product.tpl'}
+                            {/if}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="alert alert-warning">
+                                {l s='Según el grupo de este cliente, los precios están impresos como sigue'}
+                                <strong>Impuestos incluidos</strong>
+                                {*if !Configuration::get('PS_ORDER_RETURN')*}
+                                    <br/><strong>{l s='Merchandise returns are disabled'}</strong>
+                                {*/if*}
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="panel panel-vouchers" style="{if !sizeof($discounts)}display:none;{/if}">
+                                {if (sizeof($discounts) || $can_edit)}
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>
+													<span class="title_box ">
+														{l s='Discount name'}
+													</span>
+                                                </th>
+                                                <th>
+													<span class="title_box ">
+														{l s='Value'}
+													</span>
+                                                </th>
+                                                {if $can_edit}
+                                                    <th></th>
+                                                {/if}
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {foreach from=$discounts item=discount}
+                                                <tr>
+                                                    <td>{$discount['name']}</td>
+                                                    <td>
+                                                        {if $discount['value'] != 0.00}
+                                                            -
+                                                        {/if}
+                                                        {displayPrice price=$discount['value'] currency=$currency->id}
+                                                    </td>
+                                                    {if $can_edit}
+                                                        <td>
+                                                            <a href="{$current_index}&amp;submitDeleteVoucher&amp;id_order_cart_rule={$discount['id_order_cart_rule']}&amp;id_order={$order->id}&amp;token={$smarty.get.token|escape:'html':'UTF-8'}">
+                                                                <i class="icon-minus-sign"></i>
+                                                                {l s='Delete voucher'}
+                                                            </a>
+                                                        </td>
+                                                    {/if}
+                                                </tr>
+                                            {/foreach}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="current-edit" id="voucher_form" style="display:none;">
+                                        {include file='controllers/orders/_discount_form.tpl'}
+                                    </div>
+                                {/if}
+                            </div>
+                            <div class="panel panel-total">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        {* Assign order price *}
+                                        {if ($order->getTaxCalculationMethod() == $smarty.const.PS_TAX_EXC)}
+                                            {assign var=order_product_price value=($order->total_products)}
+                                            {assign var=order_discount_price value=$order->total_discounts_tax_excl}
+                                            {assign var=order_wrapping_price value=$order->total_wrapping_tax_excl}
+                                            {assign var=order_shipping_price value=$order->total_shipping_tax_excl}
+                                        {else}
+                                            {assign var=order_product_price value=$order->total_products_wt}
+                                            {assign var=order_discount_price value=$order->total_discounts_tax_incl}
+                                            {assign var=order_wrapping_price value=$order->total_wrapping_tax_incl}
+                                            {assign var=order_shipping_price value=$order->total_shipping_tax_incl}
+                                        {/if}
+                                        <tr id="total_products">
+                                            <td class="text-right">{l s='Products:'}</td>
+                                            <td class="amount text-right">
+                                                {displayPrice price=$order_product_price currency=$currency->id}
+                                            </td>
+                                            <td class="partial_refund_fields current-edit" style="display:none;"></td>
+                                        </tr>
+                                        <tr id="total_discounts" {if $order->total_discounts_tax_incl == 0}style="display: none;"{/if}>
+                                            <td class="text-right">{l s='Discounts'}</td>
+                                            <td class="amount text-right">
+                                                -{displayPrice price=$order_discount_price currency=$currency->id}
+                                            </td>
+                                            <td class="partial_refund_fields current-edit" style="display:none;"></td>
+                                        </tr>
+                                        <tr id="total_wrapping" {if $order->total_wrapping_tax_incl == 0}style="display: none;"{/if}>
+                                            <td class="text-right">{l s='Wrapping'}</td>
+                                            <td class="amount text-right">
+                                                {displayPrice price=$order_wrapping_price currency=$currency->id}
+                                            </td>
+                                            <td class="partial_refund_fields current-edit" style="display:none;"></td>
+                                        </tr>
+                                        <tr id="total_shipping">
+                                            <td class="text-right">{l s='Shipping'}</td>
+                                            <td class="amount text-right" >
+                                                {displayPrice price=$order_shipping_price currency=$currency->id}
+                                            </td>
+                                            <td class="partial_refund_fields current-edit" style="display:none;">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        {$currency->prefix}
+                                                        {$currency->suffix}
+                                                    </div>
+                                                    <input type="text" name="partialRefundShippingCost" value="0" />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        {if ($order->getTaxCalculationMethod() == $smarty.const.PS_TAX_EXC)}
+                                            <tr id="total_taxes">
+                                                <td class="text-right">{l s='Taxes'}</td>
+                                                <td class="amount text-right" >{displayPrice price=($order->total_paid_tax_incl-$order->total_paid_tax_excl) currency=$currency->id}</td>
+                                                <td class="partial_refund_fields current-edit" style="display:none;"></td>
+                                            </tr>
+                                        {/if}
+                                        {assign var=order_total_price value=$order->total_paid_tax_incl}
+                                        <tr id="total_order">
+                                            <td class="text-right"><strong>{l s='Total'}</strong></td>
+                                            <td class="amount text-right">
+                                                <strong>{displayPrice price=$order_total_price currency=$currency->id}</strong>
+                                            </td>
+                                            <td class="partial_refund_fields current-edit" style="display:none;"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
 	<div class="row">
 		<div class="col-lg-12">

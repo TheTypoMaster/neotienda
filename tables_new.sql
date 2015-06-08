@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.11 (64 bit)
 MySQL - 5.6.17 : Database - neoliam_tienda
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -22,13 +23,18 @@ DROP TABLE IF EXISTS `ps_neo_exchanges`;
 
 CREATE TABLE `ps_neo_exchanges` (
   `id_neo_exchange` int(20) NOT NULL AUTO_INCREMENT,
-  `id_customer` int(10) DEFAULT NULL,
   `reference` varchar(20) DEFAULT NULL,
+  `id_shop_group` int(1) DEFAULT 1,
+  `id_shop` int(1) DEFAULT 1,
+  `id_lang` int(1) DEFAULT 1,
+  `id_customer` int(10) DEFAULT NULL,
+  `id_currency` int(1) DEFAULT 1,
+  `id_neo_status` smallint(1) DEFAULT NULL,
   `forma_pago` varchar(20) DEFAULT NULL,
   `total_in_favor` decimal(20,2) DEFAULT NULL,
   `total_dif` decimal(20,2) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `update_at` datetime DEFAULT NULL,
+  `date_add` datetime DEFAULT NULL,
+  `date_upd` datetime DEFAULT NULL,
   `id_neo_status` smallint(1) DEFAULT NULL,
   PRIMARY KEY (`id_neo_exchange`),
   UNIQUE KEY `REFERENCE` (`reference`)
