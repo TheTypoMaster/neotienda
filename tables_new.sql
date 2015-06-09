@@ -35,14 +35,29 @@ CREATE TABLE `ps_neo_exchanges` (
   `total_dif` decimal(20,2) DEFAULT NULL,
   `date_add` datetime DEFAULT NULL,
   `date_upd` datetime DEFAULT NULL,
-  `id_neo_status` smallint(1) DEFAULT NULL,
   PRIMARY KEY (`id_neo_exchange`),
   UNIQUE KEY `REFERENCE` (`reference`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 /*Data for the table `ps_neo_exchanges` */
 
-insert  into `ps_neo_exchanges`(`id_neo_exchange`,`id_customer`,`reference`,`forma_pago`,`total_in_favor`,`total_dif`,`created_at`,`update_at`,`id_neo_status`) values (1,1011,'2015040001','Transferencia',0.00,2911.00,'2015-04-30 17:24:42',NULL,1),(2,1011,'2015040002','Transferencia',0.00,2911.00,'2015-04-30 17:24:45',NULL,1),(3,1011,'2015040003','Transferencia',0.00,2911.00,'2015-04-30 17:25:55',NULL,1),(4,1011,'2015040004','Transferencia',0.00,0.00,'2015-04-30 17:50:33',NULL,1),(5,1011,'2015040005','Transferencia',0.00,0.00,'2015-04-30 17:52:55',NULL,1),(6,1011,'2015040006','Transferencia',0.00,1990.00,'2015-05-07 15:48:48',NULL,1),(7,1011,'2015040007','Transferencia',0.00,1990.00,'2015-05-07 17:05:48',NULL,1),(8,1011,'2015040008','Transferencia',0.00,1990.00,'2015-05-07 17:14:57',NULL,1),(9,1011,'2015040009','Transferencia',5000.00,0.00,'2015-05-11 18:13:51',NULL,1),(10,1011,'2015040010','Transferencia',5000.00,0.00,'2015-05-12 10:37:38',NULL,1),(11,1011,'2015040011','Transferencia',5000.00,0.00,'2015-05-12 15:29:59',NULL,1),(12,1011,'2015050012','Transferencia',5000.00,0.00,'2015-05-19 22:00:13',NULL,1),(13,1011,'2015050013','Transferencia',0.00,1990.00,'2015-05-19 22:37:50',NULL,1),(14,1011,'2015050014','Transferencia',0.00,990.00,'2015-05-19 22:44:05',NULL,1),(15,1011,'201505015','Transferencia',0.00,4667.00,'2015-05-19 23:39:18',NULL,1);
+insert  into `ps_neo_exchanges`(`id_neo_exchange`,`id_customer`,`reference`,`forma_pago`,`total_in_favor`,`total_dif`,`date_add`,`date_upd`,`id_neo_status`)
+values
+(1,1011,'2015040001','Transferencia',0.00,2911.00,'2015-04-30 17:24:42',NULL,1),
+(2,1011,'2015040002','Transferencia',0.00,2911.00,'2015-04-30 17:24:45',NULL,1),
+(3,1011,'2015040003','Transferencia',0.00,2911.00,'2015-04-30 17:25:55',NULL,1),
+(4,1011,'2015040004','Transferencia',0.00,0.00,'2015-04-30 17:50:33',NULL,1),
+(5,1011,'2015040005','Transferencia',0.00,0.00,'2015-04-30 17:52:55',NULL,1),
+(6,1011,'2015040006','Transferencia',0.00,1990.00,'2015-05-07 15:48:48',NULL,1),
+(7,1011,'2015040007','Transferencia',0.00,1990.00,'2015-05-07 17:05:48',NULL,1),
+(8,1011,'2015040008','Transferencia',0.00,1990.00,'2015-05-07 17:14:57',NULL,1),
+(9,1011,'2015040009','Transferencia',5000.00,0.00,'2015-05-11 18:13:51',NULL,1),
+(10,1011,'2015040010','Transferencia',5000.00,0.00,'2015-05-12 10:37:38',NULL,1),
+(11,1011,'2015040011','Transferencia',5000.00,0.00,'2015-05-12 15:29:59',NULL,1),
+(12,1011,'2015050012','Transferencia',5000.00,0.00,'2015-05-19 22:00:13',NULL,1),
+(13,1011,'2015050013','Transferencia',0.00,1990.00,'2015-05-19 22:37:50',NULL,1),
+(14,1011,'2015050014','Transferencia',0.00,990.00,'2015-05-19 22:44:05',NULL,1),
+(15,1011,'201505015','Transferencia',0.00,4667.00,'2015-05-19 23:39:18',NULL,1);
 
 /*Table structure for table `ps_neo_exchanges_history` */
 

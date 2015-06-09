@@ -61,7 +61,7 @@
 	<div>{$hook_invoice}</div>
 	{/if}
 
-    {$products@print_r}
+    {$states@print_r}
 
 view.tpl
 	<div class="panel kpi-container">

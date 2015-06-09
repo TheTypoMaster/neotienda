@@ -1,24 +1,12 @@
 @charset "utf-8";
-body {
-	font-family: Rockwell;	
-	text-align:center;
-	background-color:#fff;
-}
-.container{
-	position: absolute;
-	/*top: 0px;
-	left: 0px;*/
-}
-.container h2{
-	margin:0px;
-}
-.tabs {
+
+#loginInter .tabs {
     position: relative;
-	/*margin: 40px auto;*/
-	width: 230px;
-	margin-top: 10px;
+	margin: 10px auto;
+	width: 430px;
+	font-family: Arial,Helvetica,sans-serif;
 }
-.tabs input[name=radio-set] {
+#loginInter .tabs input[name=radio-set] {
 	position: absolute;
 	z-index: 1000;
 	width: 100px;
@@ -30,10 +18,10 @@ body {
     filter: alpha(opacity=0);
 	cursor: pointer;
 }
-.tabs input[name=radio-set]#tab-2{
+#loginInter .tabs input[name=radio-set]#tab-2{
 	left: 120px;
 }
-.tabs label {
+#loginInter .tabs label {
 	font-size: 10px;
 	line-height: 40px;
 	height: 40px;
@@ -56,48 +44,48 @@ body {
     border-radius: 3px 3px 0 0;
     box-shadow: 2px 0 2px rgba(0,0,0,0.1), -2px 0 2px rgba(0,0,0,0.1);
 }
-.tabs label:after {
+#loginInter .tabs label:after {
     content: '';
 	background: #fff;
 	position: absolute;
-	bottom: -2px;
 	left: 0;
 	width: 100%;
 	height: 2px;
 	display: block;
 }
-.tabs input[name=radio-set]:hover + label {
+#loginInter .tabs input[name=radio-set]:hover + label {
 	background: #393431;
 }
-.tabs label:first-of-type {
+#loginInter .tabs label:first-of-type {
     z-index: 4;
     box-shadow: 2px 0 2px rgba(0,0,0,0.1);
 }
-.tab-label-2 {
+#loginInter .tab-label-2 {
     z-index: 3;
 }
-.tabs input[name=radio-set]:checked + label {
-    background: #fff;
+#loginInter .tabs input[name=radio-set]:checked + label {
+    background: #f5f5f5;
 	z-index: 6;
 }
-.clear-shadow {
+#loginInter .tabs .clear-shadow {
 	clear: both;
 }
-.content {
+#loginInter .tabs .content {
     background: #fff;
 	position: relative;
     width: 100%;
-	height: 200px;
+	height: 220px;
 	z-index: 5;
     box-shadow: 0 -2px 3px -2px rgba(0,0,0,0.2), 0 2px 2px rgba(0,0,0,0.1);
 	border: 1px solid #8F8D8D;
     border-radius: 0 3px 3px 3px;
 }
-.content div.content-1,
-.content div.content-2{
+#loginInter .tabs .content div.content-1,
+#loginInter .tabs .content div.content-2{
+	width: 100%;
     position: absolute;
-	top: 0;
-	left: 0;
+	/*top: 0;
+	left: 0;*/
 	padding: 10px 15px;
 	z-index: 1;
     opacity: 0;
@@ -107,8 +95,8 @@ body {
     -ms-transition: opacity linear 0.1s;
     transition: opacity linear 0.1s;
 }
-.tabs input.tab-selector-1:checked ~ .content .content-1,
-.tabs input.tab-selector-2:checked ~ .content .content-2 {
+#loginInter .tabs input.tab-selector-1:checked ~ .content .content-1,
+#loginInter .tabs input.tab-selector-2:checked ~ .content .content-2 {
 	z-index: 100;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: alpha(opacity=100);
@@ -120,46 +108,49 @@ body {
     transition: opacity ease-out 0.2s 0.1s;
 }
 
-img.fb_conex{
-	cursor: pointer;	
-	width: 200px;
-}
-
 /* LOGIN */
-div.login-content{
+#loginInter .tabs .content div.login-content{
 	/*width:200px;*/
 }
-div.login-content img.fb_conex{	
-	margin-top: 15px;
-	margin-bottom: 7px;
-}
-div.login-content p{
+#loginInter .tabs .content div.login-content p{
 	margin-top: 5px;
 	margin-bottom: 0px;
 }
-div.login-content form{
+#loginInter .tabs .content div.login-content form{
 	margin-top:10px
 }
-div.login-content input{
-	padding: 5px;
-	border: 1px solid #e0e0e0;
-	width: 90%;
-	border-radius: 7px;
-	background-color: aliceblue;
+#loginInter .tabs .content div.content-1 input,
+#loginInter .tabs .content div.content-2 input{
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #555;
+	vertical-align: middle;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
-div.login-content input[type=checkbox]{
+#loginInter .tabs .content div.login-content input[type=checkbox]{
+	display: inline;
 	width: auto;
 }
-div.login-content span{
+#loginInter .tabs .content div.login-content span{
 	font-size: 10px;
 }
-div.login-content span:hover{
+#loginInter .tabs .content div.login-content span:hover{
 	color: rgb(55, 177, 218);
 	cursor: pointer;
 	transition: color 100ms ease-in-out;
 	-webkit-transition: color 100ms ease-in-out;
 }
-div.login-content button{
+#loginInter .tabs .content div.login-content button{
 	float: right;
 	margin-right: 15px;
 	height: 25px;
@@ -168,47 +159,27 @@ div.login-content button{
 }
 
 /* REGISTRAR */
-/*
-div.regist-alquiler-conten{
-	position: absolute;
-	top:0px;
-	left:0px;
-	width:210px; 
-	height:auto;
-	background-color:#FFF;
-	border: 1px solid #333;
-	border-radius: 3px;
-	-webkit-border-radius: 3px;
-}*/
-div.regist-alquiler-conten .button-resg{
+#loginInter .tabs .content div.regist-alquiler-conten .button-resg{
 	position:absolute;
 	top: 130px;
 	right:18%;
 }
-div.regist-alquiler-conten h2{
+#loginInter .tabs .content div.regist-alquiler-conten h2{
 	margin:0px;
 }
-div.regist-alquiler-conten p{
+#loginInter .tabs .content div.regist-alquiler-conten p{
 	margin: 5px 0px;
 }
-div.regist-alquiler-conten span{
+#loginInter .tabs .content div.regist-alquiler-conten span{
 	font-size: 12px;
 }
-div.regist-alquiler-conten form{
-	width: 188px;
+#loginInter .tabs .content div.regist-alquiler-conten form{
+	width: 100%;
 	margin-left: 5px;
-}
-div.regist-alquiler-conten input{
-	padding: 3px;
-	font-size: 13px;
-	width: 70%;
-	border: 1px solid #e0e0e0;	
-	border-radius: 3px;
-	background-color: aliceblue;
 }
 
 /*	VENTANA MSJ NOTIFICACION - FS */
-div.msj-notif{
+#loginInter .tabs .content div.msj-notif{
 	display:none;
 	position:absolute;	
 	top:36%;
@@ -220,28 +191,29 @@ div.msj-notif{
 	text-align:center;
 	z-index:9999;		
 }
-div.notif_exito, div.notif_alerta, div.notif_error{		
+#loginInter .tabs .content #login-msjresp div.notif_exito,
+#loginInter .tabs .content #login-msjresp div.notif_alerta,
+#loginInter .tabs .content #login-msjresp div.notif_error{
 	border:4px double;
 	border-radius: 10px;
 	font:bold 12px "ROCK";
 	padding:15px 8px 15px 10px;
 	cursor:pointer;		
 }
-div.notif_exito{		
+#loginInter .tabs .content #login-msjresp div.notif_exito{
 	color: #4F8A10;
 	background-color: #DFF2BF;
 }
-div.notif_alerta{
+#loginInter .tabs .content #login-msjresp div.notif_alerta{
 	color: #9F6000;
 	background-color: #FEEFB3;
 }
-div.notif_error{
+#loginInter .tabs .content #login-msjresp div.notif_error{
 	font:bold 15px "Trebuchet MS";		
 	color: #D8000C;
 	background-color: #FFBABA;
 }
-
-button{
+#loginInter .tabs button{
 	width: 230px;
 	margin-top: 10px;
 	font-size: 20px;
@@ -256,7 +228,7 @@ button{
 	-webkit-transition: background-color 200ms ease-in-out;
 	cursor: pointer;
 }
-button:hover{ 
+#loginInter .tabs button:hover{
 	background-color: #393431;	
 	transition: background-color 100ms ease-in-out;
 	-webkit-transition: background-color 100ms ease-in-out;

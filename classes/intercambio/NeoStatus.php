@@ -94,15 +94,15 @@ class NeoStatusCore extends ObjectModel
     public static function getNeoStatus()
     {
         $cache_id = 'NeoStatus::getNeoStatus';
-        if (!Cache::isStored($cache_id))
-        {
+        //if (!Cache::isStored($cache_id))
+        //{
             $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS('
 			SELECT *
 			FROM `'._DB_PREFIX_.'neo_status`
 			WHERE status = 1
 			ORDER BY `id_neo_status` ASC');
             Cache::store($cache_id, $result);
-        }
+        //}
         return Cache::retrieve($cache_id);
     }
 

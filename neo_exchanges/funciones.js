@@ -2,12 +2,12 @@ $(document).ready(function(){
 	$("#login-email,#login-rest-email,#regist-email").blur(function(e){ValCorreos(e,this);});
 	$('#login-pass,#regist-nomb,#regist-apel,#regist-pass,#regist-pass-conf').bind("keydown blur",function(e){ValCampos(e,this);});
 	$("#login-from-rest,#login-rest-pass,#regist-enviar").hide();
-	
+
 	$(".msj-notif").click(function(){
 		$("#login-from-rest,#login-rest-pass,#regist-enviar").hide();
 		$("#login-form,#login-acc").show("slow");
 	});
-	
+
 	//LOGIN
 	$("#tab-1").click(function(){
 		$("#login-rest-atras,#login-from-rest,#login-rest-pass,#regist-enviar").hide();
@@ -19,11 +19,11 @@ $(document).ready(function(){
 		}
 	});
 	$("#login-acc").click(function(){Login();});
-	
+
 	function Login(){
 		var login_email	= $("#login-email").val(),
 			login_pass	= $("#login-pass").val();
-		
+
         if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(login_email))){
             $("#login-email").css('border','2px solid red');
             $("#login-email").focus();
@@ -36,16 +36,16 @@ $(document).ready(function(){
         }else{
             $("#login-pass").css('border','1px solid #e0e0e0');
         }
-		$("#login-msjresp").html("<img src='ajax-loader.GIF' style='margin-top:50px;'/>");
+		$("#login-msjresp").html("<img src='neo_exchanges/ajax-loader.GIF' style='margin-top:50px;'/>");
 		$("#login-msjresp").show();
 
         $.ajax({
             type:"POST",
-            url:'login_proc.php',
+            url:'neo_exchanges/login_proc.php',
             async:true,
             cache:false,
             beforeSend: function(){
-                $("#login-msjresp").html("<img src='ajax-loader.GIF' style='margin-top:50px;'/>");
+                $("#login-msjresp").html("<img src='neo_exchanges/ajax-loader.GIF' style='margin-top:50px;'/>");
                 $("#login-msjresp").show();
             },
             data: {login_email: login_email, login_pass: login_pass},
@@ -81,32 +81,38 @@ $(document).ready(function(){
 	}
 
 	//OLVIDAR CONTRASEÑA
-	$("#login-rest,#login-rest-atras").click(function(){
-		$("#login-rest,#login-rest-atras,#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
-		//$("#login-form,#login-acc").hide();
-		//$("#login-from-rest,#login-rest-pass").show("slow");
-	});	
-	$("#login-rest-pass").click(function(){	
+	$("#login-rest").click(function(){
+		//$("#login-from-rest,#login-rest-atras,#login-rest-pass,#login-form,#login-acc,#login-rest").toggle();
+		$("#login-form,#login-acc,#login-rest").hide();
+		$("#login-from-rest,#login-rest-pass,#login-rest-atras").show("slow");
+	});
+	$("#login-rest-atras").click(function(){
+		//$("#login-from-rest,#login-rest-atras,#login-rest-pass,#login-form,#login-acc,#login-rest").toggle();
+		$("#login-form,#login-acc,#login-rest").show("slow");
+		$("#login-from-rest,#login-rest-pass,#login-rest-atras").hide();
+	});
+
+	$("#login-rest-pass").click(function(){
 		var _email = $("#login-rest-email").val();
-		var _from = $("#from").val();	
+		var _from = $("#from").val();
 		if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(_email))){
 			$("#login-rest-email").css('border','2px solid red');
 			$("#login-rest-email").focus();
 			return false;
-		}								
-		//$('#login-from-rest').submit();		
+		}
+		//$('#login-from-rest').submit();
 		$.ajax({
 				type:"POST",
-				url:'password_reset.php',
+				url:'neo_exchanges/password_reset.php',
 				async:true,
 				cache:false,
-				beforeSend: function(){						
-					$("#login-msjresp").html("<img src='ajax-loader.GIF' style='margin-top:50px;'/>");
-					$("#login-msjresp").show();								
+				beforeSend: function(){
+					$("#login-msjresp").html("<img src='neo_exchanges/ajax-loader.GIF' style='margin-top:50px;'/>");
+					$("#login-msjresp").show();
 				},
-				data: ({login_rest_email:_email}),				
+				data: ({login_rest_email:_email}),
 				success:function(result){
-						$("#login-msjresp").html(result);							
+						$("#login-msjresp").html(result);
 						$("#login-msjresp").show();
 						setTimeout(function(){
 							$("#login-msjresp").fadeOut(1000);
@@ -118,20 +124,20 @@ $(document).ready(function(){
 							$("#login-rest-email").val('');
 							$("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
 						});
-				},			
-				error: function(result){						
+				},
+				error: function(result){
 					$("#torn-msjresp").html("<div class='notif_error'>Ocurrio un Error recargue el navegador y vuelva a intentar</div>");
 					$("#torn-msjresp").show();
-				}		
+				}
 		}); // FIN AJAX
 	});
-	
+
 	//REGISTRAR
 	$("#tab-2").click(function(){
 		$("#login-acc,#login-rest-pass").hide();
 		$("#regist-enviar").show("show");
-	});	
-	$("#regist-enviar").click(function(){					
+	});
+	$("#regist-enviar").click(function(){
 		var cont=0;
 		$("#regist-nomb,#regist-apel,#regist-email,#regist-pass,#regist-pass-conf").each(function(e){
 				if($(this).val()==''){
@@ -155,32 +161,32 @@ $(document).ready(function(){
 							$(this).val('');
 							$("#login-msjresp").html("<div class='notif_alerta'>La ContraseÃ±a es Diferente</div>");
 							$("#login-msjresp").show();
-							setTimeout(function(){$("#login-msjresp").fadeOut(1000);},4000);																
+							setTimeout(function(){$("#login-msjresp").fadeOut(1000);},4000);
 							return false;
 						}
 					}
 					cont++;
-				}							
+				}
 				if(cont==5){
-					$("#login-msjresp").html("<img src='ajax-loader.GIF' style='margin-top:50px;'/>");
+					$("#login-msjresp").html("<img src='neo_exchanges/ajax-loader.GIF' style='margin-top:50px;'/>");
 					$("#login-msjresp").show();
 					$('#regist-form').submit();
 				}
-			});			
+			});
 	});
 });
-function ValCampos(e,t){ 
-	setTimeout(function(){	
+function ValCampos(e,t){
+	setTimeout(function(){
 		if($(t).val()==''){
 			$(t).css('border','2px solid red');
 		}else{
-			$(t).css('border','none');			
-		}	
+			$(t).css('border','none');
+		}
 	},1000);
 }
 function ValCorreos(e,t){
 		if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($(t).val()))){
-			$(t).css('border','2px solid red');			
+			$(t).css('border','2px solid red');
 		}else{
 			$(t).css('border','none');
 		}

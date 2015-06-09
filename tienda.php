@@ -13,349 +13,55 @@ global $smarty;
 require(dirname(__FILE__).'/config/config.inc.php');
 include_once( 'header.php' );
 ?>
-    <link rel="stylesheet" type="text/css" href="neo_exchanges/index-menu.css">
-    <link rel="stylesheet" type="text/css" href="neo_exchanges/home.css">
-    <!-- Fancybox CSS files -->
-    <link rel="stylesheet" type="text/css" href="neo_exchanges/jquery.fancybox.css" media="screen">
-    <!-- Tooltips -->
-    <link rel="stylesheet" type="text/css" href="neo_exchanges/tooltipster.css">
-    <link rel="stylesheet" type="text/css" href="neo_exchanges/tooltipster-red.css">
-    <link rel="stylesheet" type="text/css" href="neo_exchanges/intercambio_usados.css">
+<link rel="stylesheet" type="text/css" href="neo_exchanges/index-menu.css">
+<link rel="stylesheet" type="text/css" href="neo_exchanges/home.css">
+<!-- Fancybox CSS files -->
+<link rel="stylesheet" type="text/css" href="neo_exchanges/jquery.fancybox.css" media="screen">
+<!-- Tooltips -->
+<link rel="stylesheet" type="text/css" href="neo_exchanges/tooltipster.css">
+<link rel="stylesheet" type="text/css" href="neo_exchanges/tooltipster-red.css">
+<link rel="stylesheet" type="text/css" href="neo_exchanges/intercambio_usados.css">
 
-    <script type="text/javascript" src="neo_exchanges/jquery.1.7.1.js"></script>
-    <script type="text/javascript" src="neo_exchanges/jquery.ui.1.8.16.js"></script>
-    <script type="text/javascript">
-        var path = '/';
-        var pais = 've';
-    </script>
-    <script type="text/javascript" src="neo_exchanges/respond.min.js"></script>
-    <script type="text/javascript" src="neo_exchanges/linker.js"></script>
-    <style id="css-ddslick" type="text/css">
-        /*.select-bandera-content{float: right}
-        p.text-selec-pais{float: right; margin: 0 0 0 5px; color: #000000;}
-        .dd-select{border:none; position:relative; cursor:pointer; color:#f6f6f6; font-family: Rockwell, Noto Sans; margin: 0 30%; }
-        .dd-desc {color:#aaa; display:block; overflow: hidden; font-weight:normal; line-height: 1.4em !important;}
-        .dd-selected{float:left; font-size: 10px !important; overflow:hidden; display:block; padding:3px; hight:auto;}
-        .dd-pointer{width:0; height:0; position:absolute; top:50%; margin-top:7px;}
-        .dd-pointer-down{ border:solid 5px transparent; border-top:solid 5px #000;}
-        .dd-pointer-up{border:solid 5px transparent !important; border-bottom:solid 5px #000 !important; margin-top:-8px;}
-        .dd-options{border:solid 1px #ccc; border-top:none; list-style:none; box-shadow:0px 1px 5px #ddd; display:none; position:absolute; z-index:2000; margin:0 2%; padding:0;background:#fff; overflow:auto;}
-        .dd-option{font-size: 10px !important; padding:3px; display:block; border-bottom:solid 1px #ddd; overflow:hidden; text-decoration:none; color:#333 !important; cursor:pointer;-webkit-transition: all 0.25s ease-in-out; -moz-transition: all 0.25s ease-in-out;-o-transition: all 0.25s ease-in-out;-ms-transition: all 0.25s ease-in-out;}
-        .dd-options > li:last-child > .dd-option{border-bottom:none;}
-        .dd-option:hover{background:red; color:#000;}
-        .dd-selected-description-truncated {text-overflow: ellipsis; white-space:nowrap;}
-        .dd-option-selected {background:#f6f6f6;}
-        .dd-option-image, .dd-selected-image { vertical-align:middle; float:left; margin-right:5px; max-width:64px; width:25px; margin-top: 0px;}
-        .dd-image-right {float:right; margin-right:15px; margin-left:5px; margin-top:0px;}
-        .dd-container{margin: 0 auto;}
-        .dd-selected-text {float:left;}
-        .dd-selected:hover{color: red;transition: background-color 100ms ease-in-out; -webkit-transition: background-color 100ms ease-in-out;}
-        @media only screen and (max-width: 680px){
-            .dd-option-image, .dd-selected-image{margin-top: 1px;}
-            .dd-pointer{margin-top: 8px;}
-        }
-        @media only screen and (max-width: 480px){
-            p.text-selec-pais, .dd-select{color:#000; font-size:10px;}
-            .select-bandera-content{margin-left:3px;}
-        }*/
-    </style>
-    <script type="text/javascript" src="neo_exchanges/jquery.simplemodal.js"></script>
-    <script type="text/javascript" src="neo_exchanges/home.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            // Document is ready
-            //$('#nento').modal();
+<script type="text/javascript" src="neo_exchanges/jquery.1.7.1.js"></script>
+<script type="text/javascript" src="neo_exchanges/jquery.ui.1.8.16.js"></script>
+<script type="text/javascript">
+    var path = '/';
+    var pais = 've';
+</script>
+<script type="text/javascript" src="neo_exchanges/respond.min.js"></script>
+<script type="text/javascript" src="neo_exchanges/linker.js"></script>
+<script type="text/javascript" src="neo_exchanges/jquery.simplemodal.js"></script>
+<script type="text/javascript" src="neo_exchanges/home.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Document is ready
+        //$('#nento').modal();
 
-             /*$('#pepe').click(function(){
-                alert('co;o');
-                //$('#nento').modal.close();
-            });*/
+         /*$('#pepe').click(function(){
+            alert('co;o');
+            //$('#nento').modal.close();
+        });*/
 
-            /*$("#pepepe").click(function() {
-                alert( "Handler for .click() called." );
-                $.modal.close();
-            });*/
-        });
-    </script>
-    <script type="text/javascript">
-        setCookie("login",0);
-    </script>
-    <!-- Fancybox JS files-->
-    <script type="text/javascript" src="neo_exchanges/jquery.fancybox.js"></script>
-    <!-- Tooltips -->
-    <script type="text/javascript" src="neo_exchanges/jquery.tooltipster.min.js"></script>
-    <style>
-        /*.header-min{
-            width: 100%;
-            background-position: center top;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-color: #cecece;
-            height: 85px;
-        }
-        .header-content-min{
-            min-height: 20px;
-        }
-        .menu-tienda {
-            background: none repeat scroll 0 0 #000;
-            display: none;
-            margin-top: 8px;
-            position: relative;
-            text-align: right;
-            width: 165px;
-            z-index: 10000;
-        }
-        .menu-tienda ul {
-            display: table;
-            padding: 0;
-            margin: 0;
-            background: #000;
-        }
-        .menu-tienda li {
-            background: none repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
-            height: 25px !important;
-            padding-bottom: 5px;
-            padding-left: 15px !important;
-            padding-right: 0;
-            padding-top: 5px;
-            text-align: left !important;
-            width: 100%;
-        }
-        .menu-tienda li:hover {
-            background: none repeat scroll 0 0 #fff !important;
-            color: #000000 !important;
-        }
-        li:hover > div {
-            display:block;
-            position: absolute;
-        }
-        .menu-tienda a {
-            color: #ffffff;
-            font-family: "Helvetica Neue","Arial";
-            font-weight: bold;
-            letter-spacing: 0.5px;
-        }
-        .menu-tienda a:hover {
-            color: #000;
-            text-decoration: none !important;
-        }*/
-    </style>
+        /*$("#pepepe").click(function() {
+            alert( "Handler for .click() called." );
+            $.modal.close();
+        });*/
+    });
+</script>
+<script type="text/javascript">
+    setCookie("login",0);
+</script>
+<!-- Fancybox JS files-->
+<script type="text/javascript" src="neo_exchanges/jquery.fancybox.js"></script>
+<!-- Tooltips -->
+<script type="text/javascript" src="neo_exchanges/jquery.tooltipster.min.js"></script>
+
 <div id="mobile-menu" class="mobile-menu">
-    <i class="icon-home icon-menu-mobile"><a href="#" id="pepe">asdfsdfsafasdfasd</a></i>
+    <i class="icon-home icon-menu-mobile"></i>
 </div>
-<div id="nento" style="height: 345px;padding: 0;width: 250px;background-color: #ffffff;display: none">
-    <!--<link rel="stylesheet" type="text/css" href="neo_exchanges/style.css">
-    <script type="text/javascript" src="neo_exchanges/jquery-2.js"></script>
-    <script type="text/javascript" src="neo_exchanges/jquery.simplemodal.js"></script>-->
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $("#login-email,#login-rest-email,#regist-email").blur(function(e){ValCorreos(e,this);});
-            $('#login-pass,#regist-nomb,#regist-apel,#regist-pass,#regist-pass-conf').bind("keydown blur",function(e){ValCampos(e,this);});
-            $("#login-from-rest,#login-rest-pass,#regist-enviar").hide();
-
-            $(".msj-notif").click(function(){
-                $("#login-from-rest,#login-rest-pass,#regist-enviar").hide();
-                $("#login-form,#login-acc").show("slow");
-            });
-
-            //LOGIN
-            $("#tab-1").click(function(){
-                $("#login-rest-atras,#login-from-rest,#login-rest-pass,#regist-enviar").hide();
-                $("#login-rest,#login-form,#login-acc").show("slow");
-            });
-            $('#login-email,#login-pass').keydown(function(e){
-                if(e.keyCode == 13){
-                    Login();
-                }
-            });
-            $("#login-acc").click(function(){Login();});
-
-            function Login(){
-                var login_email	= $("#login-email").val(),
-                    login_pass	= $("#login-pass").val();
-
-                if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(login_email))){
-                    $("#login-email").css('border','2px solid red');
-                    $("#login-email").focus();
-                    return false;
-                }
-                if(login_pass==""){
-                    $("#login-pass").css('border','2px solid red');
-                    $("#login-pass").focus();
-                    return false;
-                }else{
-                    $("#login-pass").css('border','1px solid #e0e0e0');
-                }
-                $("#login-msjresp").html("<img src='neo_exchanges/ajax-loader.GIF' style='margin-top:50px;'/>");
-                $("#login-msjresp").show();
-
-                $.ajax({
-                    type:"POST",
-                    url:'neo_exchanges/login_proc.php',
-                    async:true,
-                    cache:false,
-                    beforeSend: function(){
-                        $("#login-msjresp").html("<img src='neo_exchanges/ajax-loader.GIF' style='margin-top:50px;'/>");
-                        $("#login-msjresp").show();
-                    },
-                    data: {login_email: login_email, login_pass: login_pass},
-                    success:function(result){
-                        $("#login-msjresp").css({ "background-color": "#ffe", "border": "1px solid #ccc", "cursor": "pointer" });
-                        if(result){
-                            setCookie('login',result);
-                            $("#login-msjresp").css({"color": "green"}).html("Se autentico correctamente.");
-                            $("#login-msjresp").show();
-                            $("#login-msjresp").click(function(){
-                                $("#login-msjresp").hide();
-                            });
-                            setTimeout(function() {
-                                $.modal.close();
-                            }, 5000);
-                        }else{
-                            $("#login-msjresp").css({"color": "red"}).html("Usuario o clave incorrecta.");
-                            $("#login-msjresp").show();
-                            $("#login-msjresp").click(function(){
-                                $("#login-msjresp").hide();
-                                $("#login-rest-email").val('');
-                                $("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
-                            });
-                            setTimeout(function(){
-                                $("#login-msjresp").fadeOut(1000);
-                                $("#login-rest-email").val('');
-                            },5000);
-                        }
-                    },
-                    error: function(result){
-                        $("#torn-msjresp").html("<div class='notif_error'>Ocurrio un Error recargue el navegador y vuelva a intentar</div>");
-                        $("#torn-msjresp").show();
-                    }
-                }); // FIN AJAX
-            }
-
-            //OLVIDAR CONTRASEÑA
-            $("#login-rest,#login-rest-atras").click(function(){
-                $("#login-rest,#login-rest-atras,#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
-                //$("#login-form,#login-acc").hide();
-                //$("#login-from-rest,#login-rest-pass").show("slow");
-            });
-            $("#login-rest-pass").click(function(){
-                var _email = $("#login-rest-email").val();
-                var _from = $("#from").val();
-                if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(_email))){
-                    $("#login-rest-email").css('border','2px solid red');
-                    $("#login-rest-email").focus();
-                    return false;
-                }
-                //$('#login-from-rest').submit();
-                $.ajax({
-                    type:"POST",
-                    url:'password_reset.php',
-                    async:true,
-                    cache:false,
-                    beforeSend: function(){
-                        $("#login-msjresp").html("<img src='ajax-loader.GIF' style='margin-top:50px;'/>");
-                        $("#login-msjresp").show();
-                    },
-                    data: ({login_rest_email:_email}),
-                    success:function(result){
-                        $("#login-msjresp").html(result);
-                        $("#login-msjresp").show();
-                        setTimeout(function(){
-                            $("#login-msjresp").fadeOut(1000);
-                            $("#login-rest-email").val('');
-                            $("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
-                        },50000);
-                        $("#login-msjresp").click(function(){
-                            $("#login-msjresp").hide();
-                            $("#login-rest-email").val('');
-                            $("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
-                        });
-                    },
-                    error: function(result){
-                        $("#torn-msjresp").html("<div class='notif_error'>Ocurrio un Error recargue el navegador y vuelva a intentar</div>");
-                        $("#torn-msjresp").show();
-                    }
-                }); // FIN AJAX
-            });
-
-            //REGISTRAR
-            $("#tab-2").click(function(){
-                $("#login-acc,#login-rest-pass").hide();
-                $("#regist-enviar").show("show");
-            });
-            $("#regist-enviar").click(function(){
-                var cont=0;
-                $("#regist-nomb,#regist-apel,#regist-email,#regist-pass,#regist-pass-conf").each(function(e){
-                    if($(this).val()==''){
-                        $(this).css('border','2px solid red');
-                    }else{
-                        $(this).css('border','none');
-                        if($(this).attr('name')== 'regist-email'){
-                            if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($(this).val()))){
-                                $(this).css('border','2px solid red');
-                                $(this).focus();
-                                $("#login-msjresp").html("<div class='notif_alerta'>Correo NO Validado</div>");
-                                $("#login-msjresp").show();
-                                setTimeout(function(){$("#login-msjresp").fadeOut(1000);},4000);
-                                return false;
-                            }
-                        }
-                        if($(this).attr('name')=='regist-pass-conf'){
-                            if($('#regist-pass').val() != $('#regist-pass-conf').val()){
-                                $(this).css('border','2px solid red');
-                                $(this).focus();
-                                $(this).val('');
-                                $("#login-msjresp").html("<div class='notif_alerta'>La ContraseÃ±a es Diferente</div>");
-                                $("#login-msjresp").show();
-                                setTimeout(function(){$("#login-msjresp").fadeOut(1000);},4000);
-                                return false;
-                            }
-                        }
-                        cont++;
-                    }
-                    if(cont==5){
-                        $("#login-msjresp").html("<img src='ajax-loader.GIF' style='margin-top:50px;'/>");
-                        $("#login-msjresp").show();
-                        $('#regist-form').submit();
-                    }
-                });
-            });
-        });
-        function ValCampos(e,t){
-            setTimeout(function(){
-                if($(t).val()==''){
-                    $(t).css('border','2px solid red');
-                }else{
-                    $(t).css('border','none');
-                }
-            },1000);
-        }
-        function ValCorreos(e,t){
-            if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($(t).val()))){
-                $(t).css('border','2px solid red');
-            }else{
-                $(t).css('border','none');
-            }
-        }
-        function setCookie(n, v) {
-            var d = new Date();
-            d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
-            var cookie = n + "=" + escape(v) + "; expires=" + d.toGMTString() + "; path=/; ";
-            if (location.hostname == "neotienda.dev") {
-                cookie += "domain=.neotienda.dev;"
-            }else{
-                if (location.hostname != "localhost") {
-                    cookie += "domain=.neotienda.com;"
-                }
-            }
-            document.cookie = cookie
-        }
-    </script>
-    <style type="text/css">
-        .fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
-        .fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(http://z-1-static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://z-1-static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(http://z-1-static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://z-1-static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(http://z-1-static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://z-1-static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(http://z-1-static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(http://z-1-static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(http://z-1-static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(http://z-1-static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(http://z-1-static.xx.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(http://z-1-static.xx.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(http://z-1-static.xx.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
-        .fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(http://z-1-static.xx.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
-    </style>
+<div id="loginInter" style="height: 365px;width: 450px;margin: 5px auto;padding: 5px;background-color: #ffffff;display: none">
+    <link rel="stylesheet" type="text/css" href="neo_exchanges/style.css">
+    <script type="text/javascript" src="neo_exchanges/funciones.js"></script>
     <h3 style="margin: 5px 0px 0px;">¿Estas registrado?</h3>
     <section class="tabs">
         <input id="tab-1" name="radio-set" class="tab-selector-1" checked="checked" type="radio">

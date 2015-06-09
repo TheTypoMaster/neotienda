@@ -47,7 +47,7 @@ function login(from) {
         },
         overlayClose: true
     })*/
-    $('#nento').modal({overlayClose:true});
+    $('#loginInter').modal({overlayClose:true});
 }
 
 function logout() {

@@ -93,11 +93,11 @@ class AdminIntercambioController extends AdminController
                 'filter_type' => 'int',
                 'order_key' => 'osname'
             ),
-            'created_at' => array(
+            'date_add' => array(
                 'title' => $this->l('Date'),
                 'align' => 'text-right',
                 'type' => 'datetime',
-                'filter_key' => 'a!created_at'
+                'filter_key' => 'a!date_add'
             ),
         ));
 
