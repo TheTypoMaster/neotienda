@@ -49,9 +49,9 @@
 	var statesShipped = new Array();
 	var has_voucher = {if count($discounts)}1{else}0{/if};
 
-	{foreach from=$states item=state}
-		{if (!$currentState->shipped && $state['shipped'])}
-			statesShipped.push({$state['id_order_state']});
+	{foreach from=$neoStatus item=statu}
+		{if (!$currentState->shipped && $statu['shipped'])}
+			statesShipped.push({$statu['id_neo_status']});
 		{/if}
 	{/foreach}
 	</script>
@@ -60,8 +60,6 @@
 	{if ($hook_invoice)}
 	<div>{$hook_invoice}</div>
 	{/if}
-
-    {$states@print_r}
 
 view.tpl
 	<div class="panel kpi-container">
@@ -219,13 +217,16 @@ view.tpl
 								</tbody>
 							</table>
 						</div>
+
+                        {$neoStatus@var_dump}
+
 						<!-- Change status form -->
 						<form action="{$currentIndex|escape:'html':'UTF-8'}&amp;vieworder&amp;token={$smarty.get.token}" method="post" class="form-horizontal well hidden-print">
 							<div class="row">
 								<div class="col-lg-9">
 									<select id="id_order_state" class="chosen form-control" name="id_order_state">
-									{foreach from=$states item=state}
-										<option value="{$state['id_order_state']|intval}"{if $state['id_order_state'] == $currentState->id} selected="selected" disabled="disabled"{/if}>{$state['name']|escape}</option>
+									{foreach from=$neoStatus item=statu}
+                                        <option value="{$statu['id_neo_status']|intval}"{if $statu['id_neo_status'] == $currentState->id} selected="selected" disabled="disabled"{/if}>{$statu['denominacion']|escape}</option>
 									{/foreach}
 									</select>
 									<input type="hidden" name="id_order" value="{$order->id}" />
