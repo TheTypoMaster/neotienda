@@ -39,14 +39,6 @@ function login(from) {
     } else {
         var _from = ""
     }
-    /*$.modal('<iframe src="neo_exchanges/login.php' + _from + '" frameborder="0"></iframe>', {
-        containerCss: {
-            height: 345,
-            padding: 0,
-            width: 250
-        },
-        overlayClose: true
-    })*/
     $('#loginInter').modal({overlayClose:true});
 }
 

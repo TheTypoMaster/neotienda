@@ -97,9 +97,11 @@ if(isset($_POST['id_usuario'])){
                 _PS_ROOT_DIR_.'/mails/'
             );
         }
-        return true;
+        echo true;
     } catch (Exception $e) {
         echo 'Excepción capturada: ',  $e->getMessage(), "\n";
     }
+}else{
+    echo 'Empty Information';
 }
 ?>

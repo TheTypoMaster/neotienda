@@ -341,6 +341,7 @@ $("#nombre_juego_store").autocomplete({
         $("#precio-nuevo").html(precio_total_f2 + ',00');
         $("#nuevo").css("display", "block");
         $("#solo-dinero").hide();
+        $("#f2-continue").hide();
 
         $('<div/>', {
             class: 'bloque-int',
@@ -827,6 +828,7 @@ function buscador_store() {
                         }
                         $("#total-inter").html(precio_total_f2);
                         $("#store_select").show();
+                        $("#solo-dinero").hide();
                         $("#resultado-store").hide(500, "linear");
                         $(".close-f2").click(function() {
                             if($("#item_inv_"+this.id).length > 0) {
@@ -889,15 +891,19 @@ $(".termycond").click(function() {
         }
     }
 });
+function getLoginNeo(){
+    $.post( "login_proc.php" , { opera: 'session' }, function( id_usuario ) {
+        if (id_usuario) {
+            realizar_pedido_intercambia()
+        } else {
+            login("intercambia")
+        }
+    });
+}
 $(".intercambiar-nuevo").click(function() {
     if ($(".termycond").is(":checked")) {
         if($("#div_forma").css("display") == "none" || ($("#div_forma").css("display") == "block" && $("#forma_pago option:selected").text() != "Seleccione") ){
-            var id_usuario = getCookie("login");
-            if (id_usuario != "0") {
-                realizar_pedido_intercambia()
-            } else {
-                login("intercambia")
-            }
+            getLoginNeo();
         }else{
             $("#forma_pago").css({
                 color: 'white',
@@ -911,11 +917,22 @@ $(".intercambiar-nuevo").click(function() {
     }
 });
 $(".intercambiar-continuar").click(function() {
-    var id_usuario = getCookie("login");
-    if (id_usuario != "0") {
-        realizar_pedido_intercambia()
+    if($("#forma_pago option:selected").text() != "Seleccione"){
+        getLoginNeo();
+    }else{
+        $("#forma_pago").css({
+            color: 'white',
+            background: 'red'
+        })
+    }
+});
+$(".intercambiar-usado").click(function() {
+    if ($(".termycond").is(":checked")) {
+        getLoginNeo();
     } else {
-        login("intercambia")
+        $(".alert-term").css({
+            display: "block"
+        })
     }
 });
 $("#forma_pago").change(function(){
@@ -925,91 +942,68 @@ $("#forma_pago").change(function(){
         $(this).css({color: 'white',background: 'red'})
     }
 });
-$(".intercambiar-usado").click(function() {
-    if ($(".termycond").is(":checked")) {
-        var id_usuario = getCookie("login");
-        if (id_usuario != null) {
-            realizar_pedido_intercambia()
-        } else {
-            login("intercambia")
-        }
-    } else {
-        $(".alert-term").css({
-            display: "block"
-        })
-    }
-});
 function realizar_pedido_intercambia() {
-    var calc = "";
-    var id_usuario = getCookie("login");
-    var items_sale = [];
-    var items_buy = [];
-    $("#paso-2").hide();
-    $(".op2").removeClass("activo");
-    $(".op3").addClass("activo");
-    $("#paso-3").show();
-    $(".op1, .op2, .op3").css("pointer-events", "none");
-    $("div[id='list_item']").each(function( index ) {
-        items_sale.push( $( this ).text() );
-    });
-    $("div[id='list_item_buy']").each(function( index ) {
-        items_buy.push( $( this ).text() );
-    });
-    var moneda = "VEF";
-    var tipo = "Intercambio";
-    var status = "1";
-    var forma_pago = $("#forma_pago option:selected").text();
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        data: {
-            id_usuario: id_usuario,
-            moneda: moneda,
-            tipo: tipo,
-            forma_pago: forma_pago,
-            status: status,
-            items_sale: items_sale,
-            items_buy: items_buy
-        },
-        url: "neo_exchanges/setPedidos.php",
-        async: true,
-        cache: false,
-        beforeSend: function() {
-            $("#jquery-loader2").show()
-        },
-        success: function(result) {
-            $("#jquery-loader2").hide();
-            console.log(result);
-            return false;
-            /*if (result.success) {
-                var msg = result.msg;
-                var nombre = result.nombre;
-                nombre = nombre.split("-").join(" ");
-                $("#usuario-ped").html(nombre);
-                $("#pedido").html(result.pedido);
-                $("#titulo-ped").html(titulo_int);
-                $("#imagen-ped").attr("src", imagen);
-                $("#puntos-ped").html(precio);
-                $("#status").html("exitoso");
-                var simb_bs = "Bs. ";
-                $("#equiv-ped").html(simb_bs + " " + precio);
-                $("#login-cal-modal, .login-cal-content").hide();
-                $("#paso-2").hide();
-                $(".op2").removeClass("activo");
-                $(".op3").addClass("activo");
-                $("#store_select").hide();
-                $("#paso-3").show();
-                $(".op1, .op2, .op3").css("pointer-events", "none")
-            } else {
-                alert(result.msg)
-            }*/
-        },
-        error: function(result) {
-            $("#resultado-pedido").html('<p align="center">Error al registrar el pedido</p>');
-            $("#resultado-pedido").show();
-            $("#jquery-loader").hide();
-            alert("Error en respuesta de pedido")
-        }
+    $.post( "login_proc.php" , { opera: 'session' }, function( id_usuario ) {
+        var items_sale = [];
+        var items_buy = [];
+        $("#paso-2").hide();
+        $(".op2").removeClass("activo");
+        $(".op3").addClass("activo");
+        $("#paso-3").show();
+        $(".op1, .op2, .op3").css("pointer-events", "none");
+        $("div[id='list_item']").each(function( index ) {
+            items_sale.push( $( this ).text() );
+        });
+        $("div[id='list_item_buy']").each(function( index ) {
+            items_buy.push( $( this ).text() );
+        });
+        var moneda = "VEF";
+        var tipo = "Intercambio";
+        var status = "1";
+        var forma_pago = $("#forma_pago option:selected").text();
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            data: {
+                id_usuario: id_usuario,
+                moneda: moneda,
+                tipo: tipo,
+                forma_pago: forma_pago,
+                status: status,
+                items_sale: items_sale,
+                items_buy: items_buy
+            },
+            url: "neo_exchanges/setPedidos.php",
+            async: true,
+            cache: false,
+            beforeSend: function() {
+                $("#jquery-loader2").show()
+            },
+            success: function(result) {
+                $("#jquery-loader2").hide();
+                console.log(result);
+                return true;
+                /*if (result.success) {
+                    var msg = result.msg; var nombre = result.nombre;
+                    nombre = nombre.split("-").join(" "); $("#usuario-ped").html(nombre);
+                    $("#pedido").html(result.pedido); $("#titulo-ped").html(titulo_int);
+                    $("#imagen-ped").attr("src", imagen); $("#puntos-ped").html(precio);
+                    $("#status").html("exitoso"); var simb_bs = "Bs. ";
+                    $("#equiv-ped").html(simb_bs + " " + precio); $("#login-cal-modal, .login-cal-content").hide();
+                    $("#paso-2").hide(); $(".op2").removeClass("activo");
+                    $(".op3").addClass("activo"); $("#store_select").hide();
+                    $("#paso-3").show(); $(".op1, .op2, .op3").css("pointer-events", "none")
+                } else {
+                    alert(result.msg)
+                }*/
+            },
+            error: function(result) {
+                $("#resultado-pedido").html('<p align="center">Error al registrar el pedido</p>');
+                $("#resultado-pedido").show();
+                $("#jquery-loader").hide();
+                alert("Error en respuesta de pedido")
+            }
+        })
     })
 }
 $("#finalizar-int").click(function(event) {

@@ -21,8 +21,9 @@ $(document).ready(function(){
 	$("#login-acc").click(function(){Login();});
 
 	function Login(){
-		var login_email	= $("#login-email").val(),
-			login_pass	= $("#login-pass").val();
+		var login_email	   = $("#login-email").val(),
+			login_pass	   = $("#login-pass").val(),
+            login_recordar = $("#login_recordar").val();
 
         if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(login_email))){
             $("#login-email").css('border','2px solid red');
@@ -41,24 +42,25 @@ $(document).ready(function(){
 
         $.ajax({
             type:"POST",
-            url:'neo_exchanges/login_proc.php',
+            url:'login_proc.php',
             async:true,
             cache:false,
             beforeSend: function(){
                 $("#login-msjresp").html("<img src='neo_exchanges/ajax-loader.GIF' style='margin-top:50px;'/>");
                 $("#login-msjresp").show();
             },
-            data: {login_email: login_email, login_pass: login_pass},
+            data: {opera: 'login', login_email: login_email, login_pass: login_pass, login_recordar: login_recordar},
             success:function(result){
 				$("#login-msjresp").css({ "background-color": "#ffe", "border": "1px solid #ccc", "cursor": "pointer" });
 				if(result){
-					setCookie('login',result);
 					$("#login-msjresp").css({"color": "green"}).html("Se autentico correctamente.");
                     $("#login-msjresp").show();
                     $("#login-msjresp").click(function(){
                         $("#login-msjresp").hide();
                     });
-                    $.modal.close();
+                    setTimeout(function(){
+                        $.modal.close();
+                    },2500);
 				}else{
 					$("#login-msjresp").css({"color": "red"}).html("Usuario o clave incorrecta.");
                     $("#login-msjresp").show();
@@ -190,17 +192,4 @@ function ValCorreos(e,t){
 		}else{
 			$(t).css('border','none');
 		}
-}
-function setCookie(n, v) {
-    var d = new Date();
-    d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
-    var cookie = n + "=" + escape(v) + "; expires=" + d.toGMTString() + "; path=/; ";
-    if (location.hostname == "neotienda.dev") {
-        cookie += "domain=.neotienda.dev;"
-    }else{
-        if (location.hostname != "localhost") {
-            cookie += "domain=.neotienda.com;"
-        }
-    }
-    document.cookie = cookie
 }

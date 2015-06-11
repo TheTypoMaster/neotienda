@@ -12,6 +12,7 @@ session_start();
 global $smarty;
 require(dirname(__FILE__).'/config/config.inc.php');
 include_once( 'header.php' );
+$_SESSION["login"] = 0;
 ?>
 <link rel="stylesheet" type="text/css" href="neo_exchanges/index-menu.css">
 <link rel="stylesheet" type="text/css" href="neo_exchanges/home.css">
@@ -32,25 +33,6 @@ include_once( 'header.php' );
 <script type="text/javascript" src="neo_exchanges/linker.js"></script>
 <script type="text/javascript" src="neo_exchanges/jquery.simplemodal.js"></script>
 <script type="text/javascript" src="neo_exchanges/home.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        // Document is ready
-        //$('#nento').modal();
-
-         /*$('#pepe').click(function(){
-            alert('co;o');
-            //$('#nento').modal.close();
-        });*/
-
-        /*$("#pepepe").click(function() {
-            alert( "Handler for .click() called." );
-            $.modal.close();
-        });*/
-    });
-</script>
-<script type="text/javascript">
-    setCookie("login",0);
-</script>
 <!-- Fancybox JS files-->
 <script type="text/javascript" src="neo_exchanges/jquery.fancybox.js"></script>
 <!-- Tooltips -->
@@ -71,12 +53,12 @@ include_once( 'header.php' );
         <div class="clear-shadow"></div>
         <div class="content"> <!--height: 250px; -->
             <div class="content-1 login-content">
-                <form id="login-form" method="POST" action="neo_exchanges/login_proc.php" autocomplete="on">
-                    <input id="from" name="from" value="intercambia" type="hidden">
+                <form id="login-form" method="POST" action="login_proc.php" autocomplete="on">
+                    <input id="opera" name="opera" value="login" type="hidden">
                     <p><input id="login-email" name="login-email" placeholder="Correo electrónico" title="Correo electrónico" required="" type="text"></p>
                     <p><input id="login-pass" name="login-pass" placeholder="Contraseña" title="Contraseña" autocomplete="off" required="" type="password"></p>
                     <p style="float: left;">
-                        <input name="login-recordar" value="true" type="checkbox">
+                        <input name="login_recordar" id="login_recordar" value="true" type="checkbox">
                         <span id="login-recordar">Recordar</span>
                     </p>
                 </form>
@@ -163,7 +145,7 @@ include_once( 'header.php' );
                 <div class="col">
                     <ul id="order_step" class="step pasosPedido clearfix">
                         <li class="step_current op1 first">
-                            <span><em>01.</em> Tus Video Juegos</span>
+                            <span><em>01.</em> Tus Juegos</span>
                         </li>
                         <li class="step_todo op2 second">
                             <span><em>02.</em> Intercambio</span>
@@ -235,7 +217,7 @@ include_once( 'header.php' );
                     <h2 style="color: #000000">ESCOGE EL JUEGO QUE QUIERES COMPRAR</h2>
                     <ul id="order_step" class="step pasosPedido clearfix">
                         <li class="step_todo op1 first">
-                            <span><em>01.</em> Tus Video Juegos</span>
+                            <span><em>01.</em> Tus Juegos</span>
                         </li>
                         <li class="step_current op2 second">
                             <span><em>02.</em> Intercambio</span>
@@ -263,6 +245,14 @@ include_once( 'header.php' );
                         </div>
                     </div>
                 </div>
+                <div id="div_forma" class="col gam_select" style="font-size:14px;font-weight:bold;color:#000;padding: 0.5em;margin-top:5px !important">Indicar forma de pago:<br>
+                    <select id="forma_pago" name="forma_pago">
+                        <option value="">Seleccione</option>
+                        <option value="Transferencia">Transferencia</option>
+                        <option value="Depósito">Depósito</option>
+                        <option value="Efectivo">Efectivo</option>
+                    </select>
+                </div>
                 <div style="clear: both;display: none;" id="nuevo" class="col gam_select">
                     <div style="padding-left: 10px" class="col span_12 juego-nuevo">
                         <h2>Detalle del cambio:</h2>
@@ -275,14 +265,6 @@ include_once( 'header.php' );
                         <p style="font-size:14px !important;font-weight:bold;color:#000" class="ptos-favor">
                             Monto a favor: <span id="fav-nuevo">0</span>
                         </p>
-                        <div id="div_forma" style="font-size:14px;font-weight:bold;color:#000;margin-top:5px !important">Indicar forma de pago:<br>
-                            <select id="forma_pago" name="forma_pago">
-                                <option value="">Seleccione</option>
-                                <option value="Transferencia">Transferencia</option>
-                                <option value="Depósito">Depósito</option>
-                                <option value="Efectivo">Efectivo</option>
-                            </select>
-                        </div>
                     </div>
                     <div style="text-align:center; margin: 12px 0;" class="col span_12">
                         <a class="button btn btn-default standard-checkout button-medium intercambiar-nuevo" href="javascript:void(0)">
@@ -333,7 +315,7 @@ include_once( 'header.php' );
                     <div class="col">
                         <ul id="order_step" class="step pasosPedido clearfix">
                             <li class="step_todo op1 first">
-                                <span><em>01.</em> Tus Video Juegos</span>
+                                <span><em>01.</em> Tus Juegos</span>
                             </li>
                             <li class="step_todo op2 second">
                                 <span><em>02.</em> Intercambio</span>
