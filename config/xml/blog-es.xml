@@ -13,12 +13,535 @@
 	<atom:link href="http://www.prestashop.com/blog/es/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.prestashop.com/blog/es</link>
 	<description></description>
-	<lastBuildDate>Thu, 04 Jun 2015 13:53:45 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 25 Jun 2015 08:30:15 +0000</lastBuildDate>
 	<language>es-ES</language>
 		<sy:updatePeriod>hourly</sy:updatePeriod>
 		<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>http://wordpress.org/?v=3.8.1</generator>
 	<item>
+		<title>Guía intermedia para el comercio electrónico mejorado</title>
+		<link>https://www.prestashop.com/blog/es/guia-intermedia-para-el-comercio-electronico-mejorado/</link>
+		<comments>https://www.prestashop.com/blog/es/guia-intermedia-para-el-comercio-electronico-mejorado/#comments</comments>
+		<pubDate>Thu, 25 Jun 2015 08:30:15 +0000</pubDate>
+		<dc:creator><![CDATA[Kunle Campbell (Guest Contributor)]]></dc:creator>
+				<category><![CDATA[Consejos E-commerce]]></category>
+
+		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=12996</guid>
+		<description><![CDATA[<p>Hace un tiempo expliqué en la &#8220;Guía de e-commerce mejorado para principiantes&#8221; las ventajas y el modelo de evaluación del comercio electrónico mejorado. Hoy vamos a profundizar un poco más en la estructura del código de seguimiento del e-commerce mejorado y a repasar todas las fases de su ciclo de vida para poder usar el [...]</p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/guia-intermedia-para-el-comercio-electronico-mejorado/">Guía intermedia para el comercio electrónico mejorado</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Hace un tiempo expliqué en la &#8220;<a href="https://www.prestashop.com/blog/es/google-analytics-primeros-pasos-en-el-comercio-electronico-mejorado/">Guía de e-commerce mejorado para principiantes</a>&#8221; las ventajas y el modelo de evaluación del comercio electrónico mejorado. Hoy vamos a profundizar un poco más en la estructura del código de seguimiento del e-commerce mejorado y a repasar todas las fases de su ciclo de vida para poder usar el plug-in correspondiente. </p>
+<p>El complemento de análisis para comercio electrónico mejorado permite evaluar las interacciones de los usuarios con los productos de las tiendas online durante toda la experiencia de compra: impresiones, clics, vista de detalles, productos añadidos al carrito, comportamiento durante el proceso de pago, transacciones y devoluciones.<br />
+<span id="more-12996"></span></p>
+<h2 style="color:#4385f5">A. Migración y compatibilidad con el complemento de e-commerce</h2>
+<p>Primero, habilita el seguimiento y los informes de comercio electrónico mejorado desde la sección Ver del administrador. No olvides definir los pasos del embudo de conversión como se explica en la &#8220;<a href="https://www.prestashop.com/blog/es/google-analytics-primeros-pasos-en-el-comercio-electronico-mejorado/">Guía para principiantes</a>&#8220;.</p>
+<p>Después, activa el complemento de comercio electrónico mejorado (EC, para abreviar). Este plug-in requiere una biblioteca <strong>analytics.js</strong>, lo que significa que tendrás que actualizar la propiedad a Universal Analytics. ¿Necesitas instrucciones más detalladas para hacerlo? Consulta la <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/enhanced-ecommerce#measuring-actvities" target="_blank">página de comercio electrónico mejorado de Google para desarrolladores</a>. </p>
+<p>Para comprobar que Universal Analytics está activado, usa este código:</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/GA-Int-1.png" alt="GA-Int-1" width="715" height="58" class="aligncenter size-full wp-image-20124" /></p>
+<p>Para cargar el complemento <strong>ec.js</strong>, debes añadir al código anterior un comando específico ‘ga (‘require’, ‘ec’)’:</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/GA-Int-2.png" alt="GA-Int-2" width="715" height="75" class="aligncenter size-full wp-image-20125" /></p>
+<p>Por lo tanto, hay que cargar el complemento de comercio electrónico mejorado después de crear un objeto de seguimiento pero antes de enviar un hit a Google Analytics. Y recuerda: no debes usar este complemento junto con el de comercio electrónico (‘<strong>ecommerce.js</strong>’) para la misma propiedad. Si ya has configurado el seguimiento de comercio electrónico pero quieres usar el seguimiento mejorado, tienes dos opciones:</p>
+<ol>
+<li>Crear una nueva propiedad y habilitar el comercio electrónico mejorado. En este caso, activa el envío de datos desde una sola página a múltiples propiedades.</li>
+<li>Hacer una migración del complemento de comercio electrónico al de comercio electrónico mejorado. En este caso, los usuarios de analytics.js tienen que eliminar y sustituir las referencias por el código para comercio electrónico mejorado. La migración no afecta a los datos sobre artículos y transacciones recopilados hasta el momento con el complemento ecommerce.js: seguirán estando disponibles en las propiedades y perfiles a los que se enviaron originalmente.</li>
+</ol>
+<h2 style="color:#4385f5">B. Medición de las actividades de comercio electrónico</h2>
+<p>Pasemos ahora al seguimiento de comercio electrónico mejorado. Vamos a ver cómo medir cada fase del ciclo de vida del producto página a página y acción por acción. Con el seguimiento de comercio electrónico mejorado puede analizar: </p>
+<ol>
+<li>Las impresiones de producto</li>
+<li>Los clics en los enlaces de producto</li>
+<li>Las vistas de los detalles de producto</li>
+<li>Las adiciones y eliminaciones de productos del carrito de la compra</li>
+</ol>
+<p>Esta funcionalidad también puede controlar las siguientes actividades: </p>
+<ul style="padding-left:30px">
+<li>Inicio del proceso de pago para un grupo de productos</li>
+<li>Compras y devoluciones</li>
+<li>Impresiones y clics en promociones internas</li>
+</ul>
+<h4 style="color:#4385f5">1. Impresiones de producto</h4>
+<p>Para medir las impresiones de producto usa el comando ‘ec:addImpression’. Los detalles de los productos vistos son los incluidos en el tipo de datos &#8220;Datos de impresión&#8221; y se almacenan en ‘impressionFieldObject’.<br />
+Por ejemplo, este código mide las impresiones de los resultados de las búsquedas de un producto efectuadas por usuarios que lo ven por primera vez:</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/GA-Int-3.png" alt="GA-Int-3" width="837" height="205" class="aligncenter size-full wp-image-20126" /></p>
+<p>Solo hay que configurar una de las variables (‘id’ o ‘name’), las demás son opcionales.</p>
+<h4 style="color:#4385f5">2. Clics en productos</h4>
+<p>En un embudo de compra, un usuario puede interesarse por un producto pinchando en el enlace correspondiente de una lista o de una página de categoría. Los clics de productos se miden con el comando ‘ec:addProduct’, al que se añade ‘ec:setAction’ para especificar el tipo de acción realizada. Los datos de los clics de producto se almacenan en productFieldObject.<br />
+Por ejemplo, este código mide los clics en un enlace de producto mostrado en una lista de resultados de búsqueda:</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/GA-Int-4.png" alt="GA-Int-4" width="835" height="259" class="aligncenter size-full wp-image-20127" /></p>
+<p>En el caso de productFieldObject hay que configurar los valores &#8216;name&#8217; o &#8216;id&#8217;, los demás son opcionales.</p>
+<h4 style="color:#4385f5">3. Vistas de los detalles de producto</h4>
+<p>El comercio electrónico mejorado también proporciona información sobre las impresiones de las páginas de este producto. Esta opción te ayudará a responder a las siguientes preguntas:</p>
+<ul style="padding-left:30px">
+<li>¿Qué porcentaje de visitantes compra después de ver los detalles del producto?</li>
+<li>Por término medio, ¿cuántos productos ven los usuarios antes de añadir artículos al carrito?</li>
+</ul>
+<p>Si un usuario visualiza la página detalles del producto, se usa un comando ‘ec:addProduct’ junto con ‘ec:setAction’ para especificar una acción de tipo ‘detail’. Este es un ejemplo de código de seguimiento que incluye comandos para crear un objeto de seguimiento y cargar el complemento ‘ec.js’. </p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/GA-Int-5.png" alt="GA-Int-5" width="835" height="280" class="aligncenter size-full wp-image-20128" /></p>
+<h4 style="color:#4385f5">4. Añadir y eliminar productos al carrito de la compra</h4>
+<p>Después de ver una página de producto, el usuario puede demostrar su intención de comprarlo añadiéndolo al carrito. Los datos medidos te ayudan a responder a esta pregunta:</p>
+<ul style="padding-left:30px">
+<li>¿Qué porcentaje de visitantes añade productos al carrito después de ver las páginas de producto?</li>
+</ul>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/GA-Int-6.png" alt="GA-Int-6" width="660" height="425" class="aligncenter size-full wp-image-20129" /></p>
+<p>Para medir los artículos añadidos o eliminados de un carrito, se usa el comando ‘ec:addProduct’ junto con ‘ec:setAction’ y se configura el tipo de acción como ‘add’ o ‘remove’.<br />
+Recuerda: la información de producto y la acción de añadir deben enviarse junto a un evento Google Analytics (la acción de eliminar se mide de forma parecida):</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/GA-Int-7.png" alt="GA-Int-7" width="834" height="279" class="aligncenter size-full wp-image-20130" /></p>
+<p>Vincula la función ‘addToCart (product)’ mediante un gestor de eventos onClick JavaScript al botón añadir/eliminar del carrito de cada página de detalles de producto y de la página de pago.</p>
+<h2 style="color:#4385f5">C. Medición del proceso de pago</h2>
+<p>El usuario ya está listo para empezar el proceso de pago, así que vamos a hacer un seguimiento de cada una de sus fases. Para ello debes:</p>
+<ul style="padding-left:30px">
+<li>Añadir un código de seguimiento que mida cada paso del proceso de pago</li>
+<li>Si tienes varias opciones de pago, añadir un código de seguimiento para cada una de ellas</li>
+<li>Si quieres, puedes cambiar el nombre de los pasos que aparecen en el informe por otros más fáciles de recordar. Hazlo desde la configuración de comercio electrónico mejorado de la página del administrador.</li>
+</ul>
+<p>Para cada paso del proceso de pago, tendrás que implementar un código de seguimiento que envíe datos a Google Analytics. </p>
+<p>No olvides incluir un valor ‘step’ en todos los pasos que estés controlando. Este valor se usa para vincular las acciones de tu proceso de pago con las etiquetas que has configurado en la página de configuración de comercio electrónico. </p>
+<p>Asegúrate de que has configurado correctamente el embudo del proceso de pago en la página de configuración de comercio electrónico. Si tienes información adicional sobre un paso de pago concreto que estés midiendo, puedes configurar el campo ‘option’ con una acción ‘checkout’ para recoger esa información. Por ejemplo, el tipo de pago por defecto para los usuarios (‘Visa’).</p>
+<p>Para medir un paso del proceso de pago, usa el comando ‘ec:addProduct’ para cada producto y el comando ‘ec:setAction’ para el pago. Durante la medición, se envía un evento a Google Analytics con información sobre el producto del paso del proceso de pago. Esta operación se implementa en el enlace que precede a cada paso de pago para señalar el inicio de cada uno de ellos. El comando ‘ec:setAction’ toma información de ‘actionFieldObject’ para describir el paso de pago con un número e información adicional (sobre el tipo de pago por defecto para ese usuario).<br />
+En el siguiente ejemplo vemos cómo medir el primer paso del proceso de pago como un solo producto e información adicional sobre el tipo de pago:</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/GA-Int-8.png" alt="GA-Int-8" width="835" height="295" class="aligncenter size-full wp-image-20131" /></p>
+<p>Las opciones del proceso te permiten controlar aspectos complementarios sobre el estado del pago. Esto resulta especialmente útil si mides un paso de pago en la vista de página inicial pero posteriormente puedes conseguir información adicional de ese mismo paso cuando el usuario selecciona una opción determinada. Por ejemplo, cuando el usuario selecciona el método de envío. Para medir una opción de pago, usa ‘ec:setAction’ e indica una ‘checkout_option’ que incluya el número del paso y la descripción de acción. </p>
+<p>Probablemente quieras mediar esta acción cuando el usuario haya hecho clic para pasar al siguiente paso del proceso de pago. Por ejemplo:</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/GA-Int-9.png" alt="GA-Int-9" width="837" height="145" class="aligncenter size-full wp-image-20132" /></p>
+<p>Se puede seguir el comportamiento del usuario a través de cada paso del proceso de pago. Cuando configures la acción del pago, tendrás que indicar el número y la etiqueta de cada paso. Estos datos aparecerán en el informe de GA. Ten en cuenta que no se pueden enviar múltiples pasos de pago en un solo hit. Si en una página aparecen varios pasos, cada uno de ellos se enviará mediante un evento o una vista de página diferente.</p>
+<p>Medir el proceso de pago te permite responder a las siguientes preguntas:</p>
+<ul style="padding-left:30px">
+<li>¿En qué punto abandonan los usuarios el embudo del proceso de pago?</li>
+<li>¿Cómo afectan las opciones de envío a los índices del proceso de pago?</li>
+</ul>
+<h2 style="color:#4385f5">D. Medición de las transacciones</h2>
+<p><strong>El</strong> usuario completa el proceso de pago haciendo una compra. Para medir las transacciones usa ‘ec:addProduct’ para cada producto y el comando ‘ec:setAction’ con el tipo de acción configurado en ‘purchase’. Con ‘actionFieldObject’ puedes especificar datos sobre la transacción como ingresos totales, impuestos, etc.</p>
+<p>Puedes usar este ejemplo de código de seguimiento en la página de confirmación del pedido:</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/GA-Int-10.png" alt="GA-Int-10" width="837" height="472" class="aligncenter size-full wp-image-20133" /></p>
+<p>Medir las transacciones te permite hacer un seguimiento de los ingresos, las transacciones, el valor medio por transacción y el número medio de artículos por transacción.</p>
+<h2 style="color:#4385f5">E. Medición de las devoluciones</h2>
+<p>Un cliente puede solicitar la devolución total (de todo el pedido) o parcial (de uno o varios artículos del pedido). En el caso de las devoluciones totales, configura una acción ‘refund’ e incluye la ID de la transacción:</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/GA-Int-11.png" alt="GA-Int-11" width="834" height="87" class="aligncenter size-full wp-image-20134" /></p>
+<p>Si no se encuentra la transacción correspondiente, el hit ‘refund’ no se procesará. En Google Analytics solo se pueden efectuar devoluciones en los seis meses siguientes a la fecha de la transacción original.</p>
+<p>Para medir devoluciones parciales, usa los comandos ‘ec:setAction’ y ‘ec:addProduct’, configura el tipo de acción a ‘refund’ e indica la ID de la transacción, la(s) ID(s) del(de los) producto(s) y la cantidad de productos devueltos:</p>
+<p><img class="aligncenter size-full wp-image-20135" alt="GA-Int-12" src="http://www.prestashop.com/blog/es/files/2015/06/GA-Int-12.png" width="835" height="186" /></p>
+<h2 style="color:#4385f5">F. Medición de las promociones internas</h2>
+<p>El comercio electrónico mejorado de Google Analytics permite medir impresiones y clics en las promociones internas (por ejemplo, banners, ventanas emergentes, anuncios de ventas, ofertas temporales o rebajas) suelen mostrarse en la página de inicio o en las de productos.<br />
+Medir las promociones internas te permite responder a las siguientes preguntas:</p>
+<ul style="padding-left:30px">
+<li>¿Las promociones de temporada en la página de inicio impulsan las ventas en categorías concretas de productos?</li>
+<li>¿Los usuarios hacen clic en las ofertas promocionales y acaban comprando?</li>
+</ul>
+<h4 style="color:#4385f5">1. Impresiones de promociones</h4>
+<p>Las impresiones de promociones internas se miden normalmente cuando se carga la página y se envían con la vista de página inicial mediante el comando ‘ec:addPromo’. Los detalles de la promoción se añaden en ‘promoFieldObject’. </p>
+<p>En el caso de ‘promoFieldObject’ hay que configurar los valores &#8216;name&#8217; o &#8216;id&#8217;, los demás son opcionales. Por ejemplo:</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/GA-Int-13.png" alt="GA-Int-13" width="835" height="126" class="aligncenter size-full wp-image-20136" /></p>
+<h4 style="color:#4385f5">2. Clics en promociones</h4>
+<p>Para medir los clics de una promoción interna, usa los comandos ‘ec:addPromo’ y ‘ec:setAction’ y configura el tipo de acción en ‘promo_click&#8217;:</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/GA-Int-14.png" alt="GA-Int-14" width="836" height="221" class="aligncenter size-full wp-image-20137" /></p>
+<p>Hay que tener en cuenta dos cosas sobre este método:</p>
+<ol>
+<li>Los datos de producto no se envían junto con los clics en promociones. Hay que enviarlos en un hit separado. </li>
+<li>Los clics de la campaña promocional interna se envían en un hit separado después de haber gestionado los datos de las impresiones de promociones. </li>
+</ol>
+<p>Por ejemplo, para medir una página de detalles del producto con una impresión y un clic promocional, envía primero los datos de impresión y de producto con la vista de página inicial y después los datos de clics en un evento separado:</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/GA-Int-15.png" alt="GA-Int-15" width="628" height="642" class="aligncenter size-full wp-image-20138" /></p>
+<h2 style="color:#4385f5">Conclusión</h2>
+<p>El seguimiento de comercio electrónico se puede enviar mediante una vista de página o un evento de Google Analytics. En general, lo recomendable es enviar la información sobre impresiones con una vista de página y los clics mediante eventos.</p>
+<p>Además:</p>
+<ol>
+<li>Si la información de comercio electrónico puede retrasar la vista de página inicial, envía los datos mediante un evento. Para las impresiones, es recomendable configurar los eventos como no interactivos.</li>
+<li>Al enviar eventos para acciones de comercio electrónico, usa un modelo de datos para facilitar el análisis. Por ejemplo, puedes asignar la categoría de ‘ecommerce’ a todos los eventos de comercio electrónico.</li>
+<li>Si la información de comercio electrónico no se va a enviar nunca mediante la vista de página inicial, puedes dejar la llamada al complemento para después de la vista de página.</li>
+<li>Google Analytics tiene un límite de 500 hits por sesión. Al enviar información de seguimiento de comercio electrónico, asegúrate de que el número total de eventos y vistas de página no supera los 500 para una visita típica.</li>
+<li>Además, hay un límite de 8192 bytes por hit: si el número total de impresiones de producto (y promociones, transacciones, etc.) supera dicho límite, usa la opción Product ID Dimension Widening para enviar parámetros de productos opcionales.</li>
+</ol>
+<p>Para saber cómo interpretar la información de producto, todas las llamadas ‘ec:addProduct’ deben contar con un comando de seguimiento ‘ec:setAction’.</p>
+<p>El comercio electrónico mejorado permite medir las interacciones de los usuarios con los productos durante todo el ciclo de vida del producto. Proporciona una descripción completa del patrón de comportamiento del visitante durante el proceso de compra.<br />
+Entender las tendencias comportamentales de los clientes potenciales es esencial para gestionar una tienda online a gran escala. Por eso debemos dedicarle tiempo a configurar con precisión las opciones de comercio electrónico mejorado y a interpretar los datos. </p>
+<p>¡Cuéntame cómo vas con la configuración del comercio electrónico mejorado de tu tienda online!</p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/guia-intermedia-para-el-comercio-electronico-mejorado/">Guía intermedia para el comercio electrónico mejorado</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.prestashop.com/blog/es/guia-intermedia-para-el-comercio-electronico-mejorado/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>4 Estrategias de Marketing de Contenido que cambiarán tu Emprendimiento para siempre</title>
+		<link>https://www.prestashop.com/blog/es/4-estrategias-de-marketing-de-contenido-que-cambiaran-tu-emprendimiento-para-siempre/</link>
+		<comments>https://www.prestashop.com/blog/es/4-estrategias-de-marketing-de-contenido-que-cambiaran-tu-emprendimiento-para-siempre/#comments</comments>
+		<pubDate>Wed, 24 Jun 2015 13:12:41 +0000</pubDate>
+		<dc:creator><![CDATA[Julie Liu]]></dc:creator>
+				<category><![CDATA[Consejos E-commerce]]></category>
+
+		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=13038</guid>
+		<description><![CDATA[<p>Existen 2 verdades universales que van a condicionar tu emprendimiento desde el primer momento: a) desarrollar un excelente producto no va a ser suficiente para alcanzar el éxito y b) como sucede en todo emprendimiento, los recursos para invertir en marketing son sumamente escasos, o mejor dicho: inexistente. Para poder superar con éxito estás 2 [...]</p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/4-estrategias-de-marketing-de-contenido-que-cambiaran-tu-emprendimiento-para-siempre/">4 Estrategias de Marketing de Contenido que cambiarán tu Emprendimiento para siempre</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Existen 2 verdades universales que van a condicionar tu emprendimiento desde el primer momento: a) desarrollar un excelente producto no va a ser suficiente para alcanzar el éxito y b) como sucede en todo emprendimiento, los recursos para invertir en marketing son sumamente escasos, o mejor dicho: inexistente.</p>
+<p>Para poder superar con éxito estás 2 limitaciones externas, comparto a continuación 4 estrategias de marketing de contenido que puedes comenzar a utilizar hoy mismo en tu emprendimiento, donde todo dependerá de factores internos que tu mismo puedes controlar, como tu tiempo, esfuerzo y dedicación.<br />
+<span id="more-13038"></span></p>
+<h2 style="color:#241a56">1. Eres el responsable de compartir tu Historia.</h2>
+<p>Para comenzar, nunca dejes en las manos de un periodista la posibilidad de contar al mundo cada paso del crecimiento de tu nuevo negocio. No solamente porque al final de cuentas dependerá de ellos si quieren publicar tu historia o no, sino porque también vas a quedar atado a “como” ellos quieran transmitir tus vivencias, experiencias, logros y fracasos.</p>
+<p>Un perfecto ejemplo de quien implementa esta estrategia correctamente es la empresa Buffer, quien en su sección de contenido <a href="https://open.bufferapp.com/" target="_blank">Buffer Open</a> comparten cada una de sus vivencias a lo largo del camino, desde como definen sus valores hasta cuanto factura anualmente la empresa! (actualmente más de 6 millones de dólares). </p>
+<p>Como ellos lo describen, es el lugar que utilizan para difundir su recorrido hacía una mayor productividad, transparencia y una excelente cultura de trabajo.</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/bufferopen-1024x700.png" alt="bufferopen" width="700" height="478" class="aligncenter size-large wp-image-13040" /></p>
+<p>Seguramente estés pensando: “<strong>que tiene que ver esto con marketing de contenido?</strong>”. La respuesta es muy simple: hace exactamente 2 años por medio de un tweet de un amigo llegué a un post redactado por uno de los fundadores Leo Widrich, donde compartía la presentación que usaron para levantar medio millón de dólares de inversión. En base a este primer contacto, comencé a seguir su blog. 6 meses más tarde, cuando nosotros necesitamos una herramienta para administrar las actividades de nuestra <a href="http://www.mejortrato.com.mx/" target="_blank">empresa</a> en redes sociales, adivinen a quien elegimos?, sí correcto, a ellos!</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/bufferopen2-1024x699.png" alt="bufferopen2" width="700" height="477" class="aligncenter size-large wp-image-13041" /></p>
+<p>En definitiva, si estás ahora comenzando tu nuevo emprendimiento, es tu deber como fundador contar tu historia, compartirla y porque no implementar una espectacular estrategia de marketing de contenido a partir de ello.</p>
+<h2 style="color:#241a56">2. No solamente escuches a tus clientes, bríndales una respuesta!</h2>
+<p>Seguramente como emprendedor ya sabes que lo más importante es tomarte el tiempo de escuchar a tus usuarios, aprender de ellos y mejorar tu producto. Sin embargo, esto no termina aquí.<br />
+A nivel de marketing de contenido, una estrategia muy útil es el recolectar estás consultas, redactar una excelente respuesta de calidad y publicarla en una nueva sección dedicada exclusivamente para esto. <strong>Sería como la famosa y bien conocida sección de “preguntas frecuentes” pero potenciada</strong>.</p>
+<p>Un ejemplo de esto es Moz a través de su “<a href="http://moz.com/community/q" target="_blank">Forum Questions</a>” donde expertos responden a tus dudas sobre inbound marketing, email marketing, marketing en buscadores, etc.:</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/moz-1024x741.png" alt="moz" width="700" height="506" class="aligncenter size-large wp-image-13048" /></p>
+<p>El potencial de esta estrategia es enorme:</p>
+<p>a) Trata de recordar cuando fue la última vez que hiciste un reclamo a una empresa y obtuviste una respuesta clara, precisa y de calidad?: NUNCA. Si eres capaz de atender las consultas en tiempo y forma de tus clientes, ellos lo van a saber valorar y te vas a diferenciar ampliamente de tu competencia.</p>
+<p>b) Más allá de la atención al cliente, el día de mañana tu contenido en forma de “pregunta y respuesta” va a ser indexado por los buscadores y otros usuarios que estén utilizando Google ó Bing van a poder encontrar tu contenido y convertirse posiblemente en tus nuevos clientes.</p>
+<p>c) Si haces bien este trabajo, con el tiempo se va a transformar en algo masivo que se va a poder mantener con un crecimiento orgánico por si solo (con algo de control y supervisión por supuesto) en donde tus clientes pregunten y a la vez otros usuarios con mayor experiencia puedan brindar respuestas por cuenta propia.<br />
+Como nosotros lo hicimos en nuestra sección de “preguntas y respuestas avanzada” alcanzando más de 165.000 visitas mensuales, estoy seguro tu también lo puedes hacer!. Una vez más, los requisitos más importantes para que funcione con éxito son: paciencia y dedicación. </p>
+<p>Como nosotros lo hicimos en nuestra <a href="http://www.elmejortrato.com.ar/preguntas/" target="_blank">sección</a> de “preguntas y respuestas avanzada” alcanzando más de 165.000 visitas mensuales, estoy seguro tu también lo puedes hacer! Una vez más, los requisitos más importantes para que funcione con éxito son: paciencia y dedicación. </p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/elmejortrato.png" alt="elmejortrato" width="1024" height="903" class="aligncenter size-full wp-image-13045" /></p>
+<h2 style="color:#241a56">3. El deber de todo fundador es educar</h2>
+<p>Una estrategia más que interesante es utilizar tu amplio conocimiento sobre la industria en la cual se desarrolla tu emprendimiento para convertirte en una autoridad, en un referente.<br />
+Esta opción de marketing de contenido es viable gracias a todo lo que tuviste que aprender para poder crear tu emprendimiento, pero también por lo que vas aprendiendo día a día y puedes compartir.</p>
+<p>Esto te pone en un lugar muy especial con las características únicas e imprescindibles para convertirte en un referente en tu industria. Todo este conocimiento lo puedes comenzar a transmitir a través de texto, como así también por medio de imágenes como infografías, videos, tutoriales, conferencias online, e-books, etc.</p>
+<p>Quien hace muy bien esto y de quien puedes aprender muchísimo es <a href="http://www.quicksprout.com/about/" target="_blank">Neil Patel</a>, fundador de grandes emprendimientos como KISSmetrics y Crazy Egg, con más de 10 millones de dólares en inversión.</p>
+<p>Con el tiempo Neil se consolido como experto en Marketing Online y cada nuevo emprendimiento que desarrolla, es automáticamente conocido por todos sus seguidores (como yo) quienes aprendemos de el constantemente en su blog y cursos online, como se ve a continuación.</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/quicksprout.png" alt="quicksprout" width="1008" height="736" class="aligncenter size-full wp-image-13039" /></p>
+<p>De esta forma, si inviertes tu tiempo en generar contenido de valor sobre lo que experimentaste al fundar tu emprendimiento y lo que vas aprendiendo a lo largo del camino, tanto para este proyecto actual como para futuros, vas a tener indefectiblemente un excelente grupo seguidores que serán los mejores evangelizadores de lo que haces ahora pero también de lo que emprendas el día de mañana.</p>
+<p>Otro ejemplo que me parece espectacular, es lo que hace <a href="https://twitter.com/randfish" target="_blank">Rand Fishkin</a>, fundador de Moz que a través de videos, una vez por semana, da consejos sobre su industria “marketing en buscadores” y ha sido visto por millones de personas:</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/google-ranking-factor.png" alt="google-ranking-factor" width="980" height="714" class="aligncenter size-full wp-image-13046" /></p>
+<h2 style="color:#241a56">4. Los comentarios de tus clientes son la clave</h2>
+<p>Por último, tu emprendimiento esta comenzando, nadie lo conoce excepto tus amigos y familiares, en consecuencia, <strong>tu mayor desafío está en que los nuevos usuarios que lleguen a tu nuevo proyecto puedan confiar en vos</strong>.</p>
+<p>Para esto, lo mejor es que trabajes y te enfoques en una estrategia de marketing de contenido alrededor de los comentarios buenos y malos de tus clientes actuales, por más pocos que sean en un principio.</p>
+<p>Por ejemplo, qué más difícil puede ser que querer vender un auto online?, sí un auto, no un celular, ni unas zapatillas. Para que una persona pueda comprar un auto por internet y gastar un promedio de USD 20.000 en una sola transacción, tiene que tener una gran confianza en tu nuevo negocio. Es por eso que me gustaría destacar lo que está haciendo correctamente Carvana en su sección de <a href="http://www.carvana.com/reviews" target="_blank">comentarios</a>.</p>
+<p>Por favor, dedica tu tiempo para ver más 10 videos que tienen filmados con sus primeros clientes. Como se puede observar a continuación, no son comentarios solamente escritos (que tienen más de 800!) sino estamos hablando de videos filmados con clientes reales y con el auto que terminan de comprar siempre en el fondo de la filmación.</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/carvana-1024x721.png" alt="carvana" width="700" height="492" class="aligncenter size-large wp-image-13042" /></p>
+<p>Este contenido tiene un valor incalculable, básicamente el mismo busca reemplazar la confianza que un cliente tiene al momento de ir personalmente a un concesionario y hablar con una persona de ventas cara a cara.</p>
+<p>A continuación un ejemplo de cómo esto lo debes generar proactivamente y no es algo de un día para el otro, requiere de tiempo e inversión:</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/comments.png" alt="comments" width="948" height="283" class="aligncenter size-full wp-image-13043" /></p>
+<p>Sí Carvana pudo vender miles de autos exclusivamente a través de Internet y con esta estrategia de marketing de contenido para transmitir confianza y seguridad a sus usuarios, tu también lo podrías replicar en tu emprendimiento.</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/crenella-15.png" alt="crenella-15" width="100" height="100" class="alignleft size-full wp-image-13044" /></p>
+<p>Autor: Pensamientos y experiencias compartidos por los fundadores de <a href="http://www.omelhortrato.com/seguros/seguros-por-seguradora" target="_blank">Melhor Trato</a>, Ingenieros en Computación Cristian y Hernán Amiune. Creadores de la mayor plataforma de educación financiera en la región de Latino América.</p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/4-estrategias-de-marketing-de-contenido-que-cambiaran-tu-emprendimiento-para-siempre/">4 Estrategias de Marketing de Contenido que cambiarán tu Emprendimiento para siempre</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.prestashop.com/blog/es/4-estrategias-de-marketing-de-contenido-que-cambiaran-tu-emprendimiento-para-siempre/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Directo a la fuente: ¿dónde encuentro los productos para mi tienda?</title>
+		<link>https://www.prestashop.com/blog/es/directo-la-fuente-donde-encuentro-los-productos-para-mi-tienda/</link>
+		<comments>https://www.prestashop.com/blog/es/directo-la-fuente-donde-encuentro-los-productos-para-mi-tienda/#comments</comments>
+		<pubDate>Tue, 23 Jun 2015 13:11:27 +0000</pubDate>
+		<dc:creator><![CDATA[Kate Robinson]]></dc:creator>
+				<category><![CDATA[Consejos E-commerce]]></category>
+
+		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=13033</guid>
+		<description><![CDATA[<p>Una de las preguntas clave que debe plantearse un vendedor online es: ¿de dónde sacaré mis productos? La respuesta determinará tu modelo de negocio, los márgenes y toda tu estructura operativa. Hoy vamos a repasar distintas opciones de abastecimiento para ayudarte a tomar la decisión adecuada. ¿Confección, fabricación, distribución, dropshipping&#8230; o una combinación? Estas cuatro [...]</p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/directo-la-fuente-donde-encuentro-los-productos-para-mi-tienda/">Directo a la fuente: ¿dónde encuentro los productos para mi tienda?</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Una de las preguntas clave que debe plantearse un vendedor online es: ¿de dónde sacaré mis productos? La respuesta determinará tu modelo de negocio, los márgenes y toda tu estructura operativa. Hoy vamos a repasar distintas opciones de abastecimiento para ayudarte a tomar la decisión adecuada.<br />
+<span id="more-13033"></span></p>
+<h4 style="color:#204369">¿Confección, fabricación, distribución, dropshipping&#8230; o una combinación? </h4>
+<p>Estas cuatro estrategias principales tienen sus pros y sus contras, así que tendrás que valorar las ventajas y desventajas para tu negocio. En términos generales, la <strong>confección</strong> y la <strong>fabricación</strong> ofrecen el máximo control sobre la marca, la calidad y el precio. La <strong>distribución</strong> y el <strong style="font-style:italic">dropshipping</strong> implican menos riesgo&#8230; pero también menos control. No hay una única respuesta correcta: todo depende de tu visión de negocio.</p>
+<p>Probablemente es más fácil empezar usando un solo método de abastecimiento, pero no hay nada escrito en piedra. De hecho, la diversificación te proporciona cierta protección frente a problemas de stock o imprevistos en el suministro. Recuerda el viejo dicho: «no pongas todos los huevos en la misma cesta». Es un buen consejo a la hora de diseñar la estrategia de abastecimiento. </p>
+<h4 style="color:#204369">Mantén el control: confecciona o fabrica</h4>
+<p>Estas dos opciones son perfectas para los <strong>vendedores que tienen una idea o un diseño exclusivo</strong> y que consideran que mantener el control creativo es esencial para construir una marca sólida. </p>
+<h2 style="color:#25b9d7">Confeccionar tus productos</h2>
+<h4 style="color:#204369">Por qué puede ser un acierto</h4>
+<p>Si tienes talento y recursos para confeccionar tus propios productos, es una de las formas <strong>menos arriesgadas</strong> de empezar un negocio online. La inversión inicial es baja ya que no necesitas un inventario mínimo para abrir la tienda. En función de lo que vendas, incluso podrás hacer los pedidos a medida que lleguen… y mejorar tus métodos en función de la demanda.</p>
+<p>Hacer tus propios productos te da <strong>la última palabra en cuanto a calidad, imagen de marca y precios</strong>. ¡Y no olvides la <strong>flexibilidad</strong> que supone controlar todo el proceso de producción! Lo mejor: puedes conseguir <strong>márgenes impresionantes</strong> ya que no hay intermediarios que reduzcan tus beneficios. </p>
+<h4 style="color:#204369">Por qué puede ser un error</h4>
+<p>El lado malo es que tienes que asumir tus <strong>limitaciones de tiempo y energía</strong> y la posibilidad de que la demanda te supere. Eres humano, ¡en algún momento tendrás que dormir! Hacer tus propios productos supone menos gastos en material&#8230; pero no debes olvidar el <strong>tiempo</strong> que consume. Cuando tu negocio crezca, tendrás que estudiar detenidamente cómo ampliar la producción para no decepcionar a esos clientes a los que les encantan tus productos artesanales. </p>
+<p><span style="text-decoration: underline">Pros</span></p>
+<ul style="padding-left: 30px">
+<li>Control sobre la calidad, la marca y el precio</li>
+<li>Posibilidad de probar los productos </li>
+<li>Bajos costes iniciales</li>
+<li>Gran potencial de beneficios </li>
+</ul>
+<p><span style="text-decoration: underline">Contras</span></p>
+<ul style="padding-left: 30px">
+<li>Requiere mucho tiempo</li>
+<li>El crecimiento estará limitado por tus propios recursos </li>
+</ul>
+<h2 style="color:#25b9d7">Fabricar tus productos</h2>
+<h4 style="color:#204369">Por qué puede ser un acierto</h4>
+<p>La fabricación es el método de abastecimiento <strong>más arriesgado</strong> ya que requiere una mayor inversión inicial, pero también es la opción que <strong>más beneficios puede dar</strong>. ¿Tienes una idea original? ¿La has probado? ¿Tiene mercado? Entonces la fabricación puede ser la opción ideal. Con este modelo, tú diseñas tus productos y contratas a un fabricante que los haga. Eso supone hacer un pedido mínimo que <strong>disparará los costes iniciales</strong> (miles o incluso decenas de miles de dólares), pero también te permite conseguir un margen muy alto&#8230; gracias al <strong>volumen</strong>. Poner en marcha un sistema de fabricación requiere su tiempo: tendrás que revisar <strong>muestras y prototipos</strong> antes de hacer el pedido al proveedor. </p>
+<h4 style="color:#204369">Por qué puede ser un error</h4>
+<p>El mayor reto para fabricar es <strong>encontrar a un proveedor de confianza</strong> y mantener una buena relación con él. Tendrás que dedicarle mucho tiempo a esta tarea: los problemas de calidad, los retrasos o los fraudes pueden hundir tu negocio&#8230; sobre todo si has invertido mucho en el stock inicial. Puedes buscar un proveedor <strong>nacional o de otro país</strong>, lo que tendrá una gran repercusión en el precio: por ejemplo, los fabricantes estadounidenses o europeos suelen ser más caros que los asiáticos. Pero también tienen contrapartidas en términos de plazos de entrega, facilidad de comunicación y calidad. ¡Valóralo todo! </p>
+<p>Nuestro consejo es que busques tanto en casa como fuera, pidas presupuestos, compares costes, hagas reuniones por Skype o en persona&#8230; y no dejes de invertir en investigación. </p>
+<p><span style="text-decoration: underline">Pros</span></p>
+<ul style="padding-left: 30px">
+<li>Menor coste por unidad </li>
+<li>Control sobre el precio</li>
+</ul>
+<p><span style="text-decoration: underline">Contras</span></p>
+<ul style="padding-left: 30px">
+<li>ltos costes de establecimiento</li>
+<li>iesgo de que el proveedor te defraude</li>
+<li>omplejidad de la gestión de proveedores internacionales</li>
+</ul>
+<h4 style="color:#204369">Ve sobre seguro: distribución y dropshipping</h4>
+<p>No todas las tiendas online venden sus propios productos&#8230; y no pasa nada. La <strong>distribución</strong> y el <strong>dropshipping</strong> son una magnífica alternativa para los vendedores que quieren hacer una selección de productos de un sector concreto. </p>
+<h2 style="color:#25b9d7">Distribución</h2>
+<h4 style="color:#204369">Por qué puede ser un acierto</h4>
+<p>La distribución implica <strong>comprar directamente a un fabricante o mayorista</strong> (normalmente marcas ya asentadas) y vender más caro. Es menos arriesgado que fabricar porque se comercializan productos conocidos que ya tienen una reputación. La distribución minorista suele tener un <strong>margen del 50%</strong>. Si forjas una <strong>buena relación con los proveedores</strong>, podrás negociar mejores precios. </p>
+<h4 style="color:#204369">Por qué puede ser un error</h4>
+<p>No olvides que vender productos de marcas conocidas puede perjudicarte si no tienes un plan de negocio bien definido. <strong>¿Qué te diferenciará de la competencia?</strong> Tendrás un <strong>control limitado sobre los precios</strong> porque las marcas suelen poner límites según sus propias políticas de venta. </p>
+<p><span style="text-decoration: underline">Pros</span></p>
+<ul style="padding-left: 30px">
+<li>Rápido establecimiento</li>
+<li>Variedad de productos</li>
+<li>Reputación de la marca</li>
+</ul>
+<p><span style="text-decoration: underline">Contras</span></p>
+<ul style="padding-left: 30px">
+<li>Escaso control sobre el precio </li>
+<li>Gran inventario </li>
+</ul>
+<h2 style="color:#25b9d7">Dropshipping</h2>
+<h4 style="color:#204369">Por qué puede ser un acierto</h4>
+<p>El dropshipping es una forma fantástica de abrir una tienda rápido y sin grandes inversiones financieras&#8230; pero conseguir un buen beneficio puede ser complicado. Con este método, los clientes hacen el pedido en tu tienda y tú transfieres la información a tu socio, que se encarga de prepararlo y enviarlo. La gran ventaja es que no tienes que almacenar ni gestionar el stock ni ocuparte de los envíos. Eso significa que puedes trabajar desde cualquier sitio con una inversión inicial mínima. Muchas tiendas usan el dropshipping para probar antes de añadir productos a su catálogo. </p>
+<h4 style="color:#204369">Por qué puede ser un error</h4>
+<p>Lo malo —o lo bueno, según se mire— es que el bajo riesgo del dropshipping anima a mucha gente a optar por este método, incluso a grandes firmas. Competir en precio es un error, así que tendrás que centrarte en <strong>aportar valor añadido</strong>. Puedes hacer una buena selección de productos o crear información detallada sobre tu oferta. Añade el mejor servicio al cliente ¡y podrás diferenciarte de la competencia! </p>
+<p>Es importante mantener buenas relaciones con varios proveedores para evitar problemas de stock o funcionamiento que decepcionen a tus clientes. Si pasa —y pasará—, aprovecha la oportunidad para ganarte la lealtad del cliente ofreciéndole otro producto igual o mejor gratis. </p>
+<p>Otro de los puntos que no debes olvidar es que normalmente no podrás ver el producto que estás vendiendo. Valora la posibilidad de comprar unos cuantos de muestra: luego podrás venderlos como productos usados en perfecto estado. </p>
+<p><span style="text-decoration: underline">Pros</span></p>
+<ul style="padding-left: 30px">
+<li>Baja inversión financiera</li>
+<li>Posibilidad de trabajar desde cualquier parte del mundo </li>
+<li>Modelo fiable</li>
+<li>Sin costes de inventario </li>
+</ul>
+<p><span style="text-decoration: underline">Contras</span></p>
+<ul style="padding-left: 30px">
+<li>Gran competencia </li>
+<li>No puedes ver los productos antes de comprarlos</li>
+<li>Relaciones de larga distancia con los proveedores </li>
+</ul>
+<p>Esperamos que este artículo te haya resultado útil. Y tú, ¿cómo consigues los productos que vendes? ¿Qué es lo más complicado de esa estrategia? ¡Cuéntanoslo! ¿Aún no conoces PrestaShop?  <a href="https://www.prestashop.com/es">Descubre hoy mismo nuestro software de carrito de la compra</a>. </p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/directo-la-fuente-donde-encuentro-los-productos-para-mi-tienda/">Directo a la fuente: ¿dónde encuentro los productos para mi tienda?</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.prestashop.com/blog/es/directo-la-fuente-donde-encuentro-los-productos-para-mi-tienda/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>#PrestaShopDay: Resumen de una jornada excepcional.</title>
+		<link>https://www.prestashop.com/blog/es/prestashopday-resumen-de-una-jornada-excepcional/</link>
+		<comments>https://www.prestashop.com/blog/es/prestashopday-resumen-de-una-jornada-excepcional/#comments</comments>
+		<pubDate>Thu, 18 Jun 2015 13:38:35 +0000</pubDate>
+		<dc:creator><![CDATA[Juan Manuel Molina]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=13017</guid>
+		<description><![CDATA[<p>Nuestras expectativas de asistencia se superaron con creces: 2.000 miembros de la comunidad se presentaron el jueves pasado en el Carreau du Temple en París ¡Muchísimas gracias! El PrestaShop Day ha sido posible gracias a vuestra presencia y la de nuestros excepcionales ponentes, socios y expertos, que nos acompañaron en esta aventura. Fue un día [...]</p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/prestashopday-resumen-de-una-jornada-excepcional/">#PrestaShopDay: Resumen de una jornada excepcional.</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p dir="ltr">Nuestras expectativas de asistencia se superaron con creces: 2.000 miembros de la comunidad se presentaron el jueves pasado en el Carreau du Temple en París ¡Muchísimas gracias!</p>
+<p dir="ltr">El PrestaShop Day ha sido posible gracias a vuestra presencia y la de nuestros excepcionales ponentes, socios y expertos, que nos acompañaron en esta aventura. Fue un día para el recuerdo: lleno de reencuentros e intercambios de experiencias en torno a nuestra pasión: el E-commerce.</p>
+<p dir="ltr"><span style="line-height: 1.5;">Esperamos que los talleres, auditorías de tiendas online, mesas redondas y conferencias hayan sido de gran utilidad para vosotros y os hayan motivado e inspirado. ¿No pudiste asistir a todo? </span><a style="line-height: 1.5;" href="http://fr.slideshare.net/PrestaShopOfficial/presentations" target="_blank">Revisa todas las presentaciones</a><span style="line-height: 1.5;">.</span></p>
+<p><span id="more-13017"></span></p>
+<h2><span style="color: #251b5b;">La Keynote PrestaShop por Bruno Lévêque, fundador de PrestaShop</span></h2>
+<p dir="ltr">El día arrancó con la Keynote de PrestaShop presentada por Bruno Lévêque, con la colaboración de Octave Klaba, fundador de OVH; Nicolas Ferrary, Director Airbnb Francia y Charles Wells, nuestro Chief Product Officer.</p>
+<p dir="ltr">Los lanzamientos más importantes de esta conferencia fueron:</p>
+<ul>
+<li>Lanzamiento del <a href="https://addons.prestashop.com/es/integration-fund" target="_blank">Fondo de Integración</a>: 1 millón de dólares para desarrolladores del mundo entero.</li>
+<li><a href="https://vimeo.com/130541197" target="_blank">Nueva imagen de PrestaShop</a></li>
+<li>Actualizaciones mayores del software</li>
+<li>Lanzamiento del<a href="http://ambassador.prestashop.com" target="_blank"> Programa de Embajadores</a>.</li>
+</ul>
+<p><strong><a title="PrestaShop Keynote &quot;WeCommerce is better e-commerce&quot; By Bruno Lévêque" href="//fr.slideshare.net/PrestaShopOfficial/keynote1-49448932" target="_blank">PrestaShop Keynote &#8220;WeCommerce is better e-commerce&#8221; By Bruno Lévêque</a></strong></p>
+<h2><span style="color: #251b5b;">Álbum de fotos</span></h2>
+<div style="margin-bottom: 5px;">
+<p dir="ltr">Visita nuestro <a href="https://www.facebook.com/media/set/?set=a.1123256561024618.1073741861.114089955274622&amp;type=3" target="_blank">álbum en Facebook</a> y revive los momentos más interesantes de la jornada #PrestaShopDay.</p>
+<h2><span style="color: #251b5b;">Infografía: las cifras claves del PrestaShop Day</span></h2>
+</div>
+<p dir="ltr" style="text-align: center;"><a href="http://www.prestashop.com/blog/fr/files/2015/06/infography-116mb.jpg" target="_blank"><img class="aligncenter size-full wp-image-13029" alt="infography-11,6mb" src="http://www.prestashop.com/blog/es/files/2015/06/infography-116mb.jpg" width="960" height="4464" /></a></p>
+<h2><span style="color: #251b5b;">Gracias</span></h2>
+<div style="margin-bottom: 5px;">
+<p dir="ltr">¡Muchas gracias a nuestros patrocinadores oficiales <a href="https://www.prestashop.com/es/asociados-de-industria/pagos/paypal" target="_blank">PayPal</a>,<a href="https://www.prestashop.com/es/asociados-de-industria/envio/la-poste-coliposte" target="_blank"> So Colissimo</a>, <a href="https://www.prestashop.com/es/asociados-de-industria/marketplaces/twenga" target="_blank">Twenga Solutions</a> y<a href="https://www.prestashop.com/es/asociados-de-industria/pagos/hipay" target="_blank"> HiPay</a>!</p>
+<p dir="ltr">Además de nuestros colaboradores de prensa <a href="http://www.maddyness.com/" target="_blank">Maddyness</a>, <a href="http://frenchweb.fr/" target="_blank">FrenchWeb.fr</a>, <a href="http://www.viuz.com/" target="_blank">Viuz</a>, <a href="http://www.widoobiz.com/" target="_blank">Widoobiz</a>, <a href="http://devmag.fr/" target="_blank">Devmag.Fr</a>, <a href="http://www.ecommercemag.fr/" target="_blank">ecommercemag.fr </a> y <a href="http://www.e-marketing.fr/" target="_blank">eMarketing.fr</a>.</p>
+<p dir="ltr">¡Nos vemos en el próximo PrestaShop Day!</p>
+<p>&nbsp;</p>
+</div>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/prestashopday-resumen-de-una-jornada-excepcional/">#PrestaShopDay: Resumen de una jornada excepcional.</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.prestashop.com/blog/es/prestashopday-resumen-de-una-jornada-excepcional/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>6 preguntas clave a la hora de fijar el precio de un nuevo producto</title>
+		<link>https://www.prestashop.com/blog/es/6-preguntas-clave-la-hora-de-fijar-el-precio-de-un-nuevo-producto/</link>
+		<comments>https://www.prestashop.com/blog/es/6-preguntas-clave-la-hora-de-fijar-el-precio-de-un-nuevo-producto/#comments</comments>
+		<pubDate>Thu, 18 Jun 2015 08:30:59 +0000</pubDate>
+		<dc:creator><![CDATA[Julie Liu]]></dc:creator>
+				<category><![CDATA[Consejos E-commerce]]></category>
+
+		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=12988</guid>
+		<description><![CDATA[<p>El lanzamiento de un nuevo producto debería ser una experiencia agradable, no una pesadilla. La diferencia entre el fracaso y el éxito puede depender de factores que van desde el marketing hasta la fijación de los precios. En este artículo, le hemos preguntado a la directora de marketing de contenidos de Wiser, Angelica, para que [...]</p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/6-preguntas-clave-la-hora-de-fijar-el-precio-de-un-nuevo-producto/">6 preguntas clave a la hora de fijar el precio de un nuevo producto</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>El lanzamiento de un nuevo producto debería ser una experiencia agradable, no una pesadilla. La diferencia entre el fracaso y el éxito puede depender de factores que van desde el marketing hasta la fijación de los precios. En este artículo, le hemos preguntado a la directora de marketing de contenidos de Wiser, Angelica, para que comparta su opinión sobre la fijación de precios a la hora de introducir un nuevo producto en el mercado. Te proporcionará algunos consejos necesarios para implementar las mejores estrategias y <a href="http://blog.wiser.com/introducing-new-product-one-step-time/?utm_source=PrestaShop&amp;utm_medium=gp&amp;utm_campaign=newproduct" target="_blank">lanzar tu nuevo producto</a> hacia lo más alto.</p>
+<p><span id="more-12988"></span></p>
+<p>Establecer el precio de un producto que nunca antes había estado en el mercado puede ser todo un reto. Existen muchas dudas que pueden atravesar la mente de un comerciante, como por ejemplo, si el consumidor verá el producto como algo útil, o si considerará que tiene un precio justo. Aquí te dejamos algunas sugerencias que te ayudarán a establecer el precio justo desde el primer momento.</p>
+<h2 style="color:#d5a536">1. ¿Cuál es el precio de tus otros productos?</h2>
+<p>Tu nuevo producto necesita estar en consonancia con tu selección actual y con tu estrategia de precios general. A no ser, por supuesto, que la idea sea probar una nueva dirección y que estés pensando en cambiar el rumbo de tu tienda y marca. Pero, por lo general, si ya has creado una marca moderna y asequible, tu producto deberá tener un precio acorde con tu inventario actual. Sin duda, esto llamará la atención de tu afianzada base de clientes y atraerá a un nuevo público.</p>
+<h2 style="color:#d5a536">2. ¿Cuáles son los sustitutos de este nuevo producto?</h2>
+<p>Esto suele ser un buen punto de partida para muchos comerciantes, ya que les proporciona una idea de los precios que los compradores están dispuestos a pagar. Por ejemplo, si lo que quieres es introducir una botella de agua de alta calidad, hecha con un material nuevo y sostenible que mantiene las bebidas frías durante 20 horas, comprueba los precios de otras botellas térmicas. Se trata de llevar a cabo un seguimiento de la competencia para encontrar el lugar adecuado de tu producto en el mercado.</p>
+<p><a href="http://blog.wiser.com/get-smart-business-intelligence/?utm_source=PrestaShop&amp;utm_medium=gp&amp;utm_campaign=newproduct" target="_blank">Los datos de la competencia</a> serán muy importantes a medida que otros comerciantes empiecen a vender el producto. Incluso aunque tengas una relación exclusiva con el fabricante, siempre aparecerán imitadores cuando tu producto se convierta en todo un éxito. Estar al tanto de los precios de ese producto, y de productos similares en cuanto estén disponibles, te dará la información necesaria para mantener unos precios competitivos.  </p>
+<h2 style="color:#d5a536">3. ¿Cuál es el coste de producción del artículo?</h2>
+<p>El coste de producción deberá influir sobre el precio mínimo al que deseas vender tu producto. Es importante saber el coste de tu producto, ya que venderlo a un precio menor significará que estarás perdiendo dinero. Tu precio mínimo deberá ser siempre igual o superior al coste.</p>
+<h2 style="color:#d5a536">4. ¿Cómo de elástico es el precio?</h2>
+<p>En otras palabras, ¿cuánto varía el precio de tu producto? Los productos que pueden mantener su demanda con una variedad de precios se consideran elásticos. Por otra parte, aquellos productos con pequeñas diferencias de precios se consideran inelásticos. Los productos inelásticos son más fáciles de tasar, ya que sus precios no fluctúan tanto. Sin embargo, los productos elásticos pueden tener precios que varíen notablemente dependiendo del proveedor y de las condiciones del mercado.</p>
+<p>Tratar de averiguar el &#8220;precio perfecto&#8221; para tu nuevo producto puede ser complicado, ya que el precio perfecto no es invariable. Es importante hacer un seguimiento de la respuesta del mercado hacia tu producto con diferentes precios. Aunque puedes llevar a cabo un seguimiento de los precios de tus competidores de forma manual, siempre puedes optar por automatizar este proceso con un software de ajuste de precios (<span style="font-style:italic">repricer</span>).</p>
+<p>Los repricers se presentan en forma de software, y se encargan de agregar el historial de ventas, la inteligencia de mercado y la inteligencia competitiva, y los precios mínimos y máximos. Permiten cambiar los precios en tiempo real. Los repricers pueden ayudarte a fijar de forma eficiente el precio de un nuevo producto, actualizando de manera continua los precios según las reacciones del mercado.</p>
+<h2 style="color:#d5a536">5. ¿Tu producto es temporal? </h2>
+<p>Volvamos al ejemplo de la botella de agua. Introducirla en el mercado durante la primavera, cuando los consumidores deportistas probablemente estén buscando nuevos productos para sus próximas excursiones, permitiría fijar un precio más alto que si se introdujera en pleno invierno. Pero mantener el mismo precio en otras temporadas probablemente no sea un buen reclamo.</p>
+<p>Y aquí es donde entra de nuevo en juego nuestro <span style="font-style:italic">repricer</span> para ajustar el precio basándose en los datos más importantes; por ejemplo, en el tráfico y las conversiones. Si las conversiones disminuyen cuando se acerca el otoño, deberías bajar los precios para aumentar nuevamente las conversiones.</p>
+<h2 style="color:#d5a536">6. ¿De cuánto inventario dispones?</h2>
+<p>Basándote en la cantidad de inventario que tengas en stock, utiliza la fijación de precios para evitar que se agote o bien para evitar que tu almacén se sature. Para evitar lo primero, aumenta los precios cuando dispongas de poco stock. En caso de que se trate de lo segundo, baja los precios para hacer hueco a la nueva mercancía.</p>
+<h2 style="color:#d5a536">En resumen</h2>
+<p>Llegados a este punto, puede que te preguntes si existe alguna manera clara de fijar los precios de los nuevos productos. No quisiera desanimarte, pero no la hay. Existen tantos factores en juego que no hay una forma correcta de hacerlo. Yo diría que no disponer de un método concreto es algo positivo: permite que la estrategia dependa de ti y te da la posibilidad de personalizarlo para que se ajuste a tu marca y a tu <a href="http://www.wiser.com/pricing-strategies?utm_source=PrestaShop&amp;utm_medium=gp&amp;utm_campaign=newproduct" target="_blank">estrategia de precios</a>. </p>
+<p>¿Qué estrategias has utilizado para fijar los precios de los nuevos productos en tu tienda? ¡Déjanos un comentario y cuéntanos cuál ha sido tu experiencia y qué técnicas has utilizado! </p>
+<h2 style="color:#d5a536">Sobre la autora</h2>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/Angelica-Valentine-BW-headshot-150x150.jpg" alt="Angelica Valentine" width="100" height="100" class="alignleft size-thumbnail wp-image-20158" /><br />
+Angelica Valentine es la directora de marketing de contenidos de <a href="http://www.wiser.com/?utm_source=PrestaShop&amp;utm_medium=gp&amp;utm_campaign=newproduct" target="_blank<br />
+">Wiser</a> software líder de inteligencia de precios. Wiser ayuda a los vendedores online a reajustar, en tiempo real, los precios de sus productos nuevos o ya establecidos, optimizando así los ingresos y los beneficios.</p>
+<p>Las principales características de Wiser incluyen:</p>
+<ul style="padding-left:30px">
+<li>El desarrollo de una estrategia de precios optimizada, capaz de mantenerse al día con el mercado</li>
+<li>La integración perfecta con los carritos de PrestaShop</li>
+<li>Acceso a datos e información detallada para demostrar el ROI</li>
+</ul>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/6-preguntas-clave-la-hora-de-fijar-el-precio-de-un-nuevo-producto/">6 preguntas clave a la hora de fijar el precio de un nuevo producto</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.prestashop.com/blog/es/6-preguntas-clave-la-hora-de-fijar-el-precio-de-un-nuevo-producto/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Empezando a plantear el proyecto: el estudio de mercado</title>
+		<link>https://www.prestashop.com/blog/es/empezando-plantear-el-proyecto-el-estudio-de-mercado/</link>
+		<comments>https://www.prestashop.com/blog/es/empezando-plantear-el-proyecto-el-estudio-de-mercado/#comments</comments>
+		<pubDate>Wed, 17 Jun 2015 08:30:36 +0000</pubDate>
+		<dc:creator><![CDATA[Kate Robinson]]></dc:creator>
+				<category><![CDATA[Consejos E-commerce]]></category>
+
+		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=12966</guid>
+		<description><![CDATA[<p>Comienzo con este una serie de 4 posts en los que hablaré sobre cómo montar una tienda online pasando por 4 fases: Empezando a plantear el proyecto: el estudio de mercado Proveedores, temas legales, catálogo y plataformas de pago Desarrollando la idea y la tienda sobre Prestashop Publicando tu tienda y dándole difusión Antes que [...]</p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/empezando-plantear-el-proyecto-el-estudio-de-mercado/">Empezando a plantear el proyecto: el estudio de mercado</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Comienzo con este <strong>una serie de 4 posts</strong> en los que hablaré sobre <strong>cómo montar una tienda online</strong> pasando por 4 fases:</p>
+<ul style="padding-left:30px">
+<li>Empezando a plantear el proyecto: el estudio de mercado</li>
+<li>Proveedores, temas legales, catálogo y plataformas de pago </li>
+<li>Desarrollando la idea y la tienda sobre Prestashop</li>
+<li>Publicando tu tienda y dándole difusión</li>
+</ul>
+<p><span id="more-12966"></span></p>
+<p>Antes que nada quiero deciros que <strong>este post no es magia-potagia</strong>. Aquí no te voy a contar <strong>cómo hacerte rico</strong>. Aquí te contaré cómo debes encarar un proyecto de tienda online desde 0. La magia de cara a que un proyecto funcione se llama <strong>poner tiempo y dinero</strong> así que, ahora que ya sabes el truco, vamos a ello <img src="http://www.prestashop.com/blog/es/wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley" /> </p>
+<p><strong>Plantear el proyecto</strong> puede tener varios puntos de partida:</p>
+<ul style="padding-left:30px">
+<li>una idea</li>
+<li>una oportunidad</li>
+<li>una moda en el mercado</li>
+<li>una tendencia de búsqueda</li>
+<li>alguien que te habla sobre un negocio</li>
+<li>un negocio que ya conoces offline y que quieres trasladar al online</li>
+<li>o, simplemente, un hobby. </li>
+</ul>
+<p>En el caso de la última tienda que he montado <a href="http://cuerdadeguitarra.com" target="_blank">http://cuerdadeguitarra.com</a> se trata puramente de un hobby hecho tienda.</p>
+<h2 style="color: #039d9a">¿Cómo plantear el proyecto en base a un estudio de mercado?</h2>
+<p>Bien, contrariamente a lo que muchos piensan hacer un estudio de mercado de una tienda online no es “voy a ver qué páginas web me salen en la primera página de un resultado de búsqueda, qué es lo que hacen y a montar mi negocio en base a eso”. Lo primero que hay que hacer es <strong>definir el ámbito en el que vamos a efectuar el estudio de mercado</strong>. Pongamos que, como yo, quieres vender cuerdas de guitarra. ¿Las vas a vender a España o a todo el mundo? Pues esa pregunta es la que debes contestar primero. En el caso de este producto, <strong>no tiene sentido ir a competir en otros países que no sean el tuyo</strong>, pues es un producto standard, con un precio y unos márgenes que no te permiten virguerías. Son fáciles de encontrar online ya sea en tiendas especializadas como a través de <span style="font-style:italic">marketplaces</span>. Incluso si las buscas bien puedes encontrarlas de marcas blancas y falsificadas. </p>
+<p>Al ser un producto de unos 6€ – 9€ de media, no tiene mucho sentido enviarlas a Francia, Alemania o Rúsia. Los gastos de envío valen más que el producto. Solo tendría sentido si te dedicaras a algo todavía más de nicho: <strong>proveer packs grandes de cuerdas de guitarra</strong>. Paquetes de 50 en 50 juegos, por ejemplo. Eso es raro que te lo pidan porque, o te lo pide una tienda (que ya va al distribuidor o redistribuidor) o te lo pide una escuela de música (que se lo pide a un distribuidor o redistribuidor) o te lo pide una banda de música que, normalmente, tiene <span style="font-style:italic">endorsers</span> (patrocinadores que les regalan el producto a cambio de publicidad y en el que se incluyen las cuerdas). Por lo que, como comento, no tiene mucho sentido exportarlas. ¿Cómo supe todo esto? Pues estudiando lo que hacen las tiendas online, los <span style="font-style:italic">marketplaces</span>, los usuarios (a través de posts en blogs, foros, <span style="font-style:italic">tuits</span>…) y porque llevo 18 años tocando la guitarra, así que he pasado por suficientes grupos y conciertos como para saber cómo funciona. ¿Cómo puedes hacerlo tú si no tienes esa información? <strong>Investigando y preguntando en foros, por ejemplo</strong>.</p>
+<p>Y, sí, efectivamente <strong>hay que visitar tiendas físicas</strong>. Hay que salir del despacho y no solo en esta fase, a poder ser, hay que salir del despacho cada semana para observar qué pasa a tu alrededor y visitar tiendas de la competencia o, directamente, otras tiendas de grandes almacenes donde poder detectar tendencias.</p>
+<p>Hay referentes de <strong>mega tiendas online</strong> que puedes estudiar: Thomann, Musik Produktiv, Alfasoni, Woodbrass, Strings By Mail, Lord of the strings… y debes estudiarlas. Pero también debes <strong>visitar tiendas físicas</strong> para ver cómo presentan, venden y ponen precio al producto. ¡Ah! Y sobre cómo atienden a los clientes.</p>
+<p>Yo me paseé por tiendas de música, pero no me quedé ahí, hay que ir a la <strong>competencia directa y también a la no directa</strong>: El Corte Inglés, FNAC, Cash Converters… los <span style="font-style:italic">marketplaces</span> de la vida real, vamos.</p>
+<p>Una vez defines el ámbito de actuación, ¿cómo encarar el estudio de mercado? Yo me baso en las <strong>clásicas 4Ps del marketing</strong>: <span style="font-style:italic">product, price, place, promotion</span>. Y a eso le sumo el servicio de atención al cliente, la demanda y la recurrencia. Aunque empezaremos con la demanda porque, sin demanda, no servirá nada de lo demás. Pongámoslo así de simple: si muy poca gente busca tu producto o tú mismo creas la demanda (cuesta muchísimo dinero) o déjalo correr.</p>
+<h2 style="color: #039d9a"><img style="margin-right: 2px" alt="icon" src="http://www.prestashop.com/blog/es/files/2015/06/demanda.png" width="50" height="50" /> Demanda</h2>
+<p>La parte más <span style="font-style:italic">googleiana</span> de todos los puntos. Aquí se trata de ver si en el país al que vas realmente hay una demanda o no. Eso ya lo habrás sacado, en su mayor parte, del <span style="font-style:italic">keyword research</span>. <strong>Valídalo una y mil veces</strong> porque, si te equivocas, puedes estar haciendo trabajo totalmente en vano. ¿Qué es importante de la demanda? Que sea estable. Lo demás son pegar pelotazos. Por ejemplo, <strong>¿hubo demanda de cigarrillos electrónicos?</strong> Sí. ¿Duró? No. Las cosas se ponen de moda y adiós muy buenas. Se abrieron muchas tiendas físicas y online de las cuales queda poquísimas. ¿Quién hizo negocio? El señor que vendía las franquicias, por supuesto. Los demás tiraron el dinero, aunque alguno pegó un pelotazo del que todavía le quedan euros.</p>
+<h2 style="color: #039d9a"><img style="margin-right: 2px" alt="icon" src="http://www.prestashop.com/blog/es/files/2015/06/producto.png" width="50" height="50" /> Producto</h2>
+<p>¿Qué producto se mueve?, ¿la gente compra el original o prefiere marca blanca, imitaciones o falsificaciones? (eso pasa), ¿cuáles son las marcas que tienen más demanda? A lo mejor existen <strong>marcas específicas con un encanto o una calidad</strong> de producto especial para los consumidores. Por ejemplo, el caso de las <strong>cuerdas Elixir</strong>, que tienen alta resistencia y tardas más en cambiarlas. O las cuerdas <span style="font-style:italic">signature</span>: las DR Strings Alexis Laiho (guitarrista de Children of Bodom), las Jim Dunlop Zakk Wylde (guitarra de Ozzy Osbourne y Black Label Society)… porque muchos guitarristas van a buscar tanto las guitarras, cuerdas, amplificadores y pedales <strong>de sus artistas favoritos</strong>, así que eso es algo a tener en cuenta.</p>
+<p><strong>¿Cada cuánto se cambia el producto?</strong> Eso nos definirá qué recurrencia de usuarios podemos llegar a tener, porque sin recurrencia, amigo, no hay negocio online.</p>
+<p><strong>¿Qué modelos tiene el producto?</strong> Pues aquí analizaríamos las cosas a tener en cuenta: los calibres de cuerdas, la resistencia, el estilo para el que sirve cada cuerda, cada cuánto es óptimo cambiar ese modelo en concreto, qué guitarristas lo usan, se corroen antes las cuerdas en un clima caluroso o frío… en resumen, toda la información sobre la fabricación del producto, sus características, su finalidad… es decir, buscar las respuestas a cualquier pregunta que pueda hacerte un cliente real. </p>
+<p><strong>En Internet y en la vida real cualquiera puede vender casi de todo</strong>, pero ten en cuenta que si no sabes qué es lo que vendes, estás perdido. </p>
+<p>¿Por qué me he enrollado tanto en la parte de producto? Amigo, sin un buen producto no vas a ningún lado.</p>
+<h2 style="color: #039d9a"><img style="margin-right: 2px" alt="icon" src="http://www.prestashop.com/blog/es/files/2015/06/precio.png" width="50" height="50" /> Precio</h2>
+<p>Aquí hay una regla bastante básica y es que los <strong>grandes sitios</strong>, por desgracia, son los que mandan. Lo que suelo hacer es fijarme en cuál es el precio de cada producto. Me hago un Excel con todos los productos que voy a vender o con los principales productos de cada gama y cada marca y voy a buscar qué precio medio tienen en Amazon, eBay y Rakuten. Además, miro qué precio medio tiene cada uno de los <span style="font-style:italic">sites</span> principales y también qué precios salen en los <span style="font-style:italic">Product Listing Ads</span>. Con eso me hago una <strong>idea del precio al que tengo que competir</strong> para poder llevarme alguna venta. Por supuesto aquí entra el margen que quiera ganar cada uno, que ya será mayor o menos y los gastos de envío que tenga cada tienda para ser competitivo no solo en el producto en sí, sino también en el <strong>cómputo global productos + envío</strong>.</p>
+<p>Interesa saber también quién está detrás de cada web. Si el precio medio de un producto es 15€ y alguien lo vende a 8€ puede pasar que:</p>
+<ul style="padding-left:30px">
+<li>Sea una falsificación</li>
+<li>Estén reventando el precio a posta para poder llevarse clientes usando un producto gancho</li>
+<li>Que sea un mayorista vendiendo</li>
+<li>Que sea un fabricante vendiendo</li>
+<li>Que sea alguien cercano a un mayorista o fabricante</li>
+</ul>
+<p>En tal caso, deberás decidir si te vale la pena o no competir contra ese precio.</p>
+<h2 style="color: #039d9a"><img style="margin-right: 2px" alt="icon" src="http://www.prestashop.com/blog/es/files/2015/06/distribucion.png" width="50" height="50" /> Distribución</h2>
+<p>Misma estrategia que la anterior. Mirar <strong>gastos de envío medios</strong> y ver por dónde puedes atacar para ser competitivo. Mirar también si el <strong>envío es en 3 / 5 días</strong> y si tú puedes hacerlo en 24 / 48 horas. Ofrecer un <strong>umbral de gastos de envío gratis</strong> acorde con la competencia o tirar millas y montarte tu propio umbral (yo lo hice rebajando a 10€ el gasto mínimo para tener envío gratis). Ten en cuenta que, a la larga, la gente <strong>demandará gastos de envío gratis</strong>, así que comienza a mentalizarte. Mira también opiniones de las otras webs para ver si puedes mejorar algo: hay un transportista que pierde muchos paquetes, los paquetes no llegan nunca a tiempo, llegan en mal estado, etc. No tengas miedo a hacer pedidos a tu competencia y comprobar por ti mismo si llega bien, a tiempo, si lleva un regalo, si lleva un vale de descuento para la próxima compra…<br />
+Y, como siempre digo, <strong>busca un transportista que falle poco</strong> (he probado muchas compañías y, finalmente, me casé con <a href="http://celeritastransporte.com/" target="_blank">Celeritas</a>), no busques uno que no falle porque no existe. Testéale primero. Lo mismo pasa con el embalaje y las cajas, aprieta gastos y busca a alguien que ofrezca un producto de calidad, a poder ser que tenga cajas personalizadas (las necesitarás si el negocio funciona) y a una buen precio. Yo uso a <a href="http://kartox.com/" target="_blank">Kartox</a>, que son especialistas en embalaje para <span style="font-style:italic">ecommerce</span>.</p>
+<h2 style="color: #039d9a"><img style="margin-right: 2px" alt="icon" src="http://www.prestashop.com/blog/es/files/2015/06/promocion.png" width="50" height="50" /> Promoción</h2>
+<p>Aquí tenemos una <strong>carrera de fondo basada en tiempo y dinero</strong>. Cuanto más dinero inviertas, menos tiempo en tener visibilidad y al revés. Mi consejo es que mires qué hace la competencia y te marques un objetivo de visibilidad y calcules cuál es el coste para llegar a dicha visibilidad en un espacio de tiempo X y después mantenerla. Hablo de mantener visibilidad en <span style="font-style:italic">SEO, SEM, blogs</span>, notas de prensa, afiliados, etc. Las acciones de comunicación y promoción nunca pueden ser de pegar un solo disparo. Tiene que haber un continuo.</p>
+<p>Haz un <span style="font-style:italic">planning</span> también de las promociones que vas a hacer durante el año: día del padre, de la madre, del hijo y del espíritu santo, <span style="font-style:italic">Black Friday, Cyber monday</span>, San Valentín, vacaciones, Navidad, Reyes, Fin de año… y mira qué promociones hace la competencia. Un secreto: muchos basan sus promociones siempre en un descuento o en gastos de envío gratis. Cúrrate algo mejor. ¡Ah! Si no sabes por dónde empezar siempre puedes mirar este magnífico <a href="http://addons.prestashop.com/es/calendario-e-commerce/11537-calendario-e-commerce-espana.html" target="_blank">Calendario 2015 del ecommerce en España de Prestashop.com</a></p>
+<h2 style="color: #039d9a"><img style="margin-right: 2px" alt="icon" src="http://www.prestashop.com/blog/es/files/2015/06/serviciocliente.png" width="50" height="50" /> Servicio al cliente</h2>
+<p>El servicio al cliente debe ser, en resumen, <strong>lo mejor de lo mejor</strong>. Pero aquí el estudio suelo hacerlo centrándome en foros y en sistemas de opinión y blogs. Evalúo qué es lo que funciona y qué es lo que falla y cuáles son los canales de contacto que tienen con el cliente. Por ejemplo, comunicarte vía <span style="font-style:italic">Whatsapp, Line, SnapChat</span>… puede ser algo que te funcione muy bien y que la competencia no suele hacer (al principio puedes hacerlo por volumen, después ya es más complicado). No hay una fórmula secreta para esto más allá de: atiende a todo el mundo como si fueses tú.</p>
+<h2 style="color: #039d9a"><img style="margin-right: 2px" alt="icon" src="http://www.prestashop.com/blog/es/files/2015/06/recurencia.png" width="50" height="50" /> Recurrencia</h2>
+<p>Llegamos al punto final pero que <strong>dictamina totalmente lo que va a durar o no tu tienda</strong> online. La recurrencia. ¿Vendes un producto que solo se compra una vez? Tendrás una vida corta. ¿Vendes un producto recurrente? Bienvenido a un mundo de dinero cada X tiempo y de planes de incentivos: programas de puntos, premiar a mejores clientes, descuentos por recurrencia, pagos mensuales recurrentes, envíos recurrentes… es como cuando eres desarrollador y tienes a un cliente con un <span style="font-style:italic">fee</span> mensual, ese cliente te asegura X dinero cada X tiempo y eso te permite <strong>ganar un dinero fijo</strong>, estar más tranquilo, <strong>reinvertir</strong> y <strong>crecer</strong>. Aquí se trata de lo mismo, sin recurrencia no hay tienda online.</p>
+<p>Busca <strong>siempre que puedas un producto que tenga recurrencia</strong>, aunque sea cada mes o varios meses. Si buscas un producto de un solo uso y una sola compra, tu recorrido será ínfimo, a menos que logres diversificar y/o vender muchos accesorios a ese producto.</p>
+<p>Y esto es todo por hoy, nos vemos en el siguiente capítulo: Proveedores, temas legales, catálogo y plataformas de pago con más leña para el fuego <img src="http://www.prestashop.com/blog/es/wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley" /> </p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/empezando-plantear-el-proyecto-el-estudio-de-mercado/">Empezando a plantear el proyecto: el estudio de mercado</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.prestashop.com/blog/es/empezando-plantear-el-proyecto-el-estudio-de-mercado/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Desarrolla tu negocio de comercio electrónico a través de las redes sociales (Parte 1 de 2)</title>
+		<link>https://www.prestashop.com/blog/es/desarrolla-tu-negocio-de-comercio-electronico-traves-de-las-redes-sociales-parte-1-de-2/</link>
+		<comments>https://www.prestashop.com/blog/es/desarrolla-tu-negocio-de-comercio-electronico-traves-de-las-redes-sociales-parte-1-de-2/#comments</comments>
+		<pubDate>Tue, 16 Jun 2015 10:26:11 +0000</pubDate>
+		<dc:creator><![CDATA[Kate Robinson]]></dc:creator>
+				<category><![CDATA[Consejos E-commerce]]></category>
+
+		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=12958</guid>
+		<description><![CDATA[<p>Hoy le damos la bienvenida a Hanna Oeljeschläger, Social Media Coach para los países germanohablantes y Reino Unido en HootSuite. Como sabe lo difícil que resulta navegar por las redes sociales, Hanna nos desvela algunas estrategias para ayudar a los vendedores online a identificar las redes sociales más eficaces para mejorar el tráfico web y [...]</p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/desarrolla-tu-negocio-de-comercio-electronico-traves-de-las-redes-sociales-parte-1-de-2/">Desarrolla tu negocio de comercio electrónico a través de las redes sociales (Parte 1 de 2)</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p style="font-style:italic">Hoy le damos la bienvenida a Hanna Oeljeschläger, Social Media Coach para los países germanohablantes y Reino Unido en HootSuite. Como sabe lo difícil que resulta navegar por las redes sociales, Hanna nos desvela algunas estrategias para ayudar a los vendedores online a identificar las redes sociales más eficaces para mejorar el tráfico web y la comunicación con el cliente, sin perder dinero o tiempo que podrían emplearse en desarrollar sus principales actividades.</p>
+<p>En menos de una década, las redes sociales han pasado de ser un &#8220;complemento sofisticado&#8221; para un plan de negocios, a ofrecer todo un conjunto de herramientas de lo más útiles que ayudan a los comercios electrónicos a conectar con posibles clientes. Con las redes sociales, los especialistas en marketing pueden llevar a cabo una investigación exhaustiva dentro de unos segmentos objetivo definidos, crear mensajes personalizados, interactuar directamente con el público y reaccionar ante las fluctuaciones del mercado en tiempo real. Por tanto, la pregunta ya no es si debemos incluir o no las redes sociales en un plan de negocios, sino cómo hacerlo.<br />
+<span id="more-12958"></span></p>
+<h4 style="color:#3db5d0">Traspasar el ruido </h4>
+<p>Tu tienda electrónica cuenta con una o más plataformas virtuales rodeadas por el ruido que generan los competidores, los líderes de opinión y otros componentes del mercado, como los bloggers, que pueden influir notablemente en tu imagen online compartiendo experiencias positivas o negativas sobre tu marca. Ser más claro te permitirá mejorar la percepción de tu marca y establecer una reputación online positiva y duradera, garantizando la coherencia entre tu entidad corporativa y tu presencia online. </p>
+<p>Pero, ¿cómo lograr estos objetivos sin malgastar tiempo y recursos que deberían dedicarse a mejorar tu actividad principal? En esta entrada, plantearé una estrategia basada en 3 pasos para identificar aquellas redes más rentables para tu negocio y para desarrollar una estrategia comunicativa proactiva en las redes sociales más adecuadas.</p>
+<h2 style="color:#277083">1. Divide tu grupo objetivo en segmentos objetivo específicos utilizando &#8220;personalidades&#8221;</h2>
+<p>Primero, necesitarás definir el público online al que deseas llegar. Teniendo en cuenta el anonimato del mercado virtual, cuanto mejor comprendas las características del grupo objetivo, más posibilidades tendrá tu mensaje de traspasar el ruido y llegar a los segmentos que realmente te interesan. El desarrollo de “<a href="https://www.prestashop.com/blog/es/como-desarrollar-personajes-de-compradores-para-las-iniciativas-de-marketing-relacionadas-con-el-comercio-electronico-b2c/">personalidades</a>” es una manera fiable para ilustrar características que simplifica el proceso de identificación de segmentos específicos dentro de tu grupo objetivo más amplio. ¿Cómo puedes desarrollarlas para tu negocio?</p>
+<p>Utilizando, por ejemplo, la pestaña de &#8220;búsqueda&#8221; de Twitter del panel de HootSuite: una función sencilla y eficaz para establecer flujos de búsquedas. Estos flujos ayudan a identificar las características de tu grupo objetivo y lo divide en segmentos bien definidos de datos demográficos y psicográficos. Para obtener información más detallada, no dudes en preguntarles a nuestros Social Media Coaches <a href="http://ow.ly/LkUu2" target="_blank">aquí</a>.</p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/personas-1024x550.png" alt="personas" width="700" height="375" class="aligncenter size-large wp-image-20109" /></p>
+<p style="text-align:center;font-style:italic">Guía rápida para la creación de flujos de búsqueda</p>
+<p>Para ver un ejemplo de cómo los flujos de búsqueda pueden respaldar el proceso de segmentación, echemos un vistazo a <a href="http://www.sutterhome.com/" target="_blank">Sutter Home</a>. Este viñedo lanzó recientemente un negocio online, además de sus tiendas locales. En un primer paso hacia la expansión online, la dirección tuvo que delimitar su grupo objetivo existente fuera de la red en segmentos más pequeños específicos de su tienda online.</p>
+<p>También llevaron a cabo una investigación exhaustiva de las palabras clave del sector, incluyendo encuestas y realizando un seguimiento de conversaciones online, con lo que desarrollaron una personalidad específica. Los resultados de la investigación fueron agrupados en secciones y enmarcados en una imagen y nombre dentro del rango de edad de 21-30 años, lo que correspondía con la mayoría de los candidatos dentro del segmento objetivo. La personalidad, mostrada a continuación, se centró en el segmento más lucrativo dentro del grupo objetivo más amplio.</p>
+<div class="row">
+<div class="col-sm-6 col-xs-12">
+<p><strong>Grupo objetivo Online (borroso)</strong></p>
+<p>		<img src="http://www.prestashop.com/blog/es/files/2015/06/target-group.jpg" alt="target-group" width="800" height="532" class="aligncenter size-full wp-image-20110" />
+	</div>
+<div class="col-sm-6 col-xs-12">
+<p><strong>Segmento (enfocado)</strong></p>
+<p>		<img src="http://www.prestashop.com/blog/es/files/2015/06/target-segment.png" alt="target-segment" width="561" height="330" class="aligncenter size-full wp-image-20111" />
+	</div>
+</div>
+<p>Las personalidades proporcionan la base para los siguientes dos pasos: combinar las características del segmento objetivo con las herramientas de comunicación más eficaces y guiños comunicativos. Las elecciones determinan qué redes sociales son más eficaces para tu negocio de comercio electrónico.</p>
+<h2 style="color:#277083">2. Combina tu producto o servicio principal con tu kit de redes sociales</h2>
+<p>Una vez identificado tu objetivo clave, es hora de averiguar qué herramientas de comunicación precisa tu comercio electrónico según la oferta principal de tus productos o servicios. La tabla siguiente ilustra diferentes tipos de negocios y su oferta principal, junto a una sugerencia de un enfoque de comunicación y el canal de redes sociales más eficaz para transmitir ese mensaje. </p>
+<p><img src="http://www.prestashop.com/blog/es/files/2015/06/tab-es.png" alt="Support your ecommerce business with social media" width="630" height="340" class="aligncenter size-full wp-image-20116" /></p>
+<p>Esta selección está basada en las redes internacionales más amplias (Facebook, Twitter, LinkedIn, Google+, Pinterest, Instagram y Youtube), para que puedas utilizarla como guía y adaptarla a tu mercado local. Por ejemplo, ¿existe alguna red social más que desees incluir? P. ej.: Viadeo para Francia, Xing para Alemania. </p>
+<p>El ranking indica las tres redes sociales más adecuadas para promover tu producto o servicio principal en todo el mundo. Con el panel de <a href="http://ow.ly/LkW6e" target="_blank">Hootsuite</a> puedes conectar tus redes sociales para comunicarte con coherencia y de manera simultánea a través de todos los canales, así como supervisar todas las actividades y reaccionar a los cambios en el mercado en tiempo real.</p>
+<p style="font-style:italic;text-align:center">
+	¿Lo vas entendiendo? ¡Perfecto!<br />
+	Hagamos un descanso para configurar tu estrategia de comunicación social mientras esperamos el último paso fundamental que leeremos en la siguiente entrada del blog. La siguiente entrada te mostrará como destacar entre tus competidores utilizando el pack perfecto de herramientas de redes sociales.<br />
+	Prepárate empezando con la prueba gratuita de 30 días: <a href="http://ow.ly/L7QJr" target="_blank">http://ow.ly/L7QJr</a>
+</p>
+<p>Por Hanna Oeljeschläger (@HootHanna)<br />
+Social Media Coach para países germanohablantes y Reino Unido en Hootsuite</p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/desarrolla-tu-negocio-de-comercio-electronico-traves-de-las-redes-sociales-parte-1-de-2/">Desarrolla tu negocio de comercio electrónico a través de las redes sociales (Parte 1 de 2)</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.prestashop.com/blog/es/desarrolla-tu-negocio-de-comercio-electronico-traves-de-las-redes-sociales-parte-1-de-2/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
 		<title>[Estudio de caso] Cómo mejorar las conversiones mediante la personalización</title>
 		<link>https://www.prestashop.com/blog/es/estudio-de-caso-como-mejorar-las-conversiones-mediante-la-personalizacion/</link>
 		<comments>https://www.prestashop.com/blog/es/estudio-de-caso-como-mejorar-las-conversiones-mediante-la-personalizacion/#comments</comments>
@@ -51,7 +574,7 @@ Los vendedores invierten de media el 90 % de su presupuesto de marketing en atra
 <p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/estudio-de-caso-como-mejorar-las-conversiones-mediante-la-personalizacion/">[Estudio de caso] Cómo mejorar las conversiones mediante la personalización</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
 ]]></content:encoded>
 			<wfw:commentRss>https://www.prestashop.com/blog/es/estudio-de-caso-como-mejorar-las-conversiones-mediante-la-personalizacion/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
+		<slash:comments>1</slash:comments>
 		</item>
 		<item>
 		<title>Maptiteculotte.com: una idea original convertida en una historia de éxito</title>
@@ -173,356 +696,6 @@ Esta estrategia tiene varias ventajas:</p>
 <p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/diez-pasos-para-crear-las-mejores-campanas-de-correo/">Diez pasos para crear las mejores campañas de correo</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
 ]]></content:encoded>
 			<wfw:commentRss>https://www.prestashop.com/blog/es/diez-pasos-para-crear-las-mejores-campanas-de-correo/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>Parte 2: Siete temores de los clientes y cómo vencerlos</title>
-		<link>https://www.prestashop.com/blog/es/parte-2-siete-temores-de-los-clientes-y-como-vencerlos/</link>
-		<comments>https://www.prestashop.com/blog/es/parte-2-siete-temores-de-los-clientes-y-como-vencerlos/#comments</comments>
-		<pubDate>Tue, 19 May 2015 08:59:40 +0000</pubDate>
-		<dc:creator><![CDATA[Kate Robinson]]></dc:creator>
-				<category><![CDATA[Consejos E-commerce]]></category>
-
-		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=12917</guid>
-		<description><![CDATA[<p>Los compradores son ahora más perspicaces y exigentes que nunca, ya que tienen más experiencia comprando online. Del mismo modo, distinguen mejor una imitación de un producto auténtico. En la parte 2 de nuestro artículo sobre cómo responder a las reticencias de los clientes, abordamos algunas de las cuestiones prácticas que hacen dudar a los [...]</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/parte-2-siete-temores-de-los-clientes-y-como-vencerlos/">Parte 2: Siete temores de los clientes y cómo vencerlos</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></description>
-				<content:encoded><![CDATA[<p>Los compradores son ahora más perspicaces y exigentes que nunca, ya que tienen más experiencia comprando online. Del mismo modo, distinguen mejor una imitación de un producto auténtico. </p>
-<p>En la parte 2 de nuestro artículo sobre cómo responder a las reticencias de los clientes, abordamos algunas de las cuestiones prácticas que hacen dudar a los clientes a la hora de hacer el último clic para terminar su compra.<br />
-<span id="more-12917"></span></p>
-<h2 style="color:#252934">1. No sé si me gustará el producto.</h2>
-<p>El mayor inconveniente de las compras online es que no puedes sujetar y tocar los productos, darles la vuelta en tus manos o fijarte en los detalles más pequeños. Sin embargo, hay muchas cosas que puedes hacer para que tus clientes se hagan una idea bastante precisa de cómo son tus productos, y cómo los pueden llevar o usar: describe los productos explicando sus ventajas para despejar cualquier duda que pueda surgirles, e incluye diversas fotos profesionales del producto tomadas desde distintos ángulos y con varios niveles de aumento. Las opiniones de los clientes también pueden ayudar a los compradores a hacerse una idea del producto. Piensa también en mostrar de alguna forma el tamaño y la escala de los productos. </p>
-<p><img src="http://www.prestashop.com/blog/es/files/2015/05/eatingtools-1024x685.jpg" alt="eatingtools" width="700" height="468" class="aligncenter size-large wp-image-20012" /></p>
-<p><span style="font-style:italic"><a href="https://www.eatingtools.com/" target="_blank">Eatingtools</a> ilustra estupendamente sus productos y describe muy bien cómo y en qué situaciones se pueden usar.</span></p>
-<h2 style="color:#252934">2. Es posible que no llegue a tiempo&#8230; o nunca.</h2>
-<p>Asóciate con agencias de transporte de confianza, reconocidas por su puntualidad, y publícalo claramente en tu página web. Dales a tus clientes la opción de realizar el seguimiento de sus paquetes. Es algo que aprecian mucho, sobre todo cuando se trata de pedidos cuya puntualidad es crucial. Si no logras cumplir un plazo de entrega o se extravía un paquete, aprovecha la oportunidad para hacer gala de un excelente servicio de atención al cliente ofreciendo una sustitución, un regalo o un descuento considerable en su próxima compra. Publica tus garantías de envío de forma clara y en un lugar bien visible. </p>
-<p><img src="http://www.prestashop.com/blog/es/files/2015/05/sweet_isabelle-1024x346.jpg" alt="sweet_isabelle" width="700" height="236" class="aligncenter size-large wp-image-20059" /></p>
-<p><span style="font-style:italic"><a href="http://www.sweetisabelle.com/" target="_blank">Sweet Isabelle</a> informa a sus clientes de que recibirán un número de seguimiento en cuanto se procese y envíe su pedido.</span></p>
-<h2 style="color:#252934">3. Si no me gusta, me lo tendré que quedar.</h2>
-<p>Una política de cambios y devoluciones clara es la mejor forma de solucionar este problema. Si puedes ofrecer envíos y devoluciones gratis, aún mejor. Pero asegúrate de que la empresa puede asumir el coste añadido que supone. Sea cual sea la política que elijas, asegúrate de que sea fácil de comprender, no utilices una jerga confusa. Es importante que esté bien visible en tu página web. </p>
-<p><img src="http://www.prestashop.com/blog/es/files/2015/05/smallable-1024x715.jpg" alt="smallable" width="700" height="488" class="aligncenter size-large wp-image-20058" /></p>
-<p><span style="font-style:italic">La política de devoluciones de <a href="http://en.smallable.com/" target="_blank">Smallable</a> es clara y completa.</span> </p>
-<h2 style="color:#252934">4. No tendré ayuda si la necesito.</h2>
-<p>El servicio de atención al cliente es un componente crucial de un negocio de e-commerce; puede que aún más que en una tienda física. Como no tratas en persona con tus clientes, tienes que solucionar los problemas desde la distancia. Según tu presupuesto y tus recursos, tienes unas cuantas opciones para dar un buen servicio al cliente. </p>
-<p>Empieza con unas sencillas <strong>preguntas frecuentes</strong> que resuelvan las dudas más importantes —y las menos importantes también, ¡claro!— que puedan tener tus clientes sobre tus productos, tu política de devoluciones, dónde y/o cómo se fabrican tus productos, etc.<br />
-Si dispones de los recursos necesarios, pon un número de teléfono a disposición del cliente. El <strong>chat online</strong> es otra forma de hacer saber a tus clientes que estás a su servicio.</p>
-<p>Asegúrate de que puedes cumplir tu promesa de atención al cliente. </p>
-<p><img src="http://www.prestashop.com/blog/es/files/2015/05/maspatule-1024x570.png" alt="maspatule" width="700" height="389" class="aligncenter size-large wp-image-20014" /></p>
-<p><span style="font-style:italic"><a href="http://www.maspatule.com/" target="_blank">MaSpatule.com</a> indica claramente su número de atención al cliente y sus garantías. Tampoco está mal destacar unas prestigiosas agencias de transporte y sus políticas.</span></p>
-<p><img src="http://www.prestashop.com/blog/es/files/2015/05/mamy_factory-1024x542.jpg" alt="mamy_factory" width="700" height="370" class="aligncenter size-large wp-image-20013" /></p>
-<p><span style="font-style:italic">Las preguntas frecuentes de <a href="http://www.mamyfactory.com/en/" target="_blank">Mamy Factory</a> responden a todo tipo de cuestiones: desde las políticas de trabajo hasta los materiales utilizados.</span></p>
-<p>¿Con qué otras reticencias de los clientes te has encontrado? ¡Cuéntanoslo! ¿Estás preparado para poner en marcha tu tienda online? Visita la web de <a href="https://www.prestashop.com/">PrestaShop</a> hoy mismo.</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/parte-2-siete-temores-de-los-clientes-y-como-vencerlos/">Parte 2: Siete temores de los clientes y cómo vencerlos</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></content:encoded>
-			<wfw:commentRss>https://www.prestashop.com/blog/es/parte-2-siete-temores-de-los-clientes-y-como-vencerlos/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>Seis sencillas sugerencias para tu página &#8220;Sobre nosotros&#8221;</title>
-		<link>https://www.prestashop.com/blog/es/seis-sencillas-sugerencias-para-tu-pagina-sobre-nosotros/</link>
-		<comments>https://www.prestashop.com/blog/es/seis-sencillas-sugerencias-para-tu-pagina-sobre-nosotros/#comments</comments>
-		<pubDate>Mon, 18 May 2015 08:44:57 +0000</pubDate>
-		<dc:creator><![CDATA[Julie Liu]]></dc:creator>
-				<category><![CDATA[Consejos E-commerce]]></category>
-
-		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=12899</guid>
-		<description><![CDATA[<p>Si te pasa como a la mayoría de los escritores, te parecerá imposible escribir sobre ti mismo. Puedes pasarte todo el día delante de una página en blanco: con solo pensar en contar algo sobre ti, te bloqueas. Por eso tu página &#8220;Sobre nosotros&#8221; sigue sin estar acabada… de momento. Hoy te traemos seis sencillas [...]</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/seis-sencillas-sugerencias-para-tu-pagina-sobre-nosotros/">Seis sencillas sugerencias para tu página &#8220;Sobre nosotros&#8221;</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></description>
-				<content:encoded><![CDATA[<p>Si te pasa como a la mayoría de los escritores, te parecerá imposible escribir sobre ti mismo. Puedes pasarte todo el día delante de una página en blanco: con solo <span style="font-style:italic">pensar</span> en contar algo sobre ti, te bloqueas. Por eso tu página &#8220;Sobre nosotros&#8221; sigue sin estar acabada… de momento.</p>
-<p>Hoy te traemos seis sencillas ideas para el contenido de la página que habla sobre tu empresa. ¿No sabes sobre qué escribir? No te preocupes, veremos varios ejemplos. ¿Tienes un texto demasiado largo? Te planteamos unas cuantas preguntas que te ayudarán a resumirlo. Sigue leyendo e inspírate en estas ideas para redactar o actualizar el contenido de tu página &#8220;Sobre nosotros&#8221;. ¡La tendrás lista en un abrir y cerrar de ojos!</p>
-<p><span id="more-12899"></span><br />
-Antes de empezar a pensar en la redacción, tienes que <a href="https://www.prestashop.com/blog/es/como-desarrollar-personajes-de-compradores-para-las-iniciativas-de-marketing-relacionadas-con-el-comercio-electronico-b2c/">identificar a tu público</a>. La página &#8220;Sobre nosotros&#8221; de tu tienda online debe dirigirse a los clientes que quieren conocer mejor tu marca. ¡Piensa siempre en ese destinatario cuando estés escribiendo!</p>
-<h2 style="color:#4d8ab7">1. Cuenta la historia de la empresa</h2>
-<p>La forma más fácil de empezar es contar cómo nació tu tienda. Y no importa si llevas mucho tiempo en el negocio o acabas de abrir: siempre funciona. Ve al origen y habla sobre los fundadores originales y sus motivos para poner en marcha la tienda. Si tu historia es demasiado larga, divídela en hitos importantes y crea una línea temporal. ¿Recuerdas demasiados acontecimientos clave? Escoge aquellos que más interesen a tu público. Por ejemplo: puede que a ti te parezca muy relevante tu fecha de incorporación a la empresa pero&#8230; ¿es importante para tus clientes?</p>
-<p>Si acabas de crear tu tienda, no te inventes una historia falsa. Nada inspira tan poca confianza como un vendedor que miente. En lugar de centrarte en tu historia, puedes destacar tu vida profesional o personal&#8230; siempre y cuando esté relacionada con la trayectoria de tu tienda. Si no es así, simplemente no incluyas esta sección.</p>
-<h2 style="color:#4d8ab7">2. Comparte tu pasión</h2>
-<p>Hazte estas dos preguntas: &#8220;¿Qué me apasiona de lo que hago?&#8221; y &#8220;¿Por qué?&#8221;</p>
-<p>En realidad, ya lo sabes, solo tienes que contárselo a tus clientes. Si no estás muy seguro de por qué vendes los artículos que has seleccionado, párate a pensar hasta que lo descubras. No importa qué te gusta o por qué, siempre habrá alguien que comparta tu pasión… si es auténtica. Así que, si no estás seguro de tu respuesta, ¡no te la inventes!</p>
-<p>Cuando explicas lo que te lleva a disfrutar de tu trabajo, estás humanizando la experiencia de compra. El cliente siente que no está comprando en una web cualquiera&#8230; sino en el sitio de una persona con la que comparte gustos o aficiones.</p>
-<h2 style="color:#4d8ab7">3. Explica la visión o misión de la empresa</h2>
-<p>Si ofreces productos o servicios &#8220;revolucionarios&#8221;, ¡tienes que explicar la misión o la visión de tu empresa! Aprovecha la oportunidad para contarle al cliente qué problema puede solucionarle tu oferta. Después, indica cuáles son tus expectativas para el futuro de la empresa: contribuye a transmitir a los clientes potenciales la idea que sustenta tu negocio. Si tus productos no les convencen del todo, ¡es tu última oportunidad para convencerles!</p>
-<p>¿Tu catálogo no incluye productos novedosos? Destacar la misión o la visión de tu empresa te ayudará a definir el perfil de la tienda. Y no lo olvides: si añades este apartado, tiene que ser pertinente para el lector.</p>
-<h2 style="color:#4d8ab7">4. Menciona a tus socios comerciales</h2>
-<p>¿Trabajas con empresas importantes? Déjalo claro y te beneficiarás de su credibilidad. ¡Pero no olvides pedir permiso para usar sus logos! Por ejemplo, puedes hacer referencia a:</p>
-<ul style="padding-left:30px">
-<li><strong>Inversores</strong> – Cualquier firma o persona que haya puesto dinero en tu empresa.</li>
-<li><strong>Proveedores</strong> – Las empresas a las que compras tus productos.</li>
-<li><strong>Fabricantes</strong> – Las firmas o marcas que fabrican tus productos.</li>
-<li><strong>Distribuidores</strong> – Empresas que venden tus productos en una tienda física.</li>
-<li><strong>Publicaciones</strong> – Cualquier publicación en la que haya aparecido tu empresa.</li>
-<li><strong>Organizaciones sin ánimo de lucro</strong> – Incluye cualquier organización a la que dones o con la que colabores activamente.</li>
-</ul>
-<p>Recuerda que esta página es un escaparate de tu tienda: ¡Habla solo sobre las empresas que contribuyan a transmitir la imagen que quieres para tu empresa!</p>
-<h2 style="color:#4d8ab7">5. Testimonios</h2>
-<p>Si eres de los que borran los cumplidos&#8230; deja de hacerlo. Las opiniones positivas de compradores son muy valiosas para conseguir nuevos clientes. Si alguien te felicita, da las gracias y (si te parece oportuno) pídele permiso para publicar su testimonio. </p>
-<p>¿Nadie te ha enviado aún su opinión? No pasa nada por pedírsela a alguien. ¿No sabes cuál es el momento oportuno para hacerlo? Por ejemplo, cuando hables con un cliente satisfecho. Recuerda que los testimonios no siempre son reseñas al estilo clásico.</p>
-<p>Puedes pedir a tus clientes que te <span style="font-style:italic">sigan</span> en las redes sociales para ampliar tu presencia virtual. Las opiniones de personas ajenas a tu tienda contribuyen a mejorar tu credibilidad&#8230; y transmiten confianza a clientes potenciales.</p>
-<h2 style="color:#4d8ab7">6. Imágenes</h2>
-<p>Usa imágenes para <span style="font-style:italic">enseñar</span> a tus clientes cómo es tu empresa. Puedes centrarte en el equipo que gestiona tu sitio web, en tu espacio de trabajo o en la mascota de tu tienda: lo importante es transmitir una imagen real de tu empresa. ¡Incluye siempre pies de foto! Así te asegurarás de que los clientes entienden claramente el mensaje.</p>
-<p>¿Quieres que tu página &#8220;Sobre nosotros&#8221; destaque por sus imágenes? Perfecto, pero intenta que los gráficos no le roben protagonismo a la información. Usa las imágenes estratégicamente para destacar lo importante&#8230; ¡y para conectar con el cliente!</p>
-<h2 style="color:#4d8ab7">Principales conclusiones</h2>
-<p>Las páginas de tipo &#8220;Sobre nosotros&#8221; ayudan a la empresa a conectar con sus clientes. Puedes empezar con cualquiera de estas ideas. Pero recuerda:</p>
-<ul style="padding-left:30px">
-<li>Cuenta tu historia desde el principio.</li>
-<li>Dale un lugar privilegiado a tu pasión.</li>
-<li>Comparte tus sueños y esperanzas a través de tu visión.</li>
-<li>Benefíciate de la fiabilidad de tus socios.</li>
-<li>Inspira confianza con opiniones de clientes.</li>
-<li>Usa imágenes para <span style="font-style:italic">ilustrar</span> tu historia.</li>
-</ul>
-<p>¿Listo para actualizar la página &#8220;Sobre nosotros&#8221; de tu tienda online? ¿A qué esperas? Desde el back-office de PrestaShop, entra en Preferencias &gt; CMS &gt; Sobre nosotros. ¿Necesitas algún ejemplo? Los encontrarás en el <a href="https://www.prestashop.com/es/exhibicion">escaparate de tiendas PrestaShop</a>. Déjanos un comentario para contarnos cuál te ha gustado más.</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/seis-sencillas-sugerencias-para-tu-pagina-sobre-nosotros/">Seis sencillas sugerencias para tu página &#8220;Sobre nosotros&#8221;</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></content:encoded>
-			<wfw:commentRss>https://www.prestashop.com/blog/es/seis-sencillas-sugerencias-para-tu-pagina-sobre-nosotros/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>Cinco motivos por los que tu tienda online necesita un dominio personalizado</title>
-		<link>https://www.prestashop.com/blog/es/cinco-motivos-por-los-que-tu-tienda-online-necesita-un-dominio-personalizado/</link>
-		<comments>https://www.prestashop.com/blog/es/cinco-motivos-por-los-que-tu-tienda-online-necesita-un-dominio-personalizado/#comments</comments>
-		<pubDate>Wed, 13 May 2015 16:23:31 +0000</pubDate>
-		<dc:creator><![CDATA[Julie Liu]]></dc:creator>
-				<category><![CDATA[Asociados PrestaShop]]></category>
-
-		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=12891</guid>
-		<description><![CDATA[<p>Cuando abres una tienda online con PrestaShop, te damos un nombre de dominio gratuito del tipo: [NombreTienda].PSwebstore.com. Aunque sirve perfectamente para que los visitantes lleguen a tu tienda, puede que hayas pensado en tener un dominio propio. ¿No acabas de decidirte? Descubre los cinco motivos por los que tu tienda online necesita un dominio personalizado. [...]</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/cinco-motivos-por-los-que-tu-tienda-online-necesita-un-dominio-personalizado/">Cinco motivos por los que tu tienda online necesita un dominio personalizado</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></description>
-				<content:encoded><![CDATA[<p>Cuando abres una tienda online con PrestaShop, te damos un nombre de dominio gratuito del tipo: [NombreTienda].PSwebstore.com. Aunque sirve perfectamente para que los visitantes lleguen a tu tienda, puede que hayas pensado en tener un dominio propio. ¿No acabas de decidirte? Descubre los cinco motivos por los que tu tienda online necesita un dominio personalizado.<br />
-<span id="more-12891"></span></p>
-<h2 style="color:#4e8999">Imagen profesional</h2>
-<p>Dicen que la primera impresión es la que cuenta. Para llegar a tu sitio web, el cliente debe introducir una dirección. Puede que [NombreTienda].PSwebstore.com sea muy descriptivo&#8230; pero no parece profesional. Ponte en el lugar del cliente. ¿Cuánto dinero gastarías en una tienda alojada en el dominio PSwebstore? </p>
-<p>Un nombre de dominio personalizado le da credibilidad a tu tienda online. Puedes cambiar la dirección [NombreTienda].PSwebstore.com por www. [NombreTienda].com. No es fácil hacerse con un buen nombre que inspire confianza, ¡no desperdicies esta oportunidad! </p>
-<h2 style="color:#4e8999">Correo profesional</h2>
-<p>La siguiente razón clave por la que debes tener un dominio personalizado es disponer de una dirección de correo de trabajo. Además de dar una imagen profesional, demuestras a tu socios potenciales que has invertido mucho tiempo y esfuerzo en tu tienda. Ahora, ponte en el lugar de un posible socio. ¿Preferirías recibir un correo de mar@nombretienda.com o MarTienda@gmail.com? </p>
-<p>¿No lo tienes claro? ¿Te gustaría trabajar con una persona que te escribe desde contacto@nombretienda.com o desde PrestaShopcontacto@aol.com? Puede parecer una menudencia, pero tener una dirección profesional puede ser determinante para conseguir socios&#8230; y para que te tomen por un emprendedor serio.</p>
-<h2 style="color:#4e8999">Optimización para buscadores</h2>
-<p>Seguro que has oído hablar hasta la saciedad de <a href="https://www.prestashop.com/blog/es/como-encontrar-las-palabras-clave-adecuadas-para-tu-tienda-online-la-guia-de-palabras-clave-para-seo-primera-parte/">la importancia del SEO</a> para tu tienda online. Pero lo que puede que no sepas es que un nombre de dominio personalizado mejora el SEO. ¿Por qué? Para empezar, ninguno de tus clientes te buscará por &#8220;PSwebstore&#8221;. Un dominio bien seleccionado contribuirá a que subas posiciones en tus palabras clave. </p>
-<p>Por otra parte, el objetivo del SEO no es otro que guiar a tus clientes para que lleguen a tu tienda. Un dominio personalizado te ayuda a publicitar tu tienda y tu marca… ¡y a diferenciarte de la competencia para que los compradores te encuentren antes a ti! Escoge un nombre de dominio pertinente con buenas palabras clave: aparecerá en <span style="font-style:italic">todas</span> las páginas de producto. </p>
-<h2 style="color:#4e8999">Protección para tu marca</h2>
-<p>Es casi imposible (o al menos carísimo) comprar un dominio que ya tiene dueño. Puedes seguir estos <a href="https://blog.asmallorange.com/2013/07/how-to-buy-a-domain-name-thats-already-taken/" target="_blank">pasos para intentar conseguir el dominio</a> que quieres&#8230; pero no hay garantías de éxito. Así que, recuerda: antes de empezar a promocionar una marca, ¡asegúrate de que ese nombre de dominio esté libre! </p>
-<p>Fíjate en el caso de mi marca de gafas de sol favorita, Sun Bum. En una ocasión busqué <a href="http://sunbum.com/" target="_blank">SunBum.com</a> y me encontré con un dominio aparcado. Pensé que simplemente no tenían tienda online, pero después descubrí que sí estaban en Internet&#8230; con la dirección <a href="http://trustthebum.com/" target="_blank">http://trustthebum.com/</a>. En lugar de usar el nombre de la marca como URL, habían usado su eslogan. ¿Crees que todos sus clientes serán capaces de deducirlo? Si estás creando una marca, usa tu nombre. Te beneficiarás del tráfico que generes y podrás imponer tu mensaje de marca. </p>
-<h2 style="color:#4e8999">Relativamente barato</h2>
-<p>&#8220;Vale, todas parecen buenas razones pero, ¿cuánto cuesta?&#8221; Buena pregunta. Si ya tienes una tienda PrestaShop, puedes comprar un dominio por 16,66 dólares (más impuestos) al año. ¿Te parece demasiado? ¡Piensa que es lo que te gastarías en tres o cuatro copas! Y recuerda que si lo dejas y luego quieres un dominio que ya tiene propietario, te saldrá mucho más caro. En 2013, el <a href="http://www.forbes.com/sites/martinzwilling/2013/01/14/get-a-domain-name-without-bankrupting-your-startup/" target="_blank">coste medio de un dominio ya reservado era de 5.000 dólares</a>.</p>
-<p>Si cuentas con un presupuesto ajustado, compra solo el nombre de dominio (sin alojamiento). Cuando tengas más beneficios, añade el alojamiento y empieza a crear tu presencia online. (¡O abre tu tienda <a href="http://www.prestashop.com/">con PrestaShop Cloud</a> ya alojada!)</p>
-<h2 style="color:#4e8999">En resumen</h2>
-<p>Un nombre de dominio personalizado es una forma asequible de dar una imagen profesional, optimizar tu tienda para buscadores y, lo que es más importante, proteger tu marca.</p>
-<hr width="20%" align="left" />
-¿Ya estás convencido de que tu tienda necesita un nombre de dominio personalizado? ¡Que comience la lluvia de ideas! No olvides consultar este artículo sobre <a href="https://www.prestashop.com/blog/es/como-escoger-el-mejor-nombre-de-dominio-para-tu-tienda-online/">cómo elegir el dominio adecuado para tu tienda online</a>. Cuando lo hayas decidido, entra en tu cuenta <a href="http://prestashop.com/">PrestaShop.com</a> para registrar y comprar el nombre del dominio.</p>
-<p>¿Aún no vendes online? ¡Empieza a vender online con el software de carrito de la compra gratuito y con alojamiento de PrestaShop!</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/cinco-motivos-por-los-que-tu-tienda-online-necesita-un-dominio-personalizado/">Cinco motivos por los que tu tienda online necesita un dominio personalizado</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></content:encoded>
-			<wfw:commentRss>https://www.prestashop.com/blog/es/cinco-motivos-por-los-que-tu-tienda-online-necesita-un-dominio-personalizado/feed/</wfw:commentRss>
-		<slash:comments>3</slash:comments>
-		</item>
-		<item>
-		<title>E-commerce para principiantes: Cómo elegir el alojamiento adecuado para tu tienda online</title>
-		<link>https://www.prestashop.com/blog/es/e-commerce-para-principiantes-como-elegir-el-alojamiento-adecuado-para-tu-tienda-online/</link>
-		<comments>https://www.prestashop.com/blog/es/e-commerce-para-principiantes-como-elegir-el-alojamiento-adecuado-para-tu-tienda-online/#comments</comments>
-		<pubDate>Tue, 12 May 2015 14:53:03 +0000</pubDate>
-		<dc:creator><![CDATA[Julie Liu]]></dc:creator>
-				<category><![CDATA[Consejos E-commerce]]></category>
-
-		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=12878</guid>
-		<description><![CDATA[<p>¿Vas a abrir una tienda online? Una de las primeras cosas en las que debes pensar es qué tipo de alojamiento quieres. Con PrestaShop, tienes dos opciones: usar nuestra versión con alojamiento Cloud o descargar el software en otro servidor. Vamos a repasar todo lo que debes tener en cuenta a la hora de seleccionar [...]</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/e-commerce-para-principiantes-como-elegir-el-alojamiento-adecuado-para-tu-tienda-online/">E-commerce para principiantes: Cómo elegir el alojamiento adecuado para tu tienda online</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></description>
-				<content:encoded><![CDATA[<p>¿Vas a abrir una tienda online? Una de las primeras cosas en las que debes pensar es qué tipo de alojamiento quieres. Con PrestaShop, tienes dos opciones: usar nuestra versión con alojamiento Cloud o descargar el software en otro servidor. Vamos a repasar todo lo que debes tener en cuenta a la hora de seleccionar un proveedor de alojamiento para tu sitio de e-commerce. </p>
-<p>Joe Siwiak, desarrollador de PrestaShop, nos explica los puntos clave del alojamiento. Sigue leyendo y decide cuál es la mejor alternativa para tu tienda.<br />
-<span id="more-12878"></span><br />
-Existen tres tipos principales de alojamientos: compartido, VPS y dedicado. </p>
-<p><img src="http://www.prestashop.com/blog/es/files/2015/05/Shared-Hosting.jpg" alt="Shared Hosting" width="796" height="500" class="aligncenter size-full wp-image-20021" /></p>
-<h2 style="color: #25b9d7">Alojamiento compartido</h2>
-<p>Como sugiere su nombre, compartirás alojamiento con otros sitios web. Puede ser la opción más económica&#8230; pero tiene sus desventajas. La más importante es que, al ser compartido, la cantidad de tráfico que puede recibir tu tienda en un momento concreto es limitada. Es magnífico para empezar, pero si esperas recibir mucho tráfico, no es para ti. ¿Qué pasa cuando llegas al límite? La mayoría de los proveedores reducen (o ralentizan) la velocidad a la que se carga tu sitio. </p>
-<p>Otro inconveniente: el hecho de que otro de los sitios que comparten tu alojamiento necesite muchos datos repercute en el rendimiento de tu web. </p>
-<p><img src="http://www.prestashop.com/blog/es/files/2015/05/VPS-Hosting.jpg" alt="VPS Hosting" width="796" height="500" class="aligncenter size-full wp-image-20022" /></p>
-<h2 style="color: #25b9d7">Alojamiento VPS</h2>
-<p>La principal diferencia entre el alojamiento en un servidor virtual privado (VPS) y el compartido es que el primero tiene recursos exclusivos para tu sitio web. Compartes alojamiento con otros sitios, pero cada uno tiene sus propios recursos asignados. ¿Y eso que significa? Que tú controlas el mantenimiento y el rendimiento de tu tienda. Además, el tráfico de los demás sitios web no te afecta.</p>
-<p><img src="http://www.prestashop.com/blog/es/files/2015/05/Dedicated-Hosting.jpg" alt="Dedicated Hosting" width="796" height="500" class="aligncenter size-full wp-image-20018" /></p>
-<h2 style="color: #25b9d7">Alojamiento dedicado</h2>
-<p>Es una de las mejores opciones de alojamiento. Tu sitio se aloja en un servidor individual así que tienes total control tanto sobre tu sitio como sobre el servidor. Es más caro que el VPS, pero solo pagas el espacio y las funciones que necesitas. </p>
-<p>No hay que olvidar que para controlar tu propio servidor puedes necesitar especialistas en TI dedicados al mantenimiento. Tranquilo, no pasa nada: la mayoría de los alojamientos dedicados ofrecen alternativas &#8220;sin gestión&#8221; o &#8220;gestionadas&#8221;. Este servicio es útil para los que comprenden los conceptos sobre administración de sistemas&#8230; pero no necesariamente la sintaxis de ese sistema operativo concreto. </p>
-<p>Independientemente del tipo de alojamiento que escojas, comprueba estos cinco puntos: </p>
-<ol>
-<li>Todos los ordenadores tienen una <strong>CPU (unidad de procesamiento central)</strong> encargada de procesar los datos. ¿Y que es un proveedor de alojamiento sino una red de ordenadores con gran capacidad de almacenamiento? Eso quiere decir que la CPU de tu proveedor determinará la velocidad de procesamiento de tu sitio web. Los internautas quieren rapidez, así que tu alojamiento debe tener una CPU potente.</li>
-<li>El término <strong>RAM (memoria de acceso aleatorio)</strong> hace referencia a los datos temporales guardados en el servidor. La RAM es la parte &#8220;viva&#8221; del sistema. Se usa para almacenar datos que hay procesar o a los que hay que acceder inmediatamente. Es el intermediario que recibe las instrucciones de un comando (clic) y le dice a la CPU qué hay que procesar. ¡Con una RAM lenta hasta la CPU más rápida irá como una tortuga! Tener una buena RAM es esencial si quieres trabajar cómodamente con tu tienda y que tus clientes no se aburran de esperar mientras navegan por tu web.</li>
-<li>La <strong>memoria de almacenamiento</strong> es la cantidad de datos que se pueden guardar en tu alojamiento. En el caso de una tienda online, esos datos pueden ser el software PrestaShop, los datos de pedidos y clientes o incluso las fotos de los productos. (Instalar el software PrestaShop requiere 23 MB de memoria).</li>
-<li>El <strong>acceso a los archivos (E/S)</strong> mide la velocidad a la que se procesan los archivos. El tema por defecto de PrestaShop se basa en la tecnología de plantillas SMARTY: las plantillas html se guardan como archivos y se compilan cuando es necesario, de modo que se reduce el procesamiento necesario en función del usuario. La plantilla se adapta a la configuración de tu tienda y con nuestra función de edición puedes modificar colores y textos. La capacidad de tu alojamiento para mostrar el tema de tu tienda depende de lo rápido que se ensamblen los archivos.</li>
-<li>La <strong>velocidad de acceso a la red</strong> es la velocidad a la que se transfieren los datos desde el servidor al ordenador del cliente. El servidor de alojamiento procesa los datos y luego se los envía al usuario (tú o tu cliente)&#8230; por lo que la velocidad de envío es esencial. Sin una buena velocidad de acceso a la red, tu sitio se cargará muy despacio. ¡No solo perderás clientes potenciales, también mucho tiempo intentando entrar en tu propio sitio!</li>
-</ol>
-<p>Ahora que ya sabes qué tienes que buscar en un proveedor de alojamiento, decide cuál es el más adecuado para tu tienda. Puedes empezar con nuestra lista de <a href="https://www.prestashop.com/es/ecommerce-hosting">socios de alojamiento</a>. </p>
-<p>Si buscar tu propio alojamiento te parece complicado, ¡prueba nuestra versión alojada y <span style="font-style:italic">gratuita</span> <a href="https://www.prestashop.com/es/software-ecommerce">PrestaShop Cloud</a>.</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/e-commerce-para-principiantes-como-elegir-el-alojamiento-adecuado-para-tu-tienda-online/">E-commerce para principiantes: Cómo elegir el alojamiento adecuado para tu tienda online</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></content:encoded>
-			<wfw:commentRss>https://www.prestashop.com/blog/es/e-commerce-para-principiantes-como-elegir-el-alojamiento-adecuado-para-tu-tienda-online/feed/</wfw:commentRss>
-		<slash:comments>1</slash:comments>
-		</item>
-		<item>
-		<title>eCOMexpo &amp; OMExpo convierten a Madrid en el centro del negocio digital</title>
-		<link>https://www.prestashop.com/blog/es/ecomexpo-omexpo-convierten-madrid-en-el-centro-del-negocio-digital/</link>
-		<comments>https://www.prestashop.com/blog/es/ecomexpo-omexpo-convierten-madrid-en-el-centro-del-negocio-digital/#comments</comments>
-		<pubDate>Tue, 05 May 2015 16:27:05 +0000</pubDate>
-		<dc:creator><![CDATA[Bertrand Amaraggi]]></dc:creator>
-				<category><![CDATA[Eventos]]></category>
-
-		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=12873</guid>
-		<description><![CDATA[<p>PrestaShop y sus partners, eBay e Innova Deluxe, estarán presentes en eCOMexpo Madrid y os dan la bienvenida en el stand número F14-G17. Te invitamos a visitarnos para obtener consejos sobre cómo desarrollar tu negocio online con PrestaShop. La feria tendrá lugar los próximos días 27 y 28 de mayo en el pabellón 5 de [...]</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/ecomexpo-omexpo-convierten-madrid-en-el-centro-del-negocio-digital/">eCOMexpo &amp; OMExpo convierten a Madrid en el centro del negocio digital</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></description>
-				<content:encoded><![CDATA[<p>PrestaShop y sus partners, <a href="https://www.prestashop.com/es/asociados-de-industria/marketplaces/ebay">eBay</a> e <a href="https://www.prestashop.com/es/asociados-agencia-web/bronce/innovadeluxe">Innova Deluxe</a>, estarán presentes en <strong>eCOMexpo Madrid</strong> y os dan la bienvenida en el stand número F14-G17. Te invitamos a visitarnos para obtener consejos sobre cómo desarrollar tu negocio online con PrestaShop.</p>
-<p>La feria tendrá lugar los próximos días <strong>27 y 28 de mayo en el pabellón 5 de Feria de Madrid</strong>, donde se reunirán los mejores profesionales del marketing online y del comercio electrónico.<br />
-240 empresas participantes y más de 250 ponentes nacionales e internacionales se reunirán en el evento más importante del Sur de Europa y por el que se estima pasarán más de <strong>9.000 visitantes</strong>.<br />
-<span id="more-12873"></span><br />
-Expositores y patrocinadores como <strong>Nivoria, Criteo, Experian, Convertsion, Rocket Fuel, Magnolia, Yahoo!, Emailingnetwork, Correos, Teads, Mastercard</strong> o <strong>Visa</strong> estarán también presentes en el evento.    </p>
-<h2 style="color:#006db2">Un Congreso internacional reuniendo los actores mayores del ecommerce</h2>
-<p>Ponentes internacionales y nacionales como Giuseppe Tamola de <strong>Zalando</strong>, Alistair Cotterill de <strong>Instagram</strong>, Joshua Graff de <strong>LinkedIn</strong>, Christophe Baroux de <strong>Google</strong>, Javier Lasa del <strong>Grupo Prisa</strong>, Eva Garcia de <strong>KPMG</strong> entre muchos otros estarán en la sala ‘<strong>Keynote Convertsion</strong>’.</p>
-<p>Bertrand Amaraggi, Country Manager España, ofrecerá una presentación sobre <a href="http://www.easyfairs.com/?74081" target="_blank">cómo empezar en eCommerce</a> el jueves 27 de mayo de 13:15 a 13:35, sala Correos.</p>
-<ul>
-<li><strong>Instagram, Linkedin, Google, Samsung</strong> o <strong>Zalando</strong> son algunas de las compañías que presentarán sus ponencias en el Congreso</li>
-</ul>
-<h2 style="color:#006db2">Novedades y animaciones de la feria</h2>
-<p>Entre las principales <strong>novedades</strong> de la edición 2015, destacan la sala dedicada al universo <strong>Big Data</strong> y el espacio exclusivo para celebrar <strong>reuniones 1 to 1</strong>, donde empresas y anunciantes podrán negociar directamente. Además, <strong>Omexpo &amp; eCOMExpo</strong> celebrarán una <strong>gran fiesta</strong> que tendrá lugar la tarde del 26 de mayo, y se perfila ya como el gran evento social del sector. </p>
-<p>Por otra parte, el <strong>Debate Hall</strong>, patrocinado por <strong>Rocket Fuel</strong>, estará dedicado un año más a debates interactivos sobre <strong>gamificación, mobile marketing, publicidad nativa, content marketing, branded content, retail, wereables, mobile commerce</strong> o <strong>millenials</strong> y su consumo de contenidos digitales entre otros temas. Los <strong>foros temáticos, seminarios</strong>, zonas de <strong>networking</strong> y otras salas especializadas completan la gran oferta de contenidos sobre marketing digital y el ecommerce. </p>
-<p>Para más información del evento: <a href="http://www.ecom-expo.com/" target="_blank">www.ecom-expo.com/</a></p>
-<p>Regístrate: <a href="https://registration.n200.com/survey/3tz6l1qd1xkae/register?actioncode=NTWO000011NVI" target="_blank">https://registration.n200.com/survey/3tz6l1qd1xkae/register?actioncode=NTWO000011NVI</a></p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/ecomexpo-omexpo-convierten-madrid-en-el-centro-del-negocio-digital/">eCOMexpo &amp; OMExpo convierten a Madrid en el centro del negocio digital</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></content:encoded>
-			<wfw:commentRss>https://www.prestashop.com/blog/es/ecomexpo-omexpo-convierten-madrid-en-el-centro-del-negocio-digital/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>Primera parte: Siete temores de los clientes y cómo vencerlos</title>
-		<link>https://www.prestashop.com/blog/es/primera-parte-siete-temores-de-los-clientes-y-como-vencerlos/</link>
-		<comments>https://www.prestashop.com/blog/es/primera-parte-siete-temores-de-los-clientes-y-como-vencerlos/#comments</comments>
-		<pubDate>Tue, 05 May 2015 08:25:21 +0000</pubDate>
-		<dc:creator><![CDATA[Kate Robinson]]></dc:creator>
-				<category><![CDATA[Consejos E-commerce]]></category>
-
-		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=12858</guid>
-		<description><![CDATA[<p>El e-commerce ya no es aquel territorio desconocido que fue: los clientes están acostumbrados a comprar, o al menos a buscar, online. Pero eso no significa que no les preocupen el robo de sus datos de pago o los costes ocultos. En este artículo doble repasamos siete puntos que inquietan a los clientes… y te [...]</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/primera-parte-siete-temores-de-los-clientes-y-como-vencerlos/">Primera parte: Siete temores de los clientes y cómo vencerlos</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></description>
-				<content:encoded><![CDATA[<p>El e-commerce ya no es aquel territorio desconocido que fue: los clientes están acostumbrados a comprar, o al menos a buscar, online. Pero eso no significa que no les preocupen el robo de sus datos de pago o los costes ocultos.</p>
-<p>En este artículo doble repasamos siete puntos que inquietan a los clientes… y te damos ideas para despejar todas las dudas desde el primer clic hasta el pago.</p>
-<p><span id="more-12858"></span></p>
-<h2 style="color: #252934">1. No es una tienda real.</h2>
-<p>¡No dejes que tu tienda parezca un escaparate vacío que esconde un fraude! Sigue estos consejos y convence a tus clientes de que detrás de tu página de inicio hay un negocio real:</p>
-<p>- <a href="http://www.azaleasf.com/" target="_blank"><strong>Invierte en un buen diseño</strong></a>. Los colores chillones y las letras enormes dejaron de estar de moda cuando Rupert Murdoch compró MySpace. Vale la pena invertir en diseño. Hace que navegar por tu sitio y encontrar tus productos (y comprarlos) sea más fácil, pero además demuestra que te preocupa tu negocio. Al fin y al cabo, si tú no te preocupas por tu tienda, ¿por qué habrían de hacerlo los clientes?</p>
-<p><img class="aligncenter size-large wp-image-19989" alt="Azalea" src="http://www.prestashop.com/blog/es/files/2015/05/Azalea-1024x660.png" width="700" height="451" /></p>
-<p><span style="font-style: italic">El diseño moderno y sencillo de Azalea resulta muy atractivo y facilita la navegación.</span></p>
-<p>- <a href="http://www.starcowparis.com/" target="_blank"><strong>Publica una dirección física</strong></a>. Debes tener una dirección para el correo profesional, o aunque sea un apartado de correos. Inclúyelos en la página &#8220;Contacto&#8221; o &#8220;Sobre nosotros&#8221;. Si tienes una sede o una tienda física, añade un mapa de Google Maps para darle un punto extra de credibilidad.</p>
-<p><img class="aligncenter size-large wp-image-19993" alt="Starcow" src="http://www.prestashop.com/blog/es/files/2015/05/Starcow-1024x531.png" width="700" height="362" /></p>
-<p><span style="font-style: italic">La dirección física de Starcow aparece en un lugar discreto pero visible, en la parte superior de la página de inicio.</span></p>
-<p>- <a href="http://www.whatgoesaroundnyc.com/" target="_blank"><strong>Muestra fotos reales</strong></a>. Las fotos de archivo pueden ser baratas pero no le hacen ningún favor a tu tienda. Una página del tipo &#8220;Equipo&#8221; o &#8220;Sobre nosotros&#8221; con una buena foto en la que salgáis tú o tu equipo es una forma sencilla de conectar con los clientes y mostrar el carácter único de tu empresa.</p>
-<p><img class="aligncenter size-large wp-image-19987" alt="what goes around" src="http://www.prestashop.com/blog/es/files/2015/05/what-goes-around-1024x637.jpg" width="700" height="435" /></p>
-<p><span style="font-style: italic">Los propietarios de What Goes Around Comes Around ponen la guinda a la historia de su marca con una foto real.</span></p>
-<p>- <a href="http://www.teaguys.com/content/4-about-the-tea-guys" target="_blank"><strong>Transmite un mensaje</strong></a>. ¿Tu tienda no es como las demás? Cuenta a tus clientes qué te hace diferente. Además de publicar un par de fotos tuyas con tu vicepresidente de operaciones (o sea, tu perro Tobi), cuéntales a los clientes tu historia. ¿Quién eres? ¿Por qué iniciaste esta aventura? ¿Por qué tu tienda es el mejor sitio para comprar los artículos que vendes? Abrir a los clientes las puertas de tu negocio es una forma magnífica de inspirar confianza.</p>
-<p><img class="aligncenter size-large wp-image-19997" alt="The tea guys history" src="http://www.prestashop.com/blog/es/files/2015/05/The-tea-guys-history-1024x558.jpg" width="700" height="381" /></p>
-<p><span style="font-style: italic">Las divertidas caricaturas y el estilo personal de Tea Guys conectan con sus clientes.</span></p>
-<p>- <strong>Publica testimonios</strong>. No hay nada mejor que una recomendación boca a boca. Si alguien ha comprado tus productos y quiere contar lo satisfecho que está, ¡dale prioridad! No modifiques esas opiniones que cuentan algún pequeño fallo: es imposible que todo esté perfecto siempre. Responder públicamente a las críticas negativas demuestra que estás pendiente de todo… y que existes.</p>
-<p>- <a href="http://www.gretelhome.com/content/12-Press" target="_blank"><strong>Reseña las menciones en los medios</strong></a>. Al igual que los testimonios de los clientes, las menciones en la prensa te dan credibilidad.</p>
-<p><img class="aligncenter size-full wp-image-19990" alt="gretel_home testimonials" src="http://www.prestashop.com/blog/es/files/2015/05/gretel_home-testimonials.jpg" width="999" height="852" /></p>
-<p><span style="font-style: italic">Gretel home destaca en primera plana sus apariciones en prensa.</span></p>
-<h2 style="color: #252934">2. Me van a robar los datos de la tarjeta de crédito.</h2>
-<p>En el comercio electrónico, como en cualquier otro sector, hay buenos y malos. El robo de identidades y de tarjetas de crédito es una amenaza real de la que tus clientes esperan que les protejas: es tu responsabilidad como vendedor online. Estas son algunas formas de dejar claro a tus clientes que eres de los buenos:</p>
-<p>- <strong>Muestra marcas reconocidas y de confianza</strong>. Puede que a los clientes no les diga nada tu logo en su primera visita&#8230; pero reconocerán el escudo rojo de McAfee, la antorcha de Better Business Bureau o la doble P de PayPal. Colabora con socios conocidos y su buena reputación beneficiará tu negocio.</p>
-<p>- <strong>Compra un certificado SSL</strong>. El SSL es un protocolo de encriptación que asegura los datos enviados mediante una clave encriptada. Se usa para proteger las operaciones con tarjeta o datos confidenciales como contraseñas o información personal. En PrestaShop, el acceso al back-office, las cuentas del front-office y los pedidos cuentan con un SSL por defecto. Cuando hayas <a href="https://www.prestashop.com/blog/en/guest-blogger-series-prestashop-ssl-installation-troubleshooting/">comprado e instalado tu certificado SSL</a>, tus clientes sabrán que te preocupas por su seguridad al ver el candado verde y la dirección <span style="font-style: italic">https</span>&#8230; en vez del <span style="font-style: italic">http</span> sin protección que tenías antes.</p>
-<p><img class="aligncenter size-large wp-image-19992" alt="mireness secure" src="http://www.prestashop.com/blog/es/files/2015/05/mireness-secure-1024x295.jpg" width="700" height="201" /></p>
-<p><span style="font-style: italic">El candado verde y las letras https que preceden a la dirección de Mirenesse indican que es un sitio seguro.</span></p>
-<p>- <a href="http://www.headict.co.uk/content/5-secure-payment" target="_blank"><strong>Ofrece a los clientes varias opciones de pago</strong></a>. A algunas personas simplemente no les gusta pagar con tarjeta. Dando la posibilidad de pagar por PayPal, transferencia o contrarreembolso, demuestras que eres flexible y te adaptas a las necesidades del cliente.</p>
-<p><img class="aligncenter size-large wp-image-19991" alt="headict secure payment" src="http://www.prestashop.com/blog/es/files/2015/05/headict-secure-payment-1024x373.jpg" width="700" height="254" /></p>
-<p><span style="font-style: italic">Headict usa métodos de pago seguro y les dedica una página especial a sus socios de confianza.</span></p>
-<h2 style="color: #252934">3. Venderán mis datos personales</h2>
-<p>En la era de los big data, todos queremos saber qué va a pasar cuando damos nuestra dirección, teléfono, fecha de nacimiento o color favorito. Una de las primeras cosas que debes hacer es redactar y publicar una política de privacidad completa. Debe responder a estas preguntas:</p>
-<p>¿Qué información se guarda?<br />
-¿Cómo se usa esa información?<br />
-¿Cómo se comparten los datos?<br />
-¿Qué opciones tienen los clientes para compartir esa información?<br />
-¿Los clientes pueden acceder a sus datos personales y modificarlos?<br />
-¿Cómo se protege esa información?</p>
-<p>Aquí tienes un buen ejemplo:</p>
-<p><img class="aligncenter size-large wp-image-19994" alt="target" src="http://www.prestashop.com/blog/es/files/2015/05/target-1024x768.jpg" width="700" height="525" /></p>
-<p>La <a href="http://www.target.com/spot/privacy-policy#?lnk=fnav_t_spc_2_3&amp;intc=28073%7Cnull" target="_blank">política de privacidad</a> de Target no deja lugar a dudas.</p>
-<p>¿Con qué otras reticencias de los clientes te has encontrado? ¡Cuéntanoslo! Y estate atento&#8230; ¡la segunda parte no tardará en llegar! ¿Estás preparado para abrir una tienda online en la que los clientes puedan confiar? <a href="https://www.prestashop.com/es/">Crea tu tienda online gratuita con PrestaShop hoy mismo</a>.</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/primera-parte-siete-temores-de-los-clientes-y-como-vencerlos/">Primera parte: Siete temores de los clientes y cómo vencerlos</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></content:encoded>
-			<wfw:commentRss>https://www.prestashop.com/blog/es/primera-parte-siete-temores-de-los-clientes-y-como-vencerlos/feed/</wfw:commentRss>
-		<slash:comments>1</slash:comments>
-		</item>
-		<item>
-		<title>30 verbos de acción para tu tienda online</title>
-		<link>https://www.prestashop.com/blog/es/30-verbos-de-accion-para-tu-tienda-online/</link>
-		<comments>https://www.prestashop.com/blog/es/30-verbos-de-accion-para-tu-tienda-online/#comments</comments>
-		<pubDate>Thu, 30 Apr 2015 16:30:49 +0000</pubDate>
-		<dc:creator><![CDATA[Julie Liu]]></dc:creator>
-				<category><![CDATA[Consejos E-commerce]]></category>
-
-		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=12854</guid>
-		<description><![CDATA[<p>Los botones de acción (CTA) son esenciales para convertir a los visitantes que llegan a tu sitio web. Un buen botón CTA atrae la atención del cliente y le anima a completar la acción, ya sea añadir un producto al carrito o finalizar la compra. Tus productos y el diseño de tu tienda le dan [...]</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/30-verbos-de-accion-para-tu-tienda-online/">30 verbos de acción para tu tienda online</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></description>
-				<content:encoded><![CDATA[<p><a href="https://www.prestashop.com/blog/es/la-importancia-de-los-botones-de-llamada-a-la-accion-en-su-tienda-online/">Los botones de acción (CTA) son esenciales</a> para convertir a los visitantes que llegan a tu sitio web. Un buen botón CTA atrae la atención del cliente y le anima a completar la acción, ya sea añadir un producto al carrito o finalizar la compra.</p>
-<p>Tus productos y el diseño de tu tienda le dan carácter a tu sitio web… pero son las palabras que escoges para los botones CTA lo que puede marcar la diferencia. Un ligero cambio en estos textos puede repercutir en la eficacia de tu tienda. ¿Quieres descubrir nuestros 30 botones de acción para animar tu sitio web?</p>
-<p><span id="more-12854"></span></p>
-<h2 style="color: #5aab20">Botones CTA para añadir un artículo al carrito de la compra</h2>
-<p>El botón de acción más común es el que incita al cliente a añadir artículos al carrito. El texto por defecto en las tiendas PrestaShop es &#8220;Añadir al carrito&#8221;. Sin duda es un mensaje perfectamente claro, pero hay unos cuantos verbos más que transmiten la misma idea al cliente:</p>
-<ol>
-<li>Comprar</li>
-<li>Agenciarse</li>
-<li>Conseguir</li>
-<li>Llevarse</li>
-<li>Pedir</li>
-<li>¡Lo <strong>quiero</strong>!</li>
-<li>Añadir a la… bolsa/cesta/maleta/caja (o cualquier otra cosa relacionada con tu sector)</li>
-</ol>
-<h2 style="color: #5aab20">Botones CTA para comprar productos digitales</h2>
-<p>La <a href="https://www.prestashop.com/blog/es/las-cinco-ventajas-de-vender-productos-digitales-online/">venta de productos digitales</a> es un segmento en rápida expansión dentro del comercio electrónico. Puedes utilizar los mismos botones CTA que para la mercancía tradicional&#8230; o personalizarlos para el mundo digital. Según lo que vendas, aquí tienes algunas opciones:</p>
-<ol start="8">
-<li>Descargar</li>
-<li>Ver</li>
-<li>Leer</li>
-<li>Reservar</li>
-<li>Programar</li>
-<li>No perderse</li>
-</ol>
-<h2 style="color: #5aab20">Botones CTA para pedir detalles adicionales</h2>
-<p>Si el cliente está navegando por tu página de inicio o por las páginas de categorías o productos, debes guiarlo hacia la conversión. ¿Un cliente duda sobre si hacer la compra o no? Decanta la balanza aportándole más información sobre el producto. Estos verbos pueden ayudarte:</p>
-<ol start="14">
-<li>Request</li>
-<li>Find</li>
-<li>Uncover</li>
-<li>Learn</li>
-<li>Discover</li>
-<li>Explore</li>
-<li>Browse</li>
-<li>Compare</li>
-<li>See more</li>
-</ol>
-<h2 style="color: #5aab20">Botones CTA para fomentar la participación</h2>
-<p>A veces solo quieres que los clientes se unan a tu comunidad. Una suscripción a tu boletín o un nuevo seguidor en las redes sociales pueden ayudarte a llegar a clientes potenciales. En este caso, el objetivo del botón CTA es que tus clientes quieran interactuar contigo. Por eso estos botones tienen que ser muy claros y específicos. Prueba con alguna de las siguientes expresiones:</p>
-<ol start="23">
-<li>Solicitar</li>
-<li>Encontrar</li>
-<li>Averiguar</li>
-<li>Aprender</li>
-<li>Descubrir</li>
-<li>Explorar</li>
-<li>Navegar</li>
-<li>Comparar</li>
-<li>Seguir leyendo</li>
-</ol>
-<p>No importa qué tipo de acción quieras conseguir del cliente: recuerda que el mensaje debe llegar a quien lo lee. Adapta el verbo de acción del botón a la posición de los usuarios en tu embudo de conversión y multiplicarás las posibilidades de convertirlos en clientes.</p>
-<p>¿Estás preparado para optimizar tu tienda online con esta lista de verbos de acción? Puedes editar el texto directamente desde tu back-office.</p>
-<ol>
-<li>Pincha en Localización &gt; Traducciones.</li>
-<li>En la pestaña &#8220;Modificar traducciones&#8221;, selecciona &#8220;Traducciones del front-office&#8221;, tu tema y el idioma con el que vas a trabajar y haz clic en &#8220;Modificar&#8221;.</li>
-</ol>
-<p>¿Quieres más ideas para mejorar tus botones de acción? Descubre nuestros <a href="https://www.prestashop.com/blog/es/15-ejemplos-de-botones-que-convierten-visitas-en-ventas/">15 ejemplos de botones que convierten visitas en ventas</a>.</p>
-<p>¿Aún no vendes online? ¡Empieza hoy mismo con una tienda online con alojamiento gratuito PrestaShop Cloud! ¿A qué esperas?</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/30-verbos-de-accion-para-tu-tienda-online/">30 verbos de acción para tu tienda online</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></content:encoded>
-			<wfw:commentRss>https://www.prestashop.com/blog/es/30-verbos-de-accion-para-tu-tienda-online/feed/</wfw:commentRss>
 		<slash:comments>0</slash:comments>
 		</item>
 	</channel>

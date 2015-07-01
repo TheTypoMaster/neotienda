@@ -227,4 +227,4 @@ ul.sf-menu li li li.sfHover ul {
     border: 1px solid #d6d4d4; }
 
 /* css custom intercambio */
-.sf-menu li a[title="Intercambio"]{ background-color: #42ac52; }
+.sf-menu li a[title="Intercambio"]{ background-color: #42ac52; color: #ffffff; }

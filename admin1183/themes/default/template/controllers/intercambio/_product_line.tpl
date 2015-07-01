@@ -176,7 +176,7 @@
 		</div>
 	
 	</td>
-	{if ($can_edit && !$order->hasBeenDelivered())}
+	{*if ($can_edit && !$order->hasBeenDelivered())}
 	<td class="product_invoice" style="display: none;">
 		{if sizeof($invoices_collection)}
 		<select name="product_invoice" class="edit_product_invoice">
@@ -192,7 +192,7 @@
 	</td>
 	<td class="product_action text-right">
 		{* edit/delete controls *}
-		<div class="btn-group">
+		{*<div class="btn-group">
 			<button type="button" class="btn btn-default edit_product_change_link">
 				<i class="icon-pencil"></i>
 				{l s='Edit'}
@@ -210,7 +210,7 @@
 			</ul>
 		</div>
 		{* Update controls *}
-		<button type="button" class="btn btn-default submitProductChange" style="display: none;">
+		{*<button type="button" class="btn btn-default submitProductChange" style="display: none;">
 			<i class="icon-ok"></i>
 			{l s='Update'}
 		</button>
@@ -219,6 +219,6 @@
 			{l s='Cancel'}
 		</button>
 	</td>
-	{/if}
+	{/if*}
 </tr>
 {*/if*}

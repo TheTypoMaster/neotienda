@@ -61,7 +61,6 @@
 	<div>{$hook_invoice}</div>
 	{/if}
 
-view.tpl
 	<div class="panel kpi-container">
 		<div class="row">
 			<div class="col-xs-6 col-sm-3 box-stats color3" >
@@ -898,7 +897,7 @@ view.tpl
 						{l s='Productos que quiere el cliente'} <span class="badge">{$products|@count}</span>
 					</div>
 
-                    {$order|@var_dump}
+                    {*$order|@var_dump*}
 
                     {*$products|@var_dump*}
 
@@ -943,6 +942,7 @@ view.tpl
 									{/if}
 								</tr>
 							</thead>
+                            {*$products|var_dump*}
 							<tbody>
 							{foreach from=$products item=product key=k}
 								{* Include customized datas partial *}
