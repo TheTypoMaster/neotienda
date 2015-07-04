@@ -1391,18 +1391,18 @@ var_dump($this->statuses_array);die;
     {
         $neoExchange = new NeoExchanges(Tools::getValue('id_neo_exchange'));
 
-
-
-
-
         if (!Validate::isLoadedObject($neoExchange))
             $this->errors[] = Tools::displayError('The order cannot be found within your database.');
 
         $customer = new Customer($neoExchange->id_customer);
         $carrier = new Carrier($neoExchange->id_carrier);
         $currency = new Currency((int)$neoExchange->id_currency);
+        $buys  = new NeoItemsBuyCore(Tools::getValue('id_neo_exchange'));
+        $sales = new NeoItemsSalesCore(Tools::getValue('id_neo_exchange'));
 
-        $products = $this->getProducts($neoExchange);
+        $products  = $this->getProducts($buys);
+        $products2 = $this->getProducts($sales);
+        //$products = $this->getProducts($neoExchange);
 
         // Carrier module call
         $carrier_module_call = null;
@@ -1441,13 +1441,12 @@ var_dump($this->statuses_array);die;
         // gets warehouses to ship products, if and only if advanced stock management is activated
         $warehouse_list = null;
 
-        $order_details = $neoExchange->getOrderDetailList();
+        //$order_details = $neoExchange->getOrderDetailList();
 
         //var_dump($products);die;
-
         //var_dump($order_details);die;
-
-        foreach ($order_details as $order_detail)
+        // viene vacio con la custom de neo
+        /*foreach ($order_details as $order_detail)
         {
             $product = new Product($order_detail['product_id']);
 
@@ -1461,7 +1460,7 @@ var_dump($this->statuses_array);die;
                         $warehouse_list[$warehouse['id_warehouse']] = $warehouse;
                 }
             }
-        }
+        }*/
 
         $payment_methods = array();
         foreach (PaymentModule::getInstalledPaymentModules() as $payment)
@@ -1477,12 +1476,43 @@ var_dump($this->statuses_array);die;
         if (Configuration::get('PS_STOCK_MANAGEMENT') && (!Validate::isLoadedObject($current_order_state) || ($current_order_state->delivery != 1 && $current_order_state->shipped != 1)))
             $display_out_of_stock_warning = true;
 
+        $total_buy  = 0;
+        $total_sale = 0;
+        $products_buy  = count($products);
+        $products_sale = count($products2);
+
         // products current stock (from stock_available)
         foreach ($products as &$product)
         {
             $product['current_stock'] = StockAvailable::getQuantityAvailableByProduct($product['id_product'], $product['product_attribute_id'], $product['id_shop']);
 
             $resume = OrderSlip::getProductSlipResume($product['id_neo_item_buy']);
+
+            $product['quantity_refundable'] = $product['product_quantity'] - $resume['product_quantity'];
+            $product['amount_refundable'] = $product['total_price_tax_incl'] - $resume['amount_tax_incl'];
+            $product['amount_refund'] = Tools::displayPrice($resume['amount_tax_incl'], $currency);
+            $product['refund_history'] = OrderSlip::getProductSlipDetail($product['id_order_detail']);
+            $product['return_history'] = OrderReturn::getProductReturnDetail($product['id_order_detail']);
+
+            // if the current stock requires a warning
+            if ($product['current_stock'] == 0 && $display_out_of_stock_warning)
+                $this->displayWarning($this->l('This product is out of stock: ').' '.$product['product_name']);
+            if ($product['id_warehouse'] != 0)
+            {
+                $warehouse = new Warehouse((int)$product['id_warehouse']);
+                $product['warehouse_name'] = $warehouse->name;
+            }
+            else
+                $product['warehouse_name'] = '--';
+
+            $total_buy += $product['price'];
+        }
+
+        foreach ($products2 as &$product)
+        {
+            $product['current_stock'] = StockAvailable::getQuantityAvailableByProduct($product['id_product'], $product['product_attribute_id'], $product['id_shop']);
+
+            $resume = OrderSlip::getProductSlipResume($product['id_neo_item_sale']);
 
             //var_dump($product);die;
 
@@ -1502,6 +1532,8 @@ var_dump($this->statuses_array);die;
             }
             else
                 $product['warehouse_name'] = '--';
+
+            $total_sale += $product['price'];
         }
 
         $gender = new Gender((int)$customer->id_gender, $this->context->language->id);
@@ -1526,6 +1558,12 @@ var_dump($this->statuses_array);die;
             ),
             'customerStats' => $customer->getStats(),
             'products' => $products,
+            'products2' => $products2,
+            'total_buy' => $total_buy,
+            'total_sale' => $total_sale,
+            'products_buy' => $products_buy,
+            'products_sale' => $products_sale,
+            'neo_order_shipping_price' => 0,
             'discounts' => $neoExchange->getCartRules(),
             'orders_total_paid_tax_incl' => $neoExchange->getOrdersTotalPaid(), // Get the sum of total_paid_tax_incl of the order with similar reference
             'total_paid' => $neoExchange->getTotalPaid(),

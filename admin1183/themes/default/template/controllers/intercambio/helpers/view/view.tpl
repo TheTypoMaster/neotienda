@@ -61,6 +61,8 @@
 	<div>{$hook_invoice}</div>
 	{/if}
 
+    {*$order|@var_dump*}
+
 	<div class="panel kpi-container">
 		<div class="row">
 			<div class="col-xs-6 col-sm-3 box-stats color3" >
@@ -73,23 +75,30 @@
 			<div class="col-xs-6 col-sm-3 box-stats color4" >
 				<div class="kpi-content">
 					<i class="icon-money"></i>
-					<span class="title">{l s='Total'}</span>
-					<span class="value">{displayPrice price=$order->total_paid_tax_incl currency=$currency->id}</span>
+					<span class="title">{l s='A favor'}</span>
+					<span class="value">{displayPrice price=$order->total_in_favor currency=$currency->id}</span>
 				</div>
 			</div>
-			<div class="col-xs-6 col-sm-3 box-stats color2" >
+            <div class="col-xs-6 col-sm-3 box-stats color2" >
+                <div class="kpi-content">
+                    <i class="icon-money"></i>
+                    <span class="title">{l s='Diferencia a pagar'}</span>
+                    <span class="value">{displayPrice price=$order->total_dif currency=$currency->id}</span>
+                </div>
+            </div>
+			{*<div class="col-xs-6 col-sm-3 box-stats color2" >
 				<div class="kpi-content">
 					<i class="icon-comments"></i>
 					<span class="title">{l s='Messages'}</span>
 					<span class="value"><a href="{$link->getAdminLink('AdminCustomerThreads')|escape:'html':'UTF-8'}">{sizeof($customer_thread_message)}</a></span>
 				</div>
-			</div>
+			</div>*}
 			<div class="col-xs-6 col-sm-3 box-stats color1" >
 				<a href="#start_products">
 					<div class="kpi-content">
 						<i class="icon-book"></i>
 						<span class="title">{l s='Products'}</span>
-						<span class="value">{sizeof($products)}</span>
+						<span class="value">{sizeof($products)+sizeof($products2)}</span>
 					</div>
 				</a>
 			</div>
@@ -879,275 +888,12 @@
 					</form>
 				</div>
 			</div>
-			@larismendi fin quito sección de mensajes *}
+			@larismendi fin quito sección de mensajes
+			*}
 		</div>
 	</div>
 
-	<div class="row" id="start_products">
-		<div class="col-lg-12">
-			<form class="container-command-top-spacing" action="{$current_index}&amp;vieworder&amp;token={$smarty.get.token|escape:'html':'UTF-8'}&amp;id_order={$order->id|intval}" method="post" onsubmit="return orderDeleteProduct('{l s='This product cannot be returned.'}', '{l s='Quantity to cancel is greater than quantity available.'}');">
-				<input type="hidden" name="id_order" value="{$order->id}" />
-				<div style="display: none">
-					<input type="hidden" value="{$order->getWarehouseList()|implode}" id="warehouse_list" />
-				</div>
-
-				<div class="panel">
-					<div class="panel-heading">
-						<i class="icon-shopping-cart"></i>
-						{l s='Productos que quiere el cliente'} <span class="badge">{$products|@count}</span>
-					</div>
-
-                    {*$order|@var_dump*}
-
-                    {*$products|@var_dump*}
-
-					<div class="table-responsive">
-						<table class="table" id="orderProducts">
-							<thead>
-								<tr>
-									<th></th>
-									<th><span class="title_box ">{l s='Product'}</span></th>
-									<th>
-										<span class="title_box ">{l s='Unit Price'}</span>
-										<small class="text-muted">{$smarty.capture.TaxMethod}</small>
-									</th>
-									<th class="text-center"><span class="title_box ">{l s='Qty'}</span></th>
-									{if $display_warehouse}<th><span class="title_box ">{l s='Warehouse'}</span></th>{/if}
-									{if ($order->hasBeenPaid())}<th class="text-center"><span class="title_box ">{l s='Refunded'}</span></th>{/if}
-									{if ($order->hasBeenDelivered() || $order->hasProductReturned())}
-										<th class="text-center"><span class="title_box ">{l s='Returned'}</span></th>
-									{/if}
-									{if $stock_management}<th class="text-center"><span class="title_box ">{l s='Available quantity'}</span></th>{/if}
-									<th>
-										<span class="title_box ">{l s='Total'}</span>
-										<small class="text-muted">{$smarty.capture.TaxMethod}</small>
-									</th>
-									<th style="display: none;" class="add_product_fields"></th>
-									<th style="display: none;" class="edit_product_fields"></th>
-									<th style="display: none;" class="standard_refund_fields">
-										<i class="icon-minus-sign"></i>
-										{if ($order->hasBeenDelivered() || $order->hasBeenShipped())}
-											{l s='Return'}
-										{elseif ($order->hasBeenPaid())}
-											{l s='Refund'}
-										{else}
-											{l s='Cancel'}
-										{/if}
-									</th>
-									<th style="display:none" class="partial_refund_fields">
-										<span class="title_box ">{l s='Partial refund'}</span>
-									</th>
-									{if !$order->hasBeenDelivered()}
-									<th></th>
-									{/if}
-								</tr>
-							</thead>
-                            {*$products|var_dump*}
-							<tbody>
-							{foreach from=$products item=product key=k}
-								{* Include customized datas partial *}
-								{include file='controllers/intercambio/_customized_data.tpl'}
-								{* Include product line partial *}
-								{include file='controllers/intercambio/_product_line.tpl'}
-							{/foreach}
-							{if $can_edit}
-								{include file='controllers/intercambio/_new_product.tpl'}
-							{/if}
-							</tbody>
-						</table>
-					</div>
-
-					<div class="row">
-						<div class="col-xs-6">
-							<div class="alert alert-warning">
-								{l s='For this customer group, prices are displayed as:'}
-								<strong>{$smarty.capture.TaxMethod}</strong>
-								{if !Configuration::get('PS_ORDER_RETURN')}
-									<br/><strong>{l s='Merchandise returns are disabled'}</strong>
-								{/if}
-							</div>
-						</div>
-						<div class="col-xs-6">
-							<div class="panel panel-vouchers" style="{if !sizeof($discounts)}display:none;{/if}">
-								{if (sizeof($discounts) || $can_edit)}
-								<div class="table-responsive">
-									<table class="table">
-										<thead>
-											<tr>
-												<th>
-													<span class="title_box ">
-														{l s='Discount name'}
-													</span>
-												</th>
-												<th>
-													<span class="title_box ">
-														{l s='Value'}
-													</span>
-												</th>
-												{if $can_edit}
-												<th></th>
-												{/if}
-											</tr>
-										</thead>
-										<tbody>
-											{foreach from=$discounts item=discount}
-											<tr>
-												<td>{$discount['name']}</td>
-												<td>
-												{if $discount['value'] != 0.00}
-													-
-												{/if}
-												{displayPrice price=$discount['value'] currency=$currency->id}
-												</td>
-												{if $can_edit}
-												<td>
-													<a href="{$current_index}&amp;submitDeleteVoucher&amp;id_order_cart_rule={$discount['id_order_cart_rule']}&amp;id_order={$order->id}&amp;token={$smarty.get.token|escape:'html':'UTF-8'}">
-														<i class="icon-minus-sign"></i>
-														{l s='Delete voucher'}
-													</a>
-												</td>
-												{/if}
-											</tr>
-											{/foreach}
-										</tbody>
-									</table>
-								</div>
-								<div class="current-edit" id="voucher_form" style="display:none;">
-									{include file='controllers/orders/_discount_form.tpl'}
-								</div>
-								{/if}
-							</div>
-							<div class="panel panel-total">
-								<div class="table-responsive">
-									<table class="table">
-										{* Assign order price *}
-										{if ($order->getTaxCalculationMethod() == $smarty.const.PS_TAX_EXC)}
-											{assign var=order_product_price value=($order->total_products)}
-											{assign var=order_discount_price value=$order->total_discounts_tax_excl}
-											{assign var=order_wrapping_price value=$order->total_wrapping_tax_excl}
-											{assign var=order_shipping_price value=$order->total_shipping_tax_excl}
-										{else}
-											{assign var=order_product_price value=$order->total_products_wt}
-											{assign var=order_discount_price value=$order->total_discounts_tax_incl}
-											{assign var=order_wrapping_price value=$order->total_wrapping_tax_incl}
-											{assign var=order_shipping_price value=$order->total_shipping_tax_incl}
-										{/if}
-										<tr id="total_products">
-											<td class="text-right">{l s='Products:'}</td>
-											<td class="amount text-right">
-												{displayPrice price=$order_product_price currency=$currency->id}
-											</td>
-											<td class="partial_refund_fields current-edit" style="display:none;"></td>
-										</tr>
-										<tr id="total_discounts" {if $order->total_discounts_tax_incl == 0}style="display: none;"{/if}>
-											<td class="text-right">{l s='Discounts'}</td>
-											<td class="amount text-right">
-												-{displayPrice price=$order_discount_price currency=$currency->id}
-											</td>
-											<td class="partial_refund_fields current-edit" style="display:none;"></td>
-										</tr>
-										<tr id="total_wrapping" {if $order->total_wrapping_tax_incl == 0}style="display: none;"{/if}>
-											<td class="text-right">{l s='Wrapping'}</td>
-											<td class="amount text-right">
-												{displayPrice price=$order_wrapping_price currency=$currency->id}
-											</td>
-											<td class="partial_refund_fields current-edit" style="display:none;"></td>
-										</tr>
-										<tr id="total_shipping">
-											<td class="text-right">{l s='Shipping'}</td>
-											<td class="amount text-right" >
-												{displayPrice price=$order_shipping_price currency=$currency->id}
-											</td>
-											<td class="partial_refund_fields current-edit" style="display:none;">
-												<div class="input-group">
-													<div class="input-group-addon">
-														{$currency->prefix}
-														{$currency->suffix}
-													</div>
-													<input type="text" name="partialRefundShippingCost" value="0" />
-												</div>
-											</td>
-										</tr>
-										{if ($order->getTaxCalculationMethod() == $smarty.const.PS_TAX_EXC)}
-			 							<tr id="total_taxes">
-			 								<td class="text-right">{l s='Taxes'}</td>
-			 								<td class="amount text-right" >{displayPrice price=($order->total_paid_tax_incl-$order->total_paid_tax_excl) currency=$currency->id}</td>
-			 								<td class="partial_refund_fields current-edit" style="display:none;"></td>
-			 							</tr>
-			 							{/if}
-										{assign var=order_total_price value=$order->total_paid_tax_incl}
-										<tr id="total_order">
-											<td class="text-right"><strong>{l s='Total'}</strong></td>
-											<td class="amount text-right">
-												<strong>{displayPrice price=$order_total_price currency=$currency->id}</strong>
-											</td>
-											<td class="partial_refund_fields current-edit" style="display:none;"></td>
-										</tr>
-									</table>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div style="display: none;" class="standard_refund_fields form-horizontal panel">
-						<div class="form-group">
-							{if ($order->hasBeenDelivered() && Configuration::get('PS_ORDER_RETURN'))}
-							<p class="checkbox">
-								<label for="reinjectQuantities">
-									<input type="checkbox" id="reinjectQuantities" name="reinjectQuantities" />
-									{l s='Re-stock products'}
-								</label>
-							</p>
-							{/if}
-							{if ((!$order->hasBeenDelivered() && $order->hasBeenPaid()) || ($order->hasBeenDelivered() && Configuration::get('PS_ORDER_RETURN')))}
-							<p class="checkbox">
-								<label for="generateCreditSlip">
-									<input type="checkbox" id="generateCreditSlip" name="generateCreditSlip" onclick="toggleShippingCost()" />
-									{l s='Generate a credit card slip'}
-								</label>
-							</p>
-							<p class="checkbox">
-								<label for="generateDiscount">
-									<input type="checkbox" id="generateDiscount" name="generateDiscount" onclick="toggleShippingCost()" />
-									{l s='Generate a voucher'}
-								</label>
-							</p>
-							<p class="checkbox" id="spanShippingBack" style="display:none;">
-								<label for="shippingBack">
-									<input type="checkbox" id="shippingBack" name="shippingBack" />
-									{l s='Repay shipping costs'}
-								</label>
-							</p>
-							{/if}
-						</div>
-						{if (!$order->hasBeenDelivered() || ($order->hasBeenDelivered() && Configuration::get('PS_ORDER_RETURN')))}
-						<div class="row">
-							<input type="submit" name="cancelProduct" value="{if $order->hasBeenDelivered()}{l s='Return products'}{elseif $order->hasBeenPaid()}{l s='Refund products'}{else}{l s='Cancel products'}{/if}" class="btn btn-default" />
-						</div>
-						{/if}
-					</div>
-					<div style="display:none;" class="partial_refund_fields">
-						<p class="checkbox">
-							<label for="reinjectQuantitiesRefund">
-								<input type="checkbox" id="reinjectQuantitiesRefund" name="reinjectQuantities" />
-								{l s='Re-stock products'}
-							</label>
-						</p>
-						<p class="checkbox">
-							<label for="generateDiscountRefund">
-								<input type="checkbox" id="generateDiscountRefund" name="generateDiscountRefund" onclick="toggleShippingCost()" />
-								{l s='Generate a voucher'}
-							</label>
-						</p>
-						<button type="submit" name="partialRefund" class="btn btn-default">
-							<i class="icon-check"></i> {l s='Partial refund'}
-						</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-
+    {* Seccion Productos que quiere el cliente *}
     <div class="row" id="start_products">
         <div class="col-lg-12">
             <form class="container-command-top-spacing" action="{$current_index}&amp;vieworder&amp;token={$smarty.get.token|escape:'html':'UTF-8'}&amp;id_order={$order->id|intval}" method="post" onsubmit="return orderDeleteProduct('{l s='This product cannot be returned.'}', '{l s='Quantity to cancel is greater than quantity available.'}');">
@@ -1223,13 +969,13 @@
 
                     <div class="row">
                         <div class="col-xs-6">
-                            <div class="alert alert-warning">
+                            {*<div class="alert alert-warning">
                                 {l s='Según el grupo de este cliente, los precios están impresos como sigue'}
                                 <strong>Impuestos incluidos</strong>
-                                {*if !Configuration::get('PS_ORDER_RETURN')*}
+                                {if !Configuration::get('PS_ORDER_RETURN')}
                                     <br/><strong>{l s='Merchandise returns are disabled'}</strong>
-                                {*/if*}
-                            </div>
+                                {/if}
+                            </div>*}
                         </div>
                         <div class="col-xs-6">
                             <div class="panel panel-vouchers" style="{if !sizeof($discounts)}display:none;{/if}">
@@ -1299,7 +1045,7 @@
                                         <tr id="total_products">
                                             <td class="text-right">{l s='Products:'}</td>
                                             <td class="amount text-right">
-                                                {displayPrice price=$order_product_price currency=$currency->id}
+                                                {displayPrice price=$total_buy currency=$currency->id}
                                             </td>
                                             <td class="partial_refund_fields current-edit" style="display:none;"></td>
                                         </tr>
@@ -1320,7 +1066,7 @@
                                         <tr id="total_shipping">
                                             <td class="text-right">{l s='Shipping'}</td>
                                             <td class="amount text-right" >
-                                                {displayPrice price=$order_shipping_price currency=$currency->id}
+                                                {displayPrice price=$neo_order_shipping_price currency=$currency->id}
                                             </td>
                                             <td class="partial_refund_fields current-edit" style="display:none;">
                                                 <div class="input-group">
@@ -1343,7 +1089,7 @@
                                         <tr id="total_order">
                                             <td class="text-right"><strong>{l s='Total'}</strong></td>
                                             <td class="amount text-right">
-                                                <strong>{displayPrice price=$order_total_price currency=$currency->id}</strong>
+                                                <strong>{displayPrice price=$total_buy currency=$currency->id}</strong>
                                             </td>
                                             <td class="partial_refund_fields current-edit" style="display:none;"></td>
                                         </tr>
@@ -1351,6 +1097,272 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {* Seccion que tiene el cliente *}
+    <div class="row" id="start_products">
+        <div class="col-lg-12">
+            <form class="container-command-top-spacing" action="{$current_index}&amp;vieworder&amp;token={$smarty.get.token|escape:'html':'UTF-8'}&amp;id_order={$order->id|intval}" method="post" onsubmit="return orderDeleteProduct('{l s='This product cannot be returned.'}', '{l s='Quantity to cancel is greater than quantity available.'}');">
+                <input type="hidden" name="id_order" value="{$order->id}" />
+                <div style="display: none">
+                    <input type="hidden" value="{$order->getWarehouseList()|implode}" id="warehouse_list" />
+                </div>
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <i class="icon-shopping-cart"></i>
+                        {l s='Productos que tiene el cliente'} <span class="badge">{$products2|@count}</span>
+                    </div>
+
+                    {*$order|@var_dump*}
+
+                    {*$products|@var_dump*}
+
+                    <div class="table-responsive">
+                        <table class="table" id="orderProducts">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th><span class="title_box ">{l s='Product'}</span></th>
+                                <th>
+                                    <span class="title_box ">{l s='Unit Price'}</span>
+                                    <small class="text-muted">{$smarty.capture.TaxMethod}</small>
+                                </th>
+                                <th class="text-center"><span class="title_box ">{l s='Qty'}</span></th>
+                                {if $display_warehouse}<th><span class="title_box ">{l s='Warehouse'}</span></th>{/if}
+                                {if ($order->hasBeenPaid())}<th class="text-center"><span class="title_box ">{l s='Refunded'}</span></th>{/if}
+                                {if ($order->hasBeenDelivered() || $order->hasProductReturned())}
+                                    <th class="text-center"><span class="title_box ">{l s='Returned'}</span></th>
+                                {/if}
+                                {if $stock_management}<th class="text-center"><span class="title_box ">{l s='Available quantity'}</span></th>{/if}
+                                <th>
+                                    <span class="title_box ">{l s='Total'}</span>
+                                    <small class="text-muted">{$smarty.capture.TaxMethod}</small>
+                                </th>
+                                <th style="display: none;" class="add_product_fields"></th>
+                                <th style="display: none;" class="edit_product_fields"></th>
+                                <th style="display: none;" class="standard_refund_fields">
+                                    <i class="icon-minus-sign"></i>
+                                    {if ($order->hasBeenDelivered() || $order->hasBeenShipped())}
+                                        {l s='Return'}
+                                    {elseif ($order->hasBeenPaid())}
+                                        {l s='Refund'}
+                                    {else}
+                                        {l s='Cancel'}
+                                    {/if}
+                                </th>
+                                <th style="display:none" class="partial_refund_fields">
+                                    <span class="title_box ">{l s='Partial refund'}</span>
+                                </th>
+                                {if !$order->hasBeenDelivered()}
+                                    <th></th>
+                                {/if}
+                            </tr>
+                            </thead>
+                            {*$products|var_dump*}
+                            <tbody>
+                            {foreach from=$products2 item=product key=k}
+                                {* Include customized datas partial *}
+                                {include file='controllers/intercambio/_customized_data.tpl'}
+                                {* Include product line partial *}
+                                {include file='controllers/intercambio/_product_line.tpl'}
+                            {/foreach}
+                            {if $can_edit}
+                                {include file='controllers/intercambio/_new_product.tpl'}
+                            {/if}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            {*<div class="alert alert-warning">
+                                {l s='For this customer group, prices are displayed as:'}
+                                <strong>{$smarty.capture.TaxMethod}</strong>
+                                {if !Configuration::get('PS_ORDER_RETURN')}
+                                    <br/><strong>{l s='Merchandise returns are disabled'}</strong>
+                                {/if}
+                            </div>*}
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="panel panel-vouchers" style="{if !sizeof($discounts)}display:none;{/if}">
+                                {if (sizeof($discounts) || $can_edit)}
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>
+													<span class="title_box ">
+														{l s='Discount name'}
+													</span>
+                                                </th>
+                                                <th>
+													<span class="title_box ">
+														{l s='Value'}
+													</span>
+                                                </th>
+                                                {if $can_edit}
+                                                    <th></th>
+                                                {/if}
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {foreach from=$discounts item=discount}
+                                                <tr>
+                                                    <td>{$discount['name']}</td>
+                                                    <td>
+                                                        {if $discount['value'] != 0.00}
+                                                            -
+                                                        {/if}
+                                                        {displayPrice price=$discount['value'] currency=$currency->id}
+                                                    </td>
+                                                    {if $can_edit}
+                                                        <td>
+                                                            <a href="{$current_index}&amp;submitDeleteVoucher&amp;id_order_cart_rule={$discount['id_order_cart_rule']}&amp;id_order={$order->id}&amp;token={$smarty.get.token|escape:'html':'UTF-8'}">
+                                                                <i class="icon-minus-sign"></i>
+                                                                {l s='Delete voucher'}
+                                                            </a>
+                                                        </td>
+                                                    {/if}
+                                                </tr>
+                                            {/foreach}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="current-edit" id="voucher_form" style="display:none;">
+                                        {include file='controllers/orders/_discount_form.tpl'}
+                                    </div>
+                                {/if}
+                            </div>
+                            <div class="panel panel-total">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        {* Assign order price *}
+                                        {if ($order->getTaxCalculationMethod() == $smarty.const.PS_TAX_EXC)}
+                                            {assign var=order_product_price value=($order->total_products)}
+                                            {assign var=order_discount_price value=$order->total_discounts_tax_excl}
+                                            {assign var=order_wrapping_price value=$order->total_wrapping_tax_excl}
+                                            {assign var=order_shipping_price value=$order->total_shipping_tax_excl}
+                                        {else}
+                                            {assign var=order_product_price value=$order->total_products_wt}
+                                            {assign var=order_discount_price value=$order->total_discounts_tax_incl}
+                                            {assign var=order_wrapping_price value=$order->total_wrapping_tax_incl}
+                                            {assign var=order_shipping_price value=$order->total_shipping_tax_incl}
+                                        {/if}
+                                        <tr id="total_products">
+                                            <td class="text-right">{l s='Products:'}</td>
+                                            <td class="amount text-right">
+                                                {displayPrice price=$total_sale currency=$currency->id}
+                                            </td>
+                                            <td class="partial_refund_fields current-edit" style="display:none;"></td>
+                                        </tr>
+                                        <tr id="total_discounts" {if $order->total_discounts_tax_incl == 0}style="display: none;"{/if}>
+                                            <td class="text-right">{l s='Discounts'}</td>
+                                            <td class="amount text-right">
+                                                -{displayPrice price=$order_discount_price currency=$currency->id}
+                                            </td>
+                                            <td class="partial_refund_fields current-edit" style="display:none;"></td>
+                                        </tr>
+                                        <tr id="total_wrapping" {if $order->total_wrapping_tax_incl == 0}style="display: none;"{/if}>
+                                            <td class="text-right">{l s='Wrapping'}</td>
+                                            <td class="amount text-right">
+                                                {displayPrice price=$order_wrapping_price currency=$currency->id}
+                                            </td>
+                                            <td class="partial_refund_fields current-edit" style="display:none;"></td>
+                                        </tr>
+                                        <tr id="total_shipping">
+                                            <td class="text-right">{l s='Shipping'}</td>
+                                            <td class="amount text-right" >
+                                                {displayPrice price=$neo_order_shipping_price currency=$currency->id}
+                                            </td>
+                                            <td class="partial_refund_fields current-edit" style="display:none;">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        {$currency->prefix}
+                                                        {$currency->suffix}
+                                                    </div>
+                                                    <input type="text" name="partialRefundShippingCost" value="0" />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        {if ($order->getTaxCalculationMethod() == $smarty.const.PS_TAX_EXC)}
+                                            <tr id="total_taxes">
+                                                <td class="text-right">{l s='Taxes'}</td>
+                                                <td class="amount text-right" >{displayPrice price=($order->total_paid_tax_incl-$order->total_paid_tax_excl) currency=$currency->id}</td>
+                                                <td class="partial_refund_fields current-edit" style="display:none;"></td>
+                                            </tr>
+                                        {/if}
+                                        {assign var=order_total_price value=$order->total_paid_tax_incl}
+                                        <tr id="total_order">
+                                            <td class="text-right"><strong>{l s='Total'}</strong></td>
+                                            <td class="amount text-right">
+                                                <strong>{displayPrice price=$total_sale currency=$currency->id}</strong>
+                                            </td>
+                                            <td class="partial_refund_fields current-edit" style="display:none;"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: none;" class="standard_refund_fields form-horizontal panel">
+                        <div class="form-group">
+                            {if ($order->hasBeenDelivered() && Configuration::get('PS_ORDER_RETURN'))}
+                                <p class="checkbox">
+                                    <label for="reinjectQuantities">
+                                        <input type="checkbox" id="reinjectQuantities" name="reinjectQuantities" />
+                                        {l s='Re-stock products'}
+                                    </label>
+                                </p>
+                            {/if}
+                            {if ((!$order->hasBeenDelivered() && $order->hasBeenPaid()) || ($order->hasBeenDelivered() && Configuration::get('PS_ORDER_RETURN')))}
+                                <p class="checkbox">
+                                    <label for="generateCreditSlip">
+                                        <input type="checkbox" id="generateCreditSlip" name="generateCreditSlip" onclick="toggleShippingCost()" />
+                                        {l s='Generate a credit card slip'}
+                                    </label>
+                                </p>
+                                <p class="checkbox">
+                                    <label for="generateDiscount">
+                                        <input type="checkbox" id="generateDiscount" name="generateDiscount" onclick="toggleShippingCost()" />
+                                        {l s='Generate a voucher'}
+                                    </label>
+                                </p>
+                                <p class="checkbox" id="spanShippingBack" style="display:none;">
+                                    <label for="shippingBack">
+                                        <input type="checkbox" id="shippingBack" name="shippingBack" />
+                                        {l s='Repay shipping costs'}
+                                    </label>
+                                </p>
+                            {/if}
+                        </div>
+                        {if (!$order->hasBeenDelivered() || ($order->hasBeenDelivered() && Configuration::get('PS_ORDER_RETURN')))}
+                            <div class="row">
+                                <input type="submit" name="cancelProduct" value="{if $order->hasBeenDelivered()}{l s='Return products'}{elseif $order->hasBeenPaid()}{l s='Refund products'}{else}{l s='Cancel products'}{/if}" class="btn btn-default" />
+                            </div>
+                        {/if}
+                    </div>
+                    <div style="display:none;" class="partial_refund_fields">
+                        <p class="checkbox">
+                            <label for="reinjectQuantitiesRefund">
+                                <input type="checkbox" id="reinjectQuantitiesRefund" name="reinjectQuantities" />
+                                {l s='Re-stock products'}
+                            </label>
+                        </p>
+                        <p class="checkbox">
+                            <label for="generateDiscountRefund">
+                                <input type="checkbox" id="generateDiscountRefund" name="generateDiscountRefund" onclick="toggleShippingCost()" />
+                                {l s='Generate a voucher'}
+                            </label>
+                        </p>
+                        <button type="submit" name="partialRefund" class="btn btn-default">
+                            <i class="icon-check"></i> {l s='Partial refund'}
+                        </button>
                     </div>
                 </div>
             </form>

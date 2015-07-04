@@ -2,6 +2,9 @@
 
 class NeoItemsBuyCore extends ObjectModel
 {
+    /** @var integer Delivery address id */
+    public $id_address_delivery;
+
     // @var integer
     public $id_neo_item_buy;
 
@@ -361,6 +364,148 @@ class NeoItemsBuyCore extends ObjectModel
     public static function getList($id_neo_exchange)
     {
         return Db::getInstance()->executeS('SELECT * FROM `'._DB_PREFIX_.'neo_items_buys` WHERE `id_neo_exchange` = '.(int)$id_neo_exchange);
+    }
+
+    /**
+     *
+     * This method allow to add stock information on a product detail
+     *
+     * If advanced stock management is active, get physical stock of this product in the warehouse associated to the ptoduct for the current order
+     * Else get the available quantity of the product in fucntion of the shop associated to the order
+     *
+     * @param array &$product
+     */
+    protected function setProductCurrentStock(&$product)
+    {
+        if (Configuration::get('PS_ADVANCED_STOCK_MANAGEMENT')
+            && (int)$product['advanced_stock_management'] == 1
+            && (int)$product['id_warehouse'] > 0)
+            $product['current_stock'] = StockManagerFactory::getManager()->getProductPhysicalQuantities($product['product_id'], $product['product_attribute_id'], (int)$product['id_warehouse'], true);
+        else
+            $product['current_stock'] = StockAvailable::getQuantityAvailableByProduct($product['product_id'], $product['product_attribute_id'], (int)$this->id_shop);
+    }
+
+    /**
+     *
+     * This method allow to add image information on a product detail
+     * @param array &$product
+     */
+    protected function setProductImageInformations(&$product)
+    {
+        if (isset($product['product_attribute_id']) && $product['product_attribute_id'])
+            $id_image = Db::getInstance()->getValue('
+				SELECT image_shop.id_image
+				FROM '._DB_PREFIX_.'product_attribute_image pai'.
+                Shop::addSqlAssociation('image', 'pai', true).'
+				WHERE id_product_attribute = '.(int)$product['product_attribute_id']);
+
+        if (!isset($id_image) || !$id_image)
+            $id_image = Db::getInstance()->getValue('
+				SELECT image_shop.id_image
+				FROM '._DB_PREFIX_.'image i'.
+                Shop::addSqlAssociation('image', 'i', true, 'image_shop.cover=1').'
+				WHERE id_product = '.(int)($product['product_id'])
+            );
+
+        $product['image'] = null;
+        $product['image_size'] = null;
+
+        if ($id_image)
+            $product['image'] = new Image($id_image);
+    }
+
+    /**
+     * Marked as deprecated but should not throw any "deprecated" message
+     * This function is used in order to keep front office backward compatibility 14 -> 1.5
+     * (Order History)
+     *
+     * @deprecated
+     */
+    public function setProductPrices(&$row)
+    {
+        $tax_calculator = OrderDetail::getTaxCalculatorStatic((int)$row['id_order_detail']);
+        $row['tax_calculator'] = $tax_calculator;
+        $row['tax_rate'] = $tax_calculator->getTotalRate();
+
+        $row['product_price'] = Tools::ps_round($row['unit_price_tax_excl'], 2);
+        $row['product_price_wt'] = Tools::ps_round($row['unit_price_tax_incl'], 2);
+
+        $group_reduction = 1;
+        if ($row['group_reduction'] > 0)
+            $group_reduction = 1 - $row['group_reduction'] / 100;
+
+        $row['product_price_wt_but_ecotax'] = $row['product_price_wt'] - $row['ecotax'];
+
+        $row['total_wt'] = $row['total_price_tax_incl'];
+        $row['total_price'] = $row['total_price_tax_excl'];
+    }
+
+    protected function setProductCustomizedDatas(&$product, $customized_datas)
+    {
+        $product['customizedDatas'] = null;
+        if (isset($customized_datas[$product['product_id']][$product['product_attribute_id']]))
+            $product['customizedDatas'] = $customized_datas[$product['product_id']][$product['product_attribute_id']];
+        else
+            $product['customizationQuantityTotal'] = 0;
+    }
+
+    public function getProductsDetail()
+    {
+        return Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS('
+		SELECT *
+		FROM `'._DB_PREFIX_.'neo_items_buys` od
+		LEFT JOIN `'._DB_PREFIX_.'product` p ON (p.id_product = od.id_product)
+		/*LEFT JOIN `'._DB_PREFIX_.'product_shop` ps ON (ps.id_product = p.id_product AND ps.id_shop = od.id_shop)*/
+		WHERE od.`id_neo_exchange` = '.(int)($this->id));
+    }
+
+    public function getProducts($products = false, $selectedProducts = false, $selectedQty = false)
+    {
+        if (!$products)
+            $products = $this->getProductsDetail();
+
+        $customized_datas = Product::getAllCustomizedDatas($this->id_cart);
+
+        $resultArray = array();
+        foreach ($products as $row)
+        {
+            // Change qty if selected
+            if ($selectedQty)
+            {
+                $row['product_quantity'] = 0;
+                foreach ($selectedProducts as $key => $id_product)
+                    if ($row['id_order_detail'] == $id_product)
+                        $row['product_quantity'] = (int)($selectedQty[$key]);
+                if (!$row['product_quantity'])
+                    continue;
+            }
+
+            $this->setProductImageInformations($row);
+            $this->setProductCurrentStock($row);
+
+            // Backward compatibility 1.4 -> 1.5
+            $this->setProductPrices($row);
+
+            $this->setProductCustomizedDatas($row, $customized_datas);
+
+            // Add information for virtual product
+            if ($row['download_hash'] && !empty($row['download_hash']))
+            {
+                $row['filename'] = ProductDownload::getFilenameFromIdProduct((int)$row['product_id']);
+                // Get the display filename
+                $row['display_filename'] = ProductDownload::getFilenameFromFilename($row['filename']);
+            }
+
+            $row['id_address_delivery'] = $this->id_address_delivery;
+
+            /* Stock product */
+            $resultArray[(int)$row['id_neo_item_buy']] = $row;
+        }
+
+        if ($customized_datas)
+            Product::addCustomizationPrice($resultArray, $customized_datas);
+
+        return $resultArray;
     }
 
     /*

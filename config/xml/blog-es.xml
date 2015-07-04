@@ -13,12 +13,97 @@
 	<atom:link href="http://www.prestashop.com/blog/es/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.prestashop.com/blog/es</link>
 	<description></description>
-	<lastBuildDate>Thu, 25 Jun 2015 08:30:15 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 03 Jul 2015 09:52:50 +0000</lastBuildDate>
 	<language>es-ES</language>
 		<sy:updatePeriod>hourly</sy:updatePeriod>
 		<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>http://wordpress.org/?v=3.8.1</generator>
 	<item>
+		<title>La versión 1.6.1.0: novedades y mejoras</title>
+		<link>https://www.prestashop.com/blog/es/la-version-1-6-1-0-novedades-y-mejoras/</link>
+		<comments>https://www.prestashop.com/blog/es/la-version-1-6-1-0-novedades-y-mejoras/#comments</comments>
+		<pubDate>Thu, 02 Jul 2015 16:50:11 +0000</pubDate>
+		<dc:creator><![CDATA[Julie Liu]]></dc:creator>
+				<category><![CDATA[Actualidad PrestaShop]]></category>
+
+		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=13060</guid>
+		<description><![CDATA[<p>A principios de mes, durante el PrestaShop Day, te presentamos a nuestra mascota: el frailecillo Preston. Es lo primero que te habrá llamado la atención de PrestaShop v1.6.1.0. Pero esta versión es mucho más que una nueva imagen&#8230; trae grandes mejoras centradas en el rendimiento, la reglamentación de la UE, el cálculo de precios e [...]</p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/la-version-1-6-1-0-novedades-y-mejoras/">La versión 1.6.1.0: novedades y mejoras</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>A principios de mes, durante el PrestaShop Day, te presentamos a nuestra mascota: el frailecillo Preston. Es lo primero que te habrá llamado la atención de PrestaShop v1.6.1.0. Pero esta versión es mucho más que una nueva imagen&#8230; trae grandes mejoras centradas en el rendimiento, la reglamentación de la UE, el cálculo de precios e impuestos y más de 500 parches. ¡Descubre en qué hemos estado trabajando!</p>
+<p><span id="more-13060"></span></p>
+<h2><span style="color: #251b5b">El back-office estrena look</span></h2>
+<p>Aunque los cambios en el back-office son básicamente estéticos, nos las hemos arreglado para introducir pequeñas mejoras en la navegación. Con un lavado de cara y nuevas imágenes, sigue siendo el back-office de siempre&#8230; pero mejor. Entre los cambios, el logo recién estrenado y el paso de nuestro gris antiguo a un innovador gris piedra.</p>
+<div style="margin-bottom: 5px"><a href="http://www.prestashop.com/blog/es/files/2015/07/new-design-B-2.png"><img class="alignleft size-large wp-image-13071" alt="new-design-B-2" src="http://www.prestashop.com/blog/es/files/2015/07/new-design-B-2-1024x528.png" width="700" height="360" /></a></div>
+<h2><span style="color: #251b5b">Better, faster, stronger!</span></h2>
+<p><img class="alignright size-full wp-image-20272" alt="prestashop-release-1.6.1.0-preston01" src="http://www.prestashop.com/blog/en/files/2015/07/prestashop-release-1.6.1.0-preston01.png" width="147" height="223" /><br />
+Nos hemos inspirado en esta canción de Daft Punk para mejorar notablemente el rendimiento del software a través de la optimización de las consultas SQL. Cambio tras cambio, ¡nos hemos asegurado de que puedas trabajar muy, muy rápido! ¿Y qué significa muy rápido? Pues una velocidad hasta un 200% superior en las operaciones del back-office&#8230; ¡eso sí que es ahorrar tiempo! (Consulta <a href="http://build.prestashop.com/news/prestashop-1-6-1-0-performances/" target="_blank">todos los detalles</a> sobre los tests y los resultados en el blog del desarrollador.)</p>
+<h2><span style="color: #251b5b">Nuevas normas de programación</span></h2>
+<p>Nuestro nuevo diseño inaugura un capítulo de la historia de PrestaShop. Hemos apostado por una nueva estructura de programación para seguir mejorando el software. En adelante, todo el código para GitHub deberá seguir la <a href="http://build.prestashop.com/news/prestashop-moves-to-psr-2/" target="_blank">Guía de estilo de programación PSR-2</a>. Con este cambio, garantizaremos la integridad del código y facilitaremos el proceso de pruebas.</p>
+<h2><span style="color: #251b5b">Estricto cumplimiento de las normas de la UE</span></h2>
+<p>Para conseguir la unidad de la Unión Europea fue necesaria casi una década. Y con ella llegó un complejo entramado de normas y reglamentos que se han convertido en todo un reto para los vendedores online. Nos habéis hablado de las funcionalidades que necesitáis para cumplir la legislación de vuestros países&#8230; ¡y aquí tenéis nuestra respuesta! Hemos añadido 15 opciones que se pueden configurar y adaptar a los requisitos legales.</p>
+<p><a href="http://www.prestashop.com/blog/es/files/2015/07/advanced-eu-compliance.png"><img class="alignleft size-large wp-image-13069" alt="advanced-eu-compliance" src="http://www.prestashop.com/blog/es/files/2015/07/advanced-eu-compliance-1024x524.png" width="700" height="358" /></a></p>
+<h2><span style="color: #251b5b">Cálculo de precios e impuestos</span></h2>
+<p>También nos hemos ocupado del meollo del negocio con varios cambios por el lado administrativo. Hemos afinado el redondeo de precios y la gestión impositiva.</p>
+<h2><span style="color: #251b5b">¡Y eso no es todo!</span></h2>
+<p>Para completar los grandes cambios, hemos pulido los procesos de instalación y actualización, la función de búsqueda y los controles del back-office. ¡Descubre todas las actualizaciones y parches en nuestro <a href="https://www.prestashop.com/en/developers-versions/changelog/1.6.1.0-stable" target="_blank">historial de revisiones</a>!</p>
+<p>Esta nueva versión llega de la mano de un <a href="http://build.prestashop.com/news/a-more-semantic-versioning-scheme/" target="_blank">esquema de versionamiento semántico</a> actualizado. Con este nuevo esquema, las versiones del software quedarán claras y sabrás qué esperar de cada una.</p>
+<h2><span style="color: #251b5b">El broche final</span></h2>
+<p>Queremos agradecerle a la comunidad sus incansables contribuciones a Forge, GitHub, CrowdIn&#8230; ¡No habríamos llegado tan lejos sin vosotros! Queremos agradecerle a la comunidad sus incansables contribuciones a Forge, GitHub, CrowdIn&#8230; ¡No habríamos llegado tan lejos sin vosotros! Gracias a todos los colaboradores:</p>
+<p><em>Adonis Karavokyros, Alessandro Corbelli, alexsimple, Antonino Di Bella, Arnaud Lemercier, Benjamin, PONGY, bercik999, Bruno Desprez, Cédric Fontaine, Dan Hlavenka, Danoosh Mir, David-Julian BUCH, Denver Prophit Jr., Desbouche Christophe, Dimitrios Karvounaris, doekia, Dvir-Julius, el-tenkova, eleazar, Eric Rouvier, Etienne Samson, fird, Francis Ramirez, Frédéric BENOIST, Germain Tenthorey, Gordon Coubrough, Guillaume Leseur, Gytis Škėma, indesign47, Jocelyn Fournier, joseantgv, Julien Deniau, Krystian Podemski, Ladel, Léo, MaX3315, natrim, Nicolas Sorosac, nodexpl, oleacorner, Pan P., pbirnzain, Pedro J. Parra, PhpMadman, PrestaEdit, Richard LT, Roland Schütz, Samy Rabih, Sébastien Monterisi, SebSept, Shagshag, Steven Sulley, Tomáš Votruba, tucoinfo, unlocomqx, vitekj, zimmi1, ZiZuu.com</em></p>
+<p><strong><a href="https://www.prestashop.com/es/descarga" target="_blank">Descarga la última versión de PrestaShop</a></strong> y accede inmediatamente a las ventajas 1.6.1.0. <strong><a href="https://www.prestashop.com/es/crear-tienda-online" target="_blank">¡Pronto disponible para PrestaShop Cloud</a></strong>!</p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/la-version-1-6-1-0-novedades-y-mejoras/">La versión 1.6.1.0: novedades y mejoras</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.prestashop.com/blog/es/la-version-1-6-1-0-novedades-y-mejoras/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Desarrolla tu negocio de comercio electrónico a través de las redes sociales (Parte 2 de 2)</title>
+		<link>https://www.prestashop.com/blog/es/desarrolla-tu-negocio-de-comercio-electronico-traves-de-las-redes-sociales-parte-2-de-2/</link>
+		<comments>https://www.prestashop.com/blog/es/desarrolla-tu-negocio-de-comercio-electronico-traves-de-las-redes-sociales-parte-2-de-2/#comments</comments>
+		<pubDate>Tue, 30 Jun 2015 16:42:35 +0000</pubDate>
+		<dc:creator><![CDATA[Kate Robinson]]></dc:creator>
+				<category><![CDATA[Consejos E-commerce]]></category>
+
+		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=13054</guid>
+		<description><![CDATA[<p>¿Has configurado tu panel y definido el objetivo de tu kit de redes sociales tal y como te indicamos en nuestra última entrada? ¿Sí? ¡Perfecto! Veamos el último paso para hacer que tu estrategia en redes sociales sea realmente única y destaque entre todos los negocios de comercio electrónico de la competencia. 3. Haz que [...]</p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/desarrolla-tu-negocio-de-comercio-electronico-traves-de-las-redes-sociales-parte-2-de-2/">Desarrolla tu negocio de comercio electrónico a través de las redes sociales (Parte 2 de 2)</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>¿Has configurado tu <a href="https://hootsuite.com/plans?icn=primtopnav&amp;ici=Plans" target="_blank">panel</a> y definido el objetivo de tu kit de redes sociales tal y como te indicamos en nuestra última entrada? ¿Sí? ¡Perfecto! Veamos el último paso para hacer que tu estrategia en redes sociales sea realmente única y destaque entre todos los negocios de comercio electrónico de la competencia.<br />
+<span id="more-13054"></span></p>
+<h2 style="color:#277083">3. Haz que tu guiño comunicativo coincida con tu kit de redes sociales </h2>
+<p>Con guiño comunicativo nos referimos a cómo conectas con los clientes para hacer que tu mensaje tenga un gran impacto. ¿Optarás por un enfoque basado en el razonamiento lógico o por un mensaje con una fuerte carga emocional? Existen tres categorías de guiños comunicativos: </p>
+<ul style="padding-left:30px">
+<li><strong>Ethos :</strong> establece la credibilidad mediante testimonios, muestras de trabajo y otras pruebas específicas</li>
+<li><strong>Logos :</strong> se centra en el razonamiento lógico utilizando hechos y estadísticas</li>
+<li><strong>Pathos :</strong> se centra en transmitir mensajes emocionales y motivadores utilizando experiencias personales, acontecimientos sociales, etc.</li>
+</ul>
+<p>Elige tu guiño comunicativo basándote en tu segmento objetivo y las herramientas de comunicación de las que dispones para hacer que tus clientes completen una acción específica (por ejemplo, hacer un pedido de un producto, o concertar una cita). Una selección cuidadosa es clave en esta etapa. Un <a href="http://ow.ly/L5MvI" target="_blank">estudio reciente realizado por HubSpot</a> confirma que los guiños comunicativos tienen un impacto sobre la decisión de los visitantes a la hora de interactuar o no con una entrada.</p>
+<p>Cada guiño comunicativo enlaza con una serie de herramientas de redes sociales, basándose en tu enfoque comunicativo: </p>
+<p><a href="http://www.prestashop.com/blog/es/files/2015/06/tab-es1.png"><img src="http://www.prestashop.com/blog/es/files/2015/06/tab-es1.png" alt="tab-es" width="665" height="812" class="aligncenter size-full wp-image-13056" /></a></p>
+<p style="font-size:12px">* la relevancia personal, basada en experiencias, acontecimientos sociales o actuales, es clave para hacer que tu público quiera compartir tu contenido con sus contactos empresariales, compañeros, amigos y familiares. Ejemplo: Historia de éxito de BuzzFeed a través de canales de redes sociales.</p>
+<p>La pregunta clave que debes hacerte es si un mensaje es relevante para tu segmento objetivo: ¿Qué valor ofrece mi entrada? ¿Por qué deberían QUERER participar? </p>
+<p>Un consejo: no te quedes atascado en los años 90; los colores brillantes, la música y los eslóganes típicos para captar la atención se han quedado desfasados, dentro o fuera de la red. En su lugar, elabora cuidadosamente un desencadenante para tu público objetivo y hazte destacar por el valor que aportas, no por tu fuente de neón.</p>
+<h2 style="color:#277083">En resumen</h2>
+<p>Dejemos de lado la teoría por un momento y echémosle un vistazo a un negocio de comercio electrónico que combina los tres pasos eficazmente: Zalando. Su presencia internacional en las redes sociales se centra en guiños emocionales y motivadores. La empresa adapta su estrategia al gusto local y a los acontecimientos actuales que afectan a sus segmentos objetivos estrechamente definidos en el ámbito personal. Zalando ofrece diferentes enfoques para cada segmento de manera constante, tal y como se puede ver en su página web. Las imágenes mostradas a continuación, reflejan cuentas actuales enfocadas hacia la próxima temporada de primavera y el desencadenante emocional asociado a esta a través de Facebook e Instagram: </p>
+<div class="row">
+<div class="col-sm-7 col-xs-12"><a href="http://www.prestashop.com/blog/es/files/2015/06/zalendo1.png"><img src="http://www.prestashop.com/blog/es/files/2015/06/zalendo1-1024x526.png" alt="zalendo1" width="700" height="359" class="aligncenter size-large wp-image-13057" /></a></div>
+<div class="col-sm-5 col-xs-12"><a href="http://www.prestashop.com/blog/es/files/2015/06/zalendo2.png"><img src="http://www.prestashop.com/blog/es/files/2015/06/zalendo2.png" alt="zalendo2" width="511" height="624" class="aligncenter size-full wp-image-13058" /></a></div>
+</div>
+<p>Además de centrarse en la interacción social coherente y actualizada con los clientes potenciales, Zalando utiliza anuncios complementarios en redes sociales basados en cookies y en vídeos publicitarios online. Como resultado, la empresa ha logrado convertirse en una tienda online líder a nivel mundial, representando a más de 1500 marcas desde que fue fundada en 2008. </p>
+<p>Así pues, ¿cómo podrías tú, como vendedor de un comercio electrónico, lograr este nivel constante de interacción con tu público objetivo en las redes sociales seleccionadas? </p>
+<p>La respuesta se basa, una vez más, en saber enfocar: ¡integra todas tus redes sociales en una sola plataforma!</p>
+<p>HootSuite te da la oportunidad de gestionar todos tus canales de redes sociales de forma simultánea a través de un único panel de control, facilitando una comunicación coherente y constante en todos los canales, incluso a través de tu sitio de comercio electrónico. Tal y como hemos mostrado anteriormente, una función de búsqueda específica te permite seguir e interactuar con tu público en tiempo real, lo que te dará una ventaja competitiva que podría marcar la diferencia en mercados virtuales dinámicos.</p>
+<p style="font-style:italic">¿Aún no lo tienes claro? Comienza tu prueba gratuita de 30 días y comprueba por ti mismo si Hootsuite es la herramienta adecuada para ti:<a href="http://ow.ly/L7QJr" target="_blank">http://ow.ly/L7QJr</a></p>
+<p><strong>Por</strong></p>
+<p>Hanna Oeljeschläger (@HootHanna)<br />
+Social Media Coach para países germanohablantes y Reino Unido en Hootsuite</p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/desarrolla-tu-negocio-de-comercio-electronico-traves-de-las-redes-sociales-parte-2-de-2/">Desarrolla tu negocio de comercio electrónico a través de las redes sociales (Parte 2 de 2)</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.prestashop.com/blog/es/desarrolla-tu-negocio-de-comercio-electronico-traves-de-las-redes-sociales-parte-2-de-2/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
 		<title>Guía intermedia para el comercio electrónico mejorado</title>
 		<link>https://www.prestashop.com/blog/es/guia-intermedia-para-el-comercio-electronico-mejorado/</link>
 		<comments>https://www.prestashop.com/blog/es/guia-intermedia-para-el-comercio-electronico-mejorado/#comments</comments>
@@ -575,128 +660,6 @@ Los vendedores invierten de media el 90 % de su presupuesto de marketing en atra
 ]]></content:encoded>
 			<wfw:commentRss>https://www.prestashop.com/blog/es/estudio-de-caso-como-mejorar-las-conversiones-mediante-la-personalizacion/feed/</wfw:commentRss>
 		<slash:comments>1</slash:comments>
-		</item>
-		<item>
-		<title>Maptiteculotte.com: una idea original convertida en una historia de éxito</title>
-		<link>https://www.prestashop.com/blog/es/maptiteculotte-com-una-idea-original-convertida-en-una-historia-de-exito/</link>
-		<comments>https://www.prestashop.com/blog/es/maptiteculotte-com-una-idea-original-convertida-en-una-historia-de-exito/#comments</comments>
-		<pubDate>Mon, 25 May 2015 08:30:00 +0000</pubDate>
-		<dc:creator><![CDATA[Camille Sila]]></dc:creator>
-				<category><![CDATA[Sucess Story]]></category>
-
-		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=12940</guid>
-		<description><![CDATA[<p>Charline Goutal, una apasionada de la lencería con alma de emprendedora, sabía que en su sector favorito quedaba un hueco por llenar. &#8220;Buscaba un tipo de lencería que pudiera ponerme a diario pero siempre me topaba con una oferta limitada de braguitas clásicas de algodón&#8230; muy poco favorecedoras. Maptiteculotte.com nació para ofrecer prendas de calidad, [...]</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/maptiteculotte-com-una-idea-original-convertida-en-una-historia-de-exito/">Maptiteculotte.com: una idea original convertida en una historia de éxito</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></description>
-				<content:encoded><![CDATA[<p>Charline Goutal, una apasionada de la lencería con alma de emprendedora, sabía que en su sector favorito quedaba un hueco por llenar. &#8220;Buscaba un tipo de lencería que pudiera ponerme a diario pero siempre me topaba con una oferta limitada de braguitas clásicas de algodón&#8230; muy poco favorecedoras. Maptiteculotte.com nació para ofrecer prendas de calidad, cómodas pero también originales, con personalidad y divertidas. Convertir una sonrisa en complicidad… ¡una idea preciosa!&#8221;<br />
-<span id="more-12940"></span></p>
-<h2 style="color:#2c2c2c">Siempre en buena compañía, la de PrestaShop</h2>
-<h4 style="color:#ea513f">Problema</h4>
-<p>Encontrar al socio tecnológico idóneo no siempre es fácil&#8230; y Charline lo descubrió del peor modo posible. Siguió un mal consejo y creó su primera tienda con una plataforma que no se adaptaba a sus necesidades. ¡Tenía que volver a empezar! Por suerte, Charline consiguió la ayuda French Tech para reconstruir su tienda con una nueva solución. </p>
-<h4 style="color:#ea513f">Retos</h4>
-<p>Charline no podía volver a equivocarse: necesitaba un programa de e-commerce que le facilitara la gestión sin limitar el crecimiento de su negocio. Además, su idea consistía en darle la vuelta a un sector con mucha historia&#8230; así que necesitaba una agencia web capaz de crear la tienda que había imaginado. </p>
-<h4 style="color:#ea513f">Resultados</h4>
-<p>&#8220;Al final, la clave del éxito es saber rodearse de la gente adecuada. Eso implica escoger una buena solución de e-commerce como PrestaShop, pero también recurrir a una agencia web o un profesional competente que te escuche. Yo decidí trabajar con una agencia asociada con PrestaShop muy conocida en el sector: NewQuest. ¡Fue todo un acierto! Hoy puedo decir que estoy orgullosa de mi tienda. Y me encanta PrestaShop: es muy fácil de usar y con todas sus funcionalidades se adapta a mis necesidades actuales&#8230; y futuras&#8221;. </p>
-<h2 style="color:#2c2c2c">PrestaShop: un aliado para lograr sus objetivos</h2>
-<h4 style="color:#ea513f">Problema</h4>
-<p>Maptiteculotte.com ya tenía sus seguidores en las redes sociales incluso antes de su lanzamiento, así que los primeros pedidos no tardaron en llegar. Pero un buen comienzo no garantiza un buen futuro: hay que fidelizar a los clientes y atraer otros nuevos.  </p>
-<h4 style="color:#ea513f">Retos</h4>
-<p>¿Qué debía ofrecerle a Charline su nueva tienda? La posibilidad de aplicar buenas prácticas de e-commerce y de poner en marcha las acciones de marketing necesarias para crear una experiencia de cliente única. </p>
-<h4 style="color:#ea513f">Resultados</h4>
-<p>&#8220;Desde que nos pasamos a PrestaShop las ventas han aumentado notablemente: tenemos una tienda adaptada en la que el cliente realmente se siente a gusto. ¡Y podemos modificar y ampliar la tienda en segundos con los módulos de PrestaShop Addons (el mercado virtual de PrestaShop)! Por ejemplo, gracias al módulo &#8220;Tarjeta regalo&#8221; vamos a poder ofertar uno de los productos más demandados por nuestros clientes: las tarjetas regalo&#8221;. </p>
-<h2 style="color:#2c2c2c">Conclusión</h2>
-<h4 style="color:#ea513f">Consejo para futuros vendedores online</h4>
-<p>&#8220;Hay que esforzarse por insuflar un soplo de aire fresco al mercado con un concepto original y diferente&#8230; pero siempre respetando las mejores prácticas de e-commerce&#8221;.<br />
-¿Quieres crear una tienda online como Maptiteculotte.com? ¡Atrévete! Puedes hacerlo hoy mismo con <a href="https://www.prestashop.com/es">PrestaShop Cloud</a>, la versión con alojamiento de nuestro software de e-commerce.</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/maptiteculotte-com-una-idea-original-convertida-en-una-historia-de-exito/">Maptiteculotte.com: una idea original convertida en una historia de éxito</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></content:encoded>
-			<wfw:commentRss>https://www.prestashop.com/blog/es/maptiteculotte-com-una-idea-original-convertida-en-una-historia-de-exito/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>Diez pasos para crear las mejores campañas de correo</title>
-		<link>https://www.prestashop.com/blog/es/diez-pasos-para-crear-las-mejores-campanas-de-correo/</link>
-		<comments>https://www.prestashop.com/blog/es/diez-pasos-para-crear-las-mejores-campanas-de-correo/#comments</comments>
-		<pubDate>Thu, 21 May 2015 08:30:15 +0000</pubDate>
-		<dc:creator><![CDATA[Kate Robinson]]></dc:creator>
-				<category><![CDATA[Consejos E-commerce]]></category>
-
-		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=12902</guid>
-		<description><![CDATA[<p>Antes de nada: olvídate de los que dicen que las campañas de correo no tienen futuro y están en franca decadencia. Solo las campañas mal planteadas y mal diseñadas se ven abocadas al fracaso. ¿Sabías que el 10 % de las transacciones de e-commerce se consiguen gracias al envío de correos? No importa qué vendas: [...]</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/diez-pasos-para-crear-las-mejores-campanas-de-correo/">Diez pasos para crear las mejores campañas de correo</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></description>
-				<content:encoded><![CDATA[<p>Antes de nada: olvídate de los que dicen que las campañas de correo no tienen futuro y están en franca decadencia. Solo las campañas mal planteadas y mal diseñadas se ven abocadas al fracaso.</p>
-<p>¿Sabías que el 10 % de las transacciones de e-commerce se consiguen gracias al envío de correos? No importa qué vendas: si quieres tener éxito en Internet, debes conocer y entender las bondades del mailing.</p>
-<p>Sencillez, rapidez, resultados inmediatos y analizables&#8230; con tantas ventajas, las buenas campañas de correo están lejos de desaparecer. Con estos diez trucos, acertarás seguro.<br />
-<span id="more-12902"></span></p>
-<h2 style="color: #d15a51"><img style="margin-right: 2px" alt="El objetivo" src="http://www.prestashop.com/blog/es/files/2015/05/ciblage.png" width="50" height="50" /> El objetivo</h2>
-<p>Es la base de toda tu campaña. Empieza comprobando la calidad de tu base de datos: verifica que las direcciones se han obtenido legalmente, que no hay faltas de ortografía y que aparecen el nombre y los apellidos del destinatario. Rechaza por sistema las bases de datos compradas&#8230; y los datos obtenidos sin permiso. No solo es ilegal, ¡es que nadie lee un correo que no quiere recibir!</p>
-<p>Tras esta primera fase, comienza la definición del objetivo. Segmenta la base de datos en función del tipo de contacto: nuevo contacto, cliente activo, antiguo cliente&#8230; ¡No vas a enviarle un mensaje de bienvenida a un antiguo cliente ni a dar una recompensa a alguien que no te ha comprado nada!</p>
-<p>Parece evidente, ¿no? Pues el 51 % de las personas que cancelan suscripciones lo hacen porque reciben correos que no se adaptan a su perfil. Aprende a conocer a tus clientes, sus deseos, sus pasiones y sus necesidades. Una buena base de datos es sinónimo de satisfacción de los clientes.</p>
-<h2 style="color: #d15a51"><img style="margin-right: 2px" alt="Correos adaptables" src="http://www.prestashop.com/blog/es/files/2015/05/responsivemail.png" width="50" height="50" /> Correos adaptables</h2>
-<p>Estamos en 2015, el futuro ya está aquí. Tus contactos usan cada vez más el teléfono para leer el correo. Return Path calcula que el <strong>50 % de los correos se abren en el móvil</strong>&#8230; una proporción nada desdeñable.</p>
-<p>Por eso tienes que asegurarte de que los mensajes se ven correctamente en cualquier dispositivo de bolsillo. Sí, estamos hablando de &#8220;diseño adaptable&#8221;.</p>
-<p>Un correo adaptable no debe ser ni demasiado largo ni demasiado complejo. Si tu destinatario tiene que perder tres minutos pasando páginas y forzando la vista para leer textos diminutos o muy largos&#8230; puedes estar seguro de que cancelará su suscripción.</p>
-<p>Estos son nuestros consejos para crear buenos correos adaptables:</p>
-<ul style="padding-left: 30px">
-<li>Simplifica los correos por medio de bloques adaptables</li>
-<li>Elimina los elementos superfluos como sondeos o adornos innecesarios</li>
-<li>Personaliza los menús</li>
-<li>Evita yuxtaponer textos e imágenes: colócalos uno detrás de otro</li>
-<li>Diseña textos legibles</li>
-<li>No intentes que sean una copia de las versiones para escritorio</li>
-<li><strong>PRUEBA ANTES DE ENVIAR</strong></li>
-</ul>
-<p>Escoge una buena solución de envío de correos para poder crear boletines adaptables de un modo sencillo. Con Mailify puedes diseñar tú mismo un boletín de calidad profesional&#8230; ¡con diseño adaptable automático!</p>
-<p>Descarga <a href="http://addons.prestashop.com/es/publicidad-marketing-newsletter-modulos/19001-mailify.html" target="_blank">Mailify</a> gratis.</p>
-<h2 style="color: #d15a51"><img style="margin-right: 2px" alt="Un asunto atractivo" src="http://www.prestashop.com/blog/es/files/2015/05/objetaccrocheur.png" width="50" height="50" /> Un asunto atractivo</h2>
-<p>Tienes todo lo que necesitas para que tu campaña de correo sea un éxito&#8230; pero el lector aún no ha abierto el mensaje. Para animarle a hacerlo, no hay nada como un asunto sugerente. Es EL factor clave de apertura y, por lo tanto, de la eficacia de tu campaña.</p>
-<p>El asunto debe ser breve, atractivo y conciso. ¡Sé original! La diferenciación y la pertinencia son esenciales: evita los términos demasiado genéricos (por ejemplo: &#8220;gratis&#8221;, &#8220;gana&#8221;, &#8220;promoción&#8221;, &#8220;entra ya&#8221;, etc.).</p>
-<p>Otro punto vital antes de la apertura: el pre-encabezado. Debe resumir lo esencial en una frase.</p>
-<p>Coloca el típico &#8220;<span style="font-style: italic">Si no ves este mensaje correctamente, haz clic aquí</span>&#8221; <strong>después</strong> ya que será lo primero que el lector vea en la vista previa de su bandeja de correo.</p>
-<h2 style="color: #d15a51"><img style="margin-right: 2px" alt="Una estructura coherente" src="http://www.prestashop.com/blog/es/files/2015/05/structure.png" width="50" height="50" /> Una estructura coherente</h2>
-<p>Ya está, el lector ha abierto el correo. Pero no aún no está todo hecho&#8230; Hemos de hablar de lo más importante: la estructura.</p>
-<ul style="padding-left: 30px">
-<li>El encabezado: El lema publicitario de tu web, el logo de tu empresa y un mensaje sugerente</li>
-<li>El cuerpo: El tema principal, con la información más importante al principio. Equilibra texto e imágenes (50/50) y sé breve</li>
-<li>Enlaces: Vínculos útiles y personalizados (sin abusar) y páginas de aterrizaje adaptadas</li>
-<li>Tus datos de contacto: teléfono, correo y dirección postal a un solo clic para ahorrar tiempo (sobre todo desde móviles)</li>
-<li>Botones para compartir en las redes sociales</li>
-<li>Elementos que inspiran confianza</li>
-<li>El enlace obligatorio para cancelar la suscripción</li>
-</ul>
-<p>Veamos algunos de estos elementos con más en detalle.</p>
-<h2 style="color: #d15a51"><img style="margin-right: 2px" alt="Contenido de calidad" src="http://www.prestashop.com/blog/es/files/2015/05/contenu.png" width="50" height="50" /> Contenido de calidad</h2>
-<p>Tu correo debe tener un objetivo claro y debes atenerte a él. Céntrate en el tema que hayas escogido, en la promoción o la oferta especial. Organiza y jerarquiza el boletín en función de la importancia del contenido. Piensa bien dónde pones cada elemento, no dejes nada al azar: ¡todo dependerá del tema!</p>
-<p>La preparación previa es esencial. No redactes el correo en el último momento: ¡se notará! Además, crear un calendario te ayudará a ser coherente y regular en los envíos.</p>
-<h2 style="color: #d15a51"><img style="margin-right: 2px" alt="Llamada a la acción" src="http://www.prestashop.com/blog/es/files/2015/05/cta.png" width="50" height="50" /> Llamada a la acción</h2>
-<p>Una &#8220;llamada a la acción&#8221; es una invitación sugerente que se coloca siempre sobre una imagen, un banner o un botón con un enlace directo al producto que deseas vender.</p>
-<p>El texto debe impulsar al lector a interactuar con tu empresa. Algunos ejemplos habituales: &#8220;Quiero suscribirme&#8221;, &#8220;Leer más&#8221;, &#8220;Aprovecha la oferta&#8221; o &#8220;Descarga la aplicación&#8221;.</p>
-<p>Destacan la existencia de un enlace y animan a hacer clic.</p>
-<h2 style="color: #d15a51"><img style="margin-right: 2px" alt="Páginas de aterrizaje dedicadas" src="http://www.prestashop.com/blog/es/files/2015/05/landingpage.png" width="50" height="50" /> Páginas de aterrizaje dedicadas</h2>
-<p>Cuando un cliente pincha en un enlace, lo ideal es que llegue a una página de aterrizaje de tu sitio web: recibirá una agradable bienvenida y encontrará información clara sobre qué debe hacer para encontrar lo que busca. Si puedes, crea una página de aterrizaje dedicada para cada campaña.</p>
-<h2 style="color: #d15a51"><img style="margin-right: 2px" alt="Elementos que inspiran confianza" src="http://www.prestashop.com/blog/es/files/2015/05/reassurance.png" width="50" height="50" /> Elementos que inspiran confianza</h2>
-<p>No olvides cuál es tu objetivo: vender. Para que un internauta compre en tu sitio web, tiene que estar seguro de que no le van a tomar el pelo. Debes ganarte su confianza para que finalice la transacción.</p>
-<p>¿Cómo lograrlo? Añade a tu boletín frases como &#8220;si no quedas satisfecho te devolvemos el dinero&#8221; o pruebas de autenticidad como distinciones y comentarios positivos. Informa de que tu sitio web tiene un sistema de pagos seguro y ayuda a tu cliente: puedes incluir un formulario de contacto o números de teléfono. ¡Sé amable y consigue que el cliente confíe en ti!</p>
-<h2 style="color: #d15a51"><img style="margin-right: 2px" alt="Los enlaces sociales" src="http://www.prestashop.com/blog/es/files/2015/05/liensocial.png" width="50" height="50" /> Los enlaces sociales</h2>
-<p>Las redes no son el fin de las campañas de correo&#8230; ¡todo lo contrario! Sus beneficios pueden ser esenciales para algunos sectores. Si crees que son positivas para tu empresa, añade botones que redirijan a tus páginas de Facebook, Twitter, Youtube, Pinterest o Instagram. ¡Elige las redes que sean útiles en función del objetivo de tu campaña!<br />
-Esta estrategia tiene varias ventajas:</p>
-<ul style="padding-left: 30px">
-<li>Convertir contactos de correo en seguidores</li>
-<li>Fomentar la viralidad de tus campañas a través de seguidores que comparten contenidos</li>
-<li>Animar a tu comunidad y dar una imagen moderna</li>
-<li>Llegar a nuevos objetivos y dar a conocer tu marca</li>
-</ul>
-<h2 style="color: #d15a51"><img style="margin-right: 2px" alt="La cancelación... De la suscripción" src="http://www.prestashop.com/blog/es/files/2015/05/desabonnement.png" width="50" height="50" /> La cancelación&#8230; De la suscripción</h2>
-<p>A nadie le gusta, pero hay que informar igualmente: siempre hay que añadir un enlace para cancelar la suscripción al final del mensaje. ¡No debe estar ni muy visible ni escondido! Si el usuario no encuentra el enlace, puedes recibir denuncias por spam, lo que dañará tu imagen.</p>
-<p>Por último, volvemos a incidir en un aspecto básico: PRUEBA tu boletín antes de enviarlo. Puedes hacer una prueba A/B para comparar dos versiones y determinar cuál es más eficaz. ¡No olvides que una vez enviado, es demasiado tarde para cambiar!</p>
-<h2 style="color: #d15a51"><img style="margin-right: 2px" alt="Las ventajas de Mailify" src="http://www.prestashop.com/blog/es/files/2015/05/plus.png" width="50" height="50" /> Las ventajas de Mailify</h2>
-<p>Gracias a <strong>Mailify</strong>, la solución de envío de correos más importante del mercado francés, podrás cumplir tus objetivos con total sencillez. Mailify cuenta con un módulo <strong>PrestaShop integrado directamente en tu back-office</strong> y está especialmente pensado para el comercio electrónico: segmentación de listas, análisis de estadísticas, cientos de plantillas adaptables gratuitas y mucho más. Mailify te ofrece todo un abanico de posibilidades para crear la campaña de correo ideal.</p>
-<p>Encontrarás toda la información en <a href="http://addons.prestashop.com/es/publicidad-marketing-newsletter-modulos/19001-mailify.html" target="_blank">Mailify</a>.</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/diez-pasos-para-crear-las-mejores-campanas-de-correo/">Diez pasos para crear las mejores campañas de correo</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></content:encoded>
-			<wfw:commentRss>https://www.prestashop.com/blog/es/diez-pasos-para-crear-las-mejores-campanas-de-correo/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
 		</item>
 	</channel>
 </rss>

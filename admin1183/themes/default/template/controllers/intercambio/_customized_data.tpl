@@ -23,8 +23,6 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 
-_customized_data.tpl
-
 {if $product['customizedDatas']}
 {* Assign product price *}
 {if ($order->getTaxCalculationMethod() == $smarty.const.PS_TAX_EXC)}

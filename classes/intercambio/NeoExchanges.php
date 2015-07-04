@@ -139,6 +139,26 @@ class NeoExchanges extends ObjectModel
     public $reference;
 
     /**
+     * @var string Forma de pago, this reference is not unique
+     */
+    public $forma_pago;
+
+    /**
+     * @var integer Id de neo status, relacion con tabla neo_status
+     */
+    public $id_neo_status;
+
+    /**
+     * @var float Total en favor, dinero a favor del cliente
+     */
+    public $total_in_favor;
+
+    /**
+     * @var float Total diferencia, deuda del cliente por la orden
+     */
+    public $total_dif;
+
+    /**
      * @see ObjectModel::$definition
      */
     public static $definition = array(
@@ -544,6 +564,13 @@ class NeoExchanges extends ObjectModel
         $resultArray = array();
         foreach ($products as $row)
         {
+
+            //var_dump($row);die;
+
+
+
+
+
             // Change qty if selected
             if ($selectedQty)
             {
