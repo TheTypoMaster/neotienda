@@ -162,3 +162,18 @@ insert  into `ps_neo_whitelist`(`id_neo_whitelist`,`id_product`,`price`) values 
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
+DROP TABLE IF EXISTS `ps_neo_history`;
+
+CREATE TABLE `ps_neo_history` (
+  `id_neo_history` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_employee` int(10) unsigned NOT NULL,
+  `id_neo` int(10) unsigned NOT NULL,
+  `id_neo_state` int(10) unsigned NOT NULL,
+  `date_add` datetime NOT NULL,
+  PRIMARY KEY (`id_neo_history`),
+  KEY `order_history_order` (`id_neo`),
+  KEY `id_employee` (`id_employee`),
+  KEY `id_order_state` (`id_neo_state`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

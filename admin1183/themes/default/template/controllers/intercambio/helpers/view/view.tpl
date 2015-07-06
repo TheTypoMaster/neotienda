@@ -33,7 +33,7 @@
 	var id_currency = {$order->id_currency};
 	var id_customer = {$order->id_customer|intval};
 	{assign var=PS_TAX_ADDRESS_TYPE value=Configuration::get('PS_TAX_ADDRESS_TYPE')}
-	var id_address = {$order->$PS_TAX_ADDRESS_TYPE};
+	//var id_address = {$order->$PS_TAX_ADDRESS_TYPE};
 	var currency_sign = "{$currency->sign}";
 	var currency_format = "{$currency->format}";
 	var currency_blank = "{$currency->blank}";
@@ -115,12 +115,16 @@
 					<span class="badge">{l s="#"}{$order->id}</span>
 					<div class="panel-heading-action">
 						<div class="btn-group">
-							<a class="btn btn-default" href="{$link->getAdminLink('AdminOrders')|escape:'html':'UTF-8'}&amp;vieworder&amp;id_order={$previousOrder|intval}">
+                            {if ($previousOrder|intval)}
+							<a class="btn btn-default" href="{$link->getAdminLink('AdminIntercambio')|escape:'html':'UTF-8'}&amp;viewneo_exchanges&amp;id_neo_exchange={$previousOrder|intval}">
 								<i class="icon-backward"></i>
 							</a>
-							<a class="btn btn-default" href="{$link->getAdminLink('AdminOrders')|escape:'html':'UTF-8'}&amp;vieworder&amp;id_order={$nextOrder|intval}">
+                            {/if}
+                            {if ($nextOrder|intval)}
+							<a class="btn btn-default" href="{$link->getAdminLink('AdminIntercambio')|escape:'html':'UTF-8'}&amp;viewneo_exchanges&amp;id_neo_exchange={$nextOrder|intval}">
 								<i class="icon-forward"></i>
 							</a>
+                            {/if}
 						</div>
 					</div>
 				</div>
@@ -226,18 +230,16 @@
 							</table>
 						</div>
 
-                        {$neoStatus@var_dump}
-
 						<!-- Change status form -->
-						<form action="{$currentIndex|escape:'html':'UTF-8'}&amp;vieworder&amp;token={$smarty.get.token}" method="post" class="form-horizontal well hidden-print">
+						<form action="{$currentIndex|escape:'html':'UTF-8'}&amp;viewneo_exchanges&amp;id_neo_exchange={$order->id}&amp;token={$smarty.get.token}" method="post" class="form-horizontal well hidden-print">
 							<div class="row">
 								<div class="col-lg-9">
-									<select id="id_order_state" class="chosen form-control" name="id_order_state">
+									<select id="id_neo_state" class="chosen form-control" name="id_neo_state">
 									{foreach from=$neoStatus item=statu}
                                         <option value="{$statu['id_neo_status']|intval}"{if $statu['id_neo_status'] == $currentState->id} selected="selected" disabled="disabled"{/if}>{$statu['denominacion']|escape}</option>
 									{/foreach}
 									</select>
-									<input type="hidden" name="id_order" value="{$order->id}" />
+									<input type="hidden" name="id_neo_exchange" value="{$order->id}" />
 								</div>
 								<div class="col-lg-3">
 									<button type="submit" name="submitState" class="btn btn-primary">
@@ -345,7 +347,7 @@
 											<td class="actions">
 												<span id="shipping_number_show">{if isset($line.url) && isset($line.tracking_number)}<a href="{$line.url|replace:'@':$line.tracking_number|escape:'html':'UTF-8'}">{$line.tracking_number}</a>{elseif isset($line.tracking_number)}{$line.tracking_number}{/if}</span>
 												{if $line.can_edit}
-												<form method="post" action="{$link->getAdminLink('AdminOrders')|escape:'html':'UTF-8'}&amp;vieworder&amp;id_order={$order->id|intval}&amp;id_order_invoice={if $line.id_order_invoice}{$line.id_order_invoice|intval}{else}0{/if}&amp;id_carrier={if $line.id_carrier}{$line.id_carrier|escape:'html':'UTF-8'}{else}0{/if}">
+												<form method="post" action="{$link->getAdminLink('AdminOrders')|escape:'html':'UTF-8'}&amp;viewneo_exchanges&amp;id_order={$order->id|intval}&amp;id_order_invoice={if $line.id_order_invoice}{$line.id_order_invoice|intval}{else}0{/if}&amp;id_carrier={if $line.id_carrier}{$line.id_carrier|escape:'html':'UTF-8'}{else}0{/if}">
 													<span class="shipping_number_edit" style="display:none;">
 														<button type="button" name="tracking_number">
 															{$line.tracking_number|htmlentities}
@@ -416,13 +418,13 @@
 									<br />{l s='This warning also concerns the next orders:'}
 								{/if}
 							{/if}
-							<a href="{$current_index}&amp;vieworder&amp;id_order={$brother_order->id}&amp;token={$smarty.get.token|escape:'html':'UTF-8'}">
+							<a href="{$current_index}&amp;viewneo_exchanges&amp;id_order={$brother_order->id}&amp;token={$smarty.get.token|escape:'html':'UTF-8'}">
 								#{'%06d'|sprintf:$brother_order->id}
 							</a>
 						{/foreach}
 					</p>
 				{/if}
-				<form id="formAddPayment"  method="post" action="{$current_index}&amp;vieworder&amp;id_order={$order->id}&amp;token={$smarty.get.token|escape:'html':'UTF-8'}">
+				<form id="formAddPayment"  method="post" action="{$current_index}&amp;viewneo_exchanges&amp;id_order={$order->id}&amp;token={$smarty.get.token|escape:'html':'UTF-8'}">
 					<div class="table-responsive">
 						<table class="table">
 							<thead>
@@ -548,7 +550,7 @@
 					</div>
 				</form>
 				{if (!$order->valid && sizeof($currencies) > 1)}
-					<form class="form-horizontal well" method="post" action="{$currentIndex|escape:'html':'UTF-8'}&amp;vieworder&amp;id_order={$order->id}&amp;token={$smarty.get.token|escape:'html':'UTF-8'}">
+					<form class="form-horizontal well" method="post" action="{$currentIndex|escape:'html':'UTF-8'}&amp;viewneo_exchanges&amp;id_order={$order->id}&amp;token={$smarty.get.token|escape:'html':'UTF-8'}">
 						<div class="row">
 							<label class="control-label col-lg-3">{l s='Change currency'}</label>
 							<div class="col-lg-6">
@@ -681,7 +683,7 @@
 							{if !$order->isVirtual()}
 							<!-- Shipping address -->
 								{if $can_edit}
-									<form class="form-horizontal hidden-print" method="post" action="{$link->getAdminLink('AdminOrders')|escape:'html':'UTF-8'}&amp;vieworder&amp;id_order={$order->id|intval}">
+									<form class="form-horizontal hidden-print" method="post" action="{$link->getAdminLink('AdminOrders')|escape:'html':'UTF-8'}&amp;viewneo_exchanges&amp;id_order={$order->id|intval}">
 										<div class="form-group">
 											<div class="col-lg-9">
 												<select name="id_address">
@@ -731,7 +733,7 @@
 							<!-- Invoice address -->
 							<h4 class="visible-print">{l s='Invoice address'}</h4>
 							{if $can_edit}
-								<form class="form-horizontal hidden-print" method="post" action="{$link->getAdminLink('AdminOrders')|escape:'html':'UTF-8'}&amp;vieworder&amp;id_order={$order->id|intval}">
+								<form class="form-horizontal hidden-print" method="post" action="{$link->getAdminLink('AdminOrders')|escape:'html':'UTF-8'}&amp;viewneo_exchanges&amp;id_order={$order->id|intval}">
 									<div class="form-group">
 										<div class="col-lg-9">
 											<select name="id_address">
@@ -896,8 +898,8 @@
     {* Seccion Productos que quiere el cliente *}
     <div class="row" id="start_products">
         <div class="col-lg-12">
-            <form class="container-command-top-spacing" action="{$current_index}&amp;vieworder&amp;token={$smarty.get.token|escape:'html':'UTF-8'}&amp;id_order={$order->id|intval}" method="post" onsubmit="return orderDeleteProduct('{l s='This product cannot be returned.'}', '{l s='Quantity to cancel is greater than quantity available.'}');">
-                <input type="hidden" name="id_order" value="{$order->id}" />
+            <form class="container-command-top-spacing" action="{$current_index}&amp;viewneo_exchanges&amp;token={$smarty.get.token|escape:'html':'UTF-8'}&amp;id_neo_exchange={$order->id|intval}" method="post" onsubmit="return orderDeleteProduct('{l s='This product cannot be returned.'}', '{l s='Quantity to cancel is greater than quantity available.'}');">
+                <input type="hidden" name="id_neo_exchange" value="{$order->id}" />
                 <div style="display: none">
                     <input type="hidden" value="{$order->getWarehouseList()|implode}" id="warehouse_list" />
                 </div>
@@ -1106,7 +1108,7 @@
     {* Seccion que tiene el cliente *}
     <div class="row" id="start_products">
         <div class="col-lg-12">
-            <form class="container-command-top-spacing" action="{$current_index}&amp;vieworder&amp;token={$smarty.get.token|escape:'html':'UTF-8'}&amp;id_order={$order->id|intval}" method="post" onsubmit="return orderDeleteProduct('{l s='This product cannot be returned.'}', '{l s='Quantity to cancel is greater than quantity available.'}');">
+            <form class="container-command-top-spacing" action="{$current_index}&amp;viewneo_exchanges&amp;token={$smarty.get.token|escape:'html':'UTF-8'}&amp;id_neo_exchange={$order->id|intval}" method="post" onsubmit="return orderDeleteProduct('{l s='This product cannot be returned.'}', '{l s='Quantity to cancel is greater than quantity available.'}');">
                 <input type="hidden" name="id_order" value="{$order->id}" />
                 <div style="display: none">
                     <input type="hidden" value="{$order->getWarehouseList()|implode}" id="warehouse_list" />
@@ -1418,7 +1420,7 @@
 							{foreach $order->getBrother() as $brother_order}
 							<tr>
 								<td>
-									<a href="{$current_index}&amp;vieworder&amp;id_order={$brother_order->id}&amp;token={$smarty.get.token|escape:'html':'UTF-8'}">#{$brother_order->id}</a>
+									<a href="{$current_index}&amp;viewneo_exchanges&amp;id_neo_exchange={$brother_order->id}&amp;token={$smarty.get.token|escape:'html':'UTF-8'}">#{$brother_order->id}</a>
 								</td>
 								<td>
 									{$brother_order->getCurrentOrderState()->name[$current_id_lang]}
@@ -1427,7 +1429,7 @@
 									{displayPrice price=$brother_order->total_paid_tax_incl currency=$currency->id}
 								</td>
 								<td>
-									<a href="{$current_index}&amp;vieworder&amp;id_order={$brother_order->id}&amp;token={$smarty.get.token|escape:'html':'UTF-8'}">
+									<a href="{$current_index}&amp;viewneo_exchanges&amp;id_neo_exchange={$brother_order->id}&amp;token={$smarty.get.token|escape:'html':'UTF-8'}">
 										<i class="icon-eye-open"></i>
 										{l s='See the order'}
 									</a>

@@ -881,8 +881,6 @@
 							{l s='tax included.'}
 						{/if}
 					{/capture}
-
-                    {$products|@var_dump}
 					<div class="table-responsive">
 						<table class="table" id="orderProducts">
 							<thead>

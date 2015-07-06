@@ -1,0 +1,6 @@
+*ERROR* 	2015/07/05 - 22:33:55: Unknown column 'od.id_shop' in 'on clause'<br /><br /><pre>
+		SELECT *
+		FROM `ps_neo_items_buys` od
+		LEFT JOIN `ps_product` p ON (p.id_product = od.id_product)
+		LEFT JOIN `ps_product_shop` ps ON (ps.id_product = p.id_product AND ps.id_shop = od.id_shop)
+		WHERE od.`id_neo_exchange` = 25</pre> at line 635 in file classes/db/Db.php

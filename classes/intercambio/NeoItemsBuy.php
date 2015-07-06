@@ -131,6 +131,8 @@ class NeoItemsBuyCore extends ObjectModel
     // @var float
     public $purchase_supplier_price;
 
+    public $id_cart;
+
     /**
      * @see ObjectModel::$definition
      */
@@ -421,7 +423,7 @@ class NeoItemsBuyCore extends ObjectModel
      *
      * @deprecated
      */
-    public function setProductPrices(&$row)
+    /*public function setProductPrices(&$row)
     {
         $tax_calculator = OrderDetail::getTaxCalculatorStatic((int)$row['id_order_detail']);
         $row['tax_calculator'] = $tax_calculator;
@@ -438,16 +440,16 @@ class NeoItemsBuyCore extends ObjectModel
 
         $row['total_wt'] = $row['total_price_tax_incl'];
         $row['total_price'] = $row['total_price_tax_excl'];
-    }
+    }*/
 
-    protected function setProductCustomizedDatas(&$product, $customized_datas)
+    /*protected function setProductCustomizedDatas(&$product, $customized_datas)
     {
         $product['customizedDatas'] = null;
         if (isset($customized_datas[$product['product_id']][$product['product_attribute_id']]))
             $product['customizedDatas'] = $customized_datas[$product['product_id']][$product['product_attribute_id']];
         else
             $product['customizationQuantityTotal'] = 0;
-    }
+    }*/
 
     public function getProductsDetail()
     {
@@ -480,21 +482,21 @@ class NeoItemsBuyCore extends ObjectModel
                     continue;
             }
 
-            $this->setProductImageInformations($row);
-            $this->setProductCurrentStock($row);
+            //$this->setProductImageInformations($row);
+            //$this->setProductCurrentStock($row);
 
             // Backward compatibility 1.4 -> 1.5
-            $this->setProductPrices($row);
+            //$this->setProductPrices($row);
 
-            $this->setProductCustomizedDatas($row, $customized_datas);
+            //$this->setProductCustomizedDatas($row, $customized_datas);
 
             // Add information for virtual product
-            if ($row['download_hash'] && !empty($row['download_hash']))
+            /*if ($row['download_hash'] && !empty($row['download_hash']))
             {
                 $row['filename'] = ProductDownload::getFilenameFromIdProduct((int)$row['product_id']);
                 // Get the display filename
                 $row['display_filename'] = ProductDownload::getFilenameFromFilename($row['filename']);
-            }
+            }*/
 
             $row['id_address_delivery'] = $this->id_address_delivery;
 

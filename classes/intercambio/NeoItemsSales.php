@@ -137,6 +137,8 @@ class NeoItemsSalesCore extends ObjectModel
     // @var float
     public $purchase_supplier_price;
 
+    public $id_cart;
+
     /**
      * @see ObjectModel::$definition
      */
@@ -488,26 +490,26 @@ class NeoItemsSalesCore extends ObjectModel
                     continue;
             }
 
-            $this->setProductImageInformations($row);
-            $this->setProductCurrentStock($row);
+            //$this->setProductImageInformations($row);
+            //$this->setProductCurrentStock($row);
 
             // Backward compatibility 1.4 -> 1.5
-            $this->setProductPrices($row);
+            //$this->setProductPrices($row);
 
-            $this->setProductCustomizedDatas($row, $customized_datas);
+            //$this->setProductCustomizedDatas($row, $customized_datas);
 
             // Add information for virtual product
-            if ($row['download_hash'] && !empty($row['download_hash']))
+            /*if ($row['download_hash'] && !empty($row['download_hash']))
             {
                 $row['filename'] = ProductDownload::getFilenameFromIdProduct((int)$row['product_id']);
                 // Get the display filename
                 $row['display_filename'] = ProductDownload::getFilenameFromFilename($row['filename']);
-            }
+            }*/
 
             $row['id_address_delivery'] = $this->id_address_delivery;
 
             /* Stock product */
-            $resultArray[(int)$row['id_neo_item_buy']] = $row;
+            $resultArray[(int)$row['id_neo_item_sale']] = $row;
         }
 
         if ($customized_datas)

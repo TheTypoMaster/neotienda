@@ -245,7 +245,7 @@ class AdminIntercambioController extends AdminController
 
         if ($this->tabAccess['edit'] == 1 && $this->display == 'view')
         {
-            $this->addJS(_PS_JS_DIR_.'admin_order.js');
+            $this->addJS(_PS_JS_DIR_.'admin_neo.js');
             $this->addJS(_PS_JS_DIR_.'tools.js');
             $this->addJqueryPlugin('autocomplete');
         }
@@ -344,7 +344,82 @@ var_dump($this->statuses_array);die;
 
     public function postProcess()
     {
-        // If id_neo_exchange is sent, we instanciate a new Order object
+
+        /*
+         * Esto es lo mismo que sigue
+         *
+         * // If id_neo_exchange is sent, we instanciate a new Order object
+        if (Tools::isSubmit('id_neo_exchange') && Tools::getValue('id_neo_exchange') > 0)
+        {
+            $neo = new NeoExchanges(Tools::getValue('id_neo_exchange'));
+            if (!Validate::isLoadedObject($neo))
+                $this->errors[] = Tools::displayError('The order cannot be found within your database.');
+            ShopUrl::cacheMainDomainForShop((int)$neo->id_shop);
+        }
+
+        // Update shipping number
+        if (Tools::isSubmit('submitShippingNumber') && isset($neo))
+        {
+            if ($this->tabAccess['edit'] === '1')
+            {
+
+            }
+            else
+                $this->errors[] = Tools::displayError('You do not have permission to edit this.');
+        }
+        // Change order status, add a new entry in order history and send an e-mail to the customer if needed
+        elseif (Tools::isSubmit('submitState') && isset($neo))
+        {
+            if ($this->tabAccess['edit'] === '1')
+            {
+                $neo_state = new NeoStatus(Tools::getValue('id_neo_state'));
+                if (!Validate::isLoadedObject($neo_state))
+                    $this->errors[] = Tools::displayError('The new order status is invalid.');
+                else
+                {
+                    $current_order_state = $neo->getCurrentOrderState();
+                    if ($current_order_state->id != $neo_state->id)
+                    {
+                        // Create new NeoHistory
+                        $history = new NeoHistory();
+                        $history->id_neo_exchange = $neo->id;
+                        $history->id_employee = (int)$this->context->employee->id;
+
+                        $use_existings_payment = false;
+                        if (!$neo->hasInvoice())
+                            $use_existings_payment = true;
+                        $history->changeIdOrderState((int)$neo_state->id, $neo, $use_existings_payment);
+
+                        $carrier = new Carrier($neo->id_carrier, $neo->id_lang);
+                        $templateVars = array();
+                        if ($history->id_neo_status == Configuration::get('PS_OS_SHIPPING') && $neo->shipping_number)
+                            $templateVars = array('{followup}' => str_replace('@', $neo->shipping_number, $carrier->url));
+                        // Save all changes
+                        if ($history->addWithemail(true, $templateVars))
+                        {
+                            // synchronizes quantities if needed..
+                            if (Configuration::get('PS_ADVANCED_STOCK_MANAGEMENT'))
+                            {
+                                foreach ($neo->getProducts() as $product)
+                                {
+                                    if (StockAvailable::dependsOnStock($product['product_id']))
+                                        StockAvailable::synchronize($product['product_id'], (int)$product['id_shop']);
+                                }
+                            }
+
+                            Tools::redirectAdmin(self::$currentIndex.'&id_neo_exchange='.(int)$neo->id.'&viewneo_echanges&token='.$this->token);
+                        }
+                        $this->errors[] = Tools::displayError('An error occurred while changing order status, or we were unable to send an email to the customer.');
+                    }
+                    else
+                        $this->errors[] = Tools::displayError('The order has already been assigned this status.');
+                }
+            }
+            else
+                $this->errors[] = Tools::displayError('You do not have permission to edit this.');
+        }*/
+
+
         if (Tools::isSubmit('id_neo_exchange') && Tools::getValue('id_neo_exchange') > 0)
         {
             $order = new Order(Tools::getValue('id_neo_exchange'));
@@ -412,7 +487,7 @@ var_dump($this->statuses_array);die;
         {
             if ($this->tabAccess['edit'] === '1')
             {
-                $order_state = new OrderState(Tools::getValue('id_neo_status'));
+                $order_state = new NeoStatus(Tools::getValue('id_neo_status'));
 
                 if (!Validate::isLoadedObject($order_state))
                     $this->errors[] = Tools::displayError('The new order status is invalid.');
@@ -2015,6 +2090,11 @@ var_dump($this->statuses_array);die;
 
     public function sendChangedNotification(Order $order = null)
     {
+        echo 'entro en sendChangedNotification';die;
+
+
+
+
         if (is_null($order))
             $order = new Order(Tools::getValue('id_order'));
 
