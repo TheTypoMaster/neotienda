@@ -70,7 +70,7 @@ class NeoHistoryCore extends ObjectModel
         else
             return;
 
-        ShopUrl::cacheMainDomainForShop($neo->id_shop);
+        //ShopUrl::cacheMainDomainForShop($neo->id_shop);
 
         $new_os = new NeoStatusCore((int)$new_neo_state, $neo->id_lang);
         $old_os = $neo->getCurrentOrderState();

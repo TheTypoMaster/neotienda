@@ -267,7 +267,7 @@ class AdminIntercambioController extends AdminController
         return $this->createTemplate('_print_pdf_icon.tpl')->fetch();
     }
 
-    // proceso de actualización de estatus
+
     public function processBulkUpdateNeoStatus()
     {
         if (Tools::isSubmit('submitUpdateOrderStatus')
@@ -332,7 +332,9 @@ class AdminIntercambioController extends AdminController
         {
             if (Tools::getIsset('cancel'))
                 Tools::redirectAdmin(self::$currentIndex.'&token='.$this->token);
-var_dump($this->statuses_array);die;
+
+            var_dump($this->statuses_array);die;
+
             $this->tpl_list_vars['updateOrderStatus_mode'] = true;
             $this->tpl_list_vars['order_statuses'] = $this->statuses_array;
             $this->tpl_list_vars['REQUEST_URI'] = $_SERVER['REQUEST_URI'];
@@ -342,31 +344,13 @@ var_dump($this->statuses_array);die;
         return parent::renderList();
     }
 
+    // proceso de actualización de estatus
     public function postProcess()
     {
 
         /*
          * Esto es lo mismo que sigue
          *
-         * // If id_neo_exchange is sent, we instanciate a new Order object
-        if (Tools::isSubmit('id_neo_exchange') && Tools::getValue('id_neo_exchange') > 0)
-        {
-            $neo = new NeoExchanges(Tools::getValue('id_neo_exchange'));
-            if (!Validate::isLoadedObject($neo))
-                $this->errors[] = Tools::displayError('The order cannot be found within your database.');
-            ShopUrl::cacheMainDomainForShop((int)$neo->id_shop);
-        }
-
-        // Update shipping number
-        if (Tools::isSubmit('submitShippingNumber') && isset($neo))
-        {
-            if ($this->tabAccess['edit'] === '1')
-            {
-
-            }
-            else
-                $this->errors[] = Tools::displayError('You do not have permission to edit this.');
-        }
         // Change order status, add a new entry in order history and send an e-mail to the customer if needed
         elseif (Tools::isSubmit('submitState') && isset($neo))
         {
@@ -419,21 +403,21 @@ var_dump($this->statuses_array);die;
                 $this->errors[] = Tools::displayError('You do not have permission to edit this.');
         }*/
 
-
         if (Tools::isSubmit('id_neo_exchange') && Tools::getValue('id_neo_exchange') > 0)
         {
+            $neo = new NeoExchanges(Tools::getValue('id_neo_exchange'));
             $order = new Order(Tools::getValue('id_neo_exchange'));
-            if (!Validate::isLoadedObject($order))
+            if (!Validate::isLoadedObject($neo))
                 $this->errors[] = Tools::displayError('The order cannot be found within your database.');
-            ShopUrl::cacheMainDomainForShop((int)$order->id_shop);
+            //ShopUrl::cacheMainDomainForShop((int)$order->id_shop);
         }
 
         /* Update shipping number */
-        if (Tools::isSubmit('submitShippingNumber') && isset($order))
+        /*if (Tools::isSubmit('submitShippingNumber') && isset($order))
         {
             if ($this->tabAccess['edit'] === '1')
             {
-                /*$order_carrier = new OrderCarrier(Tools::getValue('id_order_carrier'));
+                $order_carrier = new OrderCarrier(Tools::getValue('id_order_carrier'));
                 if (!Validate::isLoadedObject($order_carrier))
                     $this->errors[] = Tools::displayError('The order carrier ID is invalid.');
                 elseif (!Validate::isTrackingNumber(Tools::getValue('tracking_number')))
@@ -476,54 +460,56 @@ var_dump($this->statuses_array);die;
                     }
                     else
                         $this->errors[] = Tools::displayError('The order carrier cannot be updated.');
-                }*/
+                }
             }
             else
                 $this->errors[] = Tools::displayError('You do not have permission to edit this.');
-        }
+        }*/
 
         /* Change order status, add a new entry in order history and send an e-mail to the customer if needed */
-        elseif (Tools::isSubmit('submitState') && isset($order))
+        if (Tools::isSubmit('submitState') && isset($neo))
         {
             if ($this->tabAccess['edit'] === '1')
             {
-                $order_state = new NeoStatus(Tools::getValue('id_neo_status'));
+                $neo_status = new NeoStatusCore();
+                $neo_statu = $neo_status->getNeoStatu(Tools::getValue('id_neo_status'));
 
-                if (!Validate::isLoadedObject($order_state))
+                if(empty($neo_statu))
                     $this->errors[] = Tools::displayError('The new order status is invalid.');
                 else
                 {
-                    $current_order_state = $order->getCurrentOrderState();
-                    if ($current_order_state->id != $order_state->id)
+                    $current_order_state = $neo->getCurrentOrderState();
+
+                    if ($current_order_state->id != $neo_statu[0]['id_neo_status'])
                     {
                         // Create new OrderHistory
-                        $history = new OrderHistory();
-                        $history->id_neo_exchange = $order->id;
+                        $history = new NeoHistoryCore();
+                        $history->id_neo_exchange = $neo->id;
                         $history->id_employee = (int)$this->context->employee->id;
 
                         $use_existings_payment = false;
-                        if (!$order->hasInvoice())
+                        if (!$neo->hasInvoice())
                             $use_existings_payment = true;
-                        $history->changeIdOrderState((int)$order_state->id, $order, $use_existings_payment);
+                        $history->changeIdNeoState((int)$neo_statu[0]['id_neo_status'], $neo, $use_existings_payment);
 
-                        $carrier = new Carrier($order->id_carrier, $order->id_lang);
+                        $carrier = new Carrier($neo->id_carrier, $neo->id_lang);
                         $templateVars = array();
-                        if ($history->id_neo_status == Configuration::get('PS_OS_SHIPPING') && $order->shipping_number)
-                            $templateVars = array('{followup}' => str_replace('@', $order->shipping_number, $carrier->url));
+                        if ($history->id_neo_status == Configuration::get('PS_OS_SHIPPING') && $neo->shipping_number)
+                            $templateVars = array('{followup}' => str_replace('@', $neo->shipping_number, $carrier->url));
                         // Save all changes
                         if ($history->addWithemail(true, $templateVars))
                         {
                             // synchronizes quantities if needed..
                             if (Configuration::get('PS_ADVANCED_STOCK_MANAGEMENT'))
                             {
-                                foreach ($order->getProducts() as $product)
+                                foreach ($neo->getProducts() as $product)
                                 {
                                     if (StockAvailable::dependsOnStock($product['product_id']))
                                         StockAvailable::synchronize($product['product_id'], (int)$product['id_shop']);
                                 }
                             }
 
-                            Tools::redirectAdmin(self::$currentIndex.'&id_order='.(int)$order->id.'&vieworder&token='.$this->token);
+                            Tools::redirectAdmin(self::$currentIndex.'&id_neo_exchange='.(int)$neo->id.'&viewneo_exchanges&token='.$this->token);
                         }
                         $this->errors[] = Tools::displayError('An error occurred while changing order status, or we were unable to send an email to the customer.');
                     }
@@ -535,8 +521,14 @@ var_dump($this->statuses_array);die;
                 $this->errors[] = Tools::displayError('You do not have permission to edit this.');
         }
 
+        //
+
+        //var_dump($this->errors);
+        //die;
+
+
         /* Add a new message for the current order and send an e-mail to the customer if needed */
-        elseif (Tools::isSubmit('submitMessage') && isset($order))
+        /*elseif (Tools::isSubmit('submitMessage') && isset($order))
         {
             if ($this->tabAccess['edit'] === '1')
             {
@@ -547,7 +539,7 @@ var_dump($this->statuses_array);die;
                     $this->errors[] = Tools::displayError('The message cannot be blank.');
                 else
                 {
-                    /* Get message rules and and check fields validity */
+                    // Get message rules and and check fields validity
                     $rules = call_user_func(array('Message', 'getValidationRules'), 'Message');
                     foreach ($rules['required'] as $field)
                         if (($value = Tools::getValue($field)) == false && (string)$value != '0')
@@ -615,9 +607,9 @@ var_dump($this->statuses_array);die;
             }
             else
                 $this->errors[] = Tools::displayError('You do not have permission to delete this.');
-        }
-
-        /* Partial refund from order */
+        }*/
+        /*
+        // Partial refund from order
         elseif (Tools::isSubmit('partialRefund') && isset($order))
         {
             if ($this->tabAccess['edit'] == '1')
@@ -680,7 +672,7 @@ var_dump($this->statuses_array);die;
                             $cart_rule->id_customer = $order->id_customer;
                             $now = time();
                             $cart_rule->date_from = date('Y-m-d H:i:s', $now);
-                            $cart_rule->date_to = date('Y-m-d H:i:s', $now + (3600 * 24 * 365.25)); /* 1 year */
+                            $cart_rule->date_to = date('Y-m-d H:i:s', $now + (3600 * 24 * 365.25)); // 1 year
                             $cart_rule->partial_use = 1;
                             $cart_rule->active = 1;
 
@@ -730,10 +722,10 @@ var_dump($this->statuses_array);die;
             }
             else
                 $this->errors[] = Tools::displayError('You do not have permission to delete this.');
-        }
+        }/*
 
         /* Cancel product from order */
-        elseif (Tools::isSubmit('cancelProduct') && isset($order))
+        /*elseif (Tools::isSubmit('cancelProduct') && isset($order))
         {
             if ($this->tabAccess['delete'] === '1')
             {
@@ -897,7 +889,7 @@ var_dump($this->statuses_array);die;
                             $cartrule->id_customer = $order->id_customer;
                             $now = time();
                             $cartrule->date_from = date('Y-m-d H:i:s', $now);
-                            $cartrule->date_to = date('Y-m-d H:i:s', $now + (3600 * 24 * 365.25)); /* 1 year */
+                            $cartrule->date_to = date('Y-m-d H:i:s', $now + (3600 * 24 * 365.25)); // 1 year
                             $cartrule->active = 1;
 
                             $products = $order->getProducts(false, $full_product_list, $full_quantity_list);
@@ -1393,7 +1385,7 @@ var_dump($this->statuses_array);die;
             }
             else
                 $this->errors[] = Tools::displayError('You do not have permission to edit this.');
-        }
+        }*/
 
         parent::postProcess();
     }
@@ -1516,27 +1508,6 @@ var_dump($this->statuses_array);die;
         // gets warehouses to ship products, if and only if advanced stock management is activated
         $warehouse_list = null;
 
-        //$order_details = $neoExchange->getOrderDetailList();
-
-        //var_dump($products);die;
-        //var_dump($order_details);die;
-        // viene vacio con la custom de neo
-        /*foreach ($order_details as $order_detail)
-        {
-            $product = new Product($order_detail['product_id']);
-
-            if (Configuration::get('PS_ADVANCED_STOCK_MANAGEMENT')
-                && $product->advanced_stock_management)
-            {
-                $warehouses = Warehouse::getWarehousesByProductId($order_detail['product_id'], $order_detail['product_attribute_id']);
-                foreach ($warehouses as $warehouse)
-                {
-                    if (!isset($warehouse_list[$warehouse['id_warehouse']]))
-                        $warehouse_list[$warehouse['id_warehouse']] = $warehouse;
-                }
-            }
-        }*/
-
         $payment_methods = array();
         foreach (PaymentModule::getInstalledPaymentModules() as $payment)
         {
@@ -1559,55 +1530,11 @@ var_dump($this->statuses_array);die;
         // products current stock (from stock_available)
         foreach ($products as &$product)
         {
-            $product['current_stock'] = StockAvailable::getQuantityAvailableByProduct($product['id_product'], $product['product_attribute_id'], $product['id_shop']);
-
-            $resume = OrderSlip::getProductSlipResume($product['id_neo_item_buy']);
-
-            $product['quantity_refundable'] = $product['product_quantity'] - $resume['product_quantity'];
-            $product['amount_refundable'] = $product['total_price_tax_incl'] - $resume['amount_tax_incl'];
-            $product['amount_refund'] = Tools::displayPrice($resume['amount_tax_incl'], $currency);
-            $product['refund_history'] = OrderSlip::getProductSlipDetail($product['id_order_detail']);
-            $product['return_history'] = OrderReturn::getProductReturnDetail($product['id_order_detail']);
-
-            // if the current stock requires a warning
-            if ($product['current_stock'] == 0 && $display_out_of_stock_warning)
-                $this->displayWarning($this->l('This product is out of stock: ').' '.$product['product_name']);
-            if ($product['id_warehouse'] != 0)
-            {
-                $warehouse = new Warehouse((int)$product['id_warehouse']);
-                $product['warehouse_name'] = $warehouse->name;
-            }
-            else
-                $product['warehouse_name'] = '--';
-
             $total_buy += $product['price'];
         }
 
         foreach ($products2 as &$product)
         {
-            $product['current_stock'] = StockAvailable::getQuantityAvailableByProduct($product['id_product'], $product['product_attribute_id'], $product['id_shop']);
-
-            $resume = OrderSlip::getProductSlipResume($product['id_neo_item_sale']);
-
-            //var_dump($product);die;
-
-            $product['quantity_refundable'] = $product['product_quantity'] - $resume['product_quantity'];
-            $product['amount_refundable'] = $product['total_price_tax_incl'] - $resume['amount_tax_incl'];
-            $product['amount_refund'] = Tools::displayPrice($resume['amount_tax_incl'], $currency);
-            $product['refund_history'] = OrderSlip::getProductSlipDetail($product['id_order_detail']);
-            $product['return_history'] = OrderReturn::getProductReturnDetail($product['id_order_detail']);
-
-            // if the current stock requires a warning
-            if ($product['current_stock'] == 0 && $display_out_of_stock_warning)
-                $this->displayWarning($this->l('This product is out of stock: ').' '.$product['product_name']);
-            if ($product['id_warehouse'] != 0)
-            {
-                $warehouse = new Warehouse((int)$product['id_warehouse']);
-                $product['warehouse_name'] = $warehouse->name;
-            }
-            else
-                $product['warehouse_name'] = '--';
-
             $total_sale += $product['price'];
         }
 
@@ -2508,7 +2435,7 @@ var_dump($this->statuses_array);die;
     {
         $products = $order->getProducts();
 
-        foreach ($products as &$product)
+        /*foreach ($products as &$product)
         {
             if ($product['image'] != null)
             {
@@ -2520,7 +2447,7 @@ var_dump($this->statuses_array);die;
                 else
                     $product['image_size'] = false;
             }
-        }
+        }*/
 
         return $products;
     }

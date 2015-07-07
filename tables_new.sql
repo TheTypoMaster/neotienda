@@ -33,6 +33,7 @@ CREATE TABLE `ps_neo_exchanges` (
   `forma_pago` varchar(20) DEFAULT NULL,
   `total_in_favor` decimal(20,2) DEFAULT NULL,
   `total_dif` decimal(20,2) DEFAULT NULL,
+  `current_state` int(4) DEFAULT 1,
   `date_add` datetime DEFAULT NULL,
   `date_upd` datetime DEFAULT NULL,
   PRIMARY KEY (`id_neo_exchange`),

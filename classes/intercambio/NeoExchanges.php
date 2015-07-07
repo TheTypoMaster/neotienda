@@ -223,7 +223,7 @@ class NeoExchanges extends ObjectModel
             'id_lang' => array('xlink_resource'=> 'languages'),
             'id_customer' => array('xlink_resource'=> 'customers'),
             'id_carrier' => array('xlink_resource'=> 'carriers'),
-            'current_state' => array('xlink_resource'=> 'order_states'),
+            'current_state' => array('xlink_resource'=> 'neo_status'),
             'module' => array('required' => true),
             'invoice_number' => array(),
             'invoice_date' => array(),

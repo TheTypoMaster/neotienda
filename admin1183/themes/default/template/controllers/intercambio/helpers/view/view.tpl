@@ -234,7 +234,7 @@
 						<form action="{$currentIndex|escape:'html':'UTF-8'}&amp;viewneo_exchanges&amp;id_neo_exchange={$order->id}&amp;token={$smarty.get.token}" method="post" class="form-horizontal well hidden-print">
 							<div class="row">
 								<div class="col-lg-9">
-									<select id="id_neo_state" class="chosen form-control" name="id_neo_state">
+									<select id="id_neo_status" class="chosen form-control" name="id_neo_status">
 									{foreach from=$neoStatus item=statu}
                                         <option value="{$statu['id_neo_status']|intval}"{if $statu['id_neo_status'] == $currentState->id} selected="selected" disabled="disabled"{/if}>{$statu['denominacion']|escape}</option>
 									{/foreach}
