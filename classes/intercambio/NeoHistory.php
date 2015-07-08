@@ -58,35 +58,43 @@ class NeoHistoryCore extends ObjectModel
      * @param int/object $id_order
      * @param bool $use_existing_payment
      */
-    public function changeIdNeoState($new_neo_state, $id_neo_exchange, $use_existing_payment = false)
+    public function changeIdNeoState($new_neo_state, $neo_exchange, $use_existing_payment = false)
     {
-        if (!$new_neo_state || !$id_neo_exchange)
+        if (!$new_neo_state || !$neo_exchange)
             return;
 
-        if (!is_object($id_neo_exchange) && is_numeric($id_neo_exchange))
-            $neo = new NeoExchanges((int)$id_neo_exchange);
-        elseif (is_object($id_neo_exchange))
-            $neo = $id_neo_exchange;
+        if (!is_object($neo_exchange) && is_numeric($neo_exchange))
+            $neo = new NeoExchanges((int)$neo_exchange);
+        elseif (is_object($neo_exchange))
+            $neo = $neo_exchange;
         else
             return;
 
-        //ShopUrl::cacheMainDomainForShop($neo->id_shop);
+        $neo_status = new NeoStatusCore((int)$new_neo_state);
+        $new_os = $neo_status->getNeoStatu((int)$new_neo_state);
+        $old_os = $neo_status->getNeoStatu((int)$neo->id_neo_status);
 
-        $new_os = new NeoStatusCore((int)$new_neo_state, $neo->id_lang);
-        $old_os = $neo->getCurrentOrderState();
-        $is_validated = $this->isValidated();
+        switch($new_neo_state){
+            case 1:
+                $neo->id_neo_status = 1;
+                break;
+            case 2:
+                $neo->id_neo_status = 2;
+                break;
+        }
 
-        // executes hook
-        if (in_array($new_os->id, array(Configuration::get('PS_OS_PAYMENT'), Configuration::get('PS_OS_WS_PAYMENT'))))
-            Hook::exec('actionPaymentConfirmation', array('id_neo_exchange' => (int)$neo->id), null, false, true, false, $neo->id_shop);
+        $neo->update();
+        echo "actualizo $new_neo_state<br>";
+        die;
 
-        // executes hook
-        Hook::exec('actionOrderStatusUpdate', array('newOrderStatus' => $new_os, 'id_neo_exchange' => (int)$neo->id), null, false, true, false, $neo->id_shop);
-
-        if (Validate::isLoadedObject($neo) && ($new_os instanceof NeoStatusCore))
+        /*if (Validate::isLoadedObject($neo) && ($new_os instanceof NeoStatusCore))
         {
             // An email is sent the first time a virtual item is validated
             $virtual_products = $neo->getVirtualProducts();
+
+
+
+
             if ($virtual_products && (!$old_os || !$old_os->logable) && $new_os && $new_os->logable)
             {
                 $context = Context::getContext();
@@ -251,7 +259,11 @@ class NeoHistoryCore extends ObjectModel
                 }
         }
 
-        $this->id_neo_state = (int)$new_neo_state;
+        $this->id_neo_state = (int)$new_neo_state;*/
+
+
+
+        echo 'id='. $this->id_neo_state;die;
 
         // changes invoice number of order ?
         if (!Validate::isLoadedObject($new_os) || !Validate::isLoadedObject($neo))
@@ -266,44 +278,6 @@ class NeoHistoryCore extends ObjectModel
             $neo->setInvoice($use_existing_payment);
         elseif ($new_os->delivery && !$neo->delivery_number)
             $neo->setDeliverySlip();
-
-        // set orders as paid
-        /*if ($new_os->paid == 1)
-        {
-            $invoices = $neo->getInvoicesCollection();
-            if ($neo->total_paid != 0)
-                $payment_method = Module::getInstanceByName($neo->module);
-
-            foreach ($invoices as $invoice)
-            {
-                $rest_paid = $invoice->getRestPaid();
-                if ($rest_paid > 0)
-                {
-                    $payment = new OrderPayment();
-                    $payment->order_reference = $neo->reference;
-                    $payment->id_currency = $neo->id_currency;
-                    $payment->amount = $rest_paid;
-
-                    if ($neo->total_paid != 0)
-                        $payment->payment_method = $payment_method->displayName;
-                    else
-                        $payment->payment_method = null;
-
-                    // Update total_paid_real value for backward compatibility reasons
-                    if ($payment->id_currency == $neo->id_currency)
-                        $neo->total_paid_real += $payment->amount;
-                    else
-                        $neo->total_paid_real += Tools::ps_round(Tools::convertPrice($payment->amount, $payment->id_currency, false), 2);
-                    $neo->save();
-
-                    $payment->conversion_rate = 1;
-                    $payment->save();
-                    Db::getInstance()->execute('
-					INSERT INTO `'._DB_PREFIX_.'order_invoice_payment` (`id_order_invoice`, `id_order_payment`, `id_order`)
-					VALUES('.(int)$invoice->id.', '.(int)$payment->id.', '.(int)$neo->id.')');
-                }
-            }
-        }*/
 
         // updates delivery date even if it was already set by another state change
         if ($new_os->delivery)

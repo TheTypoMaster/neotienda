@@ -108,7 +108,7 @@ class AdminIntercambioController extends AdminController
         {
             // Save context (in order to apply cart rule)
             $order = new NeoExchanges((int)Tools::getValue('id_neo_exchange'));
-            $this->context->cart = new Cart($order->id_cart);
+            //$this->context->cart = new Cart($order->id_cart);
             $this->context->customer = new Customer($order->id_customer);
         }
 
@@ -149,14 +149,14 @@ class AdminIntercambioController extends AdminController
         if (Context::getContext()->shop->getContext() != Shop::CONTEXT_SHOP && Shop::isFeatureActive())
             $this->errors[] = $this->l('You have to select a shop before creating new orders.');
 
-        $id_cart = (int)Tools::getValue('id_cart');
+        /*$id_cart = (int)Tools::getValue('id_cart');
         $cart = new Cart((int)$id_cart);
         if ($id_cart && !Validate::isLoadedObject($cart))
             $this->errors[] = $this->l('This cart does not exists');
         if ($id_cart && Validate::isLoadedObject($cart) && !$cart->id_customer)
             $this->errors[] = $this->l('The cart must have a customer');
         if (count($this->errors))
-            return false;
+            return false;*/
 
         parent::renderForm();
         unset($this->toolbar_btn['save']);
@@ -173,7 +173,7 @@ class AdminIntercambioController extends AdminController
         $this->context->smarty->assign(array(
             'recyclable_pack' => (int)Configuration::get('PS_RECYCLABLE_PACK'),
             'gift_wrapping' => (int)Configuration::get('PS_GIFT_WRAPPING'),
-            'cart' => $cart,
+            //'cart' => $cart,
             'currencies' => Currency::getCurrenciesByIdShop(Context::getContext()->shop->id),
             'langs' => Language::getLanguages(true, Context::getContext()->shop->id),
             'payment_modules' => $payment_modules,
@@ -478,9 +478,7 @@ class AdminIntercambioController extends AdminController
                     $this->errors[] = Tools::displayError('The new order status is invalid.');
                 else
                 {
-                    $current_order_state = $neo->getCurrentOrderState();
-
-                    if ($current_order_state->id != $neo_statu[0]['id_neo_status'])
+                    if ($neo->id_neo_status != $neo_statu['id_neo_status'])
                     {
                         // Create new OrderHistory
                         $history = new NeoHistoryCore();
@@ -490,9 +488,13 @@ class AdminIntercambioController extends AdminController
                         $use_existings_payment = false;
                         if (!$neo->hasInvoice())
                             $use_existings_payment = true;
-                        $history->changeIdNeoState((int)$neo_statu[0]['id_neo_status'], $neo, $use_existings_payment);
 
-                        $carrier = new Carrier($neo->id_carrier, $neo->id_lang);
+                        $history->changeIdNeoState((int)$neo_statu['id_neo_status'], $neo, $use_existings_payment);
+
+                        echo 'jajajajaja';
+                        die;
+
+                        //$carrier = new Carrier($neo->id_carrier, $neo->id_lang);
                         $templateVars = array();
                         if ($history->id_neo_status == Configuration::get('PS_OS_SHIPPING') && $neo->shipping_number)
                             $templateVars = array('{followup}' => str_replace('@', $neo->shipping_number, $carrier->url));
@@ -1462,7 +1464,7 @@ class AdminIntercambioController extends AdminController
             $this->errors[] = Tools::displayError('The order cannot be found within your database.');
 
         $customer = new Customer($neoExchange->id_customer);
-        $carrier = new Carrier($neoExchange->id_carrier);
+        //$carrier = new Carrier($neoExchange->id_carrier);
         $currency = new Currency((int)$neoExchange->id_currency);
         $buys  = new NeoItemsBuyCore(Tools::getValue('id_neo_exchange'));
         $sales = new NeoItemsSalesCore(Tools::getValue('id_neo_exchange'));
@@ -1472,7 +1474,7 @@ class AdminIntercambioController extends AdminController
         //$products = $this->getProducts($neoExchange);
 
         // Carrier module call
-        $carrier_module_call = null;
+        /*$carrier_module_call = null;
         if ($carrier->is_module)
         {
             $module = Module::getInstanceByName($carrier->external_module_name);
@@ -1496,7 +1498,7 @@ class AdminIntercambioController extends AdminController
             $addressDelivery = new Address($neoExchange->id_address_delivery, $this->context->language->id);
             if (Validate::isLoadedObject($addressDelivery) && $addressDelivery->id_state)
                 $deliveryState = new State((int)($addressDelivery->id_state));
-        }
+        }*/
 
         $this->toolbar_title = sprintf($this->l('Intercambio #%1$d (%2$s) - %3$s %4$s'), $neoExchange->id, $neoExchange->reference, $customer->firstname, $customer->lastname);
         if (Shop::isFeatureActive())
@@ -1548,16 +1550,16 @@ class AdminIntercambioController extends AdminController
         // Smarty assign
         $this->tpl_view_vars = array(
             'order' => $neoExchange,
-            'cart' => new Cart($neoExchange->id_cart),
+            //'cart' => new Cart($neoExchange->id_cart),
             'customer' => $customer,
             'gender' => $gender,
             'customer_addresses' => $customer->getAddresses($this->context->language->id),
-            'addresses' => array(
+            /*'addresses' => array(
                 'delivery' => $addressDelivery,
                 'deliveryState' => isset($deliveryState) ? $deliveryState : null,
                 'invoice' => $addressInvoice,
                 'invoiceState' => isset($invoiceState) ? $invoiceState : null
-            ),
+            ),*/
             'customerStats' => $customer->getStats(),
             'products' => $products,
             'products2' => $products2,
@@ -1573,7 +1575,7 @@ class AdminIntercambioController extends AdminController
             'customer_thread_message' => CustomerThread::getCustomerMessages($neoExchange->id_customer),
             'orderMessages' => OrderMessage::getOrderMessages($neoExchange->id_lang),
             'messages' => Message::getMessagesByOrderId($neoExchange->id, true),
-            'carrier' => new Carrier($neoExchange->id_carrier),
+            //'carrier' => new Carrier($neoExchange->id_carrier),
             'history' => $history,
             //'states' => OrderState::getOrderStates($this->context->language->id),
             'neoStatus' => NeoStatusCore::getNeoStatus(),
@@ -1585,7 +1587,7 @@ class AdminIntercambioController extends AdminController
             'previousOrder' => $neoExchange->getPreviousOrderId(),
             'nextOrder' => $neoExchange->getNextOrderId(),
             'current_index' => self::$currentIndex,
-            'carrierModuleCall' => $carrier_module_call,
+            //'carrierModuleCall' => $carrier_module_call,
             'iso_code_lang' => $this->context->language->iso_code,
             'id_lang' => $this->context->language->id,
             'can_edit' => ($this->tabAccess['edit'] == 1),

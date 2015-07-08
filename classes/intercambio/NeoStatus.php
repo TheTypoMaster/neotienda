@@ -91,7 +91,7 @@ class NeoStatusCore extends ObjectModel
             $cache_id = 'NeoStatus::'.$id;
             //if (!Cache::isStored($cache_id))
             //{
-                $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS('
+                $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow('
                 SELECT *
                 FROM `'._DB_PREFIX_.'neo_status`
                 WHERE `id_neo_status` = '.$id);
@@ -107,7 +107,7 @@ class NeoStatusCore extends ObjectModel
         $cache_id = 'NeoStatus::'.$id;
         if (!Cache::isStored($cache_id))
         {
-            $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS('
+            $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow('
                 SELECT *
                 FROM `'._DB_PREFIX_.'neo_status`
                 WHERE `id_neo_status` = '.$id);

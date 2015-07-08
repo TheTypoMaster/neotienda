@@ -9,17 +9,17 @@
 class NeoExchanges extends ObjectModel
 {
     /** @var integer Delivery address id */
-    public $id_address_delivery;
+    /*public $id_address_delivery;*/
 
     /** @var integer Invoice address id */
-    public $id_address_invoice;
+    /*public $id_address_invoice;*/
 
     public $id_shop_group;
 
     public $id_shop;
 
     /** @var integer Cart id */
-    public $id_cart;
+    /*public $id_cart;*/
 
     /** @var integer Currency id */
     public $id_currency;
@@ -31,7 +31,7 @@ class NeoExchanges extends ObjectModel
     public $id_customer;
 
     /** @var integer Carrier id */
-    public $id_carrier;
+    /*public $id_carrier;*/
 
     /** @var integer Order Status id */
     public $current_state;
@@ -40,10 +40,10 @@ class NeoExchanges extends ObjectModel
     public $secure_key;
 
     /** @var string Payment method */
-    public $payment;
+    /*public $payment;*/
 
     /** @var string Payment module */
-    public $module;
+    /*public $module;*/
 
     /** @var float Currency exchange rate */
     public $conversion_rate;
@@ -165,19 +165,19 @@ class NeoExchanges extends ObjectModel
         'table' => 'neo_exchanges',
         'primary' => 'id_neo_exchange',
         'fields' => array(
-            'id_address_delivery' => 		array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
-            'id_address_invoice' => 		array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
-            'id_cart' => 					array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
+            //'id_address_delivery' => 		array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
+            //'id_address_invoice' => 		array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
+            //'id_cart' => 					array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
             'id_currency' => 				array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
             'id_shop_group' => 				array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId'),
             'id_shop' => 					array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId'),
             'id_lang' => 					array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
             'id_customer' => 				array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
-            'id_carrier' => 				array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
+            //'id_carrier' => 				array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
             'current_state' => 				array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId'),
             'secure_key' => 				array('type' => self::TYPE_STRING, 'validate' => 'isMd5'),
-            'payment' => 					array('type' => self::TYPE_STRING, 'validate' => 'isGenericName', 'required' => true),
-            'module' => 					array('type' => self::TYPE_STRING, 'validate' => 'isModuleName', 'required' => true),
+            //'payment' => 					array('type' => self::TYPE_STRING, 'validate' => 'isGenericName', 'required' => true),
+            //'module' => 					array('type' => self::TYPE_STRING, 'validate' => 'isModuleName', 'required' => true),
             'recyclable' => 				array('type' => self::TYPE_BOOL, 'validate' => 'isBool'),
             'gift' => 						array('type' => self::TYPE_BOOL, 'validate' => 'isBool'),
             'gift_message' => 				array('type' => self::TYPE_STRING, 'validate' => 'isMessage'),
@@ -216,15 +216,15 @@ class NeoExchanges extends ObjectModel
         'objectNodeName' => 'order',
         'objectsNodeName' => 'orders',
         'fields' => array(
-            'id_address_delivery' => array('xlink_resource'=> 'addresses'),
-            'id_address_invoice' => array('xlink_resource'=> 'addresses'),
-            'id_cart' => array('xlink_resource'=> 'carts'),
+            //'id_address_delivery' => array('xlink_resource'=> 'addresses'),
+            //'id_address_invoice' => array('xlink_resource'=> 'addresses'),
+            //'id_cart' => array('xlink_resource'=> 'carts'),
             'id_currency' => array('xlink_resource'=> 'currencies'),
             'id_lang' => array('xlink_resource'=> 'languages'),
             'id_customer' => array('xlink_resource'=> 'customers'),
-            'id_carrier' => array('xlink_resource'=> 'carriers'),
+            //'id_carrier' => array('xlink_resource'=> 'carriers'),
             'current_state' => array('xlink_resource'=> 'neo_status'),
-            'module' => array('required' => true),
+            //'module' => array('required' => true),
             'invoice_number' => array(),
             'invoice_date' => array(),
             'delivery_number' => array(),
@@ -288,11 +288,11 @@ class NeoExchanges extends ObjectModel
 
     public function add($autodate = true, $null_values = true)
     {
-        $cart = new Cart($this->id_cart);
+        /*$cart = new Cart($this->id_cart);
         Hook::exec('actionBeforeAddOrder', array('order'=>$this,'cart'=>$cart));
 
         if (ObjectModel::add($autodate, $null_values))
-            return SpecificPrice::deleteByIdCart($this->id_cart);
+            return SpecificPrice::deleteByIdCart($this->id_cart);*/
         return false;
     }
 
@@ -328,7 +328,7 @@ class NeoExchanges extends ObjectModel
      *
      * @return array
      */
-    public function getCartProducts()
+    /*public function getCartProducts()
     {
         $product_id_list = array();
         $products = $this->getProducts();
@@ -355,7 +355,7 @@ class NeoExchanges extends ObjectModel
                 $product_list[] = $product;
         }
         return $product_list;
-    }
+    }*/
 
     /* DOES delete the product */
     protected function _deleteProduct($orderDetail, $quantity)
@@ -364,12 +364,12 @@ class NeoExchanges extends ObjectModel
         $product_price_tax_incl = $orderDetail->unit_price_tax_incl * $quantity;
 
         /* Update cart */
-        $cart = new Cart($this->id_cart);
+       /* $cart = new Cart($this->id_cart);
         $cart->updateQty($quantity, $orderDetail->product_id, $orderDetail->product_attribute_id, false, 'down'); // customization are deleted in deleteCustomization
-        $cart->update();
+        $cart->update();*/
 
         /* Update order */
-        $shipping_diff_tax_incl = $this->total_shipping_tax_incl - $cart->getPackageShippingCost($this->id_carrier, true, null, $this->getCartProducts());
+        /*$shipping_diff_tax_incl = $this->total_shipping_tax_incl - $cart->getPackageShippingCost($this->id_carrier, true, null, $this->getCartProducts());
         $shipping_diff_tax_excl = $this->total_shipping_tax_excl - $cart->getPackageShippingCost($this->id_carrier, false, null, $this->getCartProducts());
         $this->total_shipping -= $shipping_diff_tax_incl;
         $this->total_shipping_tax_excl -= $shipping_diff_tax_excl;
@@ -379,7 +379,7 @@ class NeoExchanges extends ObjectModel
         $this->total_paid -= $product_price_tax_incl + $shipping_diff_tax_incl;
         $this->total_paid_tax_incl -= $product_price_tax_incl + $shipping_diff_tax_incl;
         $this->total_paid_tax_excl -= $product_price_tax_excl + $shipping_diff_tax_excl;
-        $this->total_paid_real -= $product_price_tax_incl + $shipping_diff_tax_incl;
+        $this->total_paid_real -= $product_price_tax_incl + $shipping_diff_tax_incl;*/
 
         $fields = array(
             'total_shipping',
@@ -422,13 +422,13 @@ class NeoExchanges extends ObjectModel
         {
             $orderDetail->total_price_tax_incl -= $product_price_tax_incl;
             $orderDetail->total_price_tax_excl -= $product_price_tax_excl;
-            $orderDetail->total_shipping_price_tax_incl -= $shipping_diff_tax_incl;
-            $orderDetail->total_shipping_price_tax_excl -= $shipping_diff_tax_excl;
+            //$orderDetail->total_shipping_price_tax_incl -= $shipping_diff_tax_incl;
+            //$orderDetail->total_shipping_price_tax_excl -= $shipping_diff_tax_excl;
         }
         return $orderDetail->update() && $this->update();
     }
 
-    public function deleteCustomization($id_customization, $quantity, $orderDetail)
+    /*public function deleteCustomization($id_customization, $quantity, $orderDetail)
     {
         if (!(int)($this->getCurrentState()))
             return false;
@@ -442,7 +442,7 @@ class NeoExchanges extends ObjectModel
         if (!Db::getInstance()->execute('DELETE FROM `'._DB_PREFIX_.'customization` WHERE `quantity` = 0'))
             return false;
         return $this->_deleteProduct($orderDetail, (int)$quantity);
-    }
+    }*/
 
     /**
      * Get order history
@@ -559,17 +559,13 @@ class NeoExchanges extends ObjectModel
         if (!$products)
             $products = $this->getProductsDetail();
 
-        $customized_datas = Product::getAllCustomizedDatas($this->id_cart);
+        //$customized_datas = Product::getAllCustomizedDatas($this->id_cart);
 
         $resultArray = array();
         foreach ($products as $row)
         {
 
             //var_dump($row);die;
-
-
-
-
 
             // Change qty if selected
             if ($selectedQty)
@@ -588,7 +584,7 @@ class NeoExchanges extends ObjectModel
             // Backward compatibility 1.4 -> 1.5
             $this->setProductPrices($row);
 
-            $this->setProductCustomizedDatas($row, $customized_datas);
+            //$this->setProductCustomizedDatas($row, $customized_datas);
 
             // Add information for virtual product
             if ($row['download_hash'] && !empty($row['download_hash']))
@@ -598,14 +594,14 @@ class NeoExchanges extends ObjectModel
                 $row['display_filename'] = ProductDownload::getFilenameFromFilename($row['filename']);
             }
 
-            $row['id_address_delivery'] = $this->id_address_delivery;
+            //$row['id_address_delivery'] = $this->id_address_delivery;
 
             /* Stock product */
             $resultArray[(int)$row['id_order_detail']] = $row;
         }
 
-        if ($customized_datas)
-            Product::addCustomizationPrice($resultArray, $customized_datas);
+        /*if ($customized_datas)
+            Product::addCustomizationPrice($resultArray, $customized_datas);*/
 
         return $resultArray;
     }
@@ -680,10 +676,10 @@ class NeoExchanges extends ObjectModel
             $product['image'] = new Image($id_image);
     }
 
-    public function getTaxesAverageUsed()
+    /*public function getTaxesAverageUsed()
     {
         return Cart::getTaxesAverageUsed((int)($this->id_cart));
-    }
+    }*/
 
     /**
      * Count virtual products in order
@@ -1029,7 +1025,7 @@ class NeoExchanges extends ObjectModel
      * @param integer $id_cart Cart id
      * @return array Order details
      */
-    public static function getOrderByCartId($id_cart)
+    /*public static function getOrderByCartId($id_cart)
     {
         $sql = 'SELECT `id_order`
 				FROM `'._DB_PREFIX_.'orders`
@@ -1038,7 +1034,7 @@ class NeoExchanges extends ObjectModel
         $result = Db::getInstance()->getRow($sql);
 
         return isset($result['id_order']) ? $result['id_order'] : false;
-    }
+    }*/
 
     /**
      * @deprecated 1.5.0.1
@@ -1170,9 +1166,10 @@ class NeoExchanges extends ObjectModel
             $order_invoice->id_order = $this->id;
             if (!$id)
                 $order_invoice->number = 0;
+
             $address = new Address((int)$this->{Configuration::get('PS_TAX_ADDRESS_TYPE')});
-            $carrier = new Carrier((int)$this->id_carrier);
-            $tax_calculator = $carrier->getTaxCalculator($address);
+            //$carrier = new Carrier((int)$this->id_carrier);
+            //$tax_calculator = $carrier->getTaxCalculator($address);
             $order_invoice->total_discount_tax_excl = $this->total_discounts_tax_excl;
             $order_invoice->total_discount_tax_incl = $this->total_discounts_tax_incl;
             $order_invoice->total_paid_tax_excl = $this->total_paid_tax_excl;
@@ -1181,7 +1178,7 @@ class NeoExchanges extends ObjectModel
             $order_invoice->total_products_wt = $this->total_products_wt;
             $order_invoice->total_shipping_tax_excl = $this->total_shipping_tax_excl;
             $order_invoice->total_shipping_tax_incl = $this->total_shipping_tax_incl;
-            $order_invoice->shipping_tax_computation_method = $tax_calculator->computation_method;
+            //$order_invoice->shipping_tax_computation_method = $tax_calculator->computation_method;
             $order_invoice->total_wrapping_tax_excl = $this->total_wrapping_tax_excl;
             $order_invoice->total_wrapping_tax_incl = $this->total_wrapping_tax_incl;
 
@@ -1190,7 +1187,7 @@ class NeoExchanges extends ObjectModel
             $order_invoice->save();
             $this->setLastInvoiceNumber($order_invoice->id, $this->id_shop);
 
-            $order_invoice->saveCarrierTaxCalculator($tax_calculator->getTaxesAmount($order_invoice->total_shipping_tax_excl));
+            //$order_invoice->saveCarrierTaxCalculator($tax_calculator->getTaxesAmount($order_invoice->total_shipping_tax_excl));
 
             // Update order_carrier
             $id_order_carrier = Db::getInstance()->getValue('
@@ -1458,10 +1455,10 @@ class NeoExchanges extends ObjectModel
 
     public function addWs($autodate = true, $nullValues = false)
     {
-        $paymentModule = Module::getInstanceByName($this->module);
+        /*$paymentModule = Module::getInstanceByName($this->module);
         $customer = new Customer($this->id_customer);
         $paymentModule->validateOrder($this->id_cart, Configuration::get('PS_OS_WS_PAYMENT'), $this->total_paid, $this->payment, null, array(), null, false, $customer->secure_key);
-        $this->id = $paymentModule->currentOrder;
+        $this->id = $paymentModule->currentOrder;*/
         return true;
     }
 
@@ -1764,8 +1761,7 @@ class NeoExchanges extends ObjectModel
         return Db::getInstance()->getValue('
 			SELECT SUM(total_paid_tax_incl)
 			FROM `'._DB_PREFIX_.'orders`
-			WHERE `reference` = \''.pSQL($this->reference).'\'
-			AND `id_cart` = '.(int)$this->id_cart
+			WHERE `reference` = \''.pSQL($this->reference).'\''
         );
     }
 
