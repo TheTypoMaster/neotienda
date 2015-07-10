@@ -100,7 +100,7 @@ class Exchange {
 
     function setExchange($fields){
         if(isset($fields['id_customer'])){
-            $sql = "INSERT INTO "._DB_PREFIX_."neo_exchanges (id_customer, forma_pago, total_in_favor, total_dif, date_add, id_neo_status)
+            $sql = "INSERT INTO "._DB_PREFIX_."neo_exchanges (id_customer, forma_pago, total_in_favor, total_dif, date_add, current_state)
                     VALUES ('".$fields['id_customer']."','".$fields['forma_pago']."','".$fields['total_in_favor']."','".$fields['total_dif']."',now(),1)";
             Db::getInstance()->executeS($sql);
             return Db::getInstance()->Insert_ID();

@@ -1,0 +1,11 @@
+*ERROR* 	2015/07/07 - 00:11:52: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/07 - 22:36:01: Property NeoExchanges->id_address_delivery is empty at line 846 in file classes/ObjectModel.php
+*ERROR* 	2015/07/07 - 22:37:42: Property NeoExchanges->id_address_delivery is empty at line 846 in file classes/ObjectModel.php
+*ERROR* 	2015/07/07 - 22:38:35: Property NeoExchanges->id_address_delivery is empty at line 846 in file classes/ObjectModel.php
+*ERROR* 	2015/07/07 - 22:41:19: Property NeoExchanges->id_address_invoice is empty at line 846 in file classes/ObjectModel.php
+*ERROR* 	2015/07/07 - 22:42:17: Property NeoExchanges->id_cart is empty at line 846 in file classes/ObjectModel.php
+*ERROR* 	2015/07/07 - 22:54:37: Property NeoExchanges->id_carrier is empty at line 846 in file classes/ObjectModel.php
+*ERROR* 	2015/07/07 - 23:03:02: Property NeoExchanges->payment is empty at line 846 in file classes/ObjectModel.php
+*ERROR* 	2015/07/07 - 23:28:30: Property NeoExchanges->payment is empty at line 846 in file classes/ObjectModel.php
+*ERROR* 	2015/07/07 - 23:29:45: Property NeoExchanges->module is empty at line 846 in file classes/ObjectModel.php

@@ -6,32 +6,32 @@
  * Time: 05:33 PM
  */
 
-class NeoHistoryCore extends ObjectModel
+class NeoExchangesHistoryCore extends ObjectModel
 {
-    /** @var integer Neo id */
-    public $id_neo_exchange;
-
-    /** @var integer Neo status id */
-    public $id_neo_state;
+    /** @var integer Neo Exchanges History id */
+    public $id_neo_exchange_history;
 
     /** @var integer Employee id for this history entry */
     public $id_employee;
 
+    /** @var integer Neo Exchange id */
+    public $id_neo_exchange;
+
+    /** @var integer Neo status id */
+    public $id_neo_status;
+
     /** @var string Object creation date */
     public $date_add;
-
-    /** @var string Object last modification date */
-    public $date_upd;
 
     /**
      * @see ObjectModel::$definition
      */
     public static $definition = array(
-        'table' => 'neo_history',
-        'primary' => 'id_neo_history',
+        'table' => 'neo_exchanges_history',
+        'primary' => 'id_neo_exchange_history',
         'fields' => array(
             'id_neo_exchange' => array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
-            'id_neo_state' => array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
+            'id_neo_status' => array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId', 'required' => true),
             'id_employee' => 	array('type' => self::TYPE_INT, 'validate' => 'isUnsignedId'),
             'date_add' => 		array('type' => self::TYPE_DATE, 'validate' => 'isDate'),
         ),
@@ -43,7 +43,7 @@ class NeoHistoryCore extends ObjectModel
     protected $webserviceParameters = array(
         'objectsNodeName' => 'order_histories',
         'fields' => array(
-            'id_neo_state' => array('required' => true, 'xlink_resource'=> 'neo_status'),
+            'id_neo_status' => array('required' => true, 'xlink_resource'=> 'neo_status'),
             'id_neo_exchange' => array('xlink_resource' => 'neo_exchanges'),
         ),
         'objectMethods' => array(
@@ -70,30 +70,34 @@ class NeoHistoryCore extends ObjectModel
         else
             return;
 
-        $neo_status = new NeoStatusCore((int)$new_neo_state);
-        $new_os = $neo_status->getNeoStatu((int)$new_neo_state);
-        $old_os = $neo_status->getNeoStatu((int)$neo->id_neo_status);
+        $new_os = new NeoStatusCore((int)$new_neo_state);
+        $old_os = new NeoStatusCore((int)$neo->current_state);
 
         switch($new_neo_state){
             case 1:
-                $neo->id_neo_status = 1;
+                $neo->current_state = 1;
                 break;
             case 2:
-                $neo->id_neo_status = 2;
+                $neo->current_state = 2;
+                $customer = new CustomerCore($neo->id_customer);
+                $data = array(
+                    '{lastname}' => $customer->lastname,
+                    '{firstname}' => $customer->firstname,
+                    '{id_neo_exchange}' => (int)$neo->id,
+                    '{order_name}' => $neo->getUniqReference(),
+                    '{nbProducts}' => count(0),
+                    '{virtualProducts}' => 'links'
+                );
+                Mail::Send((int)$neo->id_lang, 'download_product', Mail::l('The virtual product that you bought is available for download', $neo->id_lang), $data, $customer->email, $customer->firstname.' '.$customer->lastname,
+                    null, null, null, null, _PS_MAIL_DIR_, false, (int)$neo->id_shop);
+
                 break;
         }
-
-        $neo->update();
-        echo "actualizo $new_neo_state<br>";
-        die;
 
         /*if (Validate::isLoadedObject($neo) && ($new_os instanceof NeoStatusCore))
         {
             // An email is sent the first time a virtual item is validated
             $virtual_products = $neo->getVirtualProducts();
-
-
-
 
             if ($virtual_products && (!$old_os || !$old_os->logable) && $new_os && $new_os->logable)
             {
@@ -261,32 +265,27 @@ class NeoHistoryCore extends ObjectModel
 
         $this->id_neo_state = (int)$new_neo_state;*/
 
-
-
-        echo 'id='. $this->id_neo_state;die;
-
         // changes invoice number of order ?
         if (!Validate::isLoadedObject($new_os) || !Validate::isLoadedObject($neo))
             die(Tools::displayError('Invalid new order status'));
 
         // the order is valid if and only if the invoice is available and the order is not cancelled
-        $neo->current_state = $this->id_neo_state;
         $neo->valid = $new_os->logable;
         $neo->update();
 
-        if ($new_os->invoice && !$neo->invoice_number)
+        /*if ($new_os["invoice"] && !$neo->invoice_number)
             $neo->setInvoice($use_existing_payment);
-        elseif ($new_os->delivery && !$neo->delivery_number)
+        elseif ($new_os["delivery"] && !$neo->delivery_number)
             $neo->setDeliverySlip();
 
         // updates delivery date even if it was already set by another state change
-        if ($new_os->delivery)
-            $neo->setDelivery();
+        if ($new_os["delivery"])
+            $neo->setDelivery();*/
 
         // executes hook
-        Hook::exec('actionOrderStatusPostUpdate', array('newOrderStatus' => $new_os,'id_neo_exchange' => (int)$neo->id,), null, false, true, false, $neo->id_shop);
+        //Hook::exec('actionOrderStatusPostUpdate', array('newOrderStatus' => $new_os,'id_neo_exchange' => (int)$neo->id,), null, false, true, false, $neo->id_shop);
 
-        ShopUrl::resetMainDomainCache();
+        //ShopUrl::resetMainDomainCache();
     }
 
     /**

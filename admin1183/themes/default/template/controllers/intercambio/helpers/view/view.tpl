@@ -61,7 +61,7 @@
 	<div>{$hook_invoice}</div>
 	{/if}
 
-    {*$order|@var_dump*}
+    {*$currentState|@var_dump*}
 
 	<div class="panel kpi-container">
 		<div class="row">
@@ -199,12 +199,14 @@
 					*}
                     <!-- @larismendi fin deshabilito documents -->
 				</ul>
+
 				<!-- Tab content -->
 				<div class="tab-content panel">
 					{$HOOK_CONTENT_ORDER}
 					<!-- Tab status -->
 					<div class="tab-pane active" id="status">
 						<h4 class="visible-print">{l s='Status'} <span class="badge">({$history|@count})</span></h4>
+                        {*
 						<!-- History of status -->
 						<div class="table-responsive">
 							<table class="table history-status row-margin-bottom">
@@ -229,6 +231,7 @@
 								</tbody>
 							</table>
 						</div>
+                        *}
 
 						<!-- Change status form -->
 						<form action="{$currentIndex|escape:'html':'UTF-8'}&amp;viewneo_exchanges&amp;id_neo_exchange={$order->id}&amp;token={$smarty.get.token}" method="post" class="form-horizontal well hidden-print">

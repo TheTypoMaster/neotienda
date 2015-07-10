@@ -8,6 +8,8 @@
 
 class NeoExchanges extends ObjectModel
 {
+    public $id_neo_exchange;
+
     /** @var integer Delivery address id */
     /*public $id_address_delivery;*/
 
@@ -33,7 +35,7 @@ class NeoExchanges extends ObjectModel
     /** @var integer Carrier id */
     /*public $id_carrier;*/
 
-    /** @var integer Order Status id */
+    /** @var integer Neo Status id */
     public $current_state;
 
     /** @var string Secure key */
@@ -71,6 +73,7 @@ class NeoExchanges extends ObjectModel
     public $total_discounts;
 
     public $total_discounts_tax_incl;
+
     public $total_discounts_tax_excl;
 
     /** @var float Total to pay */
@@ -133,29 +136,16 @@ class NeoExchanges extends ObjectModel
     /** @var string Object last modification date */
     public $date_upd;
 
-    /**
-     * @var string Order reference, this reference is not unique, but unique for a payment
-     */
+    /** @var string Order reference, this reference is not unique, but unique for a payment */
     public $reference;
 
-    /**
-     * @var string Forma de pago, this reference is not unique
-     */
+    /** @var string Forma de pago, this reference is not unique */
     public $forma_pago;
 
-    /**
-     * @var integer Id de neo status, relacion con tabla neo_status
-     */
-    public $id_neo_status;
-
-    /**
-     * @var float Total en favor, dinero a favor del cliente
-     */
+    /** @var float Total en favor, dinero a favor del cliente */
     public $total_in_favor;
 
-    /**
-     * @var float Total diferencia, deuda del cliente por la orden
-     */
+    /** @var float Total diferencia, deuda del cliente por la orden */
     public $total_dif;
 
     /**

@@ -1,0 +1,20 @@
+*ERROR* 	2015/07/06 - 22:59:42: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/06 - 23:11:38: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/06 - 23:12:17: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/06 - 23:14:36: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/06 - 23:48:49: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/06 - 23:49:15: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/06 - 23:49:22: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/06 - 23:50:13: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/06 - 23:52:22: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/06 - 23:55:36: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php

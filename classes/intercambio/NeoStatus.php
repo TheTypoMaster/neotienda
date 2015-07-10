@@ -8,8 +8,14 @@
 
 class NeoStatusCore extends ObjectModel
 {
-    /** @var string Name */
-    public $name;
+
+    public $id_neo_status;
+
+    /** @var string Denominacion */
+    public $denominacion;
+
+    /** @var boolean Allow customer to view and download invoice when order is at this state */
+    public $invoice;
 
     /** @var string Template name if there is any e-mail to send */
     public $template;
@@ -18,9 +24,6 @@ class NeoStatusCore extends ObjectModel
     public $send_email;
 
     public $module_name;
-
-    /** @var boolean Allow customer to view and download invoice when order is at this state */
-    public $invoice;
 
     /** @var string Display state in the specified color */
     public $color;
@@ -34,7 +37,7 @@ class NeoStatusCore extends ObjectModel
     public $delivery;
 
     /** @var boolean Hidden */
-    public $hidden;
+    //public $hidden;
 
     /** @var boolean Shipped */
     public $shipped;
@@ -44,6 +47,9 @@ class NeoStatusCore extends ObjectModel
 
     /** @var boolean True if carrier has been deleted (staying in database as deleted) */
     public $deleted = 0;
+
+    // status
+    public $status;
 
     /**
      * @see ObjectModel::$definition
@@ -61,13 +67,13 @@ class NeoStatusCore extends ObjectModel
             'shipped' => 	array('type' => self::TYPE_BOOL, 'validate' => 'isBool'),
             'unremovable' =>array('type' => self::TYPE_BOOL, 'validate' => 'isBool'),
             'delivery' =>	array('type' => self::TYPE_BOOL, 'validate' => 'isBool'),
-            'hidden' =>		array('type' => self::TYPE_BOOL, 'validate' => 'isBool'),
+            //'hidden' =>		array('type' => self::TYPE_BOOL, 'validate' => 'isBool'),
             'paid' =>		array('type' => self::TYPE_BOOL, 'validate' => 'isBool'),
             'deleted' =>	array('type' => self::TYPE_BOOL, 'validate' => 'isBool'),
 
             // Lang fields
             'denominacion' => array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'required' => true, 'size' => 64),
-            //'template' => 	  array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isTplName', 'size' => 64),
+            'template' => 	  array('type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isTplName', 'size' => 64),
         ),
     );
 
@@ -75,33 +81,15 @@ class NeoStatusCore extends ObjectModel
         'fields' => array(
             'unremovable' => array(),
             'delivery' => array(),
-            'hidden' => array(),
+            //'hidden' => array(),
         ),
     );
 
     const FLAG_NO_HIDDEN	= 1;  /* 00001 */
     const FLAG_LOGABLE		= 2;  /* 00010 */
     const FLAG_DELIVERY		= 4;  /* 00100 */
-
     const FLAG_SHIPPED		= 8;  /* 01000 */
     const FLAG_PAID			= 16; /* 10000 */
-
-    public function __construct($id = null){
-        if($id){
-            $cache_id = 'NeoStatus::'.$id;
-            //if (!Cache::isStored($cache_id))
-            //{
-                $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow('
-                SELECT *
-                FROM `'._DB_PREFIX_.'neo_status`
-                WHERE `id_neo_status` = '.$id);
-                Cache::store($cache_id, $result);
-            //}
-            return Cache::retrieve($cache_id);
-        }else{
-            $this->getNeoStatus();
-        }
-    }
 
     public function getNeoStatu($id){
         $cache_id = 'NeoStatus::'.$id;

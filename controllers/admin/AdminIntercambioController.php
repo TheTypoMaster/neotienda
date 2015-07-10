@@ -34,7 +34,7 @@ class AdminIntercambioController extends AdminController
 
         $this->_join = '
         LEFT JOIN `'._DB_PREFIX_.'customer` c ON (c.`id_customer` = a.`id_customer`)
-        LEFT JOIN `'._DB_PREFIX_.'neo_status` s ON (s.`id_neo_status` = a.`id_neo_status`)
+        LEFT JOIN `'._DB_PREFIX_.'neo_status` s ON (s.`id_neo_status` = a.`current_state`)
         ';
 
         $this->_orderBy = 'id_neo_exchange';
@@ -347,66 +347,9 @@ class AdminIntercambioController extends AdminController
     // proceso de actualización de estatus
     public function postProcess()
     {
-
-        /*
-         * Esto es lo mismo que sigue
-         *
-        // Change order status, add a new entry in order history and send an e-mail to the customer if needed
-        elseif (Tools::isSubmit('submitState') && isset($neo))
-        {
-            if ($this->tabAccess['edit'] === '1')
-            {
-                $neo_state = new NeoStatus(Tools::getValue('id_neo_state'));
-                if (!Validate::isLoadedObject($neo_state))
-                    $this->errors[] = Tools::displayError('The new order status is invalid.');
-                else
-                {
-                    $current_order_state = $neo->getCurrentOrderState();
-                    if ($current_order_state->id != $neo_state->id)
-                    {
-                        // Create new NeoHistory
-                        $history = new NeoHistory();
-                        $history->id_neo_exchange = $neo->id;
-                        $history->id_employee = (int)$this->context->employee->id;
-
-                        $use_existings_payment = false;
-                        if (!$neo->hasInvoice())
-                            $use_existings_payment = true;
-                        $history->changeIdOrderState((int)$neo_state->id, $neo, $use_existings_payment);
-
-                        $carrier = new Carrier($neo->id_carrier, $neo->id_lang);
-                        $templateVars = array();
-                        if ($history->id_neo_status == Configuration::get('PS_OS_SHIPPING') && $neo->shipping_number)
-                            $templateVars = array('{followup}' => str_replace('@', $neo->shipping_number, $carrier->url));
-                        // Save all changes
-                        if ($history->addWithemail(true, $templateVars))
-                        {
-                            // synchronizes quantities if needed..
-                            if (Configuration::get('PS_ADVANCED_STOCK_MANAGEMENT'))
-                            {
-                                foreach ($neo->getProducts() as $product)
-                                {
-                                    if (StockAvailable::dependsOnStock($product['product_id']))
-                                        StockAvailable::synchronize($product['product_id'], (int)$product['id_shop']);
-                                }
-                            }
-
-                            Tools::redirectAdmin(self::$currentIndex.'&id_neo_exchange='.(int)$neo->id.'&viewneo_echanges&token='.$this->token);
-                        }
-                        $this->errors[] = Tools::displayError('An error occurred while changing order status, or we were unable to send an email to the customer.');
-                    }
-                    else
-                        $this->errors[] = Tools::displayError('The order has already been assigned this status.');
-                }
-            }
-            else
-                $this->errors[] = Tools::displayError('You do not have permission to edit this.');
-        }*/
-
         if (Tools::isSubmit('id_neo_exchange') && Tools::getValue('id_neo_exchange') > 0)
         {
             $neo = new NeoExchanges(Tools::getValue('id_neo_exchange'));
-            $order = new Order(Tools::getValue('id_neo_exchange'));
             if (!Validate::isLoadedObject($neo))
                 $this->errors[] = Tools::displayError('The order cannot be found within your database.');
             //ShopUrl::cacheMainDomainForShop((int)$order->id_shop);
@@ -478,26 +421,25 @@ class AdminIntercambioController extends AdminController
                     $this->errors[] = Tools::displayError('The new order status is invalid.');
                 else
                 {
-                    if ($neo->id_neo_status != $neo_statu['id_neo_status'])
+                    if ($neo->current_state != $neo_statu['id_neo_status'])
                     {
                         // Create new OrderHistory
-                        $history = new NeoHistoryCore();
+                        $history = new NeoExchangesHistoryCore();
                         $history->id_neo_exchange = $neo->id;
                         $history->id_employee = (int)$this->context->employee->id;
 
                         $use_existings_payment = false;
-                        if (!$neo->hasInvoice())
-                            $use_existings_payment = true;
+                        /*if (!$neo->hasInvoice())
+                            $use_existings_payment = true;*/
 
                         $history->changeIdNeoState((int)$neo_statu['id_neo_status'], $neo, $use_existings_payment);
 
-                        echo 'jajajajaja';
-                        die;
-
                         //$carrier = new Carrier($neo->id_carrier, $neo->id_lang);
-                        $templateVars = array();
+                        /*$templateVars = array();
                         if ($history->id_neo_status == Configuration::get('PS_OS_SHIPPING') && $neo->shipping_number)
                             $templateVars = array('{followup}' => str_replace('@', $neo->shipping_number, $carrier->url));
+
+
                         // Save all changes
                         if ($history->addWithemail(true, $templateVars))
                         {
@@ -509,11 +451,11 @@ class AdminIntercambioController extends AdminController
                                     if (StockAvailable::dependsOnStock($product['product_id']))
                                         StockAvailable::synchronize($product['product_id'], (int)$product['id_shop']);
                                 }
-                            }
+                            }*/
 
                             Tools::redirectAdmin(self::$currentIndex.'&id_neo_exchange='.(int)$neo->id.'&viewneo_exchanges&token='.$this->token);
-                        }
-                        $this->errors[] = Tools::displayError('An error occurred while changing order status, or we were unable to send an email to the customer.');
+                        //}
+                        //$this->errors[] = Tools::displayError('An error occurred while changing order status, or we were unable to send an email to the customer.');
                     }
                     else
                         $this->errors[] = Tools::displayError('The order has already been assigned this status.');
