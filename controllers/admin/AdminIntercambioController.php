@@ -6,7 +6,7 @@
  * Time: 01:10 PM
  */
 
-class AdminIntercambioController extends AdminController
+class AdminIntercambioController extends AdminControllerCore
 {
     public $toolbar_title;
 
@@ -332,7 +332,7 @@ class AdminIntercambioController extends AdminController
         {
             if (Tools::getIsset('cancel'))
                 Tools::redirectAdmin(self::$currentIndex.'&token='.$this->token);
-
+echo 'renderList';
             var_dump($this->statuses_array);die;
 
             $this->tpl_list_vars['updateOrderStatus_mode'] = true;
@@ -1401,7 +1401,7 @@ class AdminIntercambioController extends AdminController
     public function renderView()
     {
         $neoExchange = new NeoExchanges(Tools::getValue('id_neo_exchange'));
-
+        $order = new Order(Tools::getValue('id_neo_exchange'));
         if (!Validate::isLoadedObject($neoExchange))
             $this->errors[] = Tools::displayError('The order cannot be found within your database.');
 
@@ -1510,7 +1510,7 @@ class AdminIntercambioController extends AdminController
             'products_buy' => $products_buy,
             'products_sale' => $products_sale,
             'neo_order_shipping_price' => 0,
-            'discounts' => $neoExchange->getCartRules(),
+            //'discounts' => $neoExchange->getCartRules(),
             'orders_total_paid_tax_incl' => $neoExchange->getOrdersTotalPaid(), // Get the sum of total_paid_tax_incl of the order with similar reference
             'total_paid' => $neoExchange->getTotalPaid(),
             'returns' => OrderReturn::getOrdersReturn($neoExchange->id_customer, $neoExchange->id),
@@ -2375,7 +2375,7 @@ class AdminIntercambioController extends AdminController
             )));
     }
 
-    protected function getProducts($order)
+    public function getProducts($order)
     {
         $products = $order->getProducts();
 

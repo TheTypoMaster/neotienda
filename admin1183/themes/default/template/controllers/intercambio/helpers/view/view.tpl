@@ -239,7 +239,7 @@
 								<div class="col-lg-9">
 									<select id="id_neo_status" class="chosen form-control" name="id_neo_status">
 									{foreach from=$neoStatus item=statu}
-                                        <option value="{$statu['id_neo_status']|intval}"{if $statu['id_neo_status'] == $currentState->id} selected="selected" disabled="disabled"{/if}>{$statu['denominacion']|escape}</option>
+                                        <option value="{$statu['id_neo_status']|intval}"{if $statu['id_neo_status'] == $currentState->id_neo_status} selected="selected" disabled="disabled"{/if}>{$statu['denominacion']|escape}</option>
 									{/foreach}
 									</select>
 									<input type="hidden" name="id_neo_exchange" value="{$order->id}" />

@@ -80,16 +80,46 @@ class NeoExchangesHistoryCore extends ObjectModel
             case 2:
                 $neo->current_state = 2;
                 $customer = new CustomerCore($neo->id_customer);
+                $buys  = new NeoItemsBuyCore(Tools::getValue('id_neo_exchange'));
+                $sales = new NeoItemsSalesCore(Tools::getValue('id_neo_exchange'));
+
+                $products  = AdminIntercambioController::getProducts($buys);
+                $products2 = AdminIntercambioController::getProducts($sales);
+
+                $product_list = "";
+                foreach($products as $product){
+                    $product_list = $product->id.'-'.$product->name.' '.$product->price.'<br />';
+                }
+
+                $product_list2 = "";
+                foreach($products2 as $product2){
+                    $product_list2 = $product2->id.'-'.$product2->name.' '.$product2->price.'<br />';
+                }
+
                 $data = array(
                     '{lastname}' => $customer->lastname,
                     '{firstname}' => $customer->firstname,
-                    '{id_neo_exchange}' => (int)$neo->id,
-                    '{order_name}' => $neo->getUniqReference(),
+                    '{id_order}' => (int)$neo->id,
+                    '{order_name}' => 'pepe',
                     '{nbProducts}' => count(0),
-                    '{virtualProducts}' => 'links'
+                    '{virtualProducts}' => ''
                 );
-                Mail::Send((int)$neo->id_lang, 'download_product', Mail::l('The virtual product that you bought is available for download', $neo->id_lang), $data, $customer->email, $customer->firstname.' '.$customer->lastname,
-                    null, null, null, null, _PS_MAIL_DIR_, false, (int)$neo->id_shop);
+                // If there is at least one downloadable file
+                if (!empty($assign))
+                    Mail::Send((int)$neo->id_lang, 'download_product', Mail::l('The virtual product that you bought is available for download', $neo->id_lang), $data, $customer->email, $customer->firstname.' '.$customer->lastname,
+                        null, null, null, null, _PS_MAIL_DIR_, false, (int)$neo->id_shop);
+
+                /*$data = array(
+                    '{lastname}' => $customer->lastname,
+                    '{firstname}' => $customer->firstname,
+                    '{id_neo_exchange}' => (int)$neo->id,
+                    '{order_name}' => $neo->reference,//$neo->getUniqReference(),
+                    '{nbProducts}' => count($products),
+                    '{videoJuegos}' => $product_list,
+                    '{videoJuegos2}' => $product_list2,
+                );
+                Mail::Send((int)$neo->id_lang, 'aprobado', Mail::l('Su pedido en neotienda ha sido aprobado', $neo->id_lang), $data, $customer->email, $customer->firstname.' '.$customer->lastname,
+                    null, null, null, null, _PS_MAIL_DIR_, false, (int)$neo->id_shop);*/
 
                 break;
         }
@@ -267,7 +297,7 @@ class NeoExchangesHistoryCore extends ObjectModel
 
         // changes invoice number of order ?
         if (!Validate::isLoadedObject($new_os) || !Validate::isLoadedObject($neo))
-            die(Tools::displayError('Invalid new order status'));
+            die('Mns:'.Tools::displayError('Invalid new order status'));
 
         // the order is valid if and only if the invoice is available and the order is not cancelled
         $neo->valid = $new_os->logable;

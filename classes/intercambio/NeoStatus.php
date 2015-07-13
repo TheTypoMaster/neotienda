@@ -91,16 +91,22 @@ class NeoStatusCore extends ObjectModel
     const FLAG_SHIPPED		= 8;  /* 01000 */
     const FLAG_PAID			= 16; /* 10000 */
 
+    /*public function __construct($id = null){
+        if($id){
+            return $this->getNeoStatu($id);
+        }
+    }*/
+
     public function getNeoStatu($id){
         $cache_id = 'NeoStatus::'.$id;
-        if (!Cache::isStored($cache_id))
-        {
+        //if (!Cache::isStored($cache_id))
+        //{
             $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->getRow('
                 SELECT *
                 FROM `'._DB_PREFIX_.'neo_status`
                 WHERE `id_neo_status` = '.$id);
             Cache::store($cache_id, $result);
-        }
+        //}
         return Cache::retrieve($cache_id);
     }
 

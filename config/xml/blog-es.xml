@@ -13,12 +13,64 @@
 	<atom:link href="http://www.prestashop.com/blog/es/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.prestashop.com/blog/es</link>
 	<description></description>
-	<lastBuildDate>Tue, 07 Jul 2015 16:14:05 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 10 Jul 2015 13:04:18 +0000</lastBuildDate>
 	<language>es-ES</language>
 		<sy:updatePeriod>hourly</sy:updatePeriod>
 		<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>http://wordpress.org/?v=3.8.1</generator>
 	<item>
+		<title>¿Cómo hacer pruebas A/B con poco tráfico?</title>
+		<link>https://www.prestashop.com/blog/es/como-hacer-pruebas-ab-con-poco-trafico/</link>
+		<comments>https://www.prestashop.com/blog/es/como-hacer-pruebas-ab-con-poco-trafico/#comments</comments>
+		<pubDate>Thu, 09 Jul 2015 13:55:05 +0000</pubDate>
+		<dc:creator><![CDATA[Kate Robinson]]></dc:creator>
+				<category><![CDATA[Consejos E-commerce]]></category>
+
+		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=13114</guid>
+		<description><![CDATA[<p>Hoy estamos encantados de presentar un artículo de Alix de Sagazan, cofundadora de AB Tasty, líder en el ámbito de las pruebas A/B y la personalización. Nos va a dar las claves para aprovechar incluso con poco tráfico las ventajas de las pruebas A/B&#8230; que son casi imprescindibles para optimizar las conversiones. Sin embargo, a [...]</p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/como-hacer-pruebas-ab-con-poco-trafico/">¿Cómo hacer pruebas A/B con poco tráfico?</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Hoy estamos encantados de presentar un artículo de Alix de Sagazan, cofundadora de AB Tasty, líder en el ámbito de las pruebas A/B y la personalización. Nos va a dar las claves para aprovechar incluso con poco tráfico las ventajas de las pruebas A/B&#8230; que son casi imprescindibles para optimizar las conversiones.</p>
+<p>Sin embargo, a veces las recomendaciones para las campañas dan pie a pensar que este es un campo restringido a los sitios con más tráfico. Si los indicadores clave son el número de visitantes y las conversiones, ¿no podemos deducir que las pruebas A/B son inútiles si el tráfico es muy bajo?<br />
+<span id="more-13114"></span><br />
+Por suerte, ¡no es así! Se puede sacar el máximo provecho de una campaña A/B incluso con pocos visitantes. Solo existe una limitación: la fiabilidad estadística, que debe superar el 95% para que la prueba resulte útil. Por debajo de ese porcentaje se considera que los datos no son totalmente fiables&#8230; por lo que sacar conclusiones sería arriesgado y prematuro. El único límite es esa cifra. El tiempo necesario para lograrla varía según el tráfico del sitio, el número de páginas probadas, la tasa de conversión inicial y la repercusión de las modificaciones. ¡Lo único seguro es que cuanto menor sea el tráfico, más larga será la espera!</p>
+<p>Pero existen varios métodos para que no se te haga infinita.</p>
+<h2 style="color: #498edc">¡Saca partido de lo que ya tienes!</h2>
+<p>Se considera que una prueba es pertinente a partir de las 5.000 visitas únicas y las 100 conversiones registradas por modificación. Céntrate primero en las secciones que generen más tráfico. ¿No tienes demasiado? No dudes en animar a los internautas a visitar esas páginas, por ejemplo, con una campaña de correo dirigida. Otra forma de aumentar el tráfico para esos apartados es recurrir a la publicidad basada en un modelo de rendimiento (vínculos y noticias patrocinados en Google Adwords y LinkedIn o anuncios en Facebook y Twitter). Sin duda, supone una inversión económica, pero te asegura un rápido aumento del tráfico&#8230; y resultados estadísticos fiables en menos tiempo. ¡No esperes a que tu tráfico crezca para ponerte en marcha! Acompaña a tus visitantes en el embudo de conversión: envíales mensajes de marketing personalizados (promociones, cuenta atrás, ventanas emergentes, reactivación de usuario, elementos fijos en el scroll&#8230;).</p>
+<h4 style="color: #498edc">¡Anima a los internautas a actuar rápidamente!</h4>
+<p><img class="aligncenter size-large wp-image-20349" alt="compteur" src="http://www.prestashop.com/blog/es/files/2015/07/compteur-1024x514.jpg" width="700" height="351" /></p>
+<p>La posibilidad de dejar escapar un chollo es un poderoso incentivo para pasar a la acción. Mostrar una cuenta atrás promocional y dinámica crea sensación de urgencia y exclusividad.</p>
+<h2 style="color: #498edc">¡No te disperses!</h2>
+<p>Cuantas más variaciones defines, más segmentas el tráfico y más tiempo necesitas para obtener una muestra fiable para cada cambio. Sigue la regla de oro: no más de dos modificaciones con respecto al original. Empieza probando una sola alternativa. Si funciona bien, inicia la segunda prueba y compara los resultados de ambas. ¡Y no caigas en la tentación de las pruebas multivariadas (MVT)! Tu tráfico no puede permitírselo.</p>
+<h4 style="color: #498edc">Fomenta el compromiso en el embudo de conversión reformulando las llamadas a la acción.</h4>
+<p><img class="aligncenter size-full wp-image-20352" alt="wording" src="http://www.prestashop.com/blog/es/files/2015/07/wording.png" width="668" height="231" /></p>
+<p>Sustituir un verbo demasiado comprometedor o que suponga una implicación prematura por uno menos agresivo invita a pasar a la siguiente fase.</p>
+<p>Resultados del ejemplo: un aumento de los clics del 92 % y el consiguiente incremento de la tasa de conversión global del 13 %.</p>
+<h2 style="color: #498edc">¡Redefine tus prioridades!</h2>
+<p>El objetivo de una prueba A/B se resume a menudo en el aumento del número de conversiones. Pero, ¿cómo se define una conversión? ¿Tiene que ser obligatoriamente una venta? Si vas a hacer una prueba con poco tráfico, opta por definir un criterio vinculado al principal pero que resulte más frecuente. Es decir, en lugar de centrarte en las ventas, pon el foco en la tasa de adiciones al carrito o el número de veces que se ve una ficha de producto. Estos aspectos de la conversión están relacionados con el objetivo principal (la venta), pero son más frecuentes&#8230; y te darán resultados más rápidamente.</p>
+<h4 style="color: #498edc">Aumenta la tasa de acceso a las páginas de producto</h4>
+<p><img class="aligncenter size-full wp-image-20351" alt="image-product" src="http://www.prestashop.com/blog/es/files/2015/07/image-product.png" width="732" height="229" /></p>
+<p>La contextualización del producto anima a los internautas a descubrir más artículos y favorece la compra de productos complementarios.</p>
+<p>Resultados del ejemplo: aumento de las consultas a las páginas de producto del 10 % y mejora de las ventas en un 15 %.</p>
+<h2 style="color: #498edc">¡Piensa a lo grande!</h2>
+<p>¡Aunque tengas poco tráfico, sé ambicioso! No te centres en los pequeños detalles pensando en mejorar un poco el tráfico: prueba cambios que puedan tener una gran repercusión en las conversiones. No dudes en probar dos versiones de tu página totalmente distintas. ¿Cómo? Con una solución de pruebas A/B: cambia la posición de los elementos y modifica los títulos de las secciones para crear un diseño radicalmente diferente como alternativa de prueba. A los internautas se les redirigirá de forma transparente a esta página. Y la herramienta de pruebas A/B se encarga de todo: gestiona la distribución del tráfico y recopila estadísticas de cada versión según los parámetros que hayas especificado, como en una prueba clásica.</p>
+<h4 style="color: #498edc">¡Atrae la atención de los visitantes desde que llegan a la tienda!</h4>
+<p><img class="aligncenter size-full wp-image-20350" alt="form" src="http://www.prestashop.com/blog/es/files/2015/07/form.png" width="886" height="273" /></p>
+<p>Reduce la cantidad de texto y elige elementos gráficos más atractivos: harás que destaque la llamada a la acción que lleva al formulario de inscripción.</p>
+<p>Resultados del ejemplo: aumento del 14 % de la tasa de inscripción de nuevos visitantes y mejora de un 3,2 % de la tasa de conversión global del sitio.</p>
+<h2 style="color: #498edc">Conclusión</h2>
+<p>Tener poco tráfico no te condena a renunciar a las pruebas A/B. Al contrario, iniciar una campaña de pruebas A/B te obligará a adoptar un enfoque pragmático y estructurado para aprovechar al máximo tu tráfico actual.</p>
+<h4 style="color: #498edc">Sobre AB Tasty</h4>
+<p>AB Tasty es el líder europeo en optimización de conversiones en sitios y en aplicaciones. Permite probar la eficacia de las ideas de optimización y ofrecer una experiencia personalizada al usuario para favorecer la conversión. Funciona en modo SaaS (software como servicio) y da total autonomía a los equipos de marketing: pueden poner en práctica sus ideas de optimización en el sitio web, sitios móviles y aplicaciones nativas y evaluar los resultados sin recurrir a personal técnico.</p>
+<p>Los 40 colaboradores de AB Tasty, creada hace cinco años, atienden hoy más de 200 grandes cuentas (desde sitios de e-commerce y de medios de comunicación hasta sitios de generación de leads).</p>
+<p>AB Tasty es una de las 27 empresas seleccionadas para el programa Pass French Tech que apoya a las firmas más innovadoras y con un mayor crecimiento.</p>
+<p><a href="http://www.abtasty.com/" target="_blank">www.abtasty.com</a></p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/como-hacer-pruebas-ab-con-poco-trafico/">¿Cómo hacer pruebas A/B con poco tráfico?</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.prestashop.com/blog/es/como-hacer-pruebas-ab-con-poco-trafico/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
 		<title>Tamaños y formatos de imágenes para la plantilla predeterminada de PrestaShop</title>
 		<link>https://www.prestashop.com/blog/es/tamanos-y-formatos-de-imagenes-para-la-plantilla-predeterminada-de-prestashop/</link>
 		<comments>https://www.prestashop.com/blog/es/tamanos-y-formatos-de-imagenes-para-la-plantilla-predeterminada-de-prestashop/#comments</comments>
@@ -222,7 +274,7 @@ Nos hemos inspirado en esta canción de Daft Punk para mejorar notablemente el r
 <p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/la-version-1-6-1-0-novedades-y-mejoras/">La versión 1.6.1.0: novedades y mejoras</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
 ]]></content:encoded>
 			<wfw:commentRss>https://www.prestashop.com/blog/es/la-version-1-6-1-0-novedades-y-mejoras/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
+		<slash:comments>1</slash:comments>
 		</item>
 		<item>
 		<title>Desarrolla tu negocio de comercio electrónico a través de las redes sociales (Parte 2 de 2)</title>
@@ -614,7 +666,7 @@ Esta opción de marketing de contenido es viable gracias a todo lo que tuviste q
 <p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/prestashopday-resumen-de-una-jornada-excepcional/">#PrestaShopDay: Resumen de una jornada excepcional.</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
 ]]></content:encoded>
 			<wfw:commentRss>https://www.prestashop.com/blog/es/prestashopday-resumen-de-una-jornada-excepcional/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
+		<slash:comments>1</slash:comments>
 		</item>
 		<item>
 		<title>6 preguntas clave a la hora de fijar el precio de un nuevo producto</title>
@@ -663,82 +715,7 @@ Angelica Valentine es la directora de marketing de contenidos de <a href="http:/
 <p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/6-preguntas-clave-la-hora-de-fijar-el-precio-de-un-nuevo-producto/">6 preguntas clave a la hora de fijar el precio de un nuevo producto</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
 ]]></content:encoded>
 			<wfw:commentRss>https://www.prestashop.com/blog/es/6-preguntas-clave-la-hora-de-fijar-el-precio-de-un-nuevo-producto/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>Empezando a plantear el proyecto: el estudio de mercado</title>
-		<link>https://www.prestashop.com/blog/es/empezando-plantear-el-proyecto-el-estudio-de-mercado/</link>
-		<comments>https://www.prestashop.com/blog/es/empezando-plantear-el-proyecto-el-estudio-de-mercado/#comments</comments>
-		<pubDate>Wed, 17 Jun 2015 08:30:36 +0000</pubDate>
-		<dc:creator><![CDATA[Kate Robinson]]></dc:creator>
-				<category><![CDATA[Consejos E-commerce]]></category>
-
-		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=12966</guid>
-		<description><![CDATA[<p>Comienzo con este una serie de 4 posts en los que hablaré sobre cómo montar una tienda online pasando por 4 fases: Empezando a plantear el proyecto: el estudio de mercado Proveedores, temas legales, catálogo y plataformas de pago Desarrollando la idea y la tienda sobre Prestashop Publicando tu tienda y dándole difusión Antes que [...]</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/empezando-plantear-el-proyecto-el-estudio-de-mercado/">Empezando a plantear el proyecto: el estudio de mercado</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></description>
-				<content:encoded><![CDATA[<p>Comienzo con este <strong>una serie de 4 posts</strong> en los que hablaré sobre <strong>cómo montar una tienda online</strong> pasando por 4 fases:</p>
-<ul style="padding-left:30px">
-<li>Empezando a plantear el proyecto: el estudio de mercado</li>
-<li>Proveedores, temas legales, catálogo y plataformas de pago </li>
-<li>Desarrollando la idea y la tienda sobre Prestashop</li>
-<li>Publicando tu tienda y dándole difusión</li>
-</ul>
-<p><span id="more-12966"></span></p>
-<p>Antes que nada quiero deciros que <strong>este post no es magia-potagia</strong>. Aquí no te voy a contar <strong>cómo hacerte rico</strong>. Aquí te contaré cómo debes encarar un proyecto de tienda online desde 0. La magia de cara a que un proyecto funcione se llama <strong>poner tiempo y dinero</strong> así que, ahora que ya sabes el truco, vamos a ello <img src="http://www.prestashop.com/blog/es/wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley" /> </p>
-<p><strong>Plantear el proyecto</strong> puede tener varios puntos de partida:</p>
-<ul style="padding-left:30px">
-<li>una idea</li>
-<li>una oportunidad</li>
-<li>una moda en el mercado</li>
-<li>una tendencia de búsqueda</li>
-<li>alguien que te habla sobre un negocio</li>
-<li>un negocio que ya conoces offline y que quieres trasladar al online</li>
-<li>o, simplemente, un hobby. </li>
-</ul>
-<p>En el caso de la última tienda que he montado <a href="http://cuerdadeguitarra.com" target="_blank">http://cuerdadeguitarra.com</a> se trata puramente de un hobby hecho tienda.</p>
-<h2 style="color: #039d9a">¿Cómo plantear el proyecto en base a un estudio de mercado?</h2>
-<p>Bien, contrariamente a lo que muchos piensan hacer un estudio de mercado de una tienda online no es “voy a ver qué páginas web me salen en la primera página de un resultado de búsqueda, qué es lo que hacen y a montar mi negocio en base a eso”. Lo primero que hay que hacer es <strong>definir el ámbito en el que vamos a efectuar el estudio de mercado</strong>. Pongamos que, como yo, quieres vender cuerdas de guitarra. ¿Las vas a vender a España o a todo el mundo? Pues esa pregunta es la que debes contestar primero. En el caso de este producto, <strong>no tiene sentido ir a competir en otros países que no sean el tuyo</strong>, pues es un producto standard, con un precio y unos márgenes que no te permiten virguerías. Son fáciles de encontrar online ya sea en tiendas especializadas como a través de <span style="font-style:italic">marketplaces</span>. Incluso si las buscas bien puedes encontrarlas de marcas blancas y falsificadas. </p>
-<p>Al ser un producto de unos 6€ – 9€ de media, no tiene mucho sentido enviarlas a Francia, Alemania o Rúsia. Los gastos de envío valen más que el producto. Solo tendría sentido si te dedicaras a algo todavía más de nicho: <strong>proveer packs grandes de cuerdas de guitarra</strong>. Paquetes de 50 en 50 juegos, por ejemplo. Eso es raro que te lo pidan porque, o te lo pide una tienda (que ya va al distribuidor o redistribuidor) o te lo pide una escuela de música (que se lo pide a un distribuidor o redistribuidor) o te lo pide una banda de música que, normalmente, tiene <span style="font-style:italic">endorsers</span> (patrocinadores que les regalan el producto a cambio de publicidad y en el que se incluyen las cuerdas). Por lo que, como comento, no tiene mucho sentido exportarlas. ¿Cómo supe todo esto? Pues estudiando lo que hacen las tiendas online, los <span style="font-style:italic">marketplaces</span>, los usuarios (a través de posts en blogs, foros, <span style="font-style:italic">tuits</span>…) y porque llevo 18 años tocando la guitarra, así que he pasado por suficientes grupos y conciertos como para saber cómo funciona. ¿Cómo puedes hacerlo tú si no tienes esa información? <strong>Investigando y preguntando en foros, por ejemplo</strong>.</p>
-<p>Y, sí, efectivamente <strong>hay que visitar tiendas físicas</strong>. Hay que salir del despacho y no solo en esta fase, a poder ser, hay que salir del despacho cada semana para observar qué pasa a tu alrededor y visitar tiendas de la competencia o, directamente, otras tiendas de grandes almacenes donde poder detectar tendencias.</p>
-<p>Hay referentes de <strong>mega tiendas online</strong> que puedes estudiar: Thomann, Musik Produktiv, Alfasoni, Woodbrass, Strings By Mail, Lord of the strings… y debes estudiarlas. Pero también debes <strong>visitar tiendas físicas</strong> para ver cómo presentan, venden y ponen precio al producto. ¡Ah! Y sobre cómo atienden a los clientes.</p>
-<p>Yo me paseé por tiendas de música, pero no me quedé ahí, hay que ir a la <strong>competencia directa y también a la no directa</strong>: El Corte Inglés, FNAC, Cash Converters… los <span style="font-style:italic">marketplaces</span> de la vida real, vamos.</p>
-<p>Una vez defines el ámbito de actuación, ¿cómo encarar el estudio de mercado? Yo me baso en las <strong>clásicas 4Ps del marketing</strong>: <span style="font-style:italic">product, price, place, promotion</span>. Y a eso le sumo el servicio de atención al cliente, la demanda y la recurrencia. Aunque empezaremos con la demanda porque, sin demanda, no servirá nada de lo demás. Pongámoslo así de simple: si muy poca gente busca tu producto o tú mismo creas la demanda (cuesta muchísimo dinero) o déjalo correr.</p>
-<h2 style="color: #039d9a"><img style="margin-right: 2px" alt="icon" src="http://www.prestashop.com/blog/es/files/2015/06/demanda.png" width="50" height="50" /> Demanda</h2>
-<p>La parte más <span style="font-style:italic">googleiana</span> de todos los puntos. Aquí se trata de ver si en el país al que vas realmente hay una demanda o no. Eso ya lo habrás sacado, en su mayor parte, del <span style="font-style:italic">keyword research</span>. <strong>Valídalo una y mil veces</strong> porque, si te equivocas, puedes estar haciendo trabajo totalmente en vano. ¿Qué es importante de la demanda? Que sea estable. Lo demás son pegar pelotazos. Por ejemplo, <strong>¿hubo demanda de cigarrillos electrónicos?</strong> Sí. ¿Duró? No. Las cosas se ponen de moda y adiós muy buenas. Se abrieron muchas tiendas físicas y online de las cuales queda poquísimas. ¿Quién hizo negocio? El señor que vendía las franquicias, por supuesto. Los demás tiraron el dinero, aunque alguno pegó un pelotazo del que todavía le quedan euros.</p>
-<h2 style="color: #039d9a"><img style="margin-right: 2px" alt="icon" src="http://www.prestashop.com/blog/es/files/2015/06/producto.png" width="50" height="50" /> Producto</h2>
-<p>¿Qué producto se mueve?, ¿la gente compra el original o prefiere marca blanca, imitaciones o falsificaciones? (eso pasa), ¿cuáles son las marcas que tienen más demanda? A lo mejor existen <strong>marcas específicas con un encanto o una calidad</strong> de producto especial para los consumidores. Por ejemplo, el caso de las <strong>cuerdas Elixir</strong>, que tienen alta resistencia y tardas más en cambiarlas. O las cuerdas <span style="font-style:italic">signature</span>: las DR Strings Alexis Laiho (guitarrista de Children of Bodom), las Jim Dunlop Zakk Wylde (guitarra de Ozzy Osbourne y Black Label Society)… porque muchos guitarristas van a buscar tanto las guitarras, cuerdas, amplificadores y pedales <strong>de sus artistas favoritos</strong>, así que eso es algo a tener en cuenta.</p>
-<p><strong>¿Cada cuánto se cambia el producto?</strong> Eso nos definirá qué recurrencia de usuarios podemos llegar a tener, porque sin recurrencia, amigo, no hay negocio online.</p>
-<p><strong>¿Qué modelos tiene el producto?</strong> Pues aquí analizaríamos las cosas a tener en cuenta: los calibres de cuerdas, la resistencia, el estilo para el que sirve cada cuerda, cada cuánto es óptimo cambiar ese modelo en concreto, qué guitarristas lo usan, se corroen antes las cuerdas en un clima caluroso o frío… en resumen, toda la información sobre la fabricación del producto, sus características, su finalidad… es decir, buscar las respuestas a cualquier pregunta que pueda hacerte un cliente real. </p>
-<p><strong>En Internet y en la vida real cualquiera puede vender casi de todo</strong>, pero ten en cuenta que si no sabes qué es lo que vendes, estás perdido. </p>
-<p>¿Por qué me he enrollado tanto en la parte de producto? Amigo, sin un buen producto no vas a ningún lado.</p>
-<h2 style="color: #039d9a"><img style="margin-right: 2px" alt="icon" src="http://www.prestashop.com/blog/es/files/2015/06/precio.png" width="50" height="50" /> Precio</h2>
-<p>Aquí hay una regla bastante básica y es que los <strong>grandes sitios</strong>, por desgracia, son los que mandan. Lo que suelo hacer es fijarme en cuál es el precio de cada producto. Me hago un Excel con todos los productos que voy a vender o con los principales productos de cada gama y cada marca y voy a buscar qué precio medio tienen en Amazon, eBay y Rakuten. Además, miro qué precio medio tiene cada uno de los <span style="font-style:italic">sites</span> principales y también qué precios salen en los <span style="font-style:italic">Product Listing Ads</span>. Con eso me hago una <strong>idea del precio al que tengo que competir</strong> para poder llevarme alguna venta. Por supuesto aquí entra el margen que quiera ganar cada uno, que ya será mayor o menos y los gastos de envío que tenga cada tienda para ser competitivo no solo en el producto en sí, sino también en el <strong>cómputo global productos + envío</strong>.</p>
-<p>Interesa saber también quién está detrás de cada web. Si el precio medio de un producto es 15€ y alguien lo vende a 8€ puede pasar que:</p>
-<ul style="padding-left:30px">
-<li>Sea una falsificación</li>
-<li>Estén reventando el precio a posta para poder llevarse clientes usando un producto gancho</li>
-<li>Que sea un mayorista vendiendo</li>
-<li>Que sea un fabricante vendiendo</li>
-<li>Que sea alguien cercano a un mayorista o fabricante</li>
-</ul>
-<p>En tal caso, deberás decidir si te vale la pena o no competir contra ese precio.</p>
-<h2 style="color: #039d9a"><img style="margin-right: 2px" alt="icon" src="http://www.prestashop.com/blog/es/files/2015/06/distribucion.png" width="50" height="50" /> Distribución</h2>
-<p>Misma estrategia que la anterior. Mirar <strong>gastos de envío medios</strong> y ver por dónde puedes atacar para ser competitivo. Mirar también si el <strong>envío es en 3 / 5 días</strong> y si tú puedes hacerlo en 24 / 48 horas. Ofrecer un <strong>umbral de gastos de envío gratis</strong> acorde con la competencia o tirar millas y montarte tu propio umbral (yo lo hice rebajando a 10€ el gasto mínimo para tener envío gratis). Ten en cuenta que, a la larga, la gente <strong>demandará gastos de envío gratis</strong>, así que comienza a mentalizarte. Mira también opiniones de las otras webs para ver si puedes mejorar algo: hay un transportista que pierde muchos paquetes, los paquetes no llegan nunca a tiempo, llegan en mal estado, etc. No tengas miedo a hacer pedidos a tu competencia y comprobar por ti mismo si llega bien, a tiempo, si lleva un regalo, si lleva un vale de descuento para la próxima compra…<br />
-Y, como siempre digo, <strong>busca un transportista que falle poco</strong> (he probado muchas compañías y, finalmente, me casé con <a href="http://celeritastransporte.com/" target="_blank">Celeritas</a>), no busques uno que no falle porque no existe. Testéale primero. Lo mismo pasa con el embalaje y las cajas, aprieta gastos y busca a alguien que ofrezca un producto de calidad, a poder ser que tenga cajas personalizadas (las necesitarás si el negocio funciona) y a una buen precio. Yo uso a <a href="http://kartox.com/" target="_blank">Kartox</a>, que son especialistas en embalaje para <span style="font-style:italic">ecommerce</span>.</p>
-<h2 style="color: #039d9a"><img style="margin-right: 2px" alt="icon" src="http://www.prestashop.com/blog/es/files/2015/06/promocion.png" width="50" height="50" /> Promoción</h2>
-<p>Aquí tenemos una <strong>carrera de fondo basada en tiempo y dinero</strong>. Cuanto más dinero inviertas, menos tiempo en tener visibilidad y al revés. Mi consejo es que mires qué hace la competencia y te marques un objetivo de visibilidad y calcules cuál es el coste para llegar a dicha visibilidad en un espacio de tiempo X y después mantenerla. Hablo de mantener visibilidad en <span style="font-style:italic">SEO, SEM, blogs</span>, notas de prensa, afiliados, etc. Las acciones de comunicación y promoción nunca pueden ser de pegar un solo disparo. Tiene que haber un continuo.</p>
-<p>Haz un <span style="font-style:italic">planning</span> también de las promociones que vas a hacer durante el año: día del padre, de la madre, del hijo y del espíritu santo, <span style="font-style:italic">Black Friday, Cyber monday</span>, San Valentín, vacaciones, Navidad, Reyes, Fin de año… y mira qué promociones hace la competencia. Un secreto: muchos basan sus promociones siempre en un descuento o en gastos de envío gratis. Cúrrate algo mejor. ¡Ah! Si no sabes por dónde empezar siempre puedes mirar este magnífico <a href="http://addons.prestashop.com/es/calendario-e-commerce/11537-calendario-e-commerce-espana.html" target="_blank">Calendario 2015 del ecommerce en España de Prestashop.com</a></p>
-<h2 style="color: #039d9a"><img style="margin-right: 2px" alt="icon" src="http://www.prestashop.com/blog/es/files/2015/06/serviciocliente.png" width="50" height="50" /> Servicio al cliente</h2>
-<p>El servicio al cliente debe ser, en resumen, <strong>lo mejor de lo mejor</strong>. Pero aquí el estudio suelo hacerlo centrándome en foros y en sistemas de opinión y blogs. Evalúo qué es lo que funciona y qué es lo que falla y cuáles son los canales de contacto que tienen con el cliente. Por ejemplo, comunicarte vía <span style="font-style:italic">Whatsapp, Line, SnapChat</span>… puede ser algo que te funcione muy bien y que la competencia no suele hacer (al principio puedes hacerlo por volumen, después ya es más complicado). No hay una fórmula secreta para esto más allá de: atiende a todo el mundo como si fueses tú.</p>
-<h2 style="color: #039d9a"><img style="margin-right: 2px" alt="icon" src="http://www.prestashop.com/blog/es/files/2015/06/recurencia.png" width="50" height="50" /> Recurrencia</h2>
-<p>Llegamos al punto final pero que <strong>dictamina totalmente lo que va a durar o no tu tienda</strong> online. La recurrencia. ¿Vendes un producto que solo se compra una vez? Tendrás una vida corta. ¿Vendes un producto recurrente? Bienvenido a un mundo de dinero cada X tiempo y de planes de incentivos: programas de puntos, premiar a mejores clientes, descuentos por recurrencia, pagos mensuales recurrentes, envíos recurrentes… es como cuando eres desarrollador y tienes a un cliente con un <span style="font-style:italic">fee</span> mensual, ese cliente te asegura X dinero cada X tiempo y eso te permite <strong>ganar un dinero fijo</strong>, estar más tranquilo, <strong>reinvertir</strong> y <strong>crecer</strong>. Aquí se trata de lo mismo, sin recurrencia no hay tienda online.</p>
-<p>Busca <strong>siempre que puedas un producto que tenga recurrencia</strong>, aunque sea cada mes o varios meses. Si buscas un producto de un solo uso y una sola compra, tu recorrido será ínfimo, a menos que logres diversificar y/o vender muchos accesorios a ese producto.</p>
-<p>Y esto es todo por hoy, nos vemos en el siguiente capítulo: Proveedores, temas legales, catálogo y plataformas de pago con más leña para el fuego <img src="http://www.prestashop.com/blog/es/wp-includes/images/smilies/icon_wink.gif" alt=";)" class="wp-smiley" /> </p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/empezando-plantear-el-proyecto-el-estudio-de-mercado/">Empezando a plantear el proyecto: el estudio de mercado</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></content:encoded>
-			<wfw:commentRss>https://www.prestashop.com/blog/es/empezando-plantear-el-proyecto-el-estudio-de-mercado/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
+		<slash:comments>1</slash:comments>
 		</item>
 	</channel>
 </rss>

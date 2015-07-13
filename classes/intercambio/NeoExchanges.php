@@ -484,7 +484,7 @@ class NeoExchanges extends ObjectModel
 			'.($paid ? ' AND os.paid = 1' : '').'
 			'.($shipped ? ' AND os.shipped = 1' : '').'
 			'.((int)($id_neo_status) ? ' AND oh.`id_neo_status` = '.(int)($id_neo_status) : '').'
-            ORDER BY oh.date_add DESC, oh.`id_neo_exchanges_history` DESC');
+            ORDER BY oh.date_add DESC, oh.`id_neo_exchange_history` DESC');
             if ($no_hidden)
                 return $result;
             self::$_historyCache[$this->id.'_'.$id_neo_status.'_'.$filters] = $result;
@@ -1750,7 +1750,7 @@ class NeoExchanges extends ObjectModel
     {
         return Db::getInstance()->getValue('
 			SELECT SUM(total_paid_tax_incl)
-			FROM `'._DB_PREFIX_.'orders`
+			FROM `'._DB_PREFIX_.'neo_exchanges`
 			WHERE `reference` = \''.pSQL($this->reference).'\''
         );
     }
@@ -1946,8 +1946,9 @@ class NeoExchanges extends ObjectModel
      */
     public function getCurrentOrderState()
     {
-        if ($this->current_state)
-            return new NeoStatus($this->current_state);
+        if ($this->current_state){
+            return new NeoStatusCore($this->current_state);
+        }
         return null;
     }
 
@@ -1995,7 +1996,7 @@ class NeoExchanges extends ObjectModel
     {
         $query = new DbQuery();
         $query->select('MIN(id_order) as min, MAX(id_order) as max');
-        $query->from('orders');
+        $query->from('neo_exchange');
         $query->where('id_cart = '.(int)$this->id_cart);
 
         $order = Db::getInstance()->getRow($query);
