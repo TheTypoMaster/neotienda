@@ -688,7 +688,7 @@ $(".close-int, .op1").click(function() {
     $(".op2").removeClass("activo");
     $(".op1").addClass("activo");
 });
-
+// busca titulos disponibles en la tienda
 function buscador_store() {
     $("ul.ui-autocomplete").css("display", "none");
     var titulo_st = $("#nombre_juego_store").val();
@@ -726,6 +726,8 @@ function buscador_store() {
                 $("#resultado-store").empty();
                 if (totalCount == 0) {
                     $("#resultado-store").html('<div style="text-align: center;"><img src="neo_exchanges/alerta.png"/><h2 style="text-align:center; margin-top: 6px;">No encontramos resultados</h2><p style="font-size: 18px; margin: 0px;">¡Intenta realizar otra búsqueda!<br>o escríbenos a info@neotienda.com</p></div>')
+                }else{
+                    $("#resultado-store").html('<div style="text-align: center;"><img src="neo_exchanges/alerta.png"/><h2 style="text-align:center; margin-top: 6px;">Selecciona tu video juego</h2></div>')
                 }
                 $.each(arreglo, function(key, value) {
                     var datos = value;
@@ -739,7 +741,7 @@ function buscador_store() {
                     if (imagen != "") {
                         $("#resultado-store").append("<div class='col span_3 titulos_store' id='bloque_" + i + "'><span id='sku-in" + i + "' style='display: none;'>" + sku + "</span><img src='" + datos.imagen + "' width='' height='100' id='img-store" + i + "' /><p class='nombre_titulo' id='titulo-store" + i + "'>" + label + "</p><span>" + simb_bs + "</span><span id='price-store" + i + "'> " + precio + "</span><input id='precio-usado-store" + i + "' type='hidden' value='"+precio_usado+"' /><input id='id-store" + i + "' type='hidden' value='"+id+"' /></div>")
                     } else {
-                        $("#resultado-store").append("<div class='col span_3 titulos_store' id='bloque_" + i + "'><span id='sku-in" + i + "' style='display: none;'>" + sku + "</span><img src='http://store.losgamers.com/media/catalog/product/3/-/3-plataformas.jpg' width='' height='100' id='img-store" + i + "' /><p class='nombre_titulo' id='titulo-store" + i + "'>" + label + "</p><span>" + simb_bs + "</span><span id='price-store" + i + "'> " + precio + "</span><input id='precio-usado-store" + i + "' type='hidden' value='"+precio_usado+"' /><input id='id-store" + i + "' type='hidden' value='"+id+"' /></div>")
+                        $("#resultado-store").append("<div class='col span_3 titulos_store' id='bloque_" + i + "'><span id='sku-in" + i + "' style='display: none;'>" + sku + "</span><img src='http://neotienda.com/media/catalog/product/3/-/3-plataformas.jpg' width='' height='100' id='img-store" + i + "' /><p class='nombre_titulo' id='titulo-store" + i + "'>" + label + "</p><span>" + simb_bs + "</span><span id='price-store" + i + "'> " + precio + "</span><input id='precio-usado-store" + i + "' type='hidden' value='"+precio_usado+"' /><input id='id-store" + i + "' type='hidden' value='"+id+"' /></div>")
                     }
                     i = i + 1
                 });
@@ -829,6 +831,7 @@ function buscador_store() {
                         $("#total-inter").html(precio_total_f2);
                         $("#store_select").show();
                         $("#solo-dinero").hide();
+                        $("#f2-continue").hide();
                         $("#resultado-store").hide(500, "linear");
                         $(".close-f2").click(function() {
                             if($("#item_inv_"+this.id).length > 0) {
@@ -864,6 +867,7 @@ function buscador_store() {
                                     $("#nuevo").css("display", "none");
                                     $("#nombre_juego_store").attr("value","");
                                     $("#precio-nuevo").html("0");
+                                    $("#solo-dinero").show(500, "linear");
                                     //buscador_intercambio()
                                 }
                             }
@@ -913,7 +917,8 @@ $(".intercambiar-nuevo").click(function() {
     } else {
         $(".alert-term").css({
             display: "block"
-        })
+        });
+        $('html, body').animate({ scrollTop: $('.alert-term').offset().top }, 'slow')
     }
 });
 $(".intercambiar-continuar").click(function() {
@@ -935,6 +940,7 @@ $(".intercambiar-usado").click(function() {
         })
     }
 });
+// validacion del combo de forma de pago
 $("#forma_pago").change(function(){
     if($("#forma_pago option:selected").text() != "Seleccione"){
         $(this).css({color: 'black',background: 'white'})
@@ -942,6 +948,7 @@ $("#forma_pago").change(function(){
         $(this).css({color: 'white',background: 'red'})
     }
 });
+// funcion que realiza el pedido paso final
 function realizar_pedido_intercambia() {
     $.post( "login_proc.php" , { opera: 'session' }, function( id_usuario ) {
         var items_sale = [];

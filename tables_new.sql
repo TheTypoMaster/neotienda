@@ -33,7 +33,7 @@ CREATE TABLE `ps_neo_exchanges` (
   `id_address_delivery` int(10) unsigned DEFAULT NULL,
   `id_address_invoice` int(10) unsigned DEFAULT NULL,
   `current_state` int(4) NOT NULL DEFAULT '1',
-  `secure_key` varchar(32) NOT NULL DEFAULT '-1',
+  `secure_key` varchar(32) NOT NULL DEFAULT NULL,
   `payment` varchar(255) NOT NULL,
   `conversion_rate` decimal(13,6) NOT NULL DEFAULT '1.000000',
   `module` varchar(255) DEFAULT NULL,

@@ -185,7 +185,7 @@
 					<li class="active">
 						<a href="#status">
 							<i class="icon-time"></i>
-							{l s='Status'} <span class="badge">{$history|@count}</span>
+							{l s='Status'} <span class="badge">{$currentState->id_neo_status}</span>
 						</a>
 					</li>
                     <!-- @larismendi deshabilito documents -->

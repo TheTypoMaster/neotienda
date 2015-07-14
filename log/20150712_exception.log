@@ -1,0 +1,34 @@
+*ERROR* 	2015/07/12 - 18:59:52: Unknown column 'oh.id_neo_exchanges_history' in 'order clause'<br /><br /><pre>
+			SELECT os.*, oh.*, e.`firstname` AS employee_firstname, e.`lastname` AS employee_lastname, os.`denominacion` AS ostate_name
+            FROM `ps_neo_exchanges` o
+            LEFT JOIN `ps_neo_exchanges_history` oh ON o.`id_neo_exchange` = oh.`id_neo_exchange`
+            LEFT JOIN `ps_neo_status` os ON os.`id_neo_status` = oh.`id_neo_status`
+            LEFT JOIN `ps_employee` e ON e.`id_employee` = oh.`id_employee`
+            WHERE oh.`id_neo_exchange` = 27
+			
+			
+			
+			
+			 AND os.shipped = 1
+			
+            ORDER BY oh.date_add DESC, oh.`id_neo_exchanges_history` DESC</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/12 - 19:02:31: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/12 - 19:14:10: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/12 - 19:18:47: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/12 - 19:19:21: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/12 - 19:20:33: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/12 - 19:21:16: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/12 - 19:29:41: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/12 - 19:31:10: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/12 - 19:33:38: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php
+*ERROR* 	2015/07/12 - 19:34:29: Table 'neoliam_tienda.ps_neo_status_lang' doesn't exist<br /><br /><pre>SELECT * FROM `ps_neo_status_lang`
+								WHERE `id_neo_status` = 1</pre> at line 635 in file classes/db/Db.php

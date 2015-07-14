@@ -88,38 +88,43 @@ class NeoExchangesHistoryCore extends ObjectModel
 
                 $product_list = "";
                 foreach($products as $product){
-                    $product_list = $product->id.'-'.$product->name.' '.$product->price.'<br />';
+                    $product_list .= $product['id_neo_item_buy'].'- <strong>'.$product['name'].'</strong> <i>'.number_format($product['price'], 2, ',', ' ').'</i> Bs.<br />';
                 }
 
                 $product_list2 = "";
                 foreach($products2 as $product2){
-                    $product_list2 = $product2->id.'-'.$product2->name.' '.$product2->price.'<br />';
+                    $product_list2 .= $product2['id_neo_item_sale'].'- <strong>'.$product2['name'].'</strong> <i>'.number_format($product2['price'], 2, ',', ' ').'</i> Bs.<br />';
                 }
+
+                $configuration = Configuration::getMultiple(array('PS_LANG_DEFAULT', 'PS_SHOP_EMAIL', 'PS_SHOP_NAME'));
+                $iso = Language::getIsoById((int)($neo->id_lang));
+                $template = 'aprobado';
 
                 $data = array(
                     '{lastname}' => $customer->lastname,
                     '{firstname}' => $customer->firstname,
-                    '{id_order}' => (int)$neo->id,
-                    '{order_name}' => 'pepe',
-                    '{nbProducts}' => count(0),
-                    '{virtualProducts}' => ''
-                );
-                // If there is at least one downloadable file
-                if (!empty($assign))
-                    Mail::Send((int)$neo->id_lang, 'download_product', Mail::l('The virtual product that you bought is available for download', $neo->id_lang), $data, $customer->email, $customer->firstname.' '.$customer->lastname,
-                        null, null, null, null, _PS_MAIL_DIR_, false, (int)$neo->id_shop);
-
-                /*$data = array(
-                    '{lastname}' => $customer->lastname,
-                    '{firstname}' => $customer->firstname,
-                    '{id_neo_exchange}' => (int)$neo->id,
-                    '{order_name}' => $neo->reference,//$neo->getUniqReference(),
+                    '{order_name}' => $neo->reference,
                     '{nbProducts}' => count($products),
                     '{videoJuegos}' => $product_list,
-                    '{videoJuegos2}' => $product_list2,
+                    '{videoJuegos2}' => count($products2)?'Usted tiene <strong>'.count($products2).'</strong> video juego(s) para hacerle llegar:<br>'.$product_list2.'<br>':'',
                 );
-                Mail::Send((int)$neo->id_lang, 'aprobado', Mail::l('Su pedido en neotienda ha sido aprobado', $neo->id_lang), $data, $customer->email, $customer->firstname.' '.$customer->lastname,
-                    null, null, null, null, _PS_MAIL_DIR_, false, (int)$neo->id_shop);*/
+
+                if (file_exists(_PS_ROOT_DIR_.'/mails/'.$iso.'/'.$template.'.html')){
+                    Mail::Send(
+                        (int)$neo->id_lang,
+                        $template,
+                        Mail::l('Su pedido en neotienda ha sido aprobado', $neo->id_lang),
+                        $data,
+                        $customer->email,
+                        $customer->firstname.' '.$customer->lastname,
+                        $configuration['PS_SHOP_EMAIL'],
+                        $configuration['PS_SHOP_NAME'],
+                        null,
+                        null,
+                        _PS_MAIL_DIR_,
+                        false,
+                        (int)$neo->id_shop);
+                }
 
                 break;
         }
@@ -310,12 +315,12 @@ class NeoExchangesHistoryCore extends ObjectModel
 
         // updates delivery date even if it was already set by another state change
         if ($new_os["delivery"])
-            $neo->setDelivery();*/
+            $neo->setDelivery();
 
         // executes hook
         //Hook::exec('actionOrderStatusPostUpdate', array('newOrderStatus' => $new_os,'id_neo_exchange' => (int)$neo->id,), null, false, true, false, $neo->id_shop);
 
-        //ShopUrl::resetMainDomainCache();
+        //ShopUrl::resetMainDomainCache();*/
     }
 
     /**

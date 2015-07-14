@@ -27,13 +27,16 @@ if($_POST){
                     "._DB_PREFIX_."category_lang pcl2,
                     "._DB_PREFIX_."category_product pcp,
                     "._DB_PREFIX_."product_shop pps,
-                    "._DB_PREFIX_."product_lang ppl
+                    "._DB_PREFIX_."product_lang ppl,
+                    "._DB_PREFIX_."stock_available sav
             WHERE
                     pc.id_parent IN (SELECT id_category FROM "._DB_PREFIX_."category_lang WHERE name LIKE '%".$plataforma."%')
                     AND pcl2.id_category = pc.id_category
                     AND pcl2.id_category = pcp.id_category
                     AND pcp.id_category = pps.id_category_default
                     AND pps.id_product = ppl.id_product
+                    AND sav.id_product = pps.id_product
+                    AND sav.quantity > 0
                     AND ppl.name LIKE '%".$titulo."%'
             GROUP BY id
             ORDER BY ppl.name");
