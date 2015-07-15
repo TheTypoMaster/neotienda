@@ -49,6 +49,8 @@ var precio_total = 0;
 var precio_total_f2 = 0;
 var num_item_v = 0;
 var num_item_c = 0;
+
+// el buscador del paso 1
 $("#nombre_juego").autocomplete({
     source: function(request, response) {
         $.ajax({
@@ -150,7 +152,7 @@ $("#nombre_juego").autocomplete({
             )
         ).appendTo('#res_item');
         $('#res_item_precio_'+num_item_c+'_'+id).html(precio);
-        $('#res_item_total').html(precio_total);
+        $('#res_item_total').html(precio_total + ',00');
         $("#tus-juegos").html(precio_total);
         $("#dif-favor").html(precio_total);
         if($("#precio-nuevo").length > 0) {
@@ -164,14 +166,11 @@ $("#nombre_juego").autocomplete({
             } else {
                 $("#dif-nuevo").html("0");
                 $(".ptos-favor").css("display", "block");
-                $("#fav-nuevo").html(dif*-1);
+                $("#fav-nuevo").html((dif*-1) + ",00");
                 $("#dif-pago").html("0");
                 $("#dif-favor").html(dif*-1);
-                if(dif == 0){
-                    $("#div_forma").hide()
-                }else{
-                    $("#div_forma").show()
-                }
+                $("#div_forma").hide();
+                $("#forma_pago").val("")
             }
         }
         $(".close").click(function() {
@@ -182,7 +181,6 @@ $("#nombre_juego").autocomplete({
                 precio_total = parseInt($('#res_item_total').text()) - parseInt($("#res_item_precio_"+this.id).text());
                 $('#res_item_total').html(precio_total);
                 $("#tus-juegos").html(precio_total);
-
                 if($("#precio-nuevo").length > 0){
                     var dif = precio_total_f2 - precio_total;
                     if (dif > 0) {
@@ -197,11 +195,8 @@ $("#nombre_juego").autocomplete({
                         $("#fav-nuevo").html(dif*-1);
                         $("#dif-pago").html("0");
                         $("#dif-favor").html(dif*-1);
-                        if(dif == 0){
-                            $("#div_forma").hide()
-                        }else{
-                            $("#div_forma").show()
-                        }
+                        $("#div_forma").hide();
+                        $("#forma_pago").val("")
                     }
                 }
                 $("#item_"+this.id).remove();
@@ -293,6 +288,8 @@ $(".op2").click(function() {
         return false;
     }
 });
+
+// buscador de la segunda parte de intercambio
 $("#nombre_juego_store").autocomplete({
     source: function(request, response) {
         $.ajax({
@@ -342,7 +339,6 @@ $("#nombre_juego_store").autocomplete({
         $("#nuevo").css("display", "block");
         $("#solo-dinero").hide();
         $("#f2-continue").hide();
-
         $('<div/>', {
             class: 'bloque-int',
             style: 'margin-bottom: 0px; border: 1px solid #ccc; margin-top: 50px;',
@@ -391,18 +387,15 @@ $("#nombre_juego_store").autocomplete({
             $(".ptos-favor").css("display", "none");
             $("#dif-pago").html(dif);
             $("#dif-favor").html("0");
-            $("#forma_pago").show()
+            $("#div_forma").show()
         } else {
             $("#dif-nuevo").html("0");
             $(".ptos-favor").css("display", "block");
             $("#fav-nuevo").html(simb_bs + " " +dif * -1 + ",00");
             $("#dif-pago").html("0");
             $("#dif-favor").html(dif*-1);
-            if(dif == 0){
-                $("#forma_pago").hide()
-            }else{
-                $("#forma_pago").show()
-            }
+            $("#div_forma").hide();
+            $("#forma_pago").val("")
         }
         $("#total-inter").html(precio_total_f2);
         $("#store_select").show();
@@ -427,11 +420,8 @@ $("#nombre_juego_store").autocomplete({
                     $("#fav-nuevo").html(simb_bs + " " + dif * -1 + ",00");
                     $("#dif-pago").html("0");
                     $("#dif-favor").html(dif*-1);
-                    if(dif == 0){
-                        $("#div_forma").hide();
-                    }else{
-                        $("#div_forma").show()
-                    }
+                    $("#div_forma").hide();
+                    $("#forma_pago").val("")
                 }
                 $("#item_inv_"+this.id).hide(500, "linear");
                 $("#item_inv_"+this.id).remove();
@@ -441,7 +431,6 @@ $("#nombre_juego_store").autocomplete({
                     $("#solo-dinero").show();
                     $("#nombre_juego_store").attr("value","");
                     $("#precio-nuevo").html("0");
-                    //buscador_intercambio()
                 }
             }
         });

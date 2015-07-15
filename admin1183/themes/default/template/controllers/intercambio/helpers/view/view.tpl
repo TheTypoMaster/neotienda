@@ -84,6 +84,7 @@
                     <i class="icon-money"></i>
                     <span class="title">{l s='Diferencia a pagar'}</span>
                     <span class="value">{displayPrice price=$order->total_dif currency=$currency->id}</span>
+					<span class="title"><b>{l s='Por'} {$order->forma_pago}</b></span>
                 </div>
             </div>
 			{*<div class="col-xs-6 col-sm-3 box-stats color2" >

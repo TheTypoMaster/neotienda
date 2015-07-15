@@ -251,6 +251,7 @@ $_SESSION["login"] = 0;
                         <option value="Transferencia">Transferencia</option>
                         <option value="Depósito">Depósito</option>
                         <option value="Efectivo">Efectivo</option>
+                        <option value="MisPagosProvincial">MisPagosProvincial</option>
                     </select>
                 </div>
                 <div style="clear: both;display: none;" id="nuevo" class="col gam_select">

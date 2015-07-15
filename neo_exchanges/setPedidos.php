@@ -49,7 +49,7 @@ if(isset($_POST['id_usuario'])){
                 'total_dif' => $dif
             )
         );
-        $reference = date('Ym').sprintf('%03d', $id_exchange);
+        $reference = "I".date('Ym').sprintf('%04d', $id_exchange);
         $inter->setReferencia($reference, $id_exchange);
         $sales = $inter->setItemSales($id_exchange, $results);
         $buys = $inter->setItemBuys($id_exchange, $results2);
