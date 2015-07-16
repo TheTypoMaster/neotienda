@@ -54,6 +54,25 @@ class Exchange {
         return $results;
     }
 
+    function validAvailability($items){
+        $results = array();
+        if(is_array($items))
+            foreach($items as $item) {
+                $results[$item['id']] = Db::getInstance()->GetRow("
+                        SELECT
+                            ppl.name,
+                            sav.quantity
+                        FROM
+                            "._DB_PREFIX_."product_lang ppl,
+                            "._DB_PREFIX_."stock_available sav
+                        WHERE
+                            sav.id_product = ppl.id_product
+                            AND sav.id_product = '".$item['id']."'
+                        ");
+            }
+        return $results;
+    }
+
     function setItemSales($id_order, $items){
         if(count($items)){
             $sales = array();

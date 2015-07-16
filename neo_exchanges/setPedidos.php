@@ -26,11 +26,28 @@ if(isset($_POST['id_usuario'])){
     if(isset($_POST['items_buy']))
         $results2 = $inter->getItemBuys($_POST['items_buy']);
 
+    $valida = $inter->validAvailability($results2);
+
     foreach($results as $result){
         $price += round($result['price']);
     }
     foreach($results2 as $result2){
         $price2 += round($result2['price']);
+        $nor[] = $result2['id'];
+    }
+
+    $aval = array_count_values($nor);
+    foreach($valida as $idval => $val){
+        if($aval[$idval] >= $val['quantity']){
+            $error[$idval]['quantity'] = $val['quantity'];
+            $error[$idval]['name'] = $val['name'];
+        }
+    }
+
+    if(isset($error)){
+        foreach($error as $err)
+        echo $error[$err]['name']." solo tiene ".$error[$err]['quantity']." disponible(s)\n"; // imprimo error en demo
+        die;
     }
 
     $dif = $price2 - $price;

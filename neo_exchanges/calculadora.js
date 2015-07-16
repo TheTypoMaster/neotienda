@@ -49,6 +49,7 @@ var precio_total = 0;
 var precio_total_f2 = 0;
 var num_item_v = 0;
 var num_item_c = 0;
+var keys_available = [];
 
 // el buscador del paso 1
 $("#nombre_juego").autocomplete({
@@ -247,6 +248,34 @@ $(".nota-int").click(function(){
         })
     }
 });
+$(".termycond").click(function() {
+    if ($(".termycond").is(":checked")) {
+        if (!$(".alert-term").is(":hidden")) {
+            $(".alert-term").css({
+                display: "none"
+            })
+        }
+    }
+});
+$(".check-term").click(function(){
+    if ($("#termycond").is(":checked")) {
+        $("#termycond").attr("checked",false);
+    } else {
+        $("#termycond").attr("checked","checked");
+        $(".alert-term").css({
+            display: "none"
+        })
+    }
+});
+$("#span-dinero").click(function(){
+    if ($("#check-dinero").is(":checked")) {
+        $("#check-dinero").attr("checked",false);
+        $("#f2-continue").hide();
+    } else {
+        $("#check-dinero").attr("checked","checked");
+        $("#f2-continue").show();
+    }
+});
 $("#check-dinero").click(function(){
     if ($("#check-dinero").is(":checked")) {
         $("#f2-continue").show();
@@ -307,6 +336,7 @@ $("#nombre_juego_store").autocomplete({
                     return {
                         id: item.id,
                         label: item.label,
+                        available: item.available,
                         price: item.price,
                         precio_usado: item.precio_usado,
                         imagen: item.imagen
@@ -332,6 +362,7 @@ $("#nombre_juego_store").autocomplete({
         var imagen_nuevo = ui.item.imagen;
         var simb_bs = "Bs. ";
         var sum = Number($("#cont_item_inv").val()) + Number(1);
+        keys_available.push(id);
         $("#cont_item_inv").attr('value', sum);
         precio_total_f2 = Number(precio_total_f2) + Number(precio_nuevo);
         num_item_v = Number(num_item_v) + Number(1);
@@ -404,6 +435,7 @@ $("#nombre_juego_store").autocomplete({
             if($("#item_inv_"+this.id).length > 0) {
                 var cont = Number($("#cont_item_inv").val()) - Number(1);
                 $("#cont_item_inv").attr('value', cont);
+                keys_available.splice(keys_available.indexOf($("#item_inv_"+this.id+" #list_item_buy").text()),1);
                 precio_total_f2 = (precio_total_f2 - parseInt($("#equiv-int-"+this.id).text()));
                 $('#precio-nuevo').html(precio_total_f2+',00');
                 $("#total-inter").html(precio_total_f2);
@@ -446,7 +478,16 @@ $("#nombre_juego_store").autocomplete({
     } else {
         $(".footer").css("margin-top", "300px")
     }
-    return $("<li>").data("item.autocomplete", item).append("<a style='height:60px'><img width='' height='50' id='img-result5' src='" + item.imagen + "' style='float:left'><span style='font-size:11px; font-family: Arial, helvetica, sans-serif;'>&nbsp;" + item.label + "</span> <br />&nbsp;<span class='puntos-aut'> " + item.price + " Bs.</span></a>").appendTo(ul)
+    var obj = { };
+    for (var i = 0, j = keys_available.length; i < j; i++) {
+        obj[keys_available[i]] = (obj[keys_available[i]] || 0) + 1;
+    }
+    if(!(obj[item.id] < item.available && jQuery.inArray(item.id, keys_available))){
+        var nu = item.available - ((typeof obj[item.id] === "undefined")?0:obj[item.id])
+        if(nu){
+            return $("<li>").data("item.autocomplete", item).append("<a style='height:60px'><img width='' height='50' id='img-result5' src='" + item.imagen + "' style='float:left'><span style='font-size:11px; font-family: Arial, helvetica, sans-serif;'>&nbsp;" + item.label + "</span> <span class='red'>" + nu + " Disponible</span><br />&nbsp;<span class='puntos-aut'> " + item.price + " Bs.</span></a>").appendTo(ul)
+        }
+    }
 };
 (function($) {
     $.get = function(key) {
@@ -724,13 +765,14 @@ function buscador_store() {
                     var imagen = datos.imagen;
                     var sku = datos.sku;
                     var label = datos.label;
+                    var available = datos.available;
                     var precio = datos.price;
                     var precio_usado = datos.precio_usado;
                     var simb_bs = "Bs. ";
                     if (imagen != "") {
-                        $("#resultado-store").append("<div class='col span_3 titulos_store' id='bloque_" + i + "'><span id='sku-in" + i + "' style='display: none;'>" + sku + "</span><img src='" + datos.imagen + "' width='' height='100' id='img-store" + i + "' /><p class='nombre_titulo' id='titulo-store" + i + "'>" + label + "</p><span>" + simb_bs + "</span><span id='price-store" + i + "'> " + precio + "</span><input id='precio-usado-store" + i + "' type='hidden' value='"+precio_usado+"' /><input id='id-store" + i + "' type='hidden' value='"+id+"' /></div>")
+                        $("#resultado-store").append("<div class='col span_3 titulos_store' id='bloque_" + i + "'><span id='sku-in" + i + "' style='display: none;'>" + sku + "</span><img src='" + datos.imagen + "' width='' height='100' id='img-store" + i + "' /><p class='nombre_titulo' id='titulo-store" + i + "'>" + label + "</p> <p class='detalle red'>("+available+" dispobible)</p><span>" + simb_bs + "</span><span id='price-store" + i + "'> " + precio + "</span><input id='precio-usado-store" + i + "' type='hidden' value='"+precio_usado+"' /><input id='id-store" + i + "' type='hidden' value='"+id+"' /><input id='available-item" + i + "' type='hidden' value='"+available+"' /></div>")
                     } else {
-                        $("#resultado-store").append("<div class='col span_3 titulos_store' id='bloque_" + i + "'><span id='sku-in" + i + "' style='display: none;'>" + sku + "</span><img src='http://neotienda.com/media/catalog/product/3/-/3-plataformas.jpg' width='' height='100' id='img-store" + i + "' /><p class='nombre_titulo' id='titulo-store" + i + "'>" + label + "</p><span>" + simb_bs + "</span><span id='price-store" + i + "'> " + precio + "</span><input id='precio-usado-store" + i + "' type='hidden' value='"+precio_usado+"' /><input id='id-store" + i + "' type='hidden' value='"+id+"' /></div>")
+                        $("#resultado-store").append("<div class='col span_3 titulos_store' id='bloque_" + i + "'><span id='sku-in" + i + "' style='display: none;'>" + sku + "</span><img src='http://neotienda.com/media/catalog/product/3/-/3-plataformas.jpg' width='' height='100' id='img-store" + i + "' /><p class='nombre_titulo' id='titulo-store" + i + "'>" + label + "</p> <p class='detalle red'>("+available+" dispobible)</p><span>" + simb_bs + "</span><span id='price-store" + i + "'> " + precio + "</span><input id='precio-usado-store" + i + "' type='hidden' value='"+precio_usado+"' /><input id='id-store" + i + "' type='hidden' value='"+id+"' /><input id='available-item" + i + "' type='hidden' value='"+available+"' /></div>")
                     }
                     i = i + 1
                 });
@@ -746,6 +788,7 @@ function buscador_store() {
                         var titulo_nuevo = $("#titulo-store" + j).html();
                         var precio_nuevo = parseFloat($("#price-store" + j).text());
                         var precio_usado = parseFloat($("#precio-usado-store" + j).text());
+                        var available_item = $("#available-item" + j).val();
                         var simb_bs = "Bs. ";
                         var sum = Number($("#cont_item_inv").val()) + Number(1);
                         $("#nombre_juego_store").val('');
@@ -875,15 +918,6 @@ function buscador_store() {
         }
     })
 }
-$(".termycond").click(function() {
-    if ($(".termycond").is(":checked")) {
-        if (!$(".alert-term").is(":hidden")) {
-            $(".alert-term").css({
-                display: "none"
-            })
-        }
-    }
-});
 function getLoginNeo(){
     $.post( "login_proc.php" , { opera: 'session' }, function( id_usuario ) {
         if (id_usuario) {
@@ -942,11 +976,6 @@ function realizar_pedido_intercambia() {
     $.post( "login_proc.php" , { opera: 'session' }, function( id_usuario ) {
         var items_sale = [];
         var items_buy = [];
-        $("#paso-2").hide();
-        $(".op2").removeClass("activo");
-        $(".op3").addClass("activo");
-        $("#paso-3").show();
-        $(".op1, .op2, .op3").css("pointer-events", "none");
         $("div[id='list_item']").each(function( index ) {
             items_sale.push( $( this ).text() );
         });
@@ -976,6 +1005,11 @@ function realizar_pedido_intercambia() {
                 $("#jquery-loader2").show()
             },
             success: function(result) {
+                $("#paso-2").hide();
+                $(".op2").removeClass("activo");
+                $(".op3").addClass("activo");
+                $("#paso-3").show();
+                $(".op1, .op2, .op3").css("pointer-events", "none");
                 $("#jquery-loader2").hide();
                 console.log(result);
                 return true;
@@ -996,8 +1030,8 @@ function realizar_pedido_intercambia() {
             error: function(result) {
                 $("#resultado-pedido").html('<p align="center">Error al registrar el pedido</p>');
                 $("#resultado-pedido").show();
-                $("#jquery-loader").hide();
-                alert("Error en respuesta de pedido")
+                $("#jquery-loader2").hide();
+                alert(result)
             }
         })
     })

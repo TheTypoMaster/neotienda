@@ -285,9 +285,7 @@ $_SESSION["login"] = 0;
                 </div>
                 <button class="btn-alq btn-default" style="padding: 8px 12px 8px 12px" id="buscar-store"><img src="neo_exchanges/lupa.png" class="lupa-int"></button>
                 <input type="hidden" id="cont_item_inv" value="0" />
-                <div id="solo-dinero">
-                    <input type="checkbox" id="check-dinero" value="">No hay lo que busco, prefiero el dinero.
-                </div>
+                <div id="solo-dinero"><input type="checkbox" id="check-dinero" value=""> <span id="span-dinero">No hay lo que busco, prefiero el dinero.</span></div>
                 <div id="f2-continue" style="text-align:center; margin-top: 12px;" class="col span_12">
                     <a class="button btn btn-default standard-checkout button-medium intercambiar-continuar" href="javascript:void(0)">
                         <span>CONTINUAR<i class="icon-chevron-right right"></i></span>
@@ -301,7 +299,7 @@ $_SESSION["login"] = 0;
                             <img style="float: left; width: 3%; margin-right: 1%;" src="neo_exchanges/alerta.png">
                             <h3 style="font-size: 15px; color: #FF0000;">DEBES ACEPTAR LOS TÉRMINOS Y CONDICIONES</h3>
                         </div>
-                        <div class="check-term"><input type="checkbox" class="termycond" name="aceptar-termycond" value="">He leído y acepto los <a href="#">Términos y Condiciones</a></div>
+                        <input type="checkbox" class="termycond" name="aceptar-termycond" id="termycond" value=""> <span class="check-term">He leído y acepto los <a href="#">Términos y Condiciones</a></span>
                     </div>
                 </div>
             </div>

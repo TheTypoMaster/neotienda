@@ -21,7 +21,8 @@ if($_POST){
                     ppl.id_product id,
                     ppl.name,
                     pps.price,
-                    pcl2.name status
+                    pcl2.name status,
+                    sav.quantity
             FROM
                     "._DB_PREFIX_."category pc,
                     "._DB_PREFIX_."category_lang pcl2,
@@ -53,6 +54,7 @@ if($_POST){
                 'id'=> $row["id"],
                 'sku'=> $row["name"],
                 'label'=> $row["name"]." - ".$row["id"],
+                'available' => $row["quantity"],
                 'price'=> round($row["price"]),
                 'precio_usado'=> ($row['status']=='Usados')?round($row["price"]):0,
                 'imagen'=> $image_url
