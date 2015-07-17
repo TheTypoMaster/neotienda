@@ -1004,35 +1004,24 @@ function realizar_pedido_intercambia() {
             beforeSend: function() {
                 $("#jquery-loader2").show()
             },
-            success: function(result) {
-                $("#paso-2").hide();
-                $(".op2").removeClass("activo");
-                $(".op3").addClass("activo");
-                $("#paso-3").show();
-                $(".op1, .op2, .op3").css("pointer-events", "none");
+            complete: function(result) {
                 $("#jquery-loader2").hide();
-                console.log(result);
-                return true;
-                /*if (result.success) {
-                    var msg = result.msg; var nombre = result.nombre;
-                    nombre = nombre.split("-").join(" "); $("#usuario-ped").html(nombre);
-                    $("#pedido").html(result.pedido); $("#titulo-ped").html(titulo_int);
-                    $("#imagen-ped").attr("src", imagen); $("#puntos-ped").html(precio);
-                    $("#status").html("exitoso"); var simb_bs = "Bs. ";
-                    $("#equiv-ped").html(simb_bs + " " + precio); $("#login-cal-modal, .login-cal-content").hide();
-                    $("#paso-2").hide(); $(".op2").removeClass("activo");
-                    $(".op3").addClass("activo"); $("#store_select").hide();
-                    $("#paso-3").show(); $(".op1, .op2, .op3").css("pointer-events", "none")
-                } else {
-                    alert(result.msg)
-                }*/
-            },
+                if(result.responseText == 1){
+                    $("#paso-2").hide();
+                    $(".op2").removeClass("activo");
+                    $(".op3").addClass("activo");
+                    $("#paso-3").show();
+                    $(".op1, .op2, .op3").css("pointer-events", "none");
+                }else{
+                    console.log(result);
+                    alert(result.responseText);
+                }
+            }/*,
             error: function(result) {
-                $("#resultado-pedido").html('<p align="center">Error al registrar el pedido</p>');
-                $("#resultado-pedido").show();
                 $("#jquery-loader2").hide();
-                alert(result)
-            }
+                //console.log(result.toSource());
+                alert(result);
+            }*/
         })
     })
 }

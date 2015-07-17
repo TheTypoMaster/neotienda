@@ -109,6 +109,8 @@ class Exchange {
                 $sql = "INSERT INTO "._DB_PREFIX_."neo_items_buys (id_product, id_neo_exchange, name, price, image, created_at, status)
                     VALUES ('".$item['id']."','".$id_order."','".pSQL($item['name'])."','".$item['price']."','".$image_url."',now(),1)";
                 Db::getInstance()->executeS($sql);
+                $sql = "UPDATE "._DB_PREFIX_."stock_available SET quantity = quantity+(-1) WHERE id_product = '".$item['id']."'";
+                Db::getInstance()->execute($sql);
                 $buys[] = '<div style="vertical-align:top"><img style="float:left;margin-right:10px;border:1px solid rgb(204,204,204);height:79px" alt="'.$item['name'].'" src="'.$image_url.'"/> '.$item['name'].'<br><br>'.$item['price'].'</div>';
             }
             return $buys;

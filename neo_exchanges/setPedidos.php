@@ -19,6 +19,7 @@ if(isset($_POST['id_usuario'])){
     $price2 = 0;
     $inter1 = $inter2 = $forma_pago = '';
     $inter = new Exchange();
+    $msn = "";
 
     if(isset($_POST['items_sale']))
         $results  = $inter->getItemSales($_POST['items_sale']);
@@ -38,7 +39,7 @@ if(isset($_POST['id_usuario'])){
 
     $aval = array_count_values($nor);
     foreach($valida as $idval => $val){
-        if($aval[$idval] >= $val['quantity']){
+        if($aval[$idval] > $val['quantity']){
             $error[$idval]['quantity'] = $val['quantity'];
             $error[$idval]['name'] = $val['name'];
         }
@@ -46,7 +47,8 @@ if(isset($_POST['id_usuario'])){
 
     if(isset($error)){
         foreach($error as $err)
-        echo $error[$err]['name']." solo tiene ".$error[$err]['quantity']." disponible(s)\n"; // imprimo error en demo
+            $msn .= $err['name'].' tiene '.$err['quantity']." disponibilidad\n";
+        echo $msn;
         die;
     }
 
