@@ -177,178 +177,105 @@ class NeoExchangesHistoryCore extends ObjectModel
                         (int)$neo->id_shop);
                 }
                 break;
-        }
+            case 4:
+                $neo->current_state = 4;
+                $customer = new CustomerCore($neo->id_customer);
+                $buys  = new NeoItemsBuyCore(Tools::getValue('id_neo_exchange'));
+                $sales = new NeoItemsSalesCore(Tools::getValue('id_neo_exchange'));
 
-        /*if (Validate::isLoadedObject($neo) && ($new_os instanceof NeoStatusCore))
-        {
-            // An email is sent the first time a virtual item is validated
-            $virtual_products = $neo->getVirtualProducts();
+                $products  = AdminIntercambioController::getProducts($buys);
+                $products2 = AdminIntercambioController::getProducts($sales);
 
-            if ($virtual_products && (!$old_os || !$old_os->logable) && $new_os && $new_os->logable)
-            {
-                $context = Context::getContext();
-                $assign = array();
-                foreach ($virtual_products as $key => $virtual_product)
-                {
-                    $id_product_download = ProductDownload::getIdFromIdProduct($virtual_product['product_id']);
-                    $product_download = new ProductDownload($id_product_download);
-                    // If this virtual item has an associated file, we'll provide the link to download the file in the email
-                    if ($product_download->display_filename != '')
-                    {
-                        $assign[$key]['name'] = $product_download->display_filename;
-                        $dl_link = $product_download->getTextLink(false, $virtual_product['download_hash'])
-                            .'&id_neo_exchange='.(int)$neo->id;
-                        $assign[$key]['link'] = $dl_link;
-                        if (isset($virtual_product['download_deadline']) && $virtual_product['download_deadline'] != '0000-00-00 00:00:00')
-                            $assign[$key]['deadline'] = Tools::displayDate($virtual_product['download_deadline']);
-                        if ($product_download->nb_downloadable != 0)
-                            $assign[$key]['downloadable'] = (int)$product_download->nb_downloadable;
-                    }
+                $product_list = "";
+                foreach($products as $product){
+                    $product_list .= $product['id_neo_item_buy'].'- <strong>'.$product['name'].'</strong> <i>'.number_format($product['price'], 2, ',', ' ').'</i> Bs.<br />';
                 }
 
-                $customer = new Customer((int)$neo->id_customer);
-
-                $links = '<ul>';
-                foreach ($assign as $product)
-                {
-                    $links .= '<li>';
-                    $links .= '<a href="'.$product['link'].'">'.Tools::htmlentitiesUTF8($product['name']).'</a>';
-                    if (isset($product['deadline']))
-                        $links .= '&nbsp;'.Tools::htmlentitiesUTF8(Tools::displayError('expires on', false)).'&nbsp;'.$product['deadline'];
-                    if (isset($product['downloadable']))
-                        $links .= '&nbsp;'.Tools::htmlentitiesUTF8(sprintf(Tools::displayError('downloadable %d time(s)', false), (int)$product['downloadable']));
-                    $links .= '</li>';
+                $product_list2 = "";
+                foreach($products2 as $product2){
+                    $product_list2 .= $product2['id_neo_item_sale'].'- <strong>'.$product2['name'].'</strong> <i>'.number_format($product2['price'], 2, ',', ' ').'</i> Bs.<br />';
                 }
-                $links .= '</ul>';
+
+                $configuration = Configuration::getMultiple(array('PS_LANG_DEFAULT', 'PS_SHOP_EMAIL', 'PS_SHOP_NAME'));
+                $iso = Language::getIsoById((int)($neo->id_lang));
+                $template = 'enviado';
+
                 $data = array(
                     '{lastname}' => $customer->lastname,
                     '{firstname}' => $customer->firstname,
-                    '{id_neo_exchange}' => (int)$neo->id,
-                    '{order_name}' => $neo->getUniqReference(),
-                    '{nbProducts}' => count($virtual_products),
-                    '{virtualProducts}' => $links
+                    '{order_name}' => $neo->reference,
+                    '{nbProducts}' => count($products),
+                    '{videoJuegos}' => $product_list,
+                    '{videoJuegos2}' => count($products2)?'Usted tiene <strong>'.count($products2).'</strong> video juego(s) para hacerle llegar:<br>'.$product_list2.'<br>':'',
                 );
-                // If there is at least one downloadable file
-                if (!empty($assign))
-                    Mail::Send((int)$neo->id_lang, 'download_product', Mail::l('The virtual product that you bought is available for download', $neo->id_lang), $data, $customer->email, $customer->firstname.' '.$customer->lastname,
-                        null, null, null, null, _PS_MAIL_DIR_, false, (int)$neo->id_shop);
-            }
 
-            // @since 1.5.0 : gets the stock manager
-            $manager = null;
-            if (Configuration::get('PS_ADVANCED_STOCK_MANAGEMENT'))
-                $manager = StockManagerFactory::getManager();
-
-            $errorOrCanceledStatuses = array(Configuration::get('PS_OS_ERROR'), Configuration::get('PS_OS_CANCELED'));
-
-            // foreach products of the order
-            if (Validate::isLoadedObject($old_os))
-                foreach ($neo->getProductsDetail() as $product)
-                {
-                    // if becoming logable => adds sale
-                    if ($new_os->logable && !$old_os->logable)
-                    {
-                        ProductSale::addProductSale($product['product_id'], $product['product_quantity']);
-                        // @since 1.5.0 - Stock Management
-                        if (!Pack::isPack($product['product_id']) &&
-                            in_array($old_os->id, $errorOrCanceledStatuses) &&
-                            !StockAvailable::dependsOnStock($product['id_product'], (int)$neo->id_shop))
-                            StockAvailable::updateQuantity($product['product_id'], $product['product_attribute_id'], -(int)$product['product_quantity'], $neo->id_shop);
-                    }
-                    // if becoming unlogable => removes sale
-                    elseif (!$new_os->logable && $old_os->logable)
-                    {
-                        ProductSale::removeProductSale($product['product_id'], $product['product_quantity']);
-
-                        // @since 1.5.0 - Stock Management
-                        if (!Pack::isPack($product['product_id']) &&
-                            in_array($new_os->id, $errorOrCanceledStatuses) &&
-                            !StockAvailable::dependsOnStock($product['id_product']))
-                            StockAvailable::updateQuantity($product['product_id'], $product['product_attribute_id'], (int)$product['product_quantity'], $neo->id_shop);
-                    }
-                    // if waiting for payment => payment error/canceled
-                    elseif (!$new_os->logable && !$old_os->logable &&
-                        in_array($new_os->id, $errorOrCanceledStatuses) &&
-                        !in_array($old_os->id, $errorOrCanceledStatuses) &&
-                        !StockAvailable::dependsOnStock($product['id_product']))
-                        StockAvailable::updateQuantity($product['product_id'], $product['product_attribute_id'], (int)$product['product_quantity'], $neo->id_shop);
-                    // @since 1.5.0 : if the order is being shipped and this products uses the advanced stock management :
-                    // decrements the physical stock using $id_warehouse
-                    if ($new_os->shipped == 1 && $old_os->shipped == 0 &&
-                        Configuration::get('PS_ADVANCED_STOCK_MANAGEMENT') &&
-                        Warehouse::exists($product['id_warehouse']) &&
-                        $manager != null &&
-                        ((int)$product['advanced_stock_management'] == 1 || Pack::usesAdvancedStockManagement($product['product_id'])))
-                    {
-                        // gets the warehouse
-                        $warehouse = new Warehouse($product['id_warehouse']);
-
-                        // decrements the stock (if it's a pack, the StockManager does what is needed)
-                        $manager->removeProduct(
-                            $product['product_id'],
-                            $product['product_attribute_id'],
-                            $warehouse,
-                            $product['product_quantity'],
-                            Configuration::get('PS_STOCK_CUSTOMER_ORDER_REASON'),
-                            true,
-                            (int)$neo->id
-                        );
-                    }
-                    // @since.1.5.0 : if the order was shipped, and is not anymore, we need to restock products
-                    elseif ($new_os->shipped == 0 && $old_os->shipped == 1 &&
-                        Configuration::get('PS_ADVANCED_STOCK_MANAGEMENT') &&
-                        Warehouse::exists($product['id_warehouse']) &&
-                        $manager != null &&
-                        ((int)$product['advanced_stock_management'] == 1 || Pack::usesAdvancedStockManagement($product['product_id'])))
-                    {
-                        // if the product is a pack, we restock every products in the pack using the last negative stock mvts
-                        if (Pack::isPack($product['product_id']))
-                        {
-                            $pack_products = Pack::getItems($product['product_id'], Configuration::get('PS_LANG_DEFAULT', null, null, $neo->id_shop));
-                            foreach ($pack_products as $pack_product)
-                            {
-                                if ($pack_product->advanced_stock_management == 1)
-                                {
-                                    $mvts = StockMvt::getNegativeStockMvts($neo->id, $pack_product->id, 0, $pack_product->pack_quantity * $product['product_quantity']);
-                                    foreach ($mvts as $mvt)
-                                    {
-                                        $manager->addProduct(
-                                            $pack_product->id,
-                                            0,
-                                            new Warehouse($mvt['id_warehouse']),
-                                            $mvt['physical_quantity'],
-                                            null,
-                                            $mvt['price_te'],
-                                            true
-                                        );
-                                    }
-                                    if (!StockAvailable::dependsOnStock($product['id_product']))
-                                        StockAvailable::updateQuantity($pack_product->id, 0, (int)$pack_product->pack_quantity * $product['product_quantity'], $neo->id_shop);
-                                }
-                            }
-                        }
-                        // else, it's not a pack, re-stock using the last negative stock mvts
-                        else
-                        {
-                            $mvts = StockMvt::getNegativeStockMvts($neo->id, $product['product_id'], $product['product_attribute_id'], $product['product_quantity']);
-                            foreach ($mvts as $mvt)
-                            {
-                                $manager->addProduct(
-                                    $product['product_id'],
-                                    $product['product_attribute_id'],
-                                    new Warehouse($mvt['id_warehouse']),
-                                    $mvt['physical_quantity'],
-                                    null,
-                                    $mvt['price_te'],
-                                    true
-                                );
-                            }
-                        }
-                    }
+                if (file_exists(_PS_ROOT_DIR_.'/mails/'.$iso.'/'.$template.'.html')){
+                    Mail::Send(
+                        (int)$neo->id_lang,
+                        $template,
+                        Mail::l('Su pedido en neotienda ha sido enviado', $neo->id_lang),
+                        $data,
+                        $customer->email,
+                        $customer->firstname.' '.$customer->lastname,
+                        $configuration['PS_SHOP_EMAIL'],
+                        $configuration['PS_SHOP_NAME'],
+                        null,
+                        null,
+                        _PS_MAIL_DIR_,
+                        false,
+                        (int)$neo->id_shop);
                 }
-        }
+                break;
+            case 5:
+                $neo->current_state = 5;
+                $customer = new CustomerCore($neo->id_customer);
+                $buys  = new NeoItemsBuyCore(Tools::getValue('id_neo_exchange'));
+                $sales = new NeoItemsSalesCore(Tools::getValue('id_neo_exchange'));
 
-        $this->id_neo_state = (int)$new_neo_state;*/
+                $products  = AdminIntercambioController::getProducts($buys);
+                $products2 = AdminIntercambioController::getProducts($sales);
+
+                $product_list = "";
+                foreach($products as $product){
+                    $product_list .= $product['id_neo_item_buy'].'- <strong>'.$product['name'].'</strong> <i>'.number_format($product['price'], 2, ',', ' ').'</i> Bs.<br />';
+                }
+
+                $product_list2 = "";
+                foreach($products2 as $product2){
+                    $product_list2 .= $product2['id_neo_item_sale'].'- <strong>'.$product2['name'].'</strong> <i>'.number_format($product2['price'], 2, ',', ' ').'</i> Bs.<br />';
+                }
+
+                $configuration = Configuration::getMultiple(array('PS_LANG_DEFAULT', 'PS_SHOP_EMAIL', 'PS_SHOP_NAME'));
+                $iso = Language::getIsoById((int)($neo->id_lang));
+                $template = 'entregado';
+
+                $data = array(
+                    '{lastname}' => $customer->lastname,
+                    '{firstname}' => $customer->firstname,
+                    '{order_name}' => $neo->reference,
+                    '{nbProducts}' => count($products),
+                    '{videoJuegos}' => $product_list,
+                    '{videoJuegos2}' => count($products2)?'Usted tiene <strong>'.count($products2).'</strong> video juego(s) para hacerle llegar:<br>'.$product_list2.'<br>':'',
+                );
+
+                if (file_exists(_PS_ROOT_DIR_.'/mails/'.$iso.'/'.$template.'.html')){
+                    Mail::Send(
+                        (int)$neo->id_lang,
+                        $template,
+                        Mail::l('Su pedido en neotienda ha sido entregado', $neo->id_lang),
+                        $data,
+                        $customer->email,
+                        $customer->firstname.' '.$customer->lastname,
+                        $configuration['PS_SHOP_EMAIL'],
+                        $configuration['PS_SHOP_NAME'],
+                        null,
+                        null,
+                        _PS_MAIL_DIR_,
+                        false,
+                        (int)$neo->id_shop);
+                }
+                break;
+        }
 
         // changes invoice number of order ?
         if (!Validate::isLoadedObject($new_os) || !Validate::isLoadedObject($neo))
@@ -358,19 +285,6 @@ class NeoExchangesHistoryCore extends ObjectModel
         $neo->valid = $new_os->logable;
         $neo->update();
 
-        /*if ($new_os["invoice"] && !$neo->invoice_number)
-            $neo->setInvoice($use_existing_payment);
-        elseif ($new_os["delivery"] && !$neo->delivery_number)
-            $neo->setDeliverySlip();
-
-        // updates delivery date even if it was already set by another state change
-        if ($new_os["delivery"])
-            $neo->setDelivery();
-
-        // executes hook
-        //Hook::exec('actionOrderStatusPostUpdate', array('newOrderStatus' => $new_os,'id_neo_exchange' => (int)$neo->id,), null, false, true, false, $neo->id_shop);
-
-        //ShopUrl::resetMainDomainCache();*/
     }
 
     /**

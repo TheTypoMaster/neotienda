@@ -1,0 +1,18 @@
+
+[{shop_url}]
+
+Hola {firstname} {lastname},
+
+Su intercambio con la referencia {order_name} de <strong>{shop_name}</strong> ha sido entregado.
+
+Video Juego(s) a intercambiar son los siguintes:
+
+Usted tiene {nbProducts} video juego(s) para hacerle llegar:
+{videoJuegos}
+
+
+{videoJuegos2}
+
+
+{shop_name} [{shop_url}] creado por
+AccionCreativa `[http://www.accioncreativa.com.ve/] \
