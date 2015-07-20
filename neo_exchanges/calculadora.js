@@ -945,14 +945,7 @@ $(".intercambiar-nuevo").click(function() {
     }
 });
 $(".intercambiar-continuar").click(function() {
-    if($("#forma_pago option:selected").text() != "Seleccione"){
-        getLoginNeo();
-    }else{
-        $("#forma_pago").css({
-            color: 'white',
-            background: 'red'
-        })
-    }
+    getLoginNeo();
 });
 $(".intercambiar-usado").click(function() {
     if ($(".termycond").is(":checked")) {
@@ -993,7 +986,7 @@ function realizar_pedido_intercambia() {
                 id_usuario: id_usuario,
                 moneda: moneda,
                 tipo: tipo,
-                forma_pago: forma_pago,
+                forma_pago: (forma_pago!="Seleccione"?forma_pago:''),
                 status: status,
                 items_sale: items_sale,
                 items_buy: items_buy

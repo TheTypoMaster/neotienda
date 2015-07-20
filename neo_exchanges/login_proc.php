@@ -8,6 +8,7 @@
 session_start();
 require(dirname(__FILE__) . '/../config/config.inc.php');
 
+if(isset($_POST['opera']))
 switch ($_POST['opera']) {
     case 'login':
         $customer = array();
