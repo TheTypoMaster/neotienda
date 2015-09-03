@@ -141,68 +141,73 @@ $(document).ready(function(){
 	$("#regist-enviar").click(function(){
 		var cont=0;
 		$("#regist-nomb,#regist-apel,#regist-email,#regist-pass,#regist-pass-conf").each(function(e){
-				if($(this).val()==''){
-					$(this).css('border','2px solid red');
-				}else{
-					$(this).css('border','none');
-					if($(this).attr('name')== 'regist-email'){
-						if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($(this).val()))){
-							$(this).css('border','2px solid red');
-							$(this).focus();
-							$("#login-msjresp").html("<div class='notif_alerta'>Correo NO Validado</div>");
-							$("#login-msjresp").show();
-							setTimeout(function(){$("#login-msjresp").fadeOut(1000);},4000);
-							return false;
-						}
+			if($(this).val()==''){
+				$(this).css('border','2px solid red');
+			}else{
+				$(this).css('border','none');
+				if($(this).attr('name')== 'regist-email'){
+					if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($(this).val()))){
+						$(this).css('border','2px solid red');
+						$(this).focus();
+						$("#login-msjresp").html("<div class='notif_alerta'>Correo NO Validado</div>");
+						$("#login-msjresp").show();
+						setTimeout(function(){$("#login-msjresp").fadeOut(1000);},4000);
+						return false;
 					}
-					if($(this).attr('name')=='regist-pass-conf'){
-						if($('#regist-pass').val() != $('#regist-pass-conf').val()){
-							$(this).css('border','2px solid red');
-							$(this).focus();
-							$(this).val('');
-							$("#login-msjresp").html("<div class='notif_alerta'>La ContraseÃ±a es Diferente</div>");
-							$("#login-msjresp").show();
-							setTimeout(function(){$("#login-msjresp").fadeOut(1000);},4000);
-							return false;
-						}
-					}
-					cont++;
 				}
-				if(cont==5){
+				if($(this).attr('name')=='regist-pass-conf'){
+					if($('#regist-pass').val() != $('#regist-pass-conf').val()){
+						$(this).css('border','2px solid red');
+						$(this).focus();
+						$(this).val('');
+						$("#login-msjresp").html("<div class='notif_alerta'>La ContraseÃ±a es Diferente</div>");
+						$("#login-msjresp").show();
+						setTimeout(function(){$("#login-msjresp").fadeOut(1000);},4000);
+						return false;
+					}
+				}
+				cont++;
+			}
+		});
+		if(cont==5){
+			$("#login-msjresp").html("<img src='neo_exchanges/ajax-loader.GIF' style='margin-top:50px;'/>");
+			$("#login-msjresp").show();
+			//$('#regist-form').submit();
+			$.ajax({
+				type:"POST",
+				url:'neo_exchanges/registrar_proc.php',
+				async:true,
+				cache:false,
+				beforeSend: function(){
 					$("#login-msjresp").html("<img src='neo_exchanges/ajax-loader.GIF' style='margin-top:50px;'/>");
 					$("#login-msjresp").show();
-					//$('#regist-form').submit();
-					$.ajax({
-						type:"POST",
-						url:'neo_exchanges/registrar_proc.php',
-						async:true,
-						cache:false,
-						beforeSend: function(){
-							$("#login-msjresp").html("<img src='neo_exchanges/ajax-loader.GIF' style='margin-top:50px;'/>");
-							$("#login-msjresp").show();
-						},
-						data: ({ regist_nomb: $('#regist-nomb').val(), regist_apel: $('#regist-apel').val(), regist_email: $('#regist-email').val(), regist_pass: $('#regist-pass').val() }),
-						success:function(result){
-							$("#login-msjresp").html(result);
-							$("#login-msjresp").show();
-							setTimeout(function(){
-								$("#login-msjresp").fadeOut(1000);
-								$("#login-rest-email").val('');
-								$("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
-							},50000);
-							$("#login-msjresp").click(function(){
-								$("#login-msjresp").hide();
-								$("#login-rest-email").val('');
-								$("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
-							});
-						},
-						error: function(result){
-							$("#torn-msjresp").html("<div class='notif_error'>Ocurrio un Error recargue el navegador y vuelva a intentar</div>");
-							$("#torn-msjresp").show();
-						}
-					}); // FIN AJAX
+				},
+				data: ({
+					regist_nomb: $('#regist-nomb').val(),
+					regist_apel: $('#regist-apel').val(),
+					regist_email: $('#regist-email').val(),
+					regist_pass: $('#regist-pass').val()
+				}),
+				success:function(result){
+					$("#login-msjresp").html(result);
+					$("#login-msjresp").show();
+					/*setTimeout(function(){
+					 $("#login-msjresp").fadeOut(1000);
+					 $("#login-rest-email").val('');
+					 $("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
+					 },50000);
+					 $("#login-msjresp").click(function(){
+					 $("#login-msjresp").hide();
+					 $("#login-rest-email").val('');
+					 $("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
+					 });*/
+				},
+				error: function(result){
+					$("#torn-msjresp").html("<div class='notif_error'>Ocurrio un Error recargue el navegador y vuelva a intentar</div>");
+					$("#torn-msjresp").show();
 				}
-			});
+			}); // FIN AJAX
+		}
 	});
 });
 function ValCampos(e,t){
