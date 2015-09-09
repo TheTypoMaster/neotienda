@@ -138,7 +138,7 @@ $(document).ready(function(){
 		$("#login-acc,#login-rest-pass").hide();
 		$("#regist-enviar").show("show");
 	});
-	$("#regist-enviar").click(function(){
+	$("#regist-enviar").click(function(e){
 		var cont=0;
 		$("#regist-nomb,#regist-apel,#regist-email,#regist-pass,#regist-pass-conf").each(function(e){
 			if($(this).val()==''){
@@ -172,7 +172,6 @@ $(document).ready(function(){
 		if(cont==5){
 			$("#login-msjresp").html("<img src='neo_exchanges/ajax-loader.GIF' style='margin-top:50px;'/>");
 			$("#login-msjresp").show();
-			//$('#regist-form').submit();
 			$.ajax({
 				type:"POST",
 				url:'neo_exchanges/registrar_proc.php',
@@ -191,16 +190,16 @@ $(document).ready(function(){
 				success:function(result){
 					$("#login-msjresp").html(result);
 					$("#login-msjresp").show();
-					/*setTimeout(function(){
-					 $("#login-msjresp").fadeOut(1000);
-					 $("#login-rest-email").val('');
-					 $("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
-					 },50000);
-					 $("#login-msjresp").click(function(){
-					 $("#login-msjresp").hide();
-					 $("#login-rest-email").val('');
-					 $("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
-					 });*/
+					setTimeout(function(){
+						$("#login-msjresp").fadeOut(1000);
+						$("#login-rest-email").val('');
+						$("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
+					},50000);
+					$("#login-msjresp").click(function(){
+						$("#login-msjresp").hide();
+						$("#login-rest-email").val('');
+						$("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
+					});
 				},
 				error: function(result){
 					$("#torn-msjresp").html("<div class='notif_error'>Ocurrio un Error recargue el navegador y vuelva a intentar</div>");

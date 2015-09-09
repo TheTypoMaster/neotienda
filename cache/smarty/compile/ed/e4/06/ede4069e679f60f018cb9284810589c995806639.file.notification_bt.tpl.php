@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-05-19 22:35:40
+<?php /* Smarty version Smarty-3.1.19, created on 2015-09-09 12:38:26
          compiled from "C:\wamp\www\neotienda\modules\gamification\views\templates\hook\notification_bt.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:11544555bfa0492aa98-48329628%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ede4069e679f60f018cb9284810589c995806639' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\modules\\gamification\\views\\templates\\hook\\notification_bt.tpl',
-      1 => 1429404144,
+      1 => 1441378307,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.19',
+  'unifunc' => 'content_555bfa04dd9f36_52557499',
   'variables' => 
   array (
     'current_id_tab' => 0,
@@ -30,8 +32,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'next_badges' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_555bfa04dd9f36_52557499',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_555bfa04dd9f36_52557499')) {function content_555bfa04dd9f36_52557499($_smarty_tpl) {?><script>
 	var current_id_tab = <?php echo intval($_smarty_tpl->tpl_vars['current_id_tab']->value);?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-04-20 13:09:18
+<?php /* Smarty version Smarty-3.1.19, created on 2015-09-09 12:24:17
          compiled from "C:\wamp\www\neotienda\themes\default-bootstrap\product-list.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:30281553539c6360553-93330772%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '15fd8fa4756f8aba268ea8c7336ce17a729c6657' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\themes\\default-bootstrap\\product-list.tpl',
-      1 => 1406835656,
+      1 => 1441378327,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.19',
+  'unifunc' => 'content_553539c702c324_41480135',
   'variables' => 
   array (
     'products' => 0,
@@ -43,8 +45,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'compared_products' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_553539c702c324_41480135',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_553539c702c324_41480135')) {function content_553539c702c324_41480135($_smarty_tpl) {?><?php if (!is_callable('smarty_function_math')) include 'C:\\wamp\\www\\neotienda\\tools\\smarty\\plugins\\function.math.php';
 ?>

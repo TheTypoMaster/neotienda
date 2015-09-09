@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-05-19 22:35:37
+<?php /* Smarty version Smarty-3.1.19, created on 2015-09-09 12:34:25
          compiled from "C:\wamp\www\neotienda\admin1183\themes\default\template\modal.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1842555bfa0141cf32-81917065%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e897c195ccc70b10b12481f8b21c1d2b3485dab0' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\admin1183\\themes\\default\\template\\modal.tpl',
-      1 => 1429404028,
+      1 => 1441377910,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.19',
+  'unifunc' => 'content_555bfa0155d486_75815023',
   'variables' => 
   array (
     'modal_id' => 0,
@@ -25,8 +27,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'action' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_555bfa0155d486_75815023',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_555bfa0155d486_75815023')) {function content_555bfa0155d486_75815023($_smarty_tpl) {?>
 <div class="modal fade" id="<?php echo $_smarty_tpl->tpl_vars['modal_id']->value;?>

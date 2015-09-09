@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-04-19 15:20:03
+<?php /* Smarty version Smarty-3.1.19, created on 2015-09-09 12:25:05
          compiled from "C:\wamp\www\neotienda\themes\javascript.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:11019553406ebaed658-10793475%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '36059994aff99241a02731205408ba40023d6668' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\themes\\javascript.tpl',
-      1 => 1429404151,
+      1 => 1441378327,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.19',
+  'unifunc' => 'content_553406ebd71f65_52933660',
   'variables' => 
   array (
     'js_def' => 0,
@@ -26,8 +28,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'inline' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_553406ebd71f65_52933660',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_553406ebd71f65_52933660')) {function content_553406ebd71f65_52933660($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_replace')) include 'C:\\wamp\\www\\neotienda\\tools\\smarty\\plugins\\modifier.replace.php';
 ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-04-20 13:09:20
+<?php /* Smarty version Smarty-3.1.19, created on 2015-09-09 12:24:42
          compiled from "C:\wamp\www\neotienda\themes\default-bootstrap\modules\blockcategories\category-tree-branch.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:30859553539c8c4a299-08967607%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f1bc39290efd3989c497f58bd11be5c530ce2d9d' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\themes\\default-bootstrap\\modules\\blockcategories\\category-tree-branch.tpl',
-      1 => 1406835656,
+      1 => 1441378324,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.19',
+  'unifunc' => 'content_553539c8d3c5c5_48047225',
   'variables' => 
   array (
     'last' => 0,
@@ -23,8 +25,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'child' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_553539c8d3c5c5_48047225',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_553539c8d3c5c5_48047225')) {function content_553539c8d3c5c5_48047225($_smarty_tpl) {?>
 

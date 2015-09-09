@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-05-19 22:35:37
+<?php /* Smarty version Smarty-3.1.19, created on 2015-09-09 12:34:33
          compiled from "C:\wamp\www\neotienda\admin1183\themes\default\template\helpers\modules_list\modal.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:30265555bfa01e13e05-09965054%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '79a7470ef7f08194080cfa2b2e2a06fa2ba32159' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\admin1183\\themes\\default\\template\\helpers\\modules_list\\modal.tpl',
-      1 => 1429404028,
+      1 => 1441377909,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.19',
   'unifunc' => 'content_555bfa01e1f983_58394275',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_555bfa01e1f983_58394275')) {function content_555bfa01e1f983_58394275($_smarty_tpl) {?><div class="modal fade" id="modules_list_container">
 	<div class="modal-dialog">

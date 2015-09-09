@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-04-20 13:09:19
+<?php /* Smarty version Smarty-3.1.19, created on 2015-09-09 12:24:32
          compiled from "C:\wamp\www\neotienda\themes\default-bootstrap\modules\productcomments\productcomments_reviews.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19278553539c736c462-79721719%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1b7fcc386e133795a80f62304d0c213aee6dbc5b' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\themes\\default-bootstrap\\modules\\productcomments\\productcomments_reviews.tpl',
-      1 => 1406835656,
+      1 => 1441378326,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.19',
+  'unifunc' => 'content_553539c7437693_41188331',
   'variables' => 
   array (
     'nbComments' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ratings' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_553539c7437693_41188331',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_553539c7437693_41188331')) {function content_553539c7437693_41188331($_smarty_tpl) {?>
 <?php if (isset($_smarty_tpl->tpl_vars['nbComments']->value)&&$_smarty_tpl->tpl_vars['nbComments']->value>0) {?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-04-19 15:20:02
+<?php /* Smarty version Smarty-3.1.19, created on 2015-09-09 12:24:51
          compiled from "C:\wamp\www\neotienda\themes\default-bootstrap\layout.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:32130553406ea8689a2-81857587%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cf7277e6340964b32bf21ee0da1ebf5ca28d35f7' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\themes\\default-bootstrap\\layout.tpl',
-      1 => 1429404147,
+      1 => 1441378323,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.19',
+  'unifunc' => 'content_553406ea9cc179_71219506',
   'variables' => 
   array (
     'HOOK_LEFT_COLUMN' => 0,
@@ -28,8 +30,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'live_edit' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_553406ea9cc179_71219506',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_553406ea9cc179_71219506')) {function content_553406ea9cc179_71219506($_smarty_tpl) {?>
 <?php $_smarty_tpl->tpl_vars['left_column_size'] = new Smarty_variable(0, null, 0);?><?php $_smarty_tpl->tpl_vars['right_column_size'] = new Smarty_variable(0, null, 0);?>

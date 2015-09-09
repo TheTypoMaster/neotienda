@@ -37,13 +37,14 @@ $_SESSION["login"] = 0;
 <script type="text/javascript" src="neo_exchanges/jquery.fancybox.js"></script>
 <!-- Tooltips -->
 <script type="text/javascript" src="neo_exchanges/jquery.tooltipster.min.js"></script>
+<!-- Login -->
+<link rel="stylesheet" type="text/css" href="neo_exchanges/style.css">
+<script type="text/javascript" src="neo_exchanges/funciones.js"></script>
 
 <div id="mobile-menu" class="mobile-menu">
     <i class="icon-home icon-menu-mobile"></i>
 </div>
 <div id="loginInter" style="height: 365px;width: 450px;margin: 5px auto;padding: 5px;background-color: #ffffff;display: none">
-    <link rel="stylesheet" type="text/css" href="neo_exchanges/style.css">
-    <script type="text/javascript" src="neo_exchanges/funciones.js"></script>
     <h3 style="margin: 5px 0px 0px;">¿Estas registrado?</h3>
     <section class="tabs">
         <input id="tab-1" name="radio-set" class="tab-selector-1" checked="checked" type="radio">

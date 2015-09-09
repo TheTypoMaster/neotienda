@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-04-20 13:09:22
+<?php /* Smarty version Smarty-3.1.19, created on 2015-09-09 12:24:57
          compiled from "C:\wamp\www\neotienda\modules\blockbanner\blockbanner.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:20146553539ca53dd17-72599534%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e29f8ee1cc0b4b5fecf134547ff41e6e74b7b6cc' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\modules\\blockbanner\\blockbanner.tpl',
-      1 => 1423669703,
+      1 => 1441378292,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.19',
+  'unifunc' => 'content_553539ca601249_55713998',
   'variables' => 
   array (
     'banner_link' => 0,
@@ -25,8 +27,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'banner_img' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_553539ca601249_55713998',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_553539ca601249_55713998')) {function content_553539ca601249_55713998($_smarty_tpl) {?>
 <a href="<?php if ($_smarty_tpl->tpl_vars['banner_link']->value) {?><?php echo mb_convert_encoding(htmlspecialchars($_smarty_tpl->tpl_vars['banner_link']->value, ENT_QUOTES, 'UTF-8', true), "HTML-ENTITIES", 'UTF-8');?>

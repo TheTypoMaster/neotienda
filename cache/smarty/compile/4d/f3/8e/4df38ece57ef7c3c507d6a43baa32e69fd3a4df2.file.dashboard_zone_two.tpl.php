@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-04-19 15:21:36
+<?php /* Smarty version Smarty-3.1.19, created on 2015-09-09 12:36:39
          compiled from "C:\wamp\www\neotienda\modules\dashgoals\views\templates\hook\dashboard_zone_two.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2918553407486fec55-99389112%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4df38ece57ef7c3c507d6a43baa32e69fd3a4df2' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\modules\\dashgoals\\views\\templates\\hook\\dashboard_zone_two.tpl',
-      1 => 1429404143,
+      1 => 1441378305,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.19',
+  'unifunc' => 'content_55340748810396_25540336',
   'variables' => 
   array (
     'currency' => 0,
@@ -23,8 +25,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'colors' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_55340748810396_25540336',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_55340748810396_25540336')) {function content_55340748810396_25540336($_smarty_tpl) {?>
 <div class="clearfix"></div>
