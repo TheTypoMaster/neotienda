@@ -20,6 +20,7 @@ if(isset($_POST['id_usuario'])){
     $inter1 = $inter2 = $forma_pago = '';
     $inter = new Exchange();
     $msn = "";
+    $nor = array();
 
     if(isset($_POST['items_sale']))
         $results  = $inter->getItemSales($_POST['items_sale']);

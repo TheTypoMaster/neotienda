@@ -66,7 +66,7 @@ $_SESSION["login"] = 0;
                 <form style="display: none;" id="login-from-rest" method="POST" action="neo_exchanges/login_proc.php" autocomplete="off">
                     <p><input id="login-rest-email" name="login-rest-email" placeholder="Correo electrónico" title="Correo electrónico" type="text"></p>
                 </form>
-                <span id="login-rest" style="float: right; margin-top: 10px;">Olvidé mi contraseña</span>
+                <!--<span id="login-rest" style="float: right; margin-top: 10px;">Olvidé mi contraseña</span>-->
                 <span id="login-rest-atras" style="float:right; margin-top:10px; display:none;">Volver</span>
             </div>
             <div class="content-2">

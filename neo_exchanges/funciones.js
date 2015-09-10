@@ -113,18 +113,19 @@ $(document).ready(function(){
 				},
 				data: ({login_rest_email:_email}),
 				success:function(result){
-						$("#login-msjresp").html(result);
-						$("#login-msjresp").show();
-						setTimeout(function(){
-							$("#login-msjresp").fadeOut(1000);
-							$("#login-rest-email").val('');
-							$("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
-						},50000);
-						$("#login-msjresp").click(function(){
-							$("#login-msjresp").hide();
-							$("#login-rest-email").val('');
-							$("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
-						});
+					$("#login-msjresp").css({ "background-color": "#ffe", "border": "1px solid #ccc", "cursor": "pointer" });
+					$("#login-msjresp").css({"color": "red"}).html(result);
+					$("#login-msjresp").show();
+					setTimeout(function(){
+						$("#login-msjresp").fadeOut(1000);
+						$("#login-rest-email").val('');
+						$("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
+					},2500);
+					$("#login-msjresp").click(function(){
+						$("#login-msjresp").hide();
+						$("#login-rest-email").val('');
+						$("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
+					});
 				},
 				error: function(result){
 					$("#torn-msjresp").html("<div class='notif_error'>Ocurrio un Error recargue el navegador y vuelva a intentar</div>");
@@ -149,7 +150,7 @@ $(document).ready(function(){
 					if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($(this).val()))){
 						$(this).css('border','2px solid red');
 						$(this).focus();
-						$("#login-msjresp").html("<div class='notif_alerta'>Correo NO Validado</div>");
+						$("#login-msjresp").css({"color": "red"}).html("<div class='notif_alerta'>Correo NO Validado</div>");
 						$("#login-msjresp").show();
 						setTimeout(function(){$("#login-msjresp").fadeOut(1000);},4000);
 						return false;
@@ -160,7 +161,7 @@ $(document).ready(function(){
 						$(this).css('border','2px solid red');
 						$(this).focus();
 						$(this).val('');
-						$("#login-msjresp").html("<div class='notif_alerta'>La ContraseÃ±a es Diferente</div>");
+						$("#login-msjresp").css({"color": "red"}).html("<div class='notif_alerta'>La ContraseÃ±a es Diferente</div>");
 						$("#login-msjresp").show();
 						setTimeout(function(){$("#login-msjresp").fadeOut(1000);},4000);
 						return false;
@@ -188,17 +189,15 @@ $(document).ready(function(){
 					regist_pass: $('#regist-pass').val()
 				}),
 				success:function(result){
-					$("#login-msjresp").html(result);
+					$("#login-msjresp").css({ "background-color": "#ffe", "border": "1px solid #ccc", "cursor": "pointer" });
+					$("#login-msjresp").css({"color": "green"}).html(result);
 					$("#login-msjresp").show();
+					$('#regist-form').find("input").val("");
 					setTimeout(function(){
 						$("#login-msjresp").fadeOut(1000);
-						$("#login-rest-email").val('');
-						$("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
-					},50000);
+					},2500);
 					$("#login-msjresp").click(function(){
 						$("#login-msjresp").hide();
-						$("#login-rest-email").val('');
-						$("#login-from-rest,#login-rest-pass,#login-form,#login-acc").toggle();
 					});
 				},
 				error: function(result){
@@ -219,9 +218,9 @@ function ValCampos(e,t){
 	},1000);
 }
 function ValCorreos(e,t){
-		if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($(t).val()))){
-			$(t).css('border','2px solid red');
-		}else{
-			$(t).css('border','none');
-		}
+	if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($(t).val()))){
+		$(t).css('border','2px solid red');
+	}else{
+		$(t).css('border','none');
+	}
 }

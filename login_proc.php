@@ -18,7 +18,7 @@ switch ($_REQUEST['opera']) {
             echo false;
         }else{
             if($_REQUEST['login_recordar']){
-                $int = 1*60*60;
+                $int = 30*60*60;
             }
             $_SESSION["time"] = time()+$int;
             echo $_SESSION['login'] = $result['id_customer'];
