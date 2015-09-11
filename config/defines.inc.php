@@ -42,7 +42,7 @@ else
 }
 
 define('_PS_DEBUG_PROFILING_', false);
-define('_PS_MODE_DEMO_', true);
+define('_PS_MODE_DEMO_', false);
 
 $currentDir = dirname(__FILE__);
 

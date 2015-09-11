@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-09-09 12:36:34
+<?php /* Smarty version Smarty-3.1.19, created on 2015-09-10 22:42:38
          compiled from "C:\wamp\www\neotienda\modules\dashactivity\views\templates\hook\dashboard_zone_one.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:83605534074820d131-99383593%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7888b5763496408c0b5aa48e753e0b00f8dbe3d4' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\modules\\dashactivity\\views\\templates\\hook\\dashboard_zone_one.tpl',
-      1 => 1441378304,
+      1 => 1441940540,
       2 => 'file',
     ),
   ),
