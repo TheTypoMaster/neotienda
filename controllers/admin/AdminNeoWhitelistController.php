@@ -194,7 +194,7 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
     {
         if (empty($this->display) && $this->can_add_whitelist)
             $this->page_header_toolbar_btn['new_whitelist'] = array(
-                'href' => self::$currentIndex.'&addneowhitelist&token='.$this->token,
+                'href' => self::$currentIndex.'&addneo_whitelist&token='.$this->token,
                 'desc' => $this->l('Add new whitelist', null, null, false),
                 'icon' => 'process-icon-new'
             );
