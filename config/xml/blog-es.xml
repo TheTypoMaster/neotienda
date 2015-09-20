@@ -13,12 +13,81 @@
 	<atom:link href="http://www.prestashop.com/blog/es/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.prestashop.com/blog/es</link>
 	<description></description>
-	<lastBuildDate>Thu, 10 Sep 2015 08:30:56 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 18 Sep 2015 07:55:32 +0000</lastBuildDate>
 	<language>es-ES</language>
 		<sy:updatePeriod>hourly</sy:updatePeriod>
 		<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>http://wordpress.org/?v=3.8.1</generator>
 	<item>
+		<title>Sácale el máximo partido al panel de estadísticas de tu back-office</title>
+		<link>https://www.prestashop.com/blog/es/sacale-el-maximo-partido-al-panel-de-estadisticas-de-tu-back-office/</link>
+		<comments>https://www.prestashop.com/blog/es/sacale-el-maximo-partido-al-panel-de-estadisticas-de-tu-back-office/#comments</comments>
+		<pubDate>Fri, 18 Sep 2015 07:55:32 +0000</pubDate>
+		<dc:creator><![CDATA[Julie Liu]]></dc:creator>
+				<category><![CDATA[Consejos E-commerce]]></category>
+
+		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=13265</guid>
+		<description><![CDATA[<p>Una de las mejores funcionalidades de la nueva versión 1.6 de PrestaShop es su panel de control de análisis. No solo es una de las páginas más atractivas, también será una de las más útiles para darle alas a tu negocio. Hoy vamos a ver sus estadísticas una a una y darte unos trucos para [...]</p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/sacale-el-maximo-partido-al-panel-de-estadisticas-de-tu-back-office/">Sácale el máximo partido al panel de estadísticas de tu back-office</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></description>
+				<content:encoded><![CDATA[<p>Una de las mejores funcionalidades de la nueva versión 1.6 de PrestaShop es su panel de control de análisis. No solo es una de las páginas más atractivas, también será una de las más útiles para darle alas a tu negocio. Hoy vamos a ver sus estadísticas una a una y darte unos trucos para sacarles todo el jugo. ¡Empecemos!<br />
+<span id="more-13265"></span> </p>
+<p>Las primeras estadísticas suelen agruparse bajo la denominación KPI o indicadores clave de rendimiento. ¿Cuál es su utilidad? Normalmente se usan para evaluar el rendimiento global de la tienda en comparación con los estándares del sector o con resultados anteriores. </p>
+<h2 style="color:#86acc0">Panel de control</h2>
+<p>El primer gráfico que ves al abrir tu tienda es tu panel de control. Veamos como se calcula cada estadística, qué información aporta sobre tu tienda y cómo modificar los resultados. </p>
+<p><img class="aligncenter size-full wp-image-20664" alt="Bo" src="https://www.prestashop.com/blog/es/files/2015/09/Bo.gif" width="972" height="497" /></p>
+<ul style="padding-left:30px">
+<li><strong>Ventas</strong> <span style="font-style:italic">(Suma del importe de todos los pedidos)</span></li>
+</ul>
+<p>Este indicador es bastante claro: se refiere al dinero que entra en la caja de tu tienda. Lo ideal es encontrar una tendencia al alza, es decir, que la facturación de un mes sea superior a la del anterior. ¿Por qué? Porque significa que tu tienda está creciendo y convirtiendo a más clientes, mientras que una tendencia a la baja&#8230; revela que los clientes compran cada vez menos. </p>
+<p>Sin embargo, lo normal es tener altibajos entre un mes y otro. Las Navidades son el ejemplo perfecto: a una temporada de muchas ventas suele seguirle una época de muchas devoluciones.</p>
+<ul style="padding-left:30px">
+<li><strong>Pedidos</strong> <span style="font-style:italic">(Número de pedidos recibidos)</span></li>
+</ul>
+<p>Saber el número de pedidos que consigues es importante porque indica el número de clientes convertidos. Aquí lo ideal también es la tendencia alcista. Pero no es raro que la cifra baje en los meses de menos actividad. Compara los resultados de cada mes con los del año anterior para hacer una evaluación continua del rendimiento de tu tienda.</p>
+<ul style="padding-left:30px">
+<li><strong>Valor del carrito</strong> <span style="font-style:italic">(Ventas / Pedidos)</span></li>
+</ul>
+<p>El valor medio del carrito es el importe medio que se gasta un cliente en una visita. <span style="text-decoration:underline">Las funcionalidades de venta cruzada y venta de artículos complementarios son muy eficaces para incrementar esta cifra</span>. Pero centrase solo en este aspecto puede ser contraproducente. Aunque intentes mejorar este aspecto, no olvides intentar conseguir un mayor número de pedidos. El objetivo final es lograr más pedidos y de más valor.</p>
+<ul style="padding-left:30px">
+<li><strong>Visitas</strong> <span style="font-style:italic">(Suma de todo el tráfico a tu sitio web)</span></li>
+</ul>
+<p>No hay duda: cuanta más gente visite tu web, más posibilidades de hacer una venta. Incluso aunque no cierres la venta, las posibilidades de convertir a ese visitante en cliente en algún momento aumentan. Los <a href="https://www.prestashop.com/blog/es/diseno-de-imanes-de-contactos-para-principiantes/">imanes de contactos</a> bien diseñados son una forma perfecta de captar clientes, incluso antes de que compren. Sin embargo, una cifra muy alta de visitas puede deberse a &#8220;robots&#8221; que estén escaneando tu sitio. Un número de visitas inflado puede reducir otras estadísticas como las tasas de conversión</p>
+<ul style="padding-left:30px">
+<li><strong>Tasa de conversión</strong> <span style="font-style:italic">(Total de pedidos / total de visitantes)</span></li>
+</ul>
+<p>La tasa de conversión te da una idea muy aproximada de cuántos visitantes han completado sus compras. Este punto resulta especialmente útil cuando estás intentando optimizar el diseño de tu sitio web. Si estás haciendo pruebas A/B, esta tasa te ayudará a decidir qué diseño usar.</p>
+<ul style="padding-left:30px">
+<li><strong>Margen neto de beneficios</strong> <span style="font-style:italic">(Total de ingresos &#8211; total de gastos)</span></li>
+</ul>
+<p>Es uno de los parámetros más importantes y algo que todo vendedor debe analizar. Es obvio que refleja cuánto dinero ha ganado o perdido tu negocio. PrestaShop incluye campos como el precio al por mayor, las tasas bancarias y los gastos del envío para ofrecerte una estimación actualizada del estado de tus cuentas. </p>
+<h2 style="color:#86acc0">Productos y ventas</h2>
+<p>Al final de la página del panel de control encontrarás una tabla de productos y ventas. Es un resumen rápido de la información que ofrece tu pestaña de estadísticas. Vamos a repasar los datos que aporta cada pestaña y a descubrir para qué sirve esa información. </p>
+<p><img class="aligncenter size-full wp-image-20665" alt="product_sales" src="https://www.prestashop.com/blog/es/files/2015/09/product_sales.gif" width="835" height="437" /></p>
+<ul style="padding-left:30px">
+<li><strong>Pedidos recientes</strong></li>
+</ul>
+<p>Esta pestaña muestra los últimos pedidos hechos en tu sitio web. También detalla quién ha hecho la compra, el importe y la cantidad de artículos del pedido.  Te dará una buena perspectiva de lo activo que está el negocio. Si tienes a personal a tu cargo, te ayudará a decidir cómo organizar el equipo y las responsabilidades de cada uno. </p>
+<ul style="padding-left:30px">
+<li><strong>Más vendidos</strong></li>
+</ul>
+<p>Esta pestaña simplemente muestra cuáles son los productos más vendidos durante un periodo concreto. Sirve para saber si un producto de un color o una categoría específica se vende más que otro. Puedes usar tus imágenes para destacar los productos más vendidos u ofertar más artículos de la categoría más popular.</p>
+<ul style="padding-left:30px">
+<li><strong>Más vistos</strong></li>
+</ul>
+<p>Esta sección enumera los productos que más han visto los clientes. Asegúrate de configurar tu back-office para que muestre los números adecuados. Cuando tengas esta lista, compárala con la de los artículos más vendidos: deberían ser muy parecidas&#8230; Al fin y al cabo, es más probable que los clientes compren lo que han visto. Si las dos listas no coinciden, considera la posibilidad de ajustar los precios para mejorar las conversiones. Y no lo olvides: la publicidad de un producto también afecta a su imagen. Por ejemplo, ¿el artículo aparece en la página de inicio? </p>
+<ul style="padding-left:30px">
+<li><strong>Búsquedas más habituales</strong></li>
+</ul>
+<p>Esta tabla muestra lo que más buscan los clientes en tu tienda. Es esencial para entender qué desean encontrar tus clientes cuando acuden a tu web. Primero, busca tú mismo esos términos para comprobar que los resultados son correctos. Si los términos de búsqueda no son los que estás usando, añádelos como &#8220;etiquetas&#8221; para ayudar a los clientes a encontrar el producto. Aquí tienes <a href="https://www.prestashop.com/blog/es/4-trucos-fundamentales-para-mejorar-el-buscador-de-tu-tienda-online/">Cuatro trucos fundamentales para mejorar el buscador de tu tienda online</a>.</p>
+<hr width="20%" align="left">
+¿Ya estás usando el panel de control de tu back-office PrestaShop? ¿Qué estadísticas consultas más a menudo? ¿Te gustaría conocer el panel de control de primera mano? Échale un vistazo a la <a href="http://demo.prestashop.com/es/?view=back">demo de PrestaShop</a>, y abre tu propia <a href="https://www.prestashop.com/es/crear-tienda-online">tienda PrestaShop gratis</a>. </p>
+<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/sacale-el-maximo-partido-al-panel-de-estadisticas-de-tu-back-office/">Sácale el máximo partido al panel de estadísticas de tu back-office</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
+]]></content:encoded>
+			<wfw:commentRss>https://www.prestashop.com/blog/es/sacale-el-maximo-partido-al-panel-de-estadisticas-de-tu-back-office/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
 		<title>Cinco ideas fáciles para envolver regalos</title>
 		<link>https://www.prestashop.com/blog/es/cinco-ideas-faciles-para-envolver-regalos/</link>
 		<comments>https://www.prestashop.com/blog/es/cinco-ideas-faciles-para-envolver-regalos/#comments</comments>
@@ -592,56 +661,6 @@ En nuestra página de documentación &#8220;<a href="http://doc.prestashop.com/d
 ]]></content:encoded>
 			<wfw:commentRss>https://www.prestashop.com/blog/es/temas-o-desarrollo-personalizado-5-puntos-clave-para-optar-por-un-diseno-web-personalizado/feed/</wfw:commentRss>
 		<slash:comments>0</slash:comments>
-		</item>
-		<item>
-		<title>Hablemos de productos: ¿en qué se diferencian un atributo y una característica?</title>
-		<link>https://www.prestashop.com/blog/es/hablemos-de-productos-en-que-se-diferencian-un-atributo-y-una-caracteristica/</link>
-		<comments>https://www.prestashop.com/blog/es/hablemos-de-productos-en-que-se-diferencian-un-atributo-y-una-caracteristica/#comments</comments>
-		<pubDate>Mon, 03 Aug 2015 15:48:44 +0000</pubDate>
-		<dc:creator><![CDATA[Julie Liu]]></dc:creator>
-				<category><![CDATA[Consejos E-commerce]]></category>
-
-		<guid isPermaLink="false">https://www.prestashop.com/blog/es/?p=13167</guid>
-		<description><![CDATA[<p>No te preocupes si te cuesta diferenciar entre atributos y características de productos: ¡no eres el único! En este artículo te lo aclaramos y te presentamos algunos ejemplos estupendos de comercios PrestaShop. Además, te enseñamos cómo configurar ambas opciones en tu tienda online. Atributos y características de productos Lo primero que debes saber sobre los [...]</p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/hablemos-de-productos-en-que-se-diferencian-un-atributo-y-una-caracteristica/">Hablemos de productos: ¿en qué se diferencian un atributo y una característica?</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></description>
-				<content:encoded><![CDATA[<p>No te preocupes si te cuesta diferenciar entre atributos y características de productos: ¡no eres el único! </p>
-<p>En este artículo te lo aclaramos y te presentamos algunos ejemplos estupendos de comercios PrestaShop. Además, te enseñamos cómo configurar ambas opciones en tu tienda online. </p>
-<p><span id="more-13167"></span></p>
-<h2 style="color:#247789">Atributos y características de productos</h2>
-<p>Lo primero que debes saber sobre los atributos y las características es que ambos te ayudan a describir el producto con detalle. Pero no son una descripción: no dibujan una imagen del producto. Su función es destacar una breve lista de características importantes e interesantes para el cliente. </p>
-<h2 style="color:#247789">La diferencia entre característica y atributo</h2>
-<p>¡Copiar las características y los atributos de un producto de otro sitio web es una mala idea! Te arriesgas a crear contenido duplicado&#8230; y a equivocarte: las características del producto de un competidor pueden ser en tu caso atributos. </p>
-<p>La mejor forma de distinguir un atributo de una característica es plantearte esta pregunta: </p>
-<p style="font-style:italic;text-align:center">&#8220;¿Puedo venderlo como un producto separado?&#8221;</p>
-<p>Si <strong>puedes</strong> venderlo como un producto separado, se trata de un <strong>atributo</strong>.<br />
-Si <strong>no puedes</strong> venderlo por separado, estamos hablando de una <strong>característica</strong>. </p>
-<p>Veamos el ejemplo de los anillos de Macintyres: si se ofrecen varios materiales, como oro y plata, cada uno de ellos es un atributo ya que el cliente puede personalizar la joya que va a comprar. Si solo está disponible en un metal, ese metal es una característica. </p>
-<h2 style="color:#247789">Ejemplos de atributos y características de productos</h2>
-<p>El primer paso para crear algo excepcional es inspirarse en ejemplos excepcionales. Estas tres tiendas usan a la perfección los atributos y las características de productos: </p>
-<h4><a href="http://www.macintyres.co.uk/diamond-solitaire-rings/5906-platinum-princess-cut-diamond-solitaire-ring-pc-070-d-020.html" target="_blank">Macintyres</a></h4>
-<p>Macintyres es la única de las tres que presenta primero las características de sus productos. En el caso de este anillo, verás los quilates, el corte, el tipo de engaste y el metal. Al final de la página, el cliente puede seleccionar los atributos, como el tamaño. </p>
-<p><img class="aligncenter size-full wp-image-20448" alt="macintyres" src="https://www.prestashop.com/blog/es/files/2015/08/macintyres.png" width="994" height="928" /></p>
-<h4><a href="http://www.bimbaylola.com/shoponline/product.php?id_product=12000&amp;id_category=846&amp;sav=1" target="_blank">Bimba Y Lola</a></h4>
-<p>Aquí tienes la página del producto &#8220;Pantalón deportivo con ribetes&#8221;. Bajo el nombre del producto y el precio encontrarás los atributos: colores y tallas. Un poco más abajo puedes ver las características del producto: corte holgado, estilo deportivo, detalles ribeteados de algodón y bolsillos con cremallera de plástico extra grande. </p>
-<p><img src="https://www.prestashop.com/blog/es/files/2015/08/bimbaylola-1024x747.png" alt="bimbaylola" width="700" height="510" class="aligncenter size-large wp-image-20446" /></p>
-<h4><a href="http://www.guitarfromspain.com/en/premium-flamenco-guitars/97-alhambra-10fc-flamenco-guitar.html#/right_left_handed-left_handed/electronics-e2_fishman_prefix_pr" target="_blank">Guitar from Spain</a></h4>
-<p>La guitarra de flamenco Alhambra 10FC de Guitar from Spain tiene unos cuantos atributos para escoger, como el sistema electrónico o la opción para zurdos o diestros. Al final de la página, se enumeran las características del producto: material de la tapa, los aros, el fondo, el mango, el diapasón y el clavijero. </p>
-<p><img src="https://www.prestashop.com/blog/es/files/2015/08/guitarfromspain.png" alt="guitarfromspain" width="783" height="741" class="aligncenter size-full wp-image-20447" /></p>
-<h2 style="color:#247789">Añadir atributos de producto en PrestaShop</h2>
-<p>Ahora que ya sabes qué son las características y los atributos, llega el momento de añadirlos a tu tienda. Volvamos al ejemplo de los anillos de Macintyres. </p>
-<p>En el back-office de PrestaShop, pasa el cursor sobre &#8220;Catálogo&#8221; y pincha en &#8220;Atributos de producto&#8221;. Si el atributo no aparece en la lista, pincha en &#8220;Añadir nuevo atributo&#8221;, ponle un nombre (en este caso &#8220;Metal&#8221;), rellena la información SEO y selecciona el tipo de atributo. Cuando lo hayas guardado, aparecerá en la lista. </p>
-<p>Solo queda añadir valores al atributo: pincha en &#8220;Añadir nuevo valor&#8221;. Selecciona el atributo &#8220;Metal&#8221; que acabas de crear e introduce el primer valor, por ejemplo &#8220;Oro&#8221;. ¡No olvides completar la información SEO y marcar las opciones sobre colores y texturas! Pincha en &#8220;Guardar y añadir otro valor&#8221; y repite la operación para la &#8220;Plata&#8221;. </p>
-<p>Y ya está: ¡acabas de crear tu primer grupo de atributos de producto! </p>
-<h2 style="color:#247789">Añadir características de producto en PrestaShop</h2>
-<p>El proceso para añadir características es exactamente el mismo que para los atributos. </p>
-<p>Primero creas las nuevas características y después les añades valores. Recuerda: puedes añadir valores a las características directamente cuando creas el producto. Es tan fácil como escribir el nombre y añadir. </p>
-<hr style="width:20%;text-align:center">
-<p>Esperamos que te haya quedado clara la diferencia entre característica y atributo. ¿Tienes más preguntas? Aprovecha los comentarios para hacérnoslas. Y no esperes más: ¡lánzate a añadir todos los atributos y características que necesites para tu tienda online! </p>
-<p>La entrada <a rel="nofollow" href="https://www.prestashop.com/blog/es/hablemos-de-productos-en-que-se-diferencian-un-atributo-y-una-caracteristica/">Hablemos de productos: ¿en qué se diferencian un atributo y una característica?</a> aparece primero en <a rel="nofollow" href="https://www.prestashop.com/blog/es">ES - Blog Ecommerce de PrestaShop</a>.</p>
-]]></content:encoded>
-			<wfw:commentRss>https://www.prestashop.com/blog/es/hablemos-de-productos-en-que-se-diferencian-un-atributo-y-una-caracteristica/feed/</wfw:commentRss>
-		<slash:comments>1</slash:comments>
 		</item>
 	</channel>
 </rss>

@@ -20,7 +20,6 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
         $this->table = 'neo_whitelist';
         $this->identifier = 'id_neo_whitelist';
         $this->className = 'NeoWhitelist';
-        $this->lang = false;
         $this->deleted = false;
         $this->explicitSelect = true;
 
@@ -29,8 +28,17 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
         $this->addRowAction('edit');
         $this->addRowAction('view');
         $this->addRowAction('delete');
+        $this->bulk_actions = array(
+            'delete' => array(
+                'text' => $this->l('Delete selected'),
+                'confirm' => $this->l('Delete selected items?'),
+                'icon' => 'icon-trash'
+            )
+        );
 
         $this->context = Context::getContext();
+
+        $this->default_form_language = $this->context->language->id;
 
         $this->_select = '
 		a.`id_neo_whitelist`,
@@ -64,76 +72,11 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
             ),
         );
 
-        //if(isset($_GET['add']))
-            //$this->setTemplate('controllers/whitelist/form.tpl');
-
         parent::__construct();
 
         // Check if we can add a customer
         if (Shop::isFeatureActive() && (Shop::getContext() == Shop::CONTEXT_ALL || Shop::getContext() == Shop::CONTEXT_GROUP))
             $this->can_add_whitelist = false;
-
-        //if(isset($_GET['addneowhitelist']))
-        //    $this->setTemplate('controllers/whitelist/_new_whitelist.tpl');
-    }
-
-    public function renderForm(){
-
-        $module_instance = $this->module;
-        $path = _MODULE_DIR_."mymodule";
-
-        //define the field to display with the form helper
-        $this->fields_form = array(
-            'tinymce' => true,
-            'legend' => array(
-                'title' => $this->l('Gestion des descriptions d\'article')
-            ),
-            'input' => array(
-                array(
-                    'type' => 'text',
-                    'label' => $this->l("ID"),
-                    'name' => 'id_attribute',
-                    'size' => 40,
-                    'required' => true,
-                    'hint' => $this->l('You can set an attribute name, autocomplete wil do the thing')
-                ),
-                array(
-                    'type' => 'text',
-                    'label' => $this->l("Description")." :",
-                    'name' => 'description',
-                    'size' => 40,
-                    'required' => true,
-                    'hint' => $this->l('The text that will be added to the attribute description.')
-                )
-            )
-        );
-
-        //add the save button
-        $this->fields_form['submit'] = array(
-            'title' => $this->l('   Save   '),
-            'class' => 'button'
-        );
-
-        if (!($MyModuleObject = $this->loadObject(true)))
-            return;
-
-        //populate the field with good values if we are in an edition
-        foreach($this->fields_form["input"] as $inputfield){
-            $this->fields_value[$inputfield["name"]] = $MyModuleObject->$inputfield["name"];
-        }
-
-        $this->context->smarty->assign(array(
-            'neowhitelist_controller_url' => $this->context->link->getAdminLink('AdminNeoWhitelist'),//give the url for ajax query
-        ));
-
-        if (Tools::isSubmit('addneo_whitelist'))
-        {
-            $nn = 'entro';
-        }
-
-        $more = $this->module->display($path, 'view/view.tpl');
-
-        return $more.parent::renderForm();
     }
 
     public function postProcess()
@@ -176,16 +119,14 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
                 break;
             case 'view':
                 if (($whitelist = $this->loadObject(true)) && Validate::isLoadedObject($whitelist))
-                    $this->toolbar_title[] = sprintf('Information about Customer: %s', $whitelist->name);
+                    $this->toolbar_title[] = sprintf('Informacion sobre Whitelist: %s', $whitelist->id);
                 break;
             case 'add':
-                $this->toolbar_title[] = $this->l('Creating a new Whitelist');
-                break;
             case 'edit':
-                //if (($whitelist = $this->loadObject(true)) && Validate::isLoadedObject($whitelist))
-                    $this->toolbar_title[] = sprintf($this->l('Editing Customer: %s'), '');
-                //else
-                    //$this->toolbar_title[] = $this->l('Creating a new Whitelist');
+                if (($whitelist = $this->loadObject(true)) && Validate::isLoadedObject($whitelist))
+                    $this->toolbar_title[] = sprintf($this->l('Editando Whitelist Id: %s'), $whitelist->id);
+                else
+                    $this->toolbar_title[] = $this->l('Creando un nuevo Whitelist');
                 break;
         }
     }
@@ -200,6 +141,74 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
             );
 
         parent::initPageHeaderToolbar();
+    }
+
+    public function initProcess()
+    {
+        parent::initProcess();
+    }
+
+    public function renderList()
+    {
+        if (Tools::isSubmit('submitBulkdelete'.$this->table) || Tools::isSubmit('delete'.$this->table))
+            $this->tpl_list_vars = array(
+                'delete_whitelist' => true,
+                'REQUEST_URI' => $_SERVER['REQUEST_URI'],
+                'POST' => $_POST
+            );
+
+        return parent::renderList();
+    }
+
+    public function renderForm(){
+
+        if (!($obj = $this->loadObject(true)))
+            return;
+
+        //define the field to display with the form helper
+        $this->fields_form = array(
+            'tinymce' => true,
+            'legend' => array(
+                'title' => $this->l('Gestion de Whitelist')
+            ),
+            'input' => array(
+                array(
+                    'type' => 'text',
+                    'label' => $this->l("ID Producto"),
+                    'name' => 'id_product',
+                    'size' => 40,
+                    'required' => true,
+                    'hint' => $this->l('You can set an attribute name, autocomplete wil do the thing')
+                ),
+                array(
+                    'type' => 'text',
+                    'label' => $this->l("Precio")." :",
+                    'name' => 'price',
+                    'size' => 40,
+                    'required' => true,
+                    'hint' => $this->l('The text that will be added to the attribute description.')
+                )
+            )
+        );
+
+        //add the save button
+        $this->fields_form['submit'] = array(
+            'title' => $this->l('Save')
+        );
+
+        return parent::renderForm();
+    }
+
+    public function renderView()
+    {
+        if (!($whitelist = $this->loadObject()))
+            return;
+
+        $this->tpl_view_vars = array(
+            'whitelist' => $whitelist,
+        );
+
+        return parent::renderView();
     }
 
     public function processDelete()
@@ -229,29 +238,32 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
 
     public function processAdd()
     {
-        if (Tools::getValue('submitFormAjax'))
-            $this->redirect_after = false;
         // Check that the new email is not already in use
-        $customer_email = strval(Tools::getValue('email'));
-        $customer = new Customer();
-        if (Validate::isEmail($customer_email))
-            $customer->getByEmail($customer_email);
-        if ($customer->id)
-        {
-            $this->errors[] = Tools::displayError('An account already exists for this email address:').' '.$customer_email;
-            $this->display = 'edit';
-            return $customer;
+        $id_product = strval(Tools::getValue('id_product'));
+        $whitelist = new NeoWhitelistCore();
+        $whitelist->getByIdProduct($id_product);
+
+        if(!$id_product || !is_numeric($id_product)){
+            $this->errors[] = Tools::displayError('El Id del Producto debe ser numerico:').' '.$id_product;
+            //$this->display = 'edit';
+            //return $whitelist;
         }
-        elseif (trim(Tools::getValue('passwd')) == '')
+        elseif ($whitelist->id)
+        {
+            $this->errors[] = Tools::displayError('El producto ya existe:').' '.$id_product;
+            $this->display = 'edit';
+            return $whitelist;
+        }
+        elseif (trim(Tools::getValue('price')) == '')
         {
             $this->validateRules();
-            $this->errors[] = Tools::displayError('Password can not be empty.');
+            $this->errors[] = Tools::displayError('Precio no puede estar vacio.');
             $this->display = 'edit';
         }
-        elseif ($customer = parent::processAdd())
+        elseif ($whitelist = parent::processAdd())
         {
-            $this->context->smarty->assign('new_customer', $customer);
-            return $customer;
+            $this->context->smarty->assign('new_whitelist', $whitelist);
+            return $whitelist;
         }
         return false;
     }
@@ -260,18 +272,6 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
     {
         if (Validate::isLoadedObject($this->object))
         {
-            $customer_email = strval(Tools::getValue('email'));
-
-            // check if e-mail already used
-            if ($customer_email != $this->object->email)
-            {
-                $customer = new Customer();
-                if (Validate::isEmail($customer_email))
-                    $customer->getByEmail($customer_email);
-                if (($customer->id) && ($customer->id != (int)$this->object->id))
-                    $this->errors[] = Tools::displayError('An account already exists for this email address:').' '.$customer_email;
-            }
-
             return parent::processUpdate();
         }
         else
@@ -281,6 +281,10 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
 
     public function processSave()
     {
+        // Check the requires fields which are settings in the BO
+        $whitelist = new NeoWhitelistCore();
+        $this->errors = array_merge($this->errors, $whitelist->validateFieldsRequiredDatabase());
+
         return parent::processSave();
     }
 
