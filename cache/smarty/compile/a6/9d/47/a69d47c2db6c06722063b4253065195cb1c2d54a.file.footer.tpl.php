@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-09-10 22:42:50
+<?php /* Smarty version Smarty-3.1.19, created on 2015-09-20 20:11:40
          compiled from "C:\wamp\www\neotienda\admin1183\themes\default\template\footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:15605555bfa02d0e5e7-96045645%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a69d47c2db6c06722063b4253065195cb1c2d54a' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\admin1183\\themes\\default\\template\\footer.tpl',
-      1 => 1441940477,
+      1 => 1442794335,
       2 => 'file',
     ),
   ),

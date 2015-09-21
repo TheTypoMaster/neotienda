@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b25fdeee-e880-4baa-8764-400fcd7abe4e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="C:\wamp\www\neotienda\admin1183\themes\default\template\controllers\whitelist\_new_whitelist.tpl" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\neotienda\admin1183\themes\default\template\controllers\whitelist\form.tpl" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\neotienda\admin1183\themes\default\template\controllers\whitelist\helpers\index.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\neotienda\admin1183\themes\default\template\controllers\whitelist\helpers\list\index.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\neotienda\admin1183\themes\default\template\controllers\whitelist\helpers\list\list_header.tpl" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\neotienda\admin1183\themes\default\template\controllers\whitelist\helpers\view\index.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\neotienda\admin1183\themes\default\template\controllers\whitelist\helpers\view\view.tpl" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\neotienda\admin1183\themes\default\template\controllers\whitelist\index.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/03/2e/69/032e696ff8cb655b697a5e73ab3ba0410855d2cc.file.search_form.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/03/2e/69/032e696ff8cb655b697a5e73ab3ba0410855d2cc.file.search_form.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/06/f1/d7/06f1d7e8284396684476875e85bed29b72e4e72b.file.list_action_view.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/06/f1/d7/06f1d7e8284396684476875e85bed29b72e4e72b.file.list_action_view.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/30/7a/02/307a02faef847c50ceb1609270475391cd931434.file.list_footer.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/30/7a/02/307a02faef847c50ceb1609270475391cd931434.file.list_footer.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/31/19/55/31195542870b0951d290d24e5637bf01eb6880e4.file.layout.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/31/19/55/31195542870b0951d290d24e5637bf01eb6880e4.file.layout.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/48/9f/3f/489f3f8b5e39fa9b7927d449e42065ca358c1ab3.file.header.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/48/9f/3f/489f3f8b5e39fa9b7927d449e42065ca358c1ab3.file.header.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/6d/b9/c2/6db9c2d46e420c3489d338325070050859745526.file.list_content.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/6d/b9/c2/6db9c2d46e420c3489d338325070050859745526.file.list_content.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/72/c4/e8/72c4e81843162c93d9723768a70238bd6c1e0010.file.nav.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/72/c4/e8/72c4e81843162c93d9723768a70238bd6c1e0010.file.nav.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/79/a7/47/79a7470ef7f08194080cfa2b2e2a06fa2ba32159.file.modal.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/79/a7/47/79a7470ef7f08194080cfa2b2e2a06fa2ba32159.file.modal.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/7f/3e/c4/7f3ec4c4d5475cf543c3b026c0ce3e89987d8ddb.file.list.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/7f/3e/c4/7f3ec4c4d5475cf543c3b026c0ce3e89987d8ddb.file.list.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/91/04/d4/9104d497be201f0c8adb6c572a0e2cd99bda90ec.file.page_header_toolbar.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/91/04/d4/9104d497be201f0c8adb6c572a0e2cd99bda90ec.file.page_header_toolbar.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/admin/AdminNeoWhitelistController.php" afterPath="$PROJECT_DIR$/controllers/admin/AdminNeoWhitelistController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/a6/9d/47/a69d47c2db6c06722063b4253065195cb1c2d54a.file.footer.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/a6/9d/47/a69d47c2db6c06722063b4253065195cb1c2d54a.file.footer.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/bc/38/fe/bc38fe65d3110b60134f41aa9dd5f1500003a3d2.file.form.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/bc/38/fe/bc38fe65d3110b60134f41aa9dd5f1500003a3d2.file.form.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/bc/cc/49/bccc49988badeceb658cbaabf96dd7972dc66932.file.content.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/bc/cc/49/bccc49988badeceb658cbaabf96dd7972dc66932.file.content.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/c8/ca/09/c8ca09d2324d08812154a0974bb499c82d3ac876.file.list_action_delete.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/c8/ca/09/c8ca09d2324d08812154a0974bb499c82d3ac876.file.list_action_delete.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/c9/78/e6/c978e6ea9301f8b6ebf7c3055d0931489fbe1b69.file.list_header.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/c9/78/e6/c978e6ea9301f8b6ebf7c3055d0931489fbe1b69.file.list_header.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/dd/10/ca/dd10cac69f3094aafc6637cb8143cc0b32f9c859.file.list_action_edit.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/dd/10/ca/dd10cac69f3094aafc6637cb8143cc0b32f9c859.file.list_action_edit.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/e8/6d/19/e86d19c5f942f87f63665f82a88bd6bcdab8552f.file.login_addons.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/e8/6d/19/e86d19c5f942f87f63665f82a88bd6bcdab8552f.file.login_addons.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/e8/97/c1/e897c195ccc70b10b12481f8b21c1d2b3485dab0.file.modal.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/e8/97/c1/e897c195ccc70b10b12481f8b21c1d2b3485dab0.file.modal.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/smarty/compile/ed/e4/06/ede4069e679f60f018cb9284810589c995806639.file.notification_bt.tpl.php" afterPath="$PROJECT_DIR$/cache/smarty/compile/ed/e4/06/ede4069e679f60f018cb9284810589c995806639.file.notification_bt.tpl.php" />
+    </list>
+    <ignored path="tienda.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="tienda" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="AdminNeoWhitelistController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/admin/AdminNeoWhitelistController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="3.545888">
+              <caret line="175" column="5" selection-start-line="175" selection-start-column="5" selection-end-line="175" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="true" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/controllers/admin/AdminNeoWhitelistController.php" />
+        <option value="$PROJECT_DIR$/config/defines.inc.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="NamedScopeManager">
+    <order />
+  </component>
+  <component name="PhpServers">
+    <servers>
+      <server host="neotienda.dev" id="9fa92a1a-3325-4c4a-aa98-3fe41ae6d67e" name="Neotienda" />
+    </servers>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="neotienda" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="neotienda" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="neotienda" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="settings.github" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FullScreen" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mrpresta_tracking" />
+    <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="true" />
+  </component>
+  <component name="RunManager" selected="PHP Web Application.Neotienda">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Neotienda" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" server_name="Neotienda">
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="PHP Web Application.Neotienda" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\larismendi\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b25fdeee-e880-4baa-8764-400fcd7abe4e" name="Default" comment="" />
+      <created>1426727741849</created>
+      <option name="number" value="Default" />
+      <updated>1426727741849</updated>
+    </task>
+    <task id="LOCAL-00001" summary="act">
+      <created>1426808608988</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1426808608988</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Funcion para que cuente el numero de video juegos y los borre">
+      <created>1428529258395</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1428529258395</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13636364" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27616927" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997773" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="act" />
+    <MESSAGE value="Funcion para que cuente el numero de video juegos y los borre" />
+    <option name="LAST_COMMIT_MESSAGE" value="Funcion para que cuente el numero de video juegos y los borre" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/tienda.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="668" column="50" selection-start-line="668" selection-start-column="41" selection-end-line="668" selection-end-column="50" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tienda.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="668" column="50" selection-start-line="668" selection-start-column="41" selection-end-line="668" selection-end-column="50" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tienda.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="668" column="50" selection-start-line="668" selection-start-column="41" selection-end-line="668" selection-end-column="50" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tienda.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="652" column="103" selection-start-line="652" selection-start-column="103" selection-end-line="652" selection-end-column="103" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tienda.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="688" column="34" selection-start-line="688" selection-start-column="34" selection-end-line="688" selection-end-column="34" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03912543">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tienda.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8784267">
+          <caret line="385" column="2" selection-start-line="0" selection-start-column="0" selection-end-line="385" selection-end-column="2" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/admin/AdminCustomersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8846154">
+          <caret line="812" column="37" selection-start-line="812" selection-start-column="37" selection-end-line="813" selection-end-column="34" />
+          <folding>
+            <marker date="1442794337074" expanded="true" signature="-1:-1" placeholder="SELECT SUM(t..." />
+            <marker date="1442794337074" expanded="true" signature="-1:-1" placeholder="SELECT SQL_C..." />
+            <marker date="1442794337074" expanded="true" signature="-1:-1" placeholder="SELECT DISTI..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/controller/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.1538463">
+          <caret line="1809" column="0" selection-start-line="1809" selection-start-column="0" selection-end-line="1809" selection-end-column="0" />
+          <folding>
+            <marker date="1442794336909" expanded="true" signature="-1:-1" placeholder="SELECT id_sh..." />
+            <marker date="1442794336909" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1442794336909" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1442794336909" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1442794336909" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1442794336909" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/controller/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.1538463">
+          <caret line="204" column="0" selection-start-line="204" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Dispatcher.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.4615383">
+          <caret line="378" column="0" selection-start-line="378" selection-start-column="0" selection-end-line="378" selection-end-column="0" />
+          <folding>
+            <marker date="1442794336848" expanded="true" signature="-1:-1" placeholder="SELECT m.pag..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/db/Db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.1538463">
+          <caret line="269" column="0" selection-start-line="269" selection-start-column="0" selection-end-line="269" selection-end-column="0" />
+          <folding>
+            <marker date="1442794336915" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Cookie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.1538463">
+          <caret line="335" column="0" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/smarty/Smarty.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.1538463">
+          <caret line="697" column="0" selection-start-line="697" selection-start-column="0" selection-end-line="697" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/smarty/sysplugins/smarty_internal_template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.230769">
+          <caret line="735" column="0" selection-start-line="735" selection-start-column="0" selection-end-line="735" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/defines.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10131109">
+          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/NeoWhitelist.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.07628129">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1442794336867" expanded="true" signature="-1:-1" placeholder="SELECT `id_n..." />
+            <marker date="1442794336867" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/admin/AdminNeoWhitelistController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.545888">
+          <caret line="175" column="5" selection-start-line="175" selection-start-column="5" selection-end-line="175" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -24,7 +24,6 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
         $this->allow_export = true;
 
         $this->addRowAction('edit');
-        $this->addRowAction('view');
         $this->addRowAction('delete');
         $this->bulk_actions = array(
             'delete' => array(
@@ -97,10 +96,6 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
             case '':
             case 'list':
                 $this->toolbar_title[] = $this->l('Administrar WhiteList');
-                break;
-            case 'view':
-                if (($whitelist = $this->loadObject(true)) && Validate::isLoadedObject($whitelist))
-                    $this->toolbar_title[] = sprintf('Informacion sobre Whitelist: %s', $whitelist->id);
                 break;
             case 'add':
             case 'edit':
@@ -180,18 +175,6 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
         return parent::renderForm();
     }
 
-    public function renderView()
-    {
-        if (!($whitelist = $this->loadObject()))
-            return;
-
-        $this->tpl_view_vars = array(
-            'whitelist' => $whitelist,
-        );
-
-        return parent::renderView();
-    }
-
     public function processDelete()
     {
         $this->_setDeletedMode();
@@ -221,7 +204,7 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
     {
         // Check that the new email is not already in use
         $id_product = strval(Tools::getValue('id_product'));
-        $whitelist = new NeoWhitelistCore();
+        $whitelist = new NeoWhitelist();
         $whitelist->getByIdProduct($id_product);
 
         if(!$id_product || !is_numeric($id_product)){

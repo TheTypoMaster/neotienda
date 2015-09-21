@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-09-10 22:42:21
+<?php /* Smarty version Smarty-3.1.19, created on 2015-09-20 19:59:13
          compiled from "C:\wamp\www\neotienda\admin1183\themes\default\template\controllers\modules\login_addons.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13169555bfa07d90664-84423658%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e86d19c5f942f87f63665f82a88bd6bcdab8552f' => 
     array (
       0 => 'C:\\wamp\\www\\neotienda\\admin1183\\themes\\default\\template\\controllers\\modules\\login_addons.tpl',
-      1 => 1441940476,
+      1 => 1442794335,
       2 => 'file',
     ),
   ),
