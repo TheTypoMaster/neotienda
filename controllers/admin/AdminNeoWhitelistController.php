@@ -9,10 +9,8 @@
 class AdminNeoWhitelistControllerCore extends AdminControllerCore
 {
     protected $delete_mode;
-
     protected $_defaultOrderBy = 'date_add';
     protected $_defaultOrderWay = 'DESC';
-    protected $can_add_whitelist = true;
 
     public function __construct()
     {
@@ -73,32 +71,15 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
         );
 
         parent::__construct();
-
-        // Check if we can add a customer
-        if (Shop::isFeatureActive() && (Shop::getContext() == Shop::CONTEXT_ALL || Shop::getContext() == Shop::CONTEXT_GROUP))
-            $this->can_add_whitelist = false;
     }
 
     public function postProcess()
     {
-        if (!$this->can_add_whitelist && $this->display == 'add')
-            $this->redirect_after = $this->context->link->getAdminLink('AdminNeoWhitelist');
-
         parent::postProcess();
     }
 
     public function initContent()
     {
-        if ($this->action == 'select_delete')
-            $this->context->smarty->assign(array(
-                'delete_form' => true,
-                'url_delete' => htmlentities($_SERVER['REQUEST_URI']),
-                'boxes' => $this->boxes,
-            ));
-
-        if (!$this->can_add_whitelist && !$this->display)
-            $this->informations[] = $this->l('You have to select a shop if you want to create a whitelist.');
-
         parent::initContent();
     }
 
@@ -133,7 +114,7 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
 
     public function initPageHeaderToolbar()
     {
-        if (empty($this->display) && $this->can_add_whitelist)
+        if (empty($this->display))
             $this->page_header_toolbar_btn['new_whitelist'] = array(
                 'href' => self::$currentIndex.'&addneo_whitelist&token='.$this->token,
                 'desc' => $this->l('Add new whitelist', null, null, false),
@@ -169,7 +150,7 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
         $this->fields_form = array(
             'tinymce' => true,
             'legend' => array(
-                'title' => $this->l('Gestion de Whitelist')
+                'title' => $this->l('Gestión de Whitelist')
             ),
             'input' => array(
                 array(
@@ -178,7 +159,7 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
                     'name' => 'id_product',
                     'size' => 40,
                     'required' => true,
-                    'hint' => $this->l('You can set an attribute name, autocomplete wil do the thing')
+                    'hint' => $this->l('El valor de la columna Id del listado de productos.')
                 ),
                 array(
                     'type' => 'text',
@@ -186,7 +167,7 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
                     'name' => 'price',
                     'size' => 40,
                     'required' => true,
-                    'hint' => $this->l('The text that will be added to the attribute description.')
+                    'hint' => $this->l('El precio para intercambio ej: 10000.00 (decimales con ".").')
                 )
             )
         );
@@ -245,25 +226,19 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
 
         if(!$id_product || !is_numeric($id_product)){
             $this->errors[] = Tools::displayError('El Id del Producto debe ser numerico:').' '.$id_product;
-            //$this->display = 'edit';
-            //return $whitelist;
         }
         elseif ($whitelist->id)
         {
             $this->errors[] = Tools::displayError('El producto ya existe:').' '.$id_product;
-            $this->display = 'edit';
-            return $whitelist;
         }
         elseif (trim(Tools::getValue('price')) == '')
         {
-            $this->validateRules();
             $this->errors[] = Tools::displayError('Precio no puede estar vacio.');
-            $this->display = 'edit';
         }
-        elseif ($whitelist = parent::processAdd())
+        elseif ($whitelistAdd = parent::processAdd())
         {
-            $this->context->smarty->assign('new_whitelist', $whitelist);
-            return $whitelist;
+            $this->context->smarty->assign('new_whitelist', $whitelistAdd);
+            return $whitelistAdd;
         }
         return false;
     }
@@ -281,10 +256,6 @@ class AdminNeoWhitelistControllerCore extends AdminControllerCore
 
     public function processSave()
     {
-        // Check the requires fields which are settings in the BO
-        $whitelist = new NeoWhitelistCore();
-        $this->errors = array_merge($this->errors, $whitelist->validateFieldsRequiredDatabase());
-
         return parent::processSave();
     }
 
