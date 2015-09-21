@@ -481,7 +481,7 @@ Release Notes for PrestaShop 1.6
 	[-] BO : fix left and right column display    Hi,    The problem is :    For pages that doesn't exists in 'ps_theme_meta' tables ( like front controller in new module, or add in override/controllers ),    $colums['left_column'] and $colums['right_column'] value is null, so the columns aren't displayed even if $this->display_column_left or $this->display_column_right is set to true.    $column test resolve this problem.    Thanks
 	[-] BO : Fix bug #PSCSX-1686, manufacturers address errors
 	[-] BO : Fix bug #PSCSX-1908, index rewrite
-	[-] BO : Correct abandonned carts issue #PSCSX-691
+	[-] BO : Correct abandoned carts issue #PSCSX-691
 	[-] BO : Fix bug #PSCSX-1780, Unable to generate delivery slips without invoices
 	[-] BO : Fix bug #PSCSX-1779, PS_INVOICE not taken into account
 	[-] BO : Fix bug #PSCFV-9880, no overrides pdf TR in FO
@@ -595,7 +595,7 @@ Release Notes for PrestaShop 1.6
 	[*] BO : added a timeout to footer display - fix PSCSX-1806
 	[*] BO: updating labels and descriptions, and made a string easier to translate, for AdminShopController.
 	[*] BO : helper list - date filters are now localized - fix PSCSX-1874
-	[*] BO : Difference between abandonned cart and non ordered is now available
+	[*] BO : Difference between abandoned cart and non ordered is now available
 	[*] BO : Fix feature #PSCSX-1890, enable country on loc. pack loading
 	[*] BO : Add untrusted modal window on module install
 	[*] BO : Improvement #PSCSX-1830
